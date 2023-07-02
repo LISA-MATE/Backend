@@ -122,6 +122,10 @@ STATIC_URL = 'static/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
+STATICFILES_DIRS = (BASE_DIR / 'static', ) # static 디렉터리로 지정
+MEDIA_URL = '/media/' # 미디어 파일에 대한 경로 지정, 사진 업로드에 사용될 예정 
+MEDIA_ROOT = BASE_DIR / 'media'
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'users.User'
