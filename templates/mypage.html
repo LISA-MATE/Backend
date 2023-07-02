@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LisaMate</title>
+    <link rel="stylesheet" href="../static/css/mypage.css">
+    <script src="https://kit.fontawesome.com/d4b61b3d04.js" crossorigin="anonymous"></script>
+    <script src="../static/javascript/mypage.js"></script>
+</head>
+
+<body>
+    <div class="circle"></div>
+    <p>LISA MATE</p>
+    <i class="fa-solid fa-user fa-2xl"></i>
+    <div class="home">
+        <i class="fa-solid fa-house fa-2xl"></i>
+    </div>
+    <div class="bell">
+        <i class="fa-solid fa-bell fa-2xl"></i>
+        <div class="redcircle"></div>
+    </div>
+    <div class="text1">
+        <p>My Check list</p>
+    </div>
+    <div class="text2">
+        <p>Edit Profile</p>
+    </div>
+
+
+    <div class="user">USER</div>
+    <div class="userbox">
+        <div class="userImage"></div>
+        <div class="id">아기사자 33</div>
+        <div class="email">LIKEALION@333</div>
+        <div class="explain">이사 준비 중입니다!</div>
+        <button type="button" id="pen">
+            <img src="../static/image/pen.PNG">글쓰기
+        </button>
+        <button type="button" id="setting">
+            <img src="../static/image/setting.png">프로필 편집/설정
+        </button>
+    </div>
+
+    <div class="menu"></div>
+    <div class="checklist">
+        <p>체크리스트</p>
+    </div>
+    <div class="checklistCircle"></div>
+    <div class="noticeboard">
+        <p>게시판</p>
+    </div>
+    <div class="noticeboardCircle"></div>
+
+    <div class="check">
+        <i class="fa-solid fa-circle fa-xs"></i>
+        <p>체크리스트</p>
+    </div>
+    <div class="calender">
+        <i class="fa-solid fa-circle fa-xs"></i>
+        <p>캘린더</p>
+    </div>
+
+    <div class="information">
+        <p>정보 게시판</p>
+        <div class="monthly">
+            <i class="fa-solid fa-circle fa-xs"></i>
+            <p>월세 정보 공유</p>
+        </div>
+        <div class="Jeonse">
+            <i class="fa-solid fa-circle fa-xs"></i>
+            <p>전세 정보 공유</p>
+        </div>
+        <div class="bargain">
+            <i class="fa-solid fa-circle fa-xs"></i>
+            <p>매매 정보 공유</p>
+        </div>
+        <hr>
+    </div>
+
+    <div class="review">
+        <p>후기 게시판</p>
+        <div class="monthlyReview">
+            <i class="fa-solid fa-circle fa-xs"></i>
+            <p>월세 후기</p>
+        </div>
+        <div class="JeonseReview">
+            <i class="fa-solid fa-circle fa-xs"></i>
+            <p>전세 후기</p>
+        </div>
+        <div class="bargainReview">
+            <i class="fa-solid fa-circle fa-xs"></i>
+            <p>매매 후기</p>
+        </div>
+        <hr>
+    </div>
+
+    <div class="town">
+        <p>우리동네 게시판</p>
+        <div class="situation">
+            <i class="fa-solid fa-circle fa-xs"></i>
+            <p>우리동네 현황</p>
+        </div>
+        <div class="criminal">
+            <i class="fa-solid fa-circle fa-xs"></i>
+            <p>범죄자 거주 정보</p>
+        </div>
+    </div>
+
+    <div class="schedulebar">Schedule</div>
+    <div class="scheduleMenu">
+        <img src="../static/image/sleepy.png">
+        <div class="text3">
+            <p>오늘의 일정이 없습니다.</p>
+        </div>
+    </div>
+    </div>
+
+    <div class="profile">
+        <i class="fa-solid fa-gear fa-2xl"></i>
+        <p>프로필 편집</p>
+        <div class="profilebox">
+            <p id="uname">아기사자 33</p>
+            <div class="emailbox">LIKEALION3333@gmail.com</div>
+            <div class="photo"></div>
+            <button id="rephoto" onclick="rephotoButtonClickHandler()">
+                <i class="fa-solid fa-pen fa-xl"></i>
+            </button>
+            <div class="modal-container" id="modalContainer">
+                <div class="modal" id="modal">
+                    <button id="close" onclick="closeModal()">X</button>
+                    <h1>프로필 사진 변경</h1>
+                    <input type="file" id="photoInput" onchange="handleFileUpload(event)">
+                    <div class="photobox">
+                        <div class="photoImage"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="idbox">
+                <p>ID</p>
+                <div class="idtext">
+                    <p>LIKEALION@3333</p>
+                </div>
+            </div>
+            <form action="#">
+                <div class="emailbox2">
+                    <p>E-mail</p>
+                    <div class="emailtext">
+                        <p>LIKEALION@3333@gmail.com</p>
+                    </div>
+                </div>
+                <div class="explainbox1">
+                    <p>소개글</p>
+                </div>
+                <div class="explainbox2">
+                    <p id="explaintext">이사 준비 중입니다!</p>
+                </div>
+                <button id="edit" onclick="editClick()">수정</button>
+                <button type="submit" id="save" onclick="saveClick()">완료</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
