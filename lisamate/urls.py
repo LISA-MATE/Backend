@@ -16,6 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 from lisamate.views import MainView, ProfileView
 from informationPost.views import index
 
@@ -27,3 +29,6 @@ urlpatterns = [
     path('boards/', include('informationPost.urls', namespace='informationPost')),
 
 ]
+
+# MEDIA_URL로 들어오면 MEDIA_ROOT에서 정의한 걸 찾아서 사용
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
