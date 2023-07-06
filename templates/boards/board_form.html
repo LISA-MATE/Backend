@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>boards</title>
+
+    <script>
+        // board_type 필드의 변경 이벤트를 감지하여 topic 필드의 선택지를 업데이트하는 함수
+        function updateTopicChoices() {
+            var boardTypeField = document.getElementById("id_board_type");
+            var topicField = document.getElementById("id_topic");
+            var boardType = boardTypeField.value;
+            var topicChoices = {
+                'information': [
+                    ['전세', '전세'],
+                    ['월세', '월세'],
+                    ['매매', '매매']
+                ],
+                'review': [
+                    ['전세', '전세'],
+                    ['월세', '월세'],
+                    ['매매', '매매']
+                ],
+                'local': [
+                    ['우리동네', '우리동네'],
+                    ['범죄자', '범죄자']
+                ]
+            };
+    
+            // 선택지 초기화
+            topicField.innerHTML = '';
+    
+            // 선택지 업데이트
+            if (boardType in topicChoices) {
+                topicChoices[boardType].forEach(function(choice) {
+                    var option = document.createElement('option');
+                    option.value = choice[0];
+                    option.text = choice[1];
+                    topicField.add(option);
+                });
+            }
+        }
+    
+        // 페이지 로드 시 초기 선택지 업데이트
+        window.onload = function() {
+            updateTopicChoices();
+        };
+    </script>
+
+
+</head>
+<body>
+    <h1>Post 입력 화면</h1>
+
+    {% comment %} <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div>
+            <label for="id_image">이미지</label>
+            {% if post.image %}
+                <p>현재 : <a href="{{ post.image.url }}">{{ post.image.name }}</a></p>
+                <p>변경 : <input type="file" name="image" accept="image/*" id="id_image"></p>
+            {% else %}
+                <input type="file" name="image" accept="image/*" ida="id_image">
+            {% endif %}
+        </div>
+        <div>
+            <label for="id_content">내용</label>
+            <textarea name="content" id="id_content" cols="30" rows="10">{% if post %}{{ post.content }}{% endif %}
+            </textarea>
+        </div>
+        <div>
+            <input type="submit">
+        </div>
+    </form> {% endcomment %}
+
+
+    <div class="post_form">
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Submit</button>
+        </form>
+    <div>
+
+    <script>
+        document.getElementById("id_board_type").onchange = function() {
+            updateTopicChoices();
+        };
+    </script>
+
+</body>
+</html>
+
+
+  
+

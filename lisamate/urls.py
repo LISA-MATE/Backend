@@ -17,10 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from lisamate.views import MainView, ProfileView
+from informationPost.views import index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', MainView.as_view(), name='main'),
     path('accounts/', include('accounts.urls', namespace='accounts')),
-    path('profile/', ProfileView.as_view(), name='profile')
+    path('profile/', ProfileView.as_view(), name='profile'),
+    path('boards/', include('informationPost.urls', namespace='informationPost')),
+
 ]
