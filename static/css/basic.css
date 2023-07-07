@@ -2,699 +2,282 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Hind&display=swap');
 
-body{
-    background: linear-gradient(#CDCDCD, #F5F5F5) no-repeat center fixed;
+body {
+  background: linear-gradient(180deg, #CDCDCD 0%, #F5F5F5 100%);
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
 }
 
-.circle{
-    height:149px;
-    width:975px;
-    border-radius:100px;
-    background-color:#151E63;
-    position:absolute;
-    top:-85px;
-    left:480px;
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-p {
+.logo > p {
+  margin-top: 0%;
+  margin-left: 1%;
+  font-family: Inter;
+  font-size: 3vw;
+  font-weight: 600;
+  line-height: 3.631vw;
+  letter-spacing: -0.05em;
+  text-align: left;
+  color: #242A57;
+}
+
+.logo > a > i {
+  width: 3vw;
+  height: 3.2vw;
+  color: #242A5D;
+  margin-right: 2vw;
+}
+
+.CircleContainer {
+  position: absolute;
+  z-index: -1;
+}
+
+.circle1 {
+  width: 47.9vw;
+  height: 47.9vw;
+  background-color: #242A5D;
+  border-radius: 50%;
+  margin-top: 25vw;
+  margin-left: -10vw;
+}
+
+.circle2 {
+  width: 61.6vw;
+  height: 61.6vw;
+  background-color: #99BCFF;
+  border-radius: 50%;
+  filter: blur(2.6vw);
+  margin-top: -80vw;
+  margin-left: 80vw;
+}
+
+.circle3 {
+  width: 31vw;
+  height: 31vw;
+  background-color: #2A38B1;
+  border-radius: 50%;
+  filter: blur(5.3vw);
+  margin-top: -80vw;
+  margin-left: 50vw;
+}
+
+.bluebox-whitebox-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -2%;
+}
+
+.bluebox-whitebox-container > .bluebox {
+  width: 30vw; /* Updated size */
+  height: 36.15vw; /* Updated size */
+  border-radius: 6.5vw; /* Updated size */
+  background: linear-gradient(#4762FF, #78B6FF);
+  box-shadow: 1.825vw 0 2.65vw -0.09vw rgba(0, 0, 0, 0.23); /* Updated size */
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+.bluebox-whitebox-container > .bluebox > .subTitle {
+  font-family: 'Inter';
+  font-weight: 600;
+  font-size: 2vw;
+  line-height: 2.42vw;
+  letter-spacing: -0.05rem;
+  color: white;
+  margin-top: 7.5%;
+}
+
+.bluebox-whitebox-container > .bluebox > .Title {
+  font-family: 'Jua';
+  font-weight: 400;
+  font-size: 4.5vw; /* Updated size */
+  line-height: 7.5vw; /* Updated size */
+  letter-spacing: -0.05rem;
+  color: white;
+  margin-top: 3%;
+  white-space: nowrap;
+}
+
+.bluebox-whitebox-container > .bluebox > .explain {
+  font-family: 'Pretendard';
+  font-weight: 500;
+  font-size: 1.25vw; /* Updated size */
+  line-height: 1.49vw; /* Updated size */
+  letter-spacing: -0.05rem;
+  color: white;
+  margin-top: -2%;
+}
+
+.bluebox-whitebox-container > .whitebox {
+  width: 38.5vw; /* Updated size */
+  height: 30vw; /* Updated size */
+  margin-top: 12%;
+  margin-left: -1%;
+  border-radius: 5vw; /* Updated size */
+  background-color: white;
+  box-shadow: 1.9vw 1.1vw 3.25vw 0 rgba(0, 0, 0, 0.25); /* Updated size */
+}
+
+.bluebox-whitebox-container > .whitebox > form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.bluebox-whitebox-container > .whitebox > form > .LoginText {
+  margin-top: 10%;
+  margin-left: -45%;
+  font-family: 'Inter';
+  font-weight: 700;
+  font-size: 3vw;
+  line-height: 3.63vw;
+  color: #000000;
+}
+
+.bluebox-whitebox-container > .whitebox > form > p {
+  margin-left: -60%;
+  margin-top: 5%;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 1.25vw;
+  line-height: 1.89vw; /* Updated size */
+  letter-spacing: -0.05rem;
+  color: #BEBEBE;
+}
+
+input {
+  box-sizing: border-box;
+  width: 40vw; /* Updated size */
+  max-width: 26.19vw; /* Updated size */
+  height: 10vh; /* Updated size */
+  max-height: 3.25vw; /* Updated size */
+  border-radius: 2.75vw; /* Updated size */
+  border: 0.05vw solid #C4C4C4; /* Updated size */
+  outline: none;
+  background-color: white;
+  padding-left: 3.75vw;
+  padding-right: 3.75vw;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 1.25vw;
+  color: #4A4A4A;
+  margin-top: -2vh;
+  margin-bottom: -3vh;
+}
+
+.bluebox-whitebox-container > .whitebox > form > .UserText,
+.bluebox-whitebox-container > .whitebox > form > .PasswordText {
+  position: relative;
+  
+}
+
+.bluebox-whitebox-container > .whitebox > form > .UserText > i,
+.bluebox-whitebox-container > .whitebox > form > .PasswordText > i {
     position: absolute;
-    top: 102px;
-    left: 128px;
-    color: #233C9B;
-    width: auto;
-    font-size: 100px;
-    font-family: 'Jua';
-    font-weight: 400;
+    top: 0.625vw; /* 업데이트된 크기 */
+    left: 0.9375vw; /* 업데이트된 크기 */
+    width: 1.431vw;
+    height: 1.695vw;
+    color: #575757;
+    z-index: 1;
+    font-size: 1.1vw; /* 추가된 속성: 반응형 폰트 크기 */
+  }
+  
+  /* 반응형 스타일링 */
+  @media (max-width: 768px) {
+    .bluebox-whitebox-container > .whitebox > form > .PasswordText > i {
+      top: 1.25vw; /* 업데이트된 크기 */
+      left: 1.875vw; /* 업데이트된 크기 */
+      width: 2.862vw;
+      height: 3.39vw;
+      font-size: 1.5vw; /* 반응형 폰트 크기 */
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .bluebox-whitebox-container > .whitebox > form > .PasswordText > i {
+      top: 1.875vw; /* 업데이트된 크기 */
+      left: 2.8125vw; /* 업데이트된 크기 */
+      width: 2.862vw;
+      height: 3.39vw;
+      font-size: 1.8vw; /* 반응형 폰트 크기 */
+    }
+  }
+  
+
+#joinBtn {
+  border: none;
+  background-color: white;
+  color: #c4c4c4;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8vw;
+  font-weight: 400;
+  cursor: pointer;
+  margin-top: 4%;
+  margin-left: 60%;
 }
 
-.text1>p {
-    position:absolute;
-    top: 2px;
-    left: 62px;
-    color: #242A57;
-    font-size: 30px;
+#joinBtn:hover {
+    color:#4967FF;
+}
+
+#LoginBtn {
+    width: calc(40vw - 1rem); /* 조절된 크기 */
+    max-width: 26.19vw; /* Updated size */
+    height: calc(6.25vh + 0.625rem); /* 조절된 크기 */
+    max-height: 3.25vw; /* Updated size */
+    margin-top: 2%;
+    margin-left: auto; /* 수정된 부분 */
+    margin-right: auto; /* 수정된 부분 */
+    border: 2px solid #4967FF;
+    border-radius: 55px;
+    background-color: #4967FF;
     font-family: 'Inter', sans-serif;
-    font-weight: 400;
-}
-
-i{
-    width:36.94px;
-    height:43.99px;
-    position:absolute;
-    top:51px;
-    left:1626px;
-    color:#181D45;
-    cursor:pointer;
-}
-
-.home>i{
-    width:50px;
-    height:50px;
-    position:absolute;
-    top:51px;
-    left: 1689.59px;
-    color:#181D45;
-}
-
-.bell>i{
-    width:37px;
-    height:30px;
-    position:absolute;
-    top:52px;
-    left:1759px;
-    color:#181D45;
-}
-
-.bell>.redcircle{
-    width:13px;
-    height:12px;
-    border-radius:50%;
-    position:absolute;
-    top:43px;
-    left:1775px;
-    background-color:#FF5050;
-}
-
-.text2>p {
-    position: absolute;
-    top: 210px;
-    left: 1497px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    font-size: 30px;
-    color: #0F3FE8;
-    cursor: pointer;
-}
-
-.text2-1>p {
-    position: absolute;
-    top: 210px;
-    left: 1676px;
-    width:100px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    font-size: 30px;
-    color: #242A57;
-    cursor: pointer;
-}
-
-.text2-2>p {
-    position: absolute;
-    top: 210px;
-    left: 1650px;
-    width:50px;
-    overflow: hidden;
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    font-size: 30px;
-    color: #000000;
-
-}
-.user {
-    width: 292px;
-    height: 51px;
-    position: absolute;
-    top: 455px;
-    left: 222px;
-    border-radius: 100px;
-    background-color: #0015AD;
-    box-shadow: 0px 7px 14px 0px rgba(0, 0, 0, 0.32);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    font-weight: 500;
+    font-size: 1.25vw;
     color: white;
-    font-size: 25px;
-    font-weight: 600;
-    font-family: 'Hind', sans-serif;
-    z-index: 1;
-}
+    cursor: pointer;
 
-.userbox{
-    width:292px;
-    height:393px;
-    position:absolute;
-    top:455px;
-    left:223px;
-    border-radius:50px;
-    border: 1px solid #919191;
-    background-color:white;
-    box-shadow: inset 6px -5px 28px 0px rgba(0, 0, 0, 0.28);
+    
+  }
+  
+ 
+  
+  .bluebox-whitebox-container > .whitebox {
+    position: relative; /* 추가된 속성 */
+  }
+  
+  .bluebox-whitebox-container > .whitebox > #LoginBtn {
+    position: absolute; /* 추가된 속성 */
+    bottom: -10%; /* 원하는 위치로 조정 */
+    left: 50%; /* 원하는 위치로 조정 */
+    transform: translateX(-50%); /* 가운데 정렬을 위한 속성 */
+  }
+
+.circleContainer{
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+    margin-top:3%;
+    gap: 10px;
 }
 
-.userbox>.userImage{
-    width:164px;
-    height:164px;
-    border-radius:50%;
-    position:absolute;
-    top:70px;
-    background:linear-gradient(#CFCFCF, #FFFFFF);
-    border: 2px solid #142F9E;
-}
-
-.userbox>.id{
-    position:absolute;
-    top:250px;
-    font-family: 'Inter', sans-serif;
-    font-weight:600;
-    font-size:18px;
-    color:#142F9E;
-}
-
-.userbox>.email{
-    position: absolute;
-    top: 275px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    font-size: 13px;
-    color: #4967FF;
-}
-
-.userbox>.explain{
-    position: absolute;
-    top: 307px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    font-size: 18px;
-    color: #142F9E;
-}
-
-#pen{
-    position:absolute;
-    background-color:white;
-    border:none;
-    cursor:pointer;
-    color: #09174E;
-    top:340px;
-    left:45px;
-}
-
-#pen:hover{
-    color:#142F9E;
-}
-
-#pen>img{
-    width:17.12px;
-    height:17.12px;
-}
-
-#setting{
-    position: absolute;
-    background-color: white;
-    color: #09174E;
-    border:none;
-    cursor:pointer;
-    top: 340px;
-    left: 115px;
-}
-
-#setting:hover {
-    color: #142F9E;
-}
-
-#setting>img{
-    width: 17.12px;
-    height: 17.12px;
-}
-
-.menu{
-    width:274px;
-    height:1049px;
-    position:absolute;
-    top:920px;
-    left:230px;
-    border-radius: 50px;
-    border: 1px solid #919191;
-    background-color:white;
-    box-shadow:inset 6px -5px 28px 0px rgba(0, 0, 0, 0.28);
-}
-
-.checklist{
-    width:274.25px;
-    height:76px;
-    background-color:#131B5A;
-    position:absolute;
-    top:920px;
-    left:230px;
-    box-shadow: 0px 9px 11px 0px rgba(0, 0, 0, 0.29);
-}
-
-.checklist>p{
-    font-family: 'Hind', sans-serif;
-    font-weight: 600;
-    font-size: 25px;
-    color: white;
-    position:absolute;
-    left:90px;
-    top:-4px;
-}
-
-.checklistCircle{
-    width:80.16px;
-    height:76px;
-    background-color:#131B5A;
-    position:absolute;
-    top:920px;
-    left:457.84px;
-    border-radius: 0 76px 76px 0;
-    box-shadow: 9px 5px 11px 0px rgba(0, 0, 0, 0.29);
-}
-
-.noticeboard{
-    width: 274.25px;
-    height: 76px;
-    background-color: #131B5A;
-    position: absolute;
-    top: 1139px;
-    left: 230px;
-    box-shadow: 0px 9px 11px 0px rgba(0, 0, 0, 0.29);
-}
-
-.noticeboard>p {
-    font-family: 'Hind', sans-serif;
-    font-weight: 600;
-    font-size: 25px;
-    color: white;
-    position: absolute;
-    left: 110px;
-    top: -4px;
-}
-
-.noticeboardCircle {
-    width: 80.16px;
-    height: 76px;
-    background-color: #131B5A;
-    position: absolute;
-    top: 1139px;
-    left: 457.84px;
-    border-radius: 0 76px 76px 0;
-    box-shadow: 9px 5px 11px 0px rgba(0, 0, 0, 0.29);
-}
-
-.check{
-    width:243px;
-    height:65px;
-    position:absolute;
-    top:1007px;
-    left:248px;
-    border-radius:40px;
-}
-
-.check>i{
-    width:100px;
-    height:100px;
-    color:#131B5A;
-    position:absolute;
-    top:31px;
-    left:30px;
-    z-index:1;
-}
-
-.check>p{
-    position:absolute;
-    top:-10px;
-    left:80px;
-    font-family: 'Inter', sans-serif;
-    font-weight:400;
-    font-size:25px;
-    color:#131B5A;
-    cursor:pointer;
-}
-
-.calender{
-    width: 243px;
-    height: 65px;
-    position: absolute;
-    top: 1057px;
-    left: 248px;
-    border-radius: 40px;
-}
-
-.calender>i {
-    width: 100px;
-    height: 100px;
-    color: #131B5A;
-    position: absolute;
-    top: 31px;
-    left: 30px;
-    z-index: 1;
-}
-
-.calender>p {
-    position: absolute;
-    top: -10px;
-    left: 105px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    font-size: 25px;
-    color: #131B5A;
-    cursor: pointer;
-}
-
-.information>p{
-    position:absolute;
-    top:1226px;
-    left:300px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    font-size: 25px;
-    color: #131B5A;
-    cursor: pointer;
-}
-
-.information>.monthly{
-    width: 243px;
-    height: 40px;
-    position: absolute;
-    top: 1314px;
-    left: 247px;
-    border-radius: 40px;
-}
-
-.information>.monthly>i {
-    width: 100px;
-    height: 100px;
-    color: #131B5A;
-    position: absolute;
-    top: 18px;
-    left: 20px;
-    z-index: 1;
-}
-
-.information>.monthly>p {
-    position: absolute;
-    top: -25px;
-    left: 50px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    font-size: 25px;
-    color: #131B5A;
-    cursor: pointer;
-}
-
-.information>.Jeonse{
-    width: 243px;
-    height: 40px;
-    position: absolute;
-    top: 1365px;
-    left: 247px;
-    border-radius: 40px;
-}
-
-.information>.Jeonse>i {
-    width: 100px;
-    height: 100px;
-    color: #131B5A;
-    position: absolute;
-    top: 18px;
-    left: 20px;
-    z-index: 1;
-}
-
-.information>.Jeonse>p {
-    position: absolute;
-    top: -25px;
-    left: 50px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    font-size: 25px;
-    color: #131B5A;
-    cursor: pointer;
-}
-
-.information>.bargain {
-    width: 243px;
-    height: 40px;
-    position: absolute;
-    top: 1416px;
-    left: 247px;
-    border-radius: 40px;
-}
-
-.information>.bargain>i {
-    width: 100px;
-    height: 100px;
-    color: #131B5A;
-    position: absolute;
-    top: 18px;
-    left: 20px;
-    z-index: 1;
-}
-
-.information>.bargain>p {
-    position: absolute;
-    top: -25px;
-    left: 50px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    font-size: 25px;
-    color: #131B5A;
-    cursor: pointer;
-}
-
-.information>hr{
-    position:absolute;
-    top:1473px;
-    left:230px;
-    width:273px;
-    border:1px solid #131B5A;
-}
-
-.review>p{
-    position:absolute;
-    top:1501px;
-    left: 300px;
-    font-family: 'Inter', sans-serif;
-    font-weight:600;
-    font-size:25px;
-    color: #131B5A;
-}
-
-.review>.monthlyReview {
-    width: 243px;
-    height: 40px;
-    position: absolute;
-    top: 1589px;
-    left: 247px;
-    border-radius: 40px;
-}
-
-.review>.monthlyReview>i {
-    width: 100px;
-    height: 100px;
-    color: #131B5A;
-    position: absolute;
-    top: 18px;
-    left: 20px;
-    z-index: 1;
-}
-
-.review>.monthlyReview>p {
-    position: absolute;
-    top: -25px;
-    left: 70px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    font-size: 25px;
-    color: #131B5A;
-    cursor: pointer;
-}
-
-.review>.JeonseReview {
-    width: 243px;
-    height: 40px;
-    position: absolute;
-    top: 1640px;
-    left: 247px;
-    border-radius: 40px;
-}
-
-.review>.JeonseReview>i {
-    width: 100px;
-    height: 100px;
-    color: #131B5A;
-    position: absolute;
-    top: 18px;
-    left: 20px;
-    z-index: 1;
-}
-
-.review>.JeonseReview>p {
-    position: absolute;
-    top: -25px;
-    left: 70px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    font-size: 25px;
-    color: #131B5A;
-    cursor: pointer;
-}
-
-.review>.bargainReview {
-    width: 243px;
-    height: 40px;
-    position: absolute;
-    top: 1691px;
-    left: 247px;
-    border-radius: 40px;
-}
-
-.review>.bargainReview>i {
-    width: 100px;
-    height: 100px;
-    color: #131B5A;
-    position: absolute;
-    top: 18px;
-    left: 20px;
-    z-index: 1;
-}
-
-.review>.bargainReview>p {
-    position: absolute;
-    top: -25px;
-    left: 70px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    font-size: 25px;
-    color: #131B5A;
-    cursor: pointer;
-}
-
-.review>hr {
-    position: absolute;
-    top: 1743px;
-    left: 230px;
-    width: 273px;
-    border: 1px solid #131B5A;
-}
-
-.town>p {
-    position: absolute;
-    top: 1766px;
-    left: 275px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    font-size: 25px;
-    color: #131B5A;
-}
-
-.town>.situation {
-    width: 243px;
-    height: 40px;
-    position: absolute;
-    top: 1849px;
-    left: 247px;
-    border-radius: 40px;
-}
-
-.town>.situation>i {
-    width: 100px;
-    height: 100px;
-    color: #131B5A;
-    position: absolute;
-    top: 18px;
-    left: 20px;
-    z-index: 1;
-}
-
-.town>.situation>p {
-    position: absolute;
-    top: -25px;
-    left: 45px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    font-size: 25px;
-    color: #131B5A;
-    cursor: pointer;
-}
-.town>.criminal {
-    width: 243px;
-    height: 40px;
-    position: absolute;
-    top: 1900px;
-    left: 247px;
-    border-radius: 40px;
-}
-
-.town>.criminal>i {
-    width: 100px;
-    height: 100px;
-    color: #131B5A;
-    position: absolute;
-    top: 18px;
-    left: 20px;
-    z-index: 1;
-}
-
-.town>.criminal>p {
-    position: absolute;
-    top: -25px;
-    left: 45px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    font-size: 25px;
-    color: #131B5A;
-    cursor: pointer;
-    white-space:nowrap;
-}
-
-.schedulebar{
-    width:292px;
-    height:51px;
-    position:absolute;
-    top:2033px;
-    left:223px;
-    border-radius: 100px;
-    background-color:#0015AD;
-    box-shadow:0px 7px 14px 0px rgba(0, 0, 0, 0.32);
-    z-index:1;
-    color:white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-family: 'Hind', sans-serif;
-    font-weight: 600;
-    font-size: 25px;
-}
-
-.scheduleMenu{
-    width:292px;
-    height:378px;
-    position:absolute;
-    top:2033px;
-    left:223px;
-    border: 1px solid #919191;
-    border-radius:50px;
-    background-color: white;
-    box-shadow: inset 6px -5px 28px 0px rgba(0, 0, 0, 0.28);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.scheduleMenu>img{
-    width:133.72px;
-    height:137px;
-}
-
-.scheduleMenu>.text3{
-    display: flex;
-    justify-content: center;
-}
-
-.scheduleMenu>.text3>p{
-    font-family: 'Inter', sans-serif;
-    font-size: 20px;
-    font-weight: 400;
-    z-index:1;
-    position:absolute;
-    top:280px;
-    left: 0;
-    right: 0;
-    margin: auto;
-    text-align: center;
+.bottomCircle1, .bottomCircle2, .bottomCircle3{
+    width: 9.19px;
+    height: 9.19px;
+    border-radius: 50%;
+    background-color: #4967FF;
 }
