@@ -8,7 +8,13 @@
 </head>
 <body>
     <h1>post detail 화면</h1>
-    <h2>정보게시판?</h2>
+    {% if board_type == 'information' %}
+        <h2>정보 게시판</h2>
+    {% elif board_type == 'review' %}
+        <h2>후기 게시판</h2>
+    {% elif board_type == 'hometown' %}
+        <h2>우리동네 게시판</h2>
+    {% endif %}
     <div class="post-detail">
         <p> 전체 게시판 &gt; {{ post.board_type }} &gt; {{ post.topic }} </p>
         <p>제목 : {{post.title}} </p>
@@ -19,7 +25,7 @@
         {% endif %}
         <p>내용 :  {{post.content}} </p>
         {% if post.file %}
-            <p>파일: <a href="{{ post.file.url }}">다운로드</a></p>
+            <p>파일: <a href="{{ post.file.url }}">{{post.file}}</a></p>
         {% endif %}
     </div>
 

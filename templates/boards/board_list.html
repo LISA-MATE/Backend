@@ -31,7 +31,7 @@
                 <th>조회</th>
             </tr>
             {% for post in post_list %}
-                    {% include 'mixin/posts/post_line.html' with detail=False %}
+                {% include 'mixin/posts/post_line.html' with detail=False %}
             {% endfor %}
         </table>
     </div>

@@ -1,7 +1,7 @@
 {% load static %}
 
 <div class="board-line">
-    <tr>
+    <tr onclick="location.href='{% url 'boards:board-topic-detail' board_type=post.board_type topic=post.topic id=post.id %}'">
         <td>{{post.topic}}</td>
         <td>{{post.title}}</td>
         <td>{{post.writer}}</td>

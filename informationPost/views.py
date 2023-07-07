@@ -4,7 +4,7 @@ from .models import Post
 from .form import PostForm
 
 def index(request):
-    return redirect('boards:information-list')
+    return redirect('boards:board-list', board_type='information')
 
 def board_list_view(request, board_type=None):
     posts = Post.objects.all()
@@ -32,6 +32,17 @@ def board_topic_list_view(request, board_type=None, topic=None):
     }
 
     return render(request, 'boards/board_list.html', context)
+
+def post_detail_view(request, board_type=None, topic=None, id=None):
+    post = Post.objects.get(id=id, board_type=board_type, topic=topic)
+    
+    context = {
+        'board_type': board_type,
+        'topic': topic,
+        'post': post
+    }
+
+    return render(request, 'boards/post_detail.html', context)
 
 
 def post_create_form_view(request):
@@ -74,7 +85,6 @@ def post_create_form_view(request):
                 return redirect('boards:review-list')
             elif board_type == 'hometown':
                 return redirect('boards:hometown-list')
-            
     else:
         form = PostForm()
         
