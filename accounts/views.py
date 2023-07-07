@@ -9,25 +9,25 @@ def signup_view(request):
         return render(request, 'accounts/signup.html')
     else:
         # 리다이렉트
-        id = request.POST.get('id')
+        username = request.POST.get('username')
         email = request.POST.get('email')
         password = request.POST.get('password')
         
         # 데이터 유효성 검사
-        if not id or not email or not password:
+        if not username or not email or not password:
             error_message = '모든 필드를 입력해주세요.'
             return render(request, 'accounts/signup.html', {'error_message': error_message})
 
-        # 아이디, 이메일 데이터 중복 확인
-        if User.objects.filter(id=id).exists():
-            error_message = '사용 불가능한 아이디입니다.'
+        # 사용자 이름, 이메일 데이터 중복 확인
+        if User.objects.filter(username=username).exists():
+            error_message = '사용 불가능한 닉네임입니다.'
             return render(request, 'accounts/signup.html', {'error_message': error_message})
         if User.objects.filter(email=email).exists():
             error_message = '사용 불가능한 이메일입니다.'
             return render(request, 'accounts/signup.html', {'error_message': error_message})
 
         # 데이터 저장
-        user = User.objects.create_user(username=id, email=email, password=password)
+        user = User.objects.create_user(username=username, email=email, password=password)
 
         # 회원가입 후 로그인
         login(request, user)
@@ -40,17 +40,17 @@ def login_view(request):
         # 로그인 HTML 응답
         return render(request, 'accounts/login.html')
     else:
-        id = request.POST.get('id')
+        email = request.POST.get('email')
         password = request.POST.get('password')
 
-        # 아이디, 비밀번호 유효성 검사
-        if not id:
-            error_message = '아이디를 입력해주세요.'
+        # 이메일, 비밀번호 유효성 검사
+        if not email:
+            error_message = '이메일을 입력해주세요.'
         elif not password:
             error_message = '비밀번호를 입력해주세요.'
         else:
             # 사용자 인증
-            user = authenticate(request, id=id, password=password)
+            user = authenticate(request, email=email, password=password)
 
             if user is not None:
                 # 사용자 인증 성공 시 로그인
@@ -69,6 +69,6 @@ def logout_view(request):
         # 로그아웃 로직 처리
         logout(request)
         # 리다이렉트
-        return redirect('mypage')
+        return redirect('lisamate:mypage')
 
         

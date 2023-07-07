@@ -50,7 +50,10 @@
                     <i class="fa-solid fa-lock fa-lg"></i>
                     <input type="text" placeholder="비밀번호를 입력해주세요." name="password">
                 </div>
-                <button id="SignBtn" type="submit" onclick="window.location.href = 'login.html'">회원가입</button>
+                <a a href="{% url 'accounts:login' %}">회원가입</a>
+                {% if error_message %}
+                <p class="error">{{ error_message }}</p>
+                {% endif %}
                 <div class="circleContainer">
                     <div class="bottomCircle1"></div>
                     <div class="bottomCircle1"></div>
