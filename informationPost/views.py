@@ -6,26 +6,32 @@ from .form import PostForm
 def index(request):
     return redirect('boards:information-list')
 
-def information_list_view(request):
-    post_list = Post.objects.filter(board_type='information').order_by('-created_at')
-    context = {
-        'post_list': post_list
-    }
-    return render(request, 'boards/information_list.html', context)
+def board_list_view(request, board_type=None):
+    posts = Post.objects.all()
 
-def review_list_view(request):
-    post_list = Post.objects.filter(board_type='review').order_by('-created_at')
-    context = {
-        'post_list': post_list
-    }
-    return render(request, 'boards/review_list.html', context)
+    if board_type:
+        posts = posts.filter(board_type=board_type)
 
-def hometown_list_view(request):
-    post_list = Post.objects.filter(board_type='hometown').order_by('-created_at')
     context = {
-        'post_list': post_list
+        'board_type': board_type,
+        'post_list': posts
     }
-    return render(request, 'boards/hometown_list.html', context)
+
+    return render(request, 'boards/board_list.html', context)
+
+def board_topic_list_view(request, board_type=None, topic=None):
+    posts = Post.objects.filter(board_type=board_type)
+
+    if topic:
+        posts = posts.filter(topic=topic)
+
+    context = {
+        'board_type': board_type,
+        'topic': topic,
+        'post_list': posts
+    }
+
+    return render(request, 'boards/board_list.html', context)
 
 
 def post_create_form_view(request):

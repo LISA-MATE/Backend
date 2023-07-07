@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>boards</title>
+</head>
+<body>
+    <h1>post detail 화면</h1>
+    <h2>정보게시판?</h2>
+    <div class="post-detail">
+        <p> 전체 게시판 &gt; {{ post.board_type }} &gt; {{ post.topic }} </p>
+        <p>제목 : {{post.title}} </p>
+        <p>작성자 : {{post.writer}}</p>
+        <p>날짜 : {{post.created_at}} | 구역 : {{post.city}} {{post.country}} | 조회수 : {{post.view_count}} </p>
+        {% if post.image %}
+            <p>이미지: <img src="{{ post.image.url }}" alt="이미지"></p>
+        {% endif %}
+        <p>내용 :  {{post.content}} </p>
+        {% if post.file %}
+            <p>파일: <a href="{{ post.file.url }}">다운로드</a></p>
+        {% endif %}
+    </div>
+
+</body>
+</html>
