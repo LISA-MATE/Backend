@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404, render, redirect
 
 from .models import Post
 from .form import PostForm
@@ -136,3 +136,10 @@ def post_update_view(request, board_type=None, topic=None, id=None):
         return redirect('boards:board-topic-detail', board_type=board_type, topic=topic, id=id)
 
 
+def post_delete_view(request, id):
+    if request.method == 'GET':
+        post = get_object_or_404(Post, id=id)
+        board_type = post.board_type
+        post.delete()
+        return redirect('boards:board-list', board_type= board_type)
+    
