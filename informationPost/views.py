@@ -4,12 +4,29 @@ from .models import Post
 from .form import PostForm
 
 def index(request):
-    # post_list = Post.objects.all().select_related('writer').prefetch_related('comment_set').order_by('-created_at')
-    post_list = Post.objects.all().order_by('-created_at')
+    return redirect('boards:information-list')
+
+def information_list_view(request):
+    post_list = Post.objects.filter(board_type='information').order_by('-created_at')
     context = {
         'post_list': post_list
     }
-    return render(request, 'boards/board_list.html', context)
+    return render(request, 'boards/information_list.html', context)
+
+def review_list_view(request):
+    post_list = Post.objects.filter(board_type='review').order_by('-created_at')
+    context = {
+        'post_list': post_list
+    }
+    return render(request, 'boards/review_list.html', context)
+
+def hometown_list_view(request):
+    post_list = Post.objects.filter(board_type='hometown').order_by('-created_at')
+    context = {
+        'post_list': post_list
+    }
+    return render(request, 'boards/hometown_list.html', context)
+
 
 def post_create_form_view(request):
     # if request.method == 'GET':
@@ -41,9 +58,17 @@ def post_create_form_view(request):
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            post = form.save()
             # 폼이 성공적으로 저장될 경우의 처리 로직
-            return redirect('boards:post-list')
+            board_type = post.board_type
+
+            if board_type == 'information':
+                return redirect('boards:information-list')
+            elif board_type == 'review':
+                return redirect('boards:review-list')
+            elif board_type == 'hometown':
+                return redirect('boards:hometown-list')
+            
     else:
         form = PostForm()
         
