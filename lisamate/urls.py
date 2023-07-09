@@ -18,12 +18,14 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from lisamate.views import MainView, ProfileView
-from informationPost.views import index
+from lisamate.views import ProfileView
+from django.views.generic import RedirectView
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', MainView.as_view(), name='main'),
+    path('', RedirectView.as_view(pattern_name='checklist:index', permanent=False)),
+    path('checklist/', include('checklist.urls', namespace='checklist')),
     path('accounts/', include('accounts.urls', namespace='accounts')),
     path('profile/', ProfileView.as_view(), name='profile'),
     path('boards/', include('informationPost.urls', namespace='informationPost')),
