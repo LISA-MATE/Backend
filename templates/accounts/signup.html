@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LisaMate</title>
-    <link rel="stylesheet" href="../static/css/signup.css">
+    <link rel="stylesheet" href="../../static/css/signup.css">
     <script src="https://kit.fontawesome.com/d4b61b3d04.js" crossorigin="anonymous"></script>
 </head>
 
@@ -26,39 +25,36 @@
 
     <div class="bluebox-whitebox-container">
         <div class="bluebox">
-            <i class="fa-solid fa-house fa-2xl"></i>
             <div class="subTitle">Hello</div>
             <div class="Title">LISA MATE</div>
             <div class="explain">나의 이사메이트 리사.</div>
         </div>
 
         <div class="whitebox">
-            <form action="#">
-                <div class="SignText">회원가입</div>
-                <p>Name</p>
-                <div class="NameText">
-                    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="SignupText">Sign up</div>
+                <p style="margin-top:10%;">Nickname</p>
+                <div class="NicknameText">
+                    <i class="fa-regular fa-user fa-lg"></i>
                     <input type="text" placeholder="닉네임을 입력해주세요." name="nickname">
                 </div>
-                <p>Email</p>
-                <div class="EmailText">
-                    <i class="fa-regular fa-user fa-lg"></i>
-                    <input type="text" placeholder="이메일을 입력해주세요." name="email">
-                </div>
-                <p style="margin-left:-53%">Password</p>
+                <p style="margin-top:3%;">Password</p>
                 <div class="PasswordText">
                     <i class="fa-solid fa-lock fa-lg"></i>
-                    <input type="text" placeholder="비밀번호를 입력해주세요." name="password">
+                    <input type="password" placeholder="비밀번호를 입력해주세요." name="password">
                 </div>
-                <a a href="{% url 'accounts:login' %}">회원가입</a>
+                <p style="margin-top:3%;">E-mail</p>
+                <div class="EmailText">
+                    <i class="fa-regular fa-envelope fa-lg"></i>
+                    <input type="text" placeholder="이메일을 입력해주세요." name="email">
+                </div>
                 {% if error_message %}
                 <p class="error">{{ error_message }}</p>
                 {% endif %}
-                <div class="circleContainer">
-                    <div class="bottomCircle1"></div>
-                    <div class="bottomCircle1"></div>
-                    <div class="bottomCircle1"></div>
-                </div>
+                <a href="{% url 'accounts:login' %}">
+                    <button id="SignupBtn" type="submit">Join</button>
+                </a>
             </form>
         </div>
     </div>

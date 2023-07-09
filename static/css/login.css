@@ -1,373 +1,277 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
-@font-face {
-    font-family: 'Pretendard-Regular';
-    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
-    font-weight: 600;
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hind&display=swap');
 
-html{
-    width:1920px;
-    height:1080px;
-}
-
-body{
-    overflow:hidden;
-    background: linear-gradient(#CDCDCD, #F5F5F5);
+body {
+    background: linear-gradient(180deg, #CDCDCD 0%, #F5F5F5 100%);
     background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
 }
 
-.one1{
-    width:713px;
-    height:713px;
-    position: absolute;
-    top: 580px;
-    left:-149px;
-    background-color:#242A5D;
-    border-radius:50%;
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.one2 {
-    width: 910px;
-    height: 910px;
-    position: absolute;
-    top: 15px;
-    left: 1620px;
-    background-color: #99BCFF;
-    border-radius: 50%;
-    filter: blur(5px);
-}
-
-.one3{
-    width:460px;
-    height:460px;
-    position:absolute;
-    top:-282px;
-    left:1123px;
-    background-color:#2A38B1;
-    border-radius:50%;
-    filter: blur(10px);
-}
-
-i {
-    position: absolute;
-    width:30px;
-    height:32px;
-    top: 35px;
-    left: 1856px;
-}
-
-.text1{
-    position: absolute;
-    top: 2px;
-    left: 62px;
-}
-
-.text1>p{
-    font-family: 'Inter', sans-serif;
+.logo>p {
+    margin-top: 0%;
+    margin-left: 1%;
+    font-family: Inter;
+    font-size: 3vw;
     font-weight: 600;
-    font-size:30px;
-    line-height: 36.31px;
-    color:#242A57;
-    letter-spacing: -5%;
+    line-height: 3.631vw;
+    letter-spacing: -0.05em;
+    text-align: left;
+    color: #242A57;
 }
 
-.bluebox{
-    display: flex;
-    justify-content: center;
-    width:600px;
-    height:723px;
+.logo>a>i {
+    width: 3vw;
+    height: 3.2vw;
+    color: #242A5D;
+    margin-right: 2vw;
+}
+
+.CircleContainer {
     position: absolute;
-    top:70px;
-    left:305px;
-    border-radius:130px;
-    background:linear-gradient(#4762FF, #78B6FF);
-    box-shadow: 25px 0px 36px -1px rgba(0, 0, 0, 0.23);
-    z-index: 2;
-}
-
-.bluebox>i{
-    position:absolute;
-    top:80px;
-    left:55px;
-}
-
-.bluebox>p{
-    color:white;
-    position:absolute;
-    top:180px;
-    text-align: center;
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    font-size: 35px;
-}
-
-.bluebox>.text2{
-    display: flex;
-    justify-content: center;
-}
-
-.bluebox>.text2>p{
-    color: white;
-    position: absolute;
-    top: 200px;
-    text-align: center;
-    font-family: 'Jua', sans-serif;
-    font-weight: 400;
-    font-size: 90px;
-    z-index:1;
-}
-
-.bluebox>.text3{
-    display: flex;
-    justify-content: center;
-}
-
-.bluebox>.text3>p{
-    color: white;
-    position: absolute;
-    top: 390px;
-    text-align: center;
-    font-family: 'Pretendard-Regular';
-    font-size: 25px;
-}
-
-.whitebox{
-    width:770px;
-    height:600px;
-    position:absolute;
-    top:260px;
-    right:260px;
-    background:white;
-    border-radius:100px;
-    box-shadow: 38px 22px 65px 0px rgba(0, 0, 0, 0.25);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.whitebox>p{
-    position: absolute;
-    top:5px;
-    left:128px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
-    font-size:60px;
-    color:#000000;
-}
-
-.whitebox>.text4{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.whitebox>.text4>i{
-    position:absolute;
-    color:#575757;
-    width:14.31px;
-    height:16.95px;
-    top: 232px;
-    left: 148px;
-    z-index: 1;
-}
-
-.whitebox>.text4>p{
-    position:absolute;
-    top:150px;
-    left:131px;
-    font-family: 'Inter', sans-serif;
-    font-weight:400;
-    font-size:20px;
-    color:#BEBEBE;
-}
-
-.whitebox>.text4>input{
-    box-sizing: border-box;
-    width:523.81px;
-    height:65px;
-    position:absolute;
-    top:200px;
-    border-radius:55px;
-    border:2px solid #C4C4C4;
-    background-color:white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-left: 60px;
-    padding-right: 60px;
-    font-family: 'Inter', sans-serif;
-    font-weight:400;
-    font-size:16px;
-    color:#4A4A4A;
-}
-
-.whitebox>.text5{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.whitebox>.text5>p{
-    position: absolute;
-    top: 267px;
-    left: 131px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    font-size: 20px;
-    color: #BEBEBE;
-}
-
-.whitebox>.text5>i {
-    position: absolute;
-    color: #575757;
-    width: 14.31px;
-    height: 16.95px;
-    top: 347px;
-    left: 148px;
-    z-index: 1;
-}
-
-.whitebox>.text5>input{
-    box-sizing:border-box;
-    width: 523.81px;
-    height: 65px;
-    position: absolute;
-    top: 315px;
-    border-radius: 55px;
-    border: 2px solid #C4C4C4;
-    background-color: white;
-    padding-left: 60px;
-    padding-right: 60px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    color: #4A4A4A;
-}
-
-[type="checkbox"]{
-    appearance: none;
-    border:2px solid #C4C4C4;
-    border-radius:50%;
-    position:absolute;
-    left:131px;
-    top:395px;
-    width:22px;
-    height:22px;
-    cursor:pointer;
-}
-
-[type="checkbox"]:checked {
-    border: 2px solid #4967FF;
-    border-radius: 50%;
-    background: #4967FF;
-    background-image: url("../image/check.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    cursor:pointer;
-}
-
-.whitebox>.text6>label>p{
-    position: absolute;
-    top: 388px;
-    left: 161px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    font-size: 13px;
-    color: #C4C4C4;
-    cursor:pointer;
-}
-
-.whitebox>.text6>label>[type="checkbox"]:checked+p{
-    color:#4967FF;
-}
-
-
-.whitebox>.text7>p{
-    position: absolute;
-    top:382px;
-    right:198px;
-    color:#C4C4C4;
-}
-
-.whitebox>.text7>button{
-    border:none;
-    background-color:white;
-    color: #C4C4C4;
-    font-family: 'Inter', sans-serif;
-    font-size:13px;
-    font-weight:400;
-    cursor: pointer;
-}
-
-#idbtn{
-    position:absolute;
-    top:400px;
-    right:209px;
-}
-
-#joinbtn{
-    position: absolute;
-    top: 400px;
-    right:131px;
-    color: #C4C4C4;
-}
-
-.whitebox>.text7>#idbtn:hover {
-    color: #4967FF;
-    font-weight: 800;
-}
-
-.whitebox>.text7>#joinbtn:hover{
-    color: #4967FF;
-    font-weight: 800;
-}
-
-.whitebox>button{
-    width: 523.81px;
-    height: 65px;
-    position: absolute;
-    top: 463px;
-    border-radius: 55px;
-    border: 2px solid #4967FF;
-    background-color: #4967FF;
-    font-family: 'Inter', sans-serif;
-    font-weight:500;
-    font-size:23px;
-    color:white;
-    cursor:pointer;
+    z-index: -1;
 }
 
 .circle1 {
-    width: 9.19px;
-    height: 9.19px;
+    width: 47.9vw;
+    height: 47.9vw;
+    background-color: #242A5D;
     border-radius: 50%;
-    background-color: #4967FF;
-    position: absolute;
-    top: 805px;
-    right: 652px;
+    margin-top: 25vw;
+    margin-left: -10vw;
 }
 
-.circle2{
-    width:9.19px;
-    height:9.19px;
+.circle2 {
+    width: 61.6vw;
+    height: 61.6vw;
+    background-color: #99BCFF;
     border-radius: 50%;
-    background-color: #4967FF;
-    position:absolute;
-    top:805px;
-    right:637px;
+    filter: blur(5px);
+    margin-top: -80vw;
+    margin-left: 80vw;
 }
 
-.circle3{
-width: 9.19px;
-    height: 9.19px;
+.circle3 {
+    width: 31vw;
+    height: 31vw;
+    background-color: #2A38B1;
     border-radius: 50%;
-    background-color: #4967FF;
+    filter: blur(10px);
+    margin-top: -80vw;
+    margin-left: 50vw;
+}
+
+.bluebox-whitebox-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -5%;
+    margin-left:-5%;
+}
+
+.bluebox-whitebox-container>.bluebox {
+    width: 30vw;
+    /* Updated size */
+    height: 36.15vw;
+    /* Updated size */
+    border-radius: 6.5vw;
+    /* Updated size */
+    background: linear-gradient(#4762FF, #78B6FF);
+    box-shadow: 1.825vw 0 2.65vw -0.09vw rgba(0, 0, 0, 0.23);
+    /* Updated size */
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.bluebox-whitebox-container>.bluebox>.subTitle {
+    font-family: 'Inter';
+    font-weight: 600;
+    font-size: 2vw;
+    line-height: 2.42vw;
+    letter-spacing: -0.05rem;
+    color: white;
+}
+
+.bluebox-whitebox-container>.bluebox>.Title {
+    font-family: 'Jua';
+    font-weight: 400;
+    font-size: 4.5vw;
+    /* Updated size */
+    line-height: 7.5vw;
+    /* Updated size */
+    letter-spacing: -0.05rem;
+    color: white;
+    margin-top: 3%;
+    white-space: nowrap;
+}
+
+.bluebox-whitebox-container>.bluebox>.explain {
+    font-family: 'Pretendard';
+    font-weight: 500;
+    font-size: 1.25vw;
+    /* Updated size */
+    line-height: 1.49vw;
+    /* Updated size */
+    letter-spacing: -0.05rem;
+    color: white;
+    margin-top: -2%;
+}
+
+.bluebox-whitebox-container>.whitebox {
+    width: 36vw;
+    /* Updated size */
+    height: 32vw;
+    /* Updated size */
+    margin-top: 12%;
+    margin-left: -1%;
+    border-radius: 5vw;
+    /* Updated size */
+    background-color: white;
+    box-shadow: 1.9vw 1.1vw 3.25vw 0 rgba(0, 0, 0, 0.25);
+    /* Updated size */
+}
+
+.bluebox-whitebox-container>.whitebox>form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.bluebox-whitebox-container>.whitebox>form>.LoginText {
+    margin-top: 10%;
+    margin-left: -45%;
+    font-family: 'Inter';
+    font-weight: 700;
+    font-size: 3vw;
+    line-height: 3.63vw;
+    color: #000000;
+}
+
+.bluebox-whitebox-container>.whitebox>form>p {
+    margin-left: -60%;
+    margin-top: 5%;
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 1.25vw;
+    line-height: 1.89vw;
+    /* Updated size */
+    letter-spacing: -0.05rem;
+    color: #BEBEBE;
+}
+
+input {
+    box-sizing: border-box;
+    width: 40vw;
+    /* Updated size */
+    max-width: 26.19vw;
+    /* Updated size */
+    height: 10vh;
+    /* Updated size */
+    max-height: 3.25vw;
+    /* Updated size */
+    border-radius: 2.75vw;
+    /* Updated size */
+    border: 0.05vw solid #C4C4C4;
+    /* Updated size */
+    outline: none;
+    background-color: white;
+    padding-left: 3.75vw;
+    padding-right: 3.75vw;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 1.25vw;
+    color: #4A4A4A;
+    margin-top: -2vh;
+    margin-bottom: -3vh;
+}
+
+.bluebox-whitebox-container>.whitebox>form>.UserText,
+.bluebox-whitebox-container>.whitebox>form>.PasswordText {
+    position: relative;
+}
+
+.bluebox-whitebox-container>.whitebox>form>.UserText>i,
+.bluebox-whitebox-container>.whitebox>form>.PasswordText>i {
     position: absolute;
-    top: 805px;
-    right: 622px;
+    margin-top: 0.7vw;
+    margin-left:2vw;
+    width: 28px;
+    height: 32px;
+    color: #575757;
+    z-index: 1;
+    font-size: 1.1vw;
+}
+
+@media (max-width:900px) {
+    .bluebox-whitebox-container>.whitebox>form>.UserText>i,
+    .bluebox-whitebox-container>.whitebox>form>.PasswordText>i {
+        position: absolute;
+        margin-top: 1vw;
+        margin-left: 2vw;
+    }
+}
+
+
+
+#LoginBtn {
+    width: calc(40vw - 1rem);
+    /* 조절된 크기 */
+    max-width: 26.19vw;
+    /* Updated size */
+    height: calc(6.25vh + 0.625rem);
+    /* 조절된 크기 */
+    max-height: 3.25vw;
+    /* Updated size */
+    margin-top: 10%;
+    margin-left: auto;
+    /* 수정된 부분 */
+    margin-right: auto;
+    /* 수정된 부분 */
+    border: 2px solid #4967FF;
+    border-radius: 55px;
+    background-color: #4967FF;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 1.25vw;
+    color: white;
+    cursor: pointer;
+}
+
+.bluebox-whitebox-container>.whitebox {
+    position: relative;
+    /* 추가된 속성 */
+}
+
+.bluebox-whitebox-container>.whitebox>#LoginBtn {
+    position: absolute;
+    /* 추가된 속성 */
+    bottom: -10%;
+    /* 원하는 위치로 조정 */
+    left: 50%;
+    /* 원하는 위치로 조정 */
+    transform: translateX(-50%);
+    /* 가운데 정렬을 위한 속성 */
+}
+
+.bottom{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin-top:1vw;
+}
+.bottom>a>img{
+    width:25vw;
 }
