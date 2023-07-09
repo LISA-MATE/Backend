@@ -1,0 +1,11 @@
+
+<div class="board-line">
+    <tr onclick="location.href='{% url 'boards:board-topic-detail' board_type=post.board_type topic=post.topic id=post.id %}'">
+        <td>{{post.topic}}</td>
+        <td>{{post.title}}</td>
+        <td>{{post.writer}}</td>
+        <td>{{post.created_at}}</td>
+        <td>{{post.view_count}}</td>
+    </tr>
+
+</div>

@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,9 +8,31 @@
     <title>boards</title>
 </head>
 <body>
-    hihi
-    <a href="{% url 'boards:post-create' %}">
-        글쓰기
-    </a>
+    <h1>
+        {% if board_type == 'information' %}
+            정보 게시판
+        {% elif board_type == 'review' %}
+            후기 게시판
+        {% elif board_type == 'hometown' %}
+            우리동네 게시판
+        {% endif %}
+    </h1>
+
+    <a href="{% url 'boards:post-create' %}">글쓰기</a>
+    <div class="post-list">
+        <table>
+            <tr>
+                <th>Topic</th>
+                <th>제목</th>
+                <th>작성자</th>
+                <th>작성일</th>
+                <th>조회</th>
+            </tr>
+            {% for post in post_list %}
+                {% include 'mixin/posts/post_line.html' with detail=False %}
+            {% endfor %}
+        </table>
+    </div>
+
 </body>
 </html>

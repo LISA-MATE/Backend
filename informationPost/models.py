@@ -8,7 +8,7 @@ class Post(models.Model):
     board_type_CHOICES = (
         ('information', '정보게시판'),
         ('review', '후기게시판'),
-        ('local', '우리동네게시판'),
+        ('hometown', '우리동네게시판'),
     )
     
     board_type = models.CharField(verbose_name='게시판 종류', max_length=20, choices=board_type_CHOICES)
