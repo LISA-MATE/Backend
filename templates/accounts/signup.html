@@ -50,7 +50,13 @@
                     <input type="text" placeholder="이메일을 입력해주세요." name="email">
                 </div>
                 {% if error_message %}
-                <p class="error">{{ error_message }}</p>
+                    {% if '불가능' in error_message %}
+                        <p class="error" style="color: #FF2459;">{{ error_message }}</p>
+                    {% elif '필드' in error_message %}
+                        <p class="error" style="color: #FF2459;">{{ error_message }}</p>
+                    {% else %}
+                        <p class="error" style="color: #001CEB;">{{ error_message }}</p>
+                    {% endif %}
                 {% endif %}
                 <a href="{% url 'accounts:login' %}">
                     <button id="SignupBtn" type="submit">Join</button>
