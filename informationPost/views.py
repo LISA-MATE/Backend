@@ -77,14 +77,10 @@ def post_create_form_view(request):
         if form.is_valid():
             post = form.save()
             # 폼이 성공적으로 저장될 경우의 처리 로직
-            board_type = post.board_type
+            board_type = request.POST.get('board_type')
 
-            if board_type == 'information':
-                return redirect('boards:information-list')
-            elif board_type == 'review':
-                return redirect('boards:review-list')
-            elif board_type == 'hometown':
-                return redirect('boards:hometown-list')
+            return redirect('boards:board-list', board_type=board_type)
+
     else:
         form = PostForm()
     
