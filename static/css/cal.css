@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Hind&display=swap');
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
 
 body {
     background: linear-gradient(#CDCDCD, #F5F5F5) no-repeat center fixed;
@@ -1138,6 +1144,27 @@ p {
     letter-spacing: -0.05em;
     text-align: right;
 }
+
+/*할일 div*/
+.date-bar, .date-bar2 {
+    position:absolute;
+    width: 4vw;
+    height: 1vw;
+    background-color: #4967FF;
+    border-radius:1vw;
+    white-space: nowrap;
+    font-family: 'Pretendard';
+    font-weight: 600;
+    color: #424242;
+    font-size: 0.2vw;
+    text-align:center;
+}
+
+.date-bar2 {
+    margin-top:1.5vw;
+    background-color:#87B3FF;
+}
+
 
 .day:nth-child(7n+1),
 .date:nth-child(7n+1) {

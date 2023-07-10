@@ -166,11 +166,20 @@ function createData(){
     
     var checkboxes = document.getElementsByClassName("checkbox");
     for (var i = 0; i < checkboxes.length; i++) {
-        if (checkboxes[i].checked) {
+        if (checkboxes[i].classList.contains("active")) {
         duration = checkboxes[i].id;
         break;
         }
     }
+
+    if (duration === "item1") {
+        duration = "before";
+    } else if (duration === "item2") {
+        duration = "doing";
+    } else if (duration === "item3") {
+        duration = "done";
+    }
+    
 
     // AJAX 요청 보내기
     var xhr = new XMLHttpRequest();

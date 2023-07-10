@@ -41,10 +41,10 @@
                     <div class="explain">이사 준비 중입니다!</div>
                     <div class="button-container">
                         <button type="button" id="pen">
-                            <img src="../static/image/pen.PNG">글쓰기
+                            <img src="../../static/image/pen.PNG">글쓰기
                         </button>
                         <button type="button" id="setting">
-                            <img src="../static/image/setting.png">프로필 편집/설정
+                            <img src="../../static/image/setting.png">프로필 편집/설정
                         </button>
                     </div>
                 </div>
@@ -136,16 +136,31 @@
             <div class="checkbox">
                 <p class="check_text1">이사확정후</p>
                 <div class="first_checkbox">
-                    <p class="first_checkbox_text">이사할 집 도시가스 설치요청</p><i class="fa-solid fa-plus"></i>
+                    <p class="first_checkbox_text">아아아</p><i class="fa-solid fa-plus"></i>
                 </div>
+                {% for schedule in schedules %}
+                    {% if schedule.duration == 'done' %}
+                        <div class="first_checkbox">
+                            <p class="first_checkbox_text">{{schedule.content}}</p><i class="fa-solid fa-plus"></i>
+                        </div>
+                    {%endif%}
+                {% endfor %}
                 <p class="check_text2">이사직전</p>
-                <div class="second_checkbox">
-                    <p class="second_checkbox_text">이사할 집 도시가스 설치요청</p><i class="fa-solid fa-plus"></i>
-                </div>
+                {% for schedule in schedules %}
+                    {% if schedule.duration == 'before' %}
+                        <div class="second_checkbox">
+                            <p class="second_checkbox_text">{{schedule.content}}</p><i class="fa-solid fa-plus"></i>
+                        </div>
+                    {%endif%}
+                {% endfor %}
                 <p class="check_text3">이사당일</p>
-                <div class="third_checkbox">
-                    <p class="third_checkbox_text">짐 포장 및 운반 입회 확인</p><i class="fa-solid fa-plus"></i>
-                </div>
+                {% for schedule in schedules %}
+                    {% if schedule.duration == 'doing' %}
+                        <div class="third_checkbox">
+                            <p class="third_checkbox_text">{{schedule.content}}</p><i class="fa-solid fa-plus"></i>
+                        </div>
+                    {%endif%}
+                {% endfor %}
                 <i class="fa-solid fa-plus"></i>
                 <div class="plusbox">
                     <button id="plusBtn" type="submit" onclick="openModal()"><i class="fa-solid fa-circle-plus"> 직접

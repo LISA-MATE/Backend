@@ -1,6 +1,10 @@
 // 현재 날짜 가져오는 Date 객체 생성
 let date = new Date();
 
+//할 일
+const task = '정리';
+const work='청소';
+
 const renderCalendar = () => {
     const viewYear = date.getFullYear(); // 현재 년도 가져오기
     const viewMonth = (date.getMonth() + 1).toString().padStart(2, '0'); // 현재 월 가져오기, 2자리로 변환
@@ -47,7 +51,18 @@ const renderCalendar = () => {
 
     dates.forEach((date, i) => {
         const condition = i >= firstDateIndex && i < lastDateIndex + 1 ? 'this' : 'other';
-        dates[i] = `<div class="date"><span class="${condition}">${date}</span></div>`;
+        const currentDate = new Date(viewYear, viewMonth - 1, date); // 현재 년, 월과 날짜(date)를 기반으로한 날짜 객체 생성
+        const showTask = currentDate.getMonth() === 6&& currentDate.getDate() === 21 ? 'visible' : 'hidden'; // 특정 날짜에만 date-bar2 표시 여부 결정 -> 2023.07.21
+        const taskText = showTask === 'visible' ? work : '';
+
+        //일정 div 추가
+        dates[i] = `
+        <div class="date">
+            <span class="${condition}">
+            <div class="date-bar">${task}</div>
+            <div class="date-bar2" style="visibility: ${showTask}">${taskText}</div>
+            ${date}</span>
+        </div>`;
     });
 
     document.querySelector('.dates').innerHTML = dates.join('');
@@ -156,10 +171,20 @@ const modalrenderCalendar = () => {
     const lastDateIndex = dates.lastIndexOf(TLDate);
 
     dates.forEach((date, i) => {
-        const condition = i >= firstDateIndex && i < lastDateIndex + 1 ? 'modal-this' : 'modal-other';
-        dates[i] = `<div class="modaldate"><span class="${condition}">${date}</span></div>`;
-    });
+        const condition = i >= firstDateIndex && i < lastDateIndex + 1 ? 'this' : 'other';
+        const currentDate = new Date(viewYear, viewMonth - 1, date); // 현재 년, 월과 날짜(date)를 기반으로한 날짜 객체 생성
+        const showTask = currentDate.getMonth() === 6 && currentDate.getDate() === 21 ? 'visible' : 'hidden'; // 특정 날짜에만 date-bar2 표시 여부 결정
+        const taskText = showTask === 'visible' ? work : '';
 
+        //일정 div 추가
+        dates[i] = `
+        <div class="date">
+            <span class="${condition}">
+            <div class="date-bar">${task}</div>
+            <div class="date-bar2" style="visibility: ${showTask}">${taskText}</div>
+            ${date}</span>
+        </div>`;
+    });
     document.querySelector('.modaldates').innerHTML = dates.join('');
 
     const today = new Date();
