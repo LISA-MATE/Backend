@@ -16,21 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.conf import settings
-from django.conf.urls.static import static
-from lisamate.views import ProfileView
-from django.views.generic import RedirectView
-
+from lisamate.views import MainView, ProfileView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', RedirectView.as_view(pattern_name='checklist:index', permanent=False)),
-    path('checklist/', include('checklist.urls', namespace='checklist')),
-    path('accounts/', include('accounts.urls', namespace='accounts')),
+    path('', MainView.as_view(), name='main'),
     path('profile/', ProfileView.as_view(), name='profile'),
-    path('boards/', include('informationPost.urls', namespace='informationPost')),
-
+    path('accounts/', include('accounts.urls', namespace='accounts')),
 ]
-
-# MEDIA_URL로 들어오면 MEDIA_ROOT에서 정의한 걸 찾아서 사용
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
