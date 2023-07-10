@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LisaMate</title>
-    <link rel="stylesheet" href="../static/css/basic.css">
+    <link rel="stylesheet" href="../static/css/write.css">
     <script src="https://kit.fontawesome.com/d4b61b3d04.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
-    <div class="Middle">
-        <div class="Mcircle"></div>
-    </div>
     <div class="top">
-        <p>My Check list</p>
+        <p>LISA MATE</p>
         <div class="icon">
             <i class="fa-solid fa-user fa-2xl"></i>
             <i class="fa-solid fa-house fa-2xl"></i>
@@ -23,8 +22,16 @@
         </div>
     </div>
 
-    <div class="logo">
-        <p>LISA MATE</p>
+    <div class="topBox">
+        <div class="topBlueBox"></div>
+        <div class="topCircle"></div>
+        <p id="p1">LISA</p><br>
+        <p id="p2">MATE</p>
+        <div class="miniTitle">
+            <p id="mini">Move Checklist Service</p>
+        </div>
+        <div class="topbar"></div>
+        <p id="mini2">나의 이사메이트 리사.</p>
     </div>
 
     <div class="all">
@@ -120,7 +127,66 @@
                 </div>
             </div>
         </div>
-        <div class="right"></div>
+
+        <div class="right">
+            <div class="writebar">
+                <p id="writeTitle">글쓰기</p>
+                <p id="subTitle">정보 게시판 & 후기 게시판 & 우리동네 게시판</p>
+                <i class="fa-solid fa-repeat fa-lg"></i>
+            </div>
+            <form>
+            <div class="writebox">
+                <div class="selectBox1">
+                    <select name="postType" id="postType">
+                        <option value="none" hidden>게시판 선택</option>
+                        <optgroup label="정보게시판">
+                            <option value="monthlyInformation">월세 정보 공유</option>
+                            <option value="JeonseInformation">전세 정보 공유</option>
+                            <option value="bargainInformation">매매 정보 공유</option>
+                        </optgroup>
+                        <optgroup label="후기게시판">
+                            <option value="reviewMonthly">월세 후기</option>
+                            <option value="reviewJeonse">전세 후기</option>
+                            <option value="reviewBargain">매매 후기</option>
+                        </optgroup>
+                        <optgroup label="우리동네 게시판">
+                            <option value="ourtownSituation">우리동네 현황</option>
+                            <option value-="ourtownCriminal">범죄자 거주 정보</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <input type="text" id="TitleInput" placeholder="제목을 입력해주세요.">
+                <div class="toolbox">
+                    <button id="open-modal">
+                        <i class="fa-regular fa-image"></i>
+                    </button>
+                    <i class="fa-solid fa-video"></i>
+                    <i class="fa-regular fa-face-smile"></i>
+                    <i class="fa-solid fa-folder-plus"></i>
+                    <i class="fa-solid fa-link"></i>
+                    <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <div id="textareaContainer" contenteditable="true"></div>
+            </div>
+            </form>
+            <input type="submit" value="등록하기" id="submitButton">
+        </div>
     </div>
+    <div id="modal">
+        <div class="modal-content">
+            <p>사진 첨부</p>
+            <input type="file" name="file" accept="image/*" id="bizFile">
+            <div class="custom">
+                <label for="bizFile" class="btn fileBtn">
+                    <div class="imagebox">
+                        <i class="fa-solid fa-folder-plus fa-lg"></i>
+                    </div>
+                </label>
+                <span id="fileName">또는<br>이곳에 사진 파일을<br>끌어놓으세요.</span>
+            </div>
+            <button id="close-modal">X</button>
+        </div>
+    </div>
+    <script src="../static/javascript/write.js"></script>
 </body>
 </html>

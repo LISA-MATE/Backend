@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LisaMate</title>
-    <link rel="stylesheet" href="../static/css/basic.css">
+    <link rel="stylesheet" href="../static/css/profile.css">
     <script src="https://kit.fontawesome.com/d4b61b3d04.js" crossorigin="anonymous"></script>
+    <script src="../static/javascript/profile.js"></script>
 </head>
 <body>
     <div class="Middle">
         <div class="Mcircle"></div>
     </div>
     <div class="top">
-        <p>My Check list</p>
+        <p>LISA MATE</p>
         <div class="icon">
             <i class="fa-solid fa-user fa-2xl"></i>
             <i class="fa-solid fa-house fa-2xl"></i>
@@ -23,8 +24,8 @@
         </div>
     </div>
 
-    <div class="logo">
-        <p>LISA MATE</p>
+    <div class="EditTitle">
+        <p>Edit Profile</p>
     </div>
 
     <div class="all">
@@ -120,7 +121,48 @@
                 </div>
             </div>
         </div>
-        <div class="right"></div>
+        <div class="right">
+            <div class="profile">
+                <i class="fa-solid fa-gear fa-2xl"></i>
+                <p>프로필 편집</p>
+            </div>
+            <form action="#">
+            <div class="profilebox">
+                <p id="uname">아기사자 33</p>
+                <div class="emailbox">LIKEALION3333@gmail.com</div>
+                <div class="photoEdit">
+                    <div class="photo"></div>
+                    <button id="rephoto" onclick="rephotoButtonClickHandler()">
+                        <i class="fa-solid fa-pen fa-xl"></i>
+                    </button>
+                    <div class="modal-container" id="modalContainer">
+                        <div class="modal" id="modal">
+                            <button id="close" onclick="closeModal()">X</button>
+                            <h1>프로필 사진 변경</h1>
+                            <input type="file" id="photoInput" onchange="handleFileUpload(event)">
+                            <div class="photobox">
+                                <div class="photoImage"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="EmailContainer">
+                    <p id="Email">E-mail</p>
+                    <p>LIKEALION3333@gmail.com</p>
+                </div>
+                <div class="ExplainContainer1">
+                    <p id="Explain">소개글</p>
+                </div>
+                <div class="ExplainContainer2">
+                    <p id="explaintext">이사 준비 중입니다!</p>
+                </div>
+                <div class="buttonContainer">
+                    <button id="edit" onclick="editClick()">수정</button>
+                    <button type="submit" id="save" onclick="saveClick()">완료</button>
+                </div>
+            </div>
+            </form>
+        </div>
     </div>
 </body>
 </html>

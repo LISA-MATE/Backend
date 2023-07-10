@@ -7,7 +7,6 @@
     <title>LisaMate</title>
     <link rel="stylesheet" href="../../static/css/login.css">
     <script src="https://kit.fontawesome.com/d4b61b3d04.js" crossorigin="anonymous"></script>
-    <script src="../static/javascript/login.js"></script>
 </head>
 
 <body>
@@ -35,12 +34,12 @@
             <form action = "" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div class="LoginText">Login</div>
-                <p>User</p>
-                <div class="UserText">
+                <p>Email</p>
+                <div class="EmailText">
                     <i class="fa-regular fa-user fa-lg"></i>
                     <input type="text" placeholder="이메일을 입력해주세요." name="email">
                 </div>
-                <p style="margin-left:-53%">Password</p>
+                <p style="margin-top:2%; padding-left:4%">Password</p>
                 <div class="PasswordText">
                     <i class="fa-solid fa-lock fa-lg"></i>
                     <input type="password" placeholder="비밀번호를 입력해주세요." name="password">
@@ -54,7 +53,7 @@
                 </a>
                 <div class="bottom">
                     <a href="{% url 'accounts:signup' %}">
-                        <button type="submit"><img src="../../static/image/signup.png"></button>
+                        <img src="../../static/image/signup.png">
                     </a>
                 </div>
             </form>

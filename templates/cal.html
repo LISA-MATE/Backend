@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LisaMate</title>
-    <link rel="stylesheet" href="../static/css/basic.css">
-    <script src="https://kit.fontawesome.com/d4b61b3d04.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../static/css/cal.css">
 </head>
+
 <body>
     <div class="Middle">
         <div class="Mcircle"></div>
@@ -25,6 +26,12 @@
 
     <div class="logo">
         <p>LISA MATE</p>
+    </div>
+
+    <div class="middleTitle">
+        <p id="CL">Checklist</p>
+        <p id="bar">|</p>
+        <p id="Cal">Calendar</p>
     </div>
 
     <div class="all">
@@ -120,7 +127,95 @@
                 </div>
             </div>
         </div>
-        <div class="right"></div>
+
+        <div class="right">
+            <div class="calendarbox">
+                <div class="Calendar1">
+                    <div class="Container">
+                        <i class="fa-regular fa-calendar fa-2xl"></i>
+                        <div class="ctext">
+                            <p>Calendar</p>
+                        </div>
+                    </div>
+                    <div class="innerCalendar">
+                        <div class="calendar">
+                            <div class="header">
+                                <div class="year-month"></div>
+                                <div class="nav">
+                                    <button class="nav-btn go-prev" onclick="prevMonth()">&lt;</button>
+                                    <button class="nav-btn go-today"></button>
+                                    <button class="nav-btn go-next" onclick="nextMonth()">&gt;</button>
+                                </div>
+                            <div class="year-month2"></div>
+                        </div>
+                        <div class="main" onclick="openModal()">
+                            <div class="days">
+                                <div class="day">일</div>
+                                <div class="day">월</div>
+                                <div class="day">화</div>
+                                <div class="day">수</div>
+                                <div class="day">목</div>
+                                <div class="day">금</div>
+                                <div class="day">토</div>
+                            </div>
+                        <div class="dates"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="modal" class="modal">
+                <div class="modal-content" id="modal-content">
+                    <div class="modalTop">
+                        <p id="modal-close" onclick="closeModal()">LISA MATE</p>
+                        <div class="rightContainer">
+                            <div class="text4">
+                                <p>Checklist</p>
+                            </div>
+                            <p>|</p>
+                            <div class="text6">
+                                <p>Calendar</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modalBox">
+                        <div class="modalbox"></div>
+                        <div class="modalbar"></div>
+                        <div class="modalcircle"></div>
+                        <div class="modalinner"></div>
+                        <i class="fa-regular fa-calendar fa-2xl"></i>
+                        <div class="ctext2">Calendar</div>
+                        <div class="inner"></div>
+                    </div>
+                    <div class="modalcalendar">
+                        <div class="modalheader">
+                            <div class="modal-year-month"></div>
+                            <div class="modalnav">
+                                <button class="modalnav-btn modal-go-prev" onclick="prevMonth2()">&lt;</button>
+                                <button class="modalnav-btn modal-go-today"></button>
+                                <button class="modalnav-btn modal-go-next" onclick="nextMonth2()">&gt;</button>
+                            </div>
+                            <div class="modal-year-month2"></div>
+                        </div>
+                        <div class="modalmain">
+                            <div class="modaldays">
+                                <div class="modalday">일</div>
+                                <div class="modalday">월</div>
+                                <div class="modalday">화</div>
+                                <div class="modalday">수</div>
+                                <div class="modalday">목</div>
+                                <div class="modalday">금</div>
+                                <div class="modalday">토</div>
+                            </div>
+                            <div class="modaldates"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="leftbar"></div>
+        <div class="leftcircle"></div>
     </div>
 </body>
+    <script src="../static/javascript/cal.js"></script>
+    <script src="https://kit.fontawesome.com/d4b61b3d04.js" crossorigin="anonymous"></script>
 </html>

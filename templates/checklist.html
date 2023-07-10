@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LisaMate</title>
+    <link rel="stylesheet" href="../static/css/checklist.css">
+    <script src="https://kit.fontawesome.com/d4b61b3d04.js" crossorigin="anonymous"></script>
+    <script src="../static/javascript/checklist.js"></script>
+</head>
+
+<body>
+    <div class="Middle">
+        <div class="Mcircle"></div>
+    </div>
+    <div class="top">
+        <p>My Check list</p>
+        <div class="icon">
+            <i class="fa-solid fa-user fa-2xl"></i>
+            <i class="fa-solid fa-house fa-2xl"></i>
+            <div class="bell">
+                <i class="fa-solid fa-bell fa-2xl"></i>
+                <div class="redcircle"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="logo">
+        <p>LISA MATE</p>
+    </div>
+
+    <div class="all">
+        <div class="left">
+            <div class="userBox">
+                <div class="user">USER</div>
+                <div class="userbox">
+                    <div class="userImage"></div>
+                    <div class="name">아기사자 33</div>
+                    <div class="email">LIKEALION@333</div>
+                    <div class="explain">이사 준비 중입니다!</div>
+                    <div class="button-container">
+                        <button type="button" id="pen">
+                            <img src="../static/image/pen.PNG">글쓰기
+                        </button>
+                        <button type="button" id="setting">
+                            <img src="../static/image/setting.png">프로필 편집/설정
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu">
+                <div class="checklist">체크리스트</div>
+                <div class="checklistcircle"></div>
+                <div class="text1">
+                    <div class="checklistText">
+                        <i class="fa-solid fa-circle fa-xs"></i>
+                        <p>체크리스트</p>
+                    </div>
+                    <div class="calText">
+                        <i class="fa-solid fa-circle fa-xs"></i>
+                        <p>캘린더</p>
+                    </div>
+                </div>
+                <div class="noticeboard">게시판</div>
+                <div class="noticeboardcircle"></div>
+                <div class="text2">
+                    <div class="notice">
+                        <p>정보 게시판</p>
+                    </div>
+                    <div class="monthly">
+                        <i class="fa-solid fa-circle fa-xs"></i>
+                        <p>월세 정보 공유</p>
+                    </div>
+                    <div class="Jeonse">
+                        <i class="fa-solid fa-circle fa-xs"></i>
+                        <p>전세 정보 공유</p>
+                    </div>
+                    <div class="bargain">
+                        <i class="fa-solid fa-circle fa-xs"></i>
+                        <p>매매 정보 공유</p>
+                    </div>
+                    <hr>
+                </div>
+                <div class="text3">
+                    <div class="review">
+                        <p>후기 게시판</p>
+                    </div>
+                    <div class="monthlyReview">
+                        <i class="fa-solid fa-circle fa-xs"></i>
+                        <p>월세 후기</p>
+                    </div>
+                    <div class="JeonseReview">
+                        <i class="fa-solid fa-circle fa-xs"></i>
+                        <p>전세 후기</p>
+                    </div>
+                    <div class="bargainReview">
+                        <i class="fa-solid fa-circle fa-xs"></i>
+                        <p>매매 후기</p>
+                    </div>
+                    <hr>
+                </div>
+                <div class="text4">
+                    <div class="town">
+                        <p>우리동네 게시판</p>
+                    </div>
+                    <div class="situation">
+                        <i class="fa-solid fa-circle fa-xs"></i>
+                        <p>우리동네 현황</p>
+                    </div>
+                    <div class="criminal">
+                        <i class="fa-solid fa-circle fa-xs"></i>
+                        <p>범죄자 거주 정보</p>
+                    </div>
+                </div>
+            </div>
+            <div class="scheduleTitle">Schedule</div>
+            <div class="scheduleBox">
+                <img src="../static/image/sleepy.png">
+                <div class="scheduleText">
+                    <p>오늘의 일정이 없습니다.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="right">
+            <div class="exambox">
+                <p class="box_title">부기의<br><br> 이사 체크리스트</p>
+                <hr class="box_hr">
+                <p class="box_text1">Lisa가 추천하는 기본 체크리스트 항목</p>
+                <p class="box_text2">부기가 추천하는 기본 체크리스트 항목</p>
+                <p class="box_text3">나의 추가 체크리스트 항목</p>
+                <p class="box_text4">+</p>
+            </div>
+            <div class="checkbox">
+                <p class="check_text1">이사확정후</p>
+                <div class="first_checkbox">
+                    <p class="first_checkbox_text">이사할 집 도시가스 설치요청</p><i class="fa-solid fa-plus"></i>
+                </div>
+                <p class="check_text2">이사직전</p>
+                <div class="second_checkbox">
+                    <p class="second_checkbox_text">이사할 집 도시가스 설치요청</p><i class="fa-solid fa-plus"></i>
+                </div>
+                <p class="check_text3">이사당일</p>
+                <div class="third_checkbox">
+                    <p class="third_checkbox_text">짐 포장 및 운반 입회 확인</p><i class="fa-solid fa-plus"></i>
+                </div>
+                <i class="fa-solid fa-plus"></i>
+                <div class="plusbox">
+                    <button id="plusBtn" type="submit" onclick="openModal()"><i class="fa-solid fa-circle-plus"> 직접
+                            추가하기</i></button>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal-container" id="modalContainer">
+        <div class="modal" id="modal">
+            <p id="ModalTitle"><i class="fa-solid fa-circle-plus"> 직접 추가하기</i></p>
+            <p id="modal_firsttext">작성 내용</p>
+            <input type="text" id="modal_Input" placeholder="일정을 입력해주세요">
+            <p id="modal_secondtext">날짜 선택</p>
+            <div class="dropbox">
+                <select id="year">
+                    <option value="2022">2023년</option>
+                    <option value="2023">2024년</option>
+                    <option value="2024">2026년</option>
+                    <option value="2024">2027년</option>
+                    <option value="2024">2028년</option>
+                    <option value="2024">2029년</option>
+                </select>
+
+                <select id="month">
+                    <option value="01">1월</option>
+                    <option value="02">2월</option>
+                    <option value="03">3월</option>
+                    <option value="04">4월</option>
+                    <option value="05">5월</option>
+                    <option value="06">6월</option>
+                    <option value="07">7월</option>
+                    <option value="08">8월</option>
+                    <option value="09">9월</option>
+                    <option value="10">10월</option>
+                    <option value="11">11월</option>
+                    <option value="12">12월</option>
+
+                </select>
+
+                <select id="day">
+                    <option value="01">1일</option>
+                    <option value="02">2일</option>
+                    <option value="03">3일</option>
+                    <option value="04">4일</option>
+                    <option value="05">5일</option>
+                    <option value="06">6일</option>
+                    <option value="07">7일</option>
+                    <option value="08">8일</option>
+                    <option value="09">9일</option>
+                    <option value="10">10일</option>
+                    <option value="11">11일</option>
+                    <option value="12">12일</option>
+                    <option value="13">13일</option>
+                    <option value="14">14일</option>
+                    <option value="15">15일</option>
+                    <option value="16">16일</option>
+                    <option value="17">17일</option>
+                    <option value="18">18일</option>
+                    <option value="19">19일</option>
+                    <option value="20">20일</option>
+                    <option value="21">21일</option>
+                    <option value="22">22일</option>
+                    <option value="23">23일</option>
+                    <option value="24">24일</option>
+                    <option value="25">25일</option>
+                    <option value="26">26일</option>
+                    <option value="27">27일</option>
+                    <option value="28">28일</option>
+                    <option value="29">29일</option>
+                    <option value="30">30일</option>
+                    <option value="31">31일</option>
+                </select>
+            </div>
+
+            <p id="modal_thirdtext">기간 지정</p>
+            <div class="checkbox" id="item1">이사전</div>
+            <div class="checkbox" id="item2">이사중</div>
+            <div class="checkbox" id="item3">이사후</div>
+
+            <button id="close" onclick="closeModal()">완료</button>
+
+        </div>
+    </div>
+
+
+</body>
+
+</html>
