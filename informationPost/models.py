@@ -26,25 +26,6 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
-    # TOPIC_CHOICES = {
-    #     'information': (
-    #         ('전세', '전세'),
-    #         ('월세', '월세'),
-    #         ('매매', '매매'),
-    #     ),
-    #     'review': (
-    #         ('전세', '전세'),
-    #         ('월세', '월세'),
-    #         ('매매', '매매'),
-    #     ),
-    #     'local': (
-    #         ('우리동네', '우리동네'),
-    #         ('범죄자', '범죄자'),
-    #     ),
-    # }
-
-        
-    # topic = models.CharField(verbose_name='해당 게시물에 대한 topic', max_length=20, choices=TOPIC_CHOICES.get(board_type, ())) 
 
 class Comment(models.Model): # 댓글
     content = models.TextField(verbose_name='내용')

@@ -1,7 +1,6 @@
 from django.shortcuts import get_object_or_404, render, redirect
 
 from .models import Post
-from .form import PostForm
 
 def index(request):
     return redirect('boards:board-list', board_type='information')

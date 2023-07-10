@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>boards</title>
+</head>
+<body>
+    <h1>post detail 화면</h1>
+    {% if board_type == 'information' %}
+        <h2>정보 게시판</h2>
+    {% elif board_type == 'review' %}
+        <h2>후기 게시판</h2>
+    {% elif board_type == 'hometown' %}
+        <h2>우리동네 게시판</h2>
+    {% endif %}
+    <div class="post-detail">
+        <p> 전체 게시판 &gt; {{ post.board_type }} &gt; {{ post.topic }} </p>
+        <p>제목 : {{post.title}} </p>
+        <p>작성자 : {{post.writer}}</p>
+        <p>날짜 : {{post.created_at}} | 구역 : {{post.city}} {{post.country}} | 조회수 : {{post.view_count}} </p>
+        {% if post.image %}
+            <p>이미지: <img src="{{ post.image.url }}" alt="이미지"></p>
+        {% endif %}
+        <p>내용 :  {{post.content}} </p>
+        {% if post.file %}
+            <p>파일: <a href="{{ post.file.url }}">{{ post.file}}</a></p>
+        {% endif %}
+    </div>
+
+    <a href="{% url 'boards:post-update' board_type=post.board_type topic=post.topic id=post.id %}">수정하기</a>
+    <a href="#" onclick="confirmDelete({{ post.id }})">삭제하기</a>
+
+    <script>
+        function confirmDelete(postId) {
+            var result = confirm("정말로 삭제하시겠습니까?");
+            if (result) {
+                var postId = "{{ post.id }}";
+                var url = "{% url 'boards:post-delete' id=0 %}".replace('0', postId);
+                window.location.href = url;
+            } else {
+                // 삭제 취소
+            }
+        }
+        </script>
+</body>
+</html>

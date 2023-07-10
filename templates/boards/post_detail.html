@@ -1,39 +1,227 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>boards</title>
+    <title>LisaMate</title>
+    <link rel="stylesheet" href="../../../static/css/post.css">
+    <script src="https://kit.fontawesome.com/d4b61b3d04.js" crossorigin="anonymous"></script>
+    <script src="../../../static/javascript/post.js"></script>
 </head>
+
 <body>
-    <h1>post detail 화면</h1>
-    {% if board_type == 'information' %}
-        <h2>정보 게시판</h2>
-    {% elif board_type == 'review' %}
-        <h2>후기 게시판</h2>
-    {% elif board_type == 'hometown' %}
-        <h2>우리동네 게시판</h2>
-    {% endif %}
-    <div class="post-detail">
-        <p> 전체 게시판 &gt; {{ post.board_type }} &gt; {{ post.topic }} </p>
-        <p>제목 : {{post.title}} </p>
-        <p>작성자 : {{post.writer}}</p>
-        <p>날짜 : {{post.created_at}} | 구역 : {{post.city}} {{post.country}} | 조회수 : {{post.view_count}} </p>
-        {% if post.image %}
-            <p>이미지: <img src="{{ post.image.url }}" alt="이미지"></p>
-        {% endif %}
-        <p>내용 :  {{post.content}} </p>
-        {% if post.file %}
-            <p>파일: <a href="{{ post.file.url }}">{{ post.file}}</a></p>
-        {% endif %}
+    <div class="top">
+        <p>LISA MATE</p>
+        <div class="icon">
+            <i class="fa-solid fa-user fa-2xl"></i>
+            <i class="fa-solid fa-house fa-2xl"></i>
+            <div class="bell">
+                <i class="fa-solid fa-bell fa-2xl"></i>
+                <div class="redcircle"></div>
+            </div>
+        </div>
     </div>
 
-    <a href="{% url 'boards:post-update' board_type=post.board_type topic=post.topic id=post.id %}">수정하기</a>
-    <a href="#" onclick="confirmDelete({{ post.id }})">삭제하기</a>
+    <div class="topBox">
+        <div class="topBlueBox"></div>
+        <div class="topCircle"></div>
+        <p id="p1">LISA</p><br>
+        <p id="p2">MATE</p>
+        <div class="miniTitle">
+            <p id="mini">Move Checklist Service</p>
+        </div>
+        <div class="topbar"></div>
+        <p id="mini2">나의 이사메이트 리사.</p>
+    </div>
+
+    <div class="all">
+        <div class="left">
+            <div class="userBox">
+                <div class="user">USER</div>
+                <div class="userbox">
+                    <div class="userImage"></div>
+                    <div class="name">아기사자 33</div>
+                    <div class="email">LIKEALION@333</div>
+                    <div class="explain">이사 준비 중입니다!</div>
+                    <div class="button-container">
+                        <button type="button" id="pen">
+                            <img src="../../static/image/pen.PNG">글쓰기
+                        </button>
+                        <button type="button" id="setting">
+                            <img src="../../static/image/setting.png">프로필 편집/설정
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu">
+                <div class="checklist">체크리스트</div>
+                <div class="checklistcircle"></div>
+                <div class="text1">
+                    <div class="checklistText">
+                        <i class="fa-solid fa-circle fa-xs"></i>
+                        <p>체크리스트</p>
+                    </div>
+                    <div class="calText">
+                        <i class="fa-solid fa-circle fa-xs"></i>
+                        <p>캘린더</p>
+                    </div>
+                </div>
+                <div class="noticeboard">게시판</div>
+                <div class="noticeboardcircle"></div>
+                <div class="text2">
+                    <div class="notice">
+                        <p>정보 게시판</p>
+                    </div>
+                    <div class="monthly">
+                        <i class="fa-solid fa-circle fa-xs"></i>
+                        <p>월세 정보 공유</p>
+                    </div>
+                    <div class="Jeonse">
+                        <i class="fa-solid fa-circle fa-xs"></i>
+                        <p>전세 정보 공유</p>
+                    </div>
+                    <div class="bargain">
+                        <i class="fa-solid fa-circle fa-xs"></i>
+                        <p>매매 정보 공유</p>
+                    </div>
+                    <hr>
+                </div>
+                <div class="text3">
+                    <div class="review">
+                        <p>후기 게시판</p>
+                    </div>
+                    <div class="monthlyReview">
+                        <i class="fa-solid fa-circle fa-xs"></i>
+                        <p>월세 후기</p>
+                    </div>
+                    <div class="JeonseReview">
+                        <i class="fa-solid fa-circle fa-xs"></i>
+                        <p>전세 후기</p>
+                    </div>
+                    <div class="bargainReview">
+                        <i class="fa-solid fa-circle fa-xs"></i>
+                        <p>매매 후기</p>
+                    </div>
+                    <hr>
+                </div>
+                <div class="text4">
+                    <div class="town">
+                        <p>우리동네 게시판</p>
+                    </div>
+                    <div class="situation">
+                        <i class="fa-solid fa-circle fa-xs"></i>
+                        <p>우리동네 현황</p>
+                    </div>
+                    <div class="criminal">
+                        <i class="fa-solid fa-circle fa-xs"></i>
+                        <p>범죄자 거주 정보</p>
+                    </div>
+                </div>
+            </div>
+            <div class="scheduleTitle">Schedule</div>
+            <div class="scheduleBox">
+                <img src="../../static/image/sleepy.png">
+                <div class="scheduleText">
+                    <p>오늘의 일정이 없습니다.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="right">
+            <div class="writebar">
+                <p id="writeTitle">
+                    {% if board_type == 'information' %}
+                        <h2>정보 게시판</h2>
+                    {% elif board_type == 'review' %}
+                        <h2>후기 게시판</h2>
+                    {% elif board_type == 'hometown' %}
+                        <h2>우리동네 게시판</h2>
+                    {% endif %}
+                </p>
+                <p id="subTitle">정보 게시판 & 후기 게시판 & 우리동네 게시판</p>
+                <i class="fa-solid fa-repeat fa-lg"></i>
+            </div>
+            <div class="detail_whitebox">
+                <div class="category">
+                    <a>전체 게시판</a> <a>></a> <a>{{ post.board_type }}</a> <a>></a> <a>{{ post.topic }} 후기</a>
+                </div>
+                <div class="detail_whitebox_title">
+
+                    <div class="container">
+                        <h1>{{post.title}}</h1>
+                        <div class="dropdown">
+                            <i class="fa-solid fa-ellipsis-vertical dropdown-icon" onclick="toggleDropdown()"></i>
+                            <div class="dropdown-options" id="dropdown-options">
+                                <div class="dropdown-option" onclick="editOption()">수정하기</div>
+                                <div class="dropdown-option" onclick="deleteOption({{ post.id }})">삭제하기</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="detail_user">
+                        <div class="detail_userImage"></div>
+                        <div class="detail_user2">
+                            <a class="detail_nickname">{{post.writer}}</a>
+                            <div class="detail_user3">
+                                <a class="detail_date">{{post.created_at}} </a>
+                                <p class="detail_line"> | </p>
+                                <a class="detail_place">{{post.city}} {{post.country}}</a>
+                                <p class="detail_line"> | </p>
+                                <a class=" detail_see">조회 </a>
+                                    <a class="detail_see">{{post.view_count}}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                {% if post.image %}
+                    <p><img src="{{ post.image.url }}" alt="이미지"></p>
+                {% endif %}
+                <p class="detail_text">{{post.content}} </p>
+                {% if post.file %}
+                    <p>파일: <a href="{{ post.file.url }}">{{ post.file}}</a></p>
+                {% endif %}
+            </div>
+
+            <div class="detail_bottom">
+                <button id="like" onclick="toggleLikeIcon()"><i class="fa-solid fa-heart"></i> 좋아요 <i id="icon1"
+                        class="fa-solid fa-chevron-down"></i></button>
+                <button id="comment" onclick="toggleCommentIcon()"><i class="fa-solid fa-comment"></i> 댓글 <i id="icon2"
+                        class="fa-solid fa-chevron-down"></i></button>
+                <div id="comment-list" style="display: none;">
+                    <!-- 댓글 리스트 내용 -->
+                    <p class="comment_title">댓글쓰기</p>
+                    <div class="comment_box">
+                        <div class="comment_user">
+                            <div class="comment_userImage"></div>
+                            <a class="comment_nickname">닉네임</a>
+
+                            <div class="comment_dropdown">
+                                <i class="fa-solid fa-ellipsis-vertical dropdown-icon"
+                                    onclick="comment_toggleDropdown()"></i>
+                                <div class="comment_dropdown-options" id="comment_dropdown-options">
+                                    <a href="{% url 'boards:post-update' board_type=post.board_type topic=post.topic id=post.id %}">
+                                        <div class="comment_dropdown-option">수정하기</div>
+                                    </a>
+                                    <div class="comment_dropdown-option" onclick="comment_deleteOption()">삭제하기</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="comment_text">나름 유니크하고 매력있는 디자인이네요 ^^
+                            독특한 인테리어가 될 것 같아요 ~ </a>
+                        <a class="comment_date"><br>
+                            <br>2023.05.26. 01:47 </a>
+                        <button id="comment_like"><i class="fa-solid fa-heart"></i><a>1</a></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <script>
-        function confirmDelete(postId) {
+        function deleteOption(postId) {
             var result = confirm("정말로 삭제하시겠습니까?");
             if (result) {
                 var postId = "{{ post.id }}";
@@ -43,6 +231,7 @@
                 // 삭제 취소
             }
         }
-        </script>
+    </script>
 </body>
+
 </html>
