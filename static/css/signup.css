@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hind&display=swap');
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    background: linear-gradient(180deg, #CDCDCD 0%, #F5F5F5 100%);
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo>p {
+    margin-top: 0%;
+    margin-left: 1%;
+    font-family: Inter;
+    font-size: 3vw;
+    font-weight: 600;
+    line-height: 3.631vw;
+    letter-spacing: -0.05em;
+    text-align: left;
+    color: #242A57;
+}
+
+.logo>a>i {
+    width: 3vw;
+    height: 3.2vw;
+    color: #242A5D;
+    margin-right: 2vw;
+}
+
+.CircleContainer {
+    position: absolute;
+    z-index: -1;
+}
+
+.circle1 {
+    width: 45vw;
+    height: 45vw;
+    background-color: #242A5D;
+    border-radius: 50%;
+    margin-top: 25vw;
+    margin-left: -10vw;
+}
+
+.circle2 {
+    width: 61.6vw;
+    height: 61.6vw;
+    background-color: #99BCFF;
+    border-radius: 50%;
+    filter: blur(5px);
+    margin-top: -78vw;
+    margin-left: 80vw;
+}
+
+.circle3 {
+    width: 31vw;
+    height: 31vw;
+    background-color: #2A38B1;
+    border-radius: 50%;
+    filter: blur(10px);
+    margin-top: -85vw;
+    margin-left: 50vw;
+}
+
+.bluebox-whitebox-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -7%;
+    margin-left: -5%;
+}
+
+.bluebox-whitebox-container>.bluebox {
+    width: 34vw;
+    height: 38vw;
+    border-radius: 6.5vw;
+    background: linear-gradient(#4762FF, #78B6FF);
+    box-shadow: 25px 0px 36px -1px #0000003B;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.bluebox-whitebox-container>.bluebox>.subTitle {
+    font-family: 'Inter';
+    margin-top:-10%;
+    font-weight: 600;
+    font-size: 2vw;
+    color: white;
+}
+
+.bluebox-whitebox-container>.bluebox>.Title {
+    font-family: 'Jua';
+    font-weight: 400;
+    font-size: 6vw;
+    color: white;
+    margin-top: 5%;
+    white-space: nowrap;
+}
+
+.bluebox-whitebox-container>.bluebox>.explain {
+    font-family: 'Pretendard';
+    font-weight: 500;
+    font-size: 1.2vw;
+    color: white;
+    margin-top: -2%;
+}
+
+.bluebox-whitebox-container>.whitebox {
+    width: 36vw;
+    height: 36vw;
+    margin-top: 10%;
+    margin-left: -1%;
+    border-radius: 5vw;
+    background-color: white;
+    box-shadow: 1.9vw 1.1vw 3.25vw 0 rgba(0, 0, 0, 0.25);
+}
+
+.bluebox-whitebox-container>.whitebox>form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.bluebox-whitebox-container>.whitebox>form>.SignupText {
+    margin-top: 10%;
+    margin-left: -35%;
+    font-family: 'Inter';
+    font-weight: 700;
+    font-size: 4vw;
+    color: #000000;
+}
+
+
+.bluebox-whitebox-container>.whitebox>form>p{
+    font-weight: 'Inter';
+    font-weight:400;
+    font-size:1vw;
+    color:#BEBEBE;
+    margin-left:-50%;
+    margin-top:2vw;
+}
+
+.bluebox-whitebox-container>.whitebox>form>.NicknameText,
+.bluebox-whitebox-container>.whitebox>form>.PasswordText,
+.bluebox-whitebox-container>.whitebox>form>.EmailText{
+    position:relative;
+}
+
+.bluebox-whitebox-container>.whitebox>form>.NicknameText>i,
+.bluebox-whitebox-container>.whitebox>form>.PasswordText>i,
+.bluebox-whitebox-container>.whitebox>form>.EmailText>i{
+    width:0.7vw;
+    height:0.8vw;
+    color:#575757;
+    position: absolute;
+    margin-left:7%;
+    margin-top:2.5%;
+}
+
+@media (max-width:1400px) {
+    .bluebox-whitebox-container>.whitebox>form>.NicknameText,
+    .bluebox-whitebox-container>.whitebox>form>.PasswordText,
+    .bluebox-whitebox-container>.whitebox>form>.EmailText {
+        font-size:0.5rem;
+    }
+}
+
+.bluebox-whitebox-container>.whitebox>form>.NicknameText>input,
+.bluebox-whitebox-container>.whitebox>form>.PasswordText>input,
+.bluebox-whitebox-container>.whitebox>form>.EmailText>input{
+    width:21vw;
+    height:2.6vw;
+    border-radius:55px;
+    border:2px solid #C4C4C4;
+    background-color:white;
+    outline:none;
+    padding-left:3vw;
+    font-family: 'Inter';
+    font-weight:400;
+    font-size:0.7vw;
+    line-height: 18.15px;
+    letter-spacing: -0.05rem;
+    color:#4A4A4A;
+    margin-top:-5%;
+}
+
+.bluebox-whitebox-container>.whitebox>form>a>button{
+    width:24vw;
+    height:2.6vw;
+    border-radius:55px;
+    background-color:#4967FF;
+    font-family: 'Inter';
+    font-weight:500;
+    font-size:1vw;
+    line-height: 27.84px;
+    letter-spacing: -0.05rem;
+    color:white;
+    border:none;
+    margin-top:2vw;
+}

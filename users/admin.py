@@ -1,6 +1,9 @@
 from django.contrib import admin
-from .models import User
+from django.contrib.auth.admin import UserAdmin
+from users.models import User
 
-@admin.register(User)
-class UserModelAdmin(admin.ModelAdmin):
-    pass
+class UsersAdmin(admin.ModelAdmin):
+    list_display = ('id', 'nickname', 'email', 'image', 'introduction')
+    fields = ('nickname', 'email', 'password')
+
+admin.site.register(User, UsersAdmin)

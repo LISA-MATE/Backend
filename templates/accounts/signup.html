@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LisaMate</title>
+    <link rel="stylesheet" href="../../static/css/signup.css">
+    <script src="https://kit.fontawesome.com/d4b61b3d04.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="logo">
+        <p>Lisa mate</p>
+        <a href="#" onClick="top.location='javascript:location.reload()'">
+            <i class="fa-solid fa-house fa-2xl"></i>
+        </a>
+    </div>
+
+    <div class="CircleContainer">
+        <div class="circle1"></div>
+        <div class="circle2"></div>
+        <div class="circle3"></div>
+    </div>
+
+    <div class="bluebox-whitebox-container">
+        <div class="bluebox">
+            <div class="subTitle">Hello</div>
+            <div class="Title">LISA MATE</div>
+            <div class="explain">나의 이사메이트 리사.</div>
+        </div>
+
+        <div class="whitebox">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="SignupText">Sign up</div>
+                <p style="margin-top:10%;">Nickname</p>
+                <div class="NicknameText">
+                    <i class="fa-regular fa-user fa-lg"></i>
+                    <input type="text" placeholder="닉네임을 입력해주세요." name="nickname">
+                </div>
+                <p style="margin-top:3%;">Password</p>
+                <div class="PasswordText">
+                    <i class="fa-solid fa-lock fa-lg"></i>
+                    <input type="password" placeholder="비밀번호를 입력해주세요." name="password">
+                </div>
+                <p style="margin-top:3%;">E-mail</p>
+                <div class="EmailText">
+                    <i class="fa-regular fa-envelope fa-lg"></i>
+                    <input type="text" placeholder="이메일을 입력해주세요." name="email" id="email">
+                </div>
+                {% if error_message %}
+                    {% if '불가능' in error_message %}
+                        <p class="error" style="color: #FF2459;">{{ error_message }}</p>
+                    {% elif '필드' in error_message %}
+                        <p class="error" style="color: #FF2459;">{{ error_message }}</p>
+                    {% else %}
+                        <p class="error" style="color: #001CEB;">{{ error_message }}</p>
+                    {% endif %}
+                {% endif %}
+                <a href="{% url 'accounts:login' %}">
+                    <button id="SignupBtn" type="submit">Join</button>
+                </a>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
