@@ -135,6 +135,7 @@
                 <i class="fa-solid fa-repeat fa-lg"></i>
             </div>
             <form action = "" method="POST" enctype="multipart/form-data">
+                {% csrf_token %} 
                 <div class="writebox">
                     <div class="selectBox1">
                         <select name="postType" id="postType">

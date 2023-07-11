@@ -1,6 +1,7 @@
 from django.shortcuts import get_object_or_404, render, redirect
 
 from .models import Post
+from .forms import PostForm
 
 def index(request):
     return redirect('boards:board-list', board_type='information')
@@ -71,6 +72,7 @@ def post_create_form_view(request):
     #     return redirect('index')
     
     
+    
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
@@ -79,7 +81,8 @@ def post_create_form_view(request):
             board_type = request.POST.get('board_type')
 
             return redirect('boards:board-list', board_type=board_type)
-
+        else:
+            print("INVALID")
     else:
         form = PostForm()
     

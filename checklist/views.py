@@ -1,10 +1,13 @@
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Schedule
 
 
 def index(request): # checklist_view
+    if not request.user.is_authenticated:
+        return redirect('accounts:login')  # 로그인 페이지로 리디렉션
+
     user = request.user  # 로그인한 사용자 정보 가져오기
     schedules = Schedule.objects.filter(writer=user)  # 해당 사용자의 Schedule 객체 필터링
     #schedules = Schedule.objects.all()

@@ -12,9 +12,9 @@ class PostForm(forms.Form):
         (7, '범죄자 거주 정보'),
     )
     board_type = forms.ChoiceField(choices=BOARDS_TYPE_CHOICES, widget=forms.Select(attrs={'class': 'selectBox1'}))
-    city = forms.ChoiceField(choices=LOCATION_CHOICES, widget=forms.Select(attrs={'id': 'location', 'onchange': 'addressKindChange(this)'}))
-    country = forms.CharField(max_length=10, widget=forms.Select(attrs={'id': 'Location2'}))
+    city = forms.CharField(max_length=10, widget=forms.TextInput(attrs={'id': 'CityInput', 'placeholder': '도/시를 입력해주세요.'}))
+    country = forms.CharField(max_length=10, widget=forms.TextInput(attrs={'id': 'CountryInput', 'placeholder': '구/군을 입력해주세요.'}))
     title = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'id': 'TitleInput', 'placeholder': '제목을 입력해주세요.'}))
-    content = forms.CharField(widget=forms.Textarea(attrs={'id': 'textareaContainer', 'contenteditable': 'true'}))
+    content = forms.CharField(widget=forms.Textarea(attrs={'id': 'TextareaContainer', 'contenteditable': 'true'}))
     image = forms.FileField()
     file = forms.FileField()
