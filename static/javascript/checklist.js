@@ -1,5 +1,3 @@
-
-
 //close 버튼 누르면 모달 종료
 function closeModal() {
     const modalContainer = document.getElementById("modalContainer");

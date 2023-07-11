@@ -126,7 +126,7 @@
 
         <div class="right">
             <div class="exambox">
-                <p class="box_title">부기의<br><br> 이사 체크리스트</p>
+                <p class="box_title">부기의<br>이사 체크리스트</p>
                 <hr class="box_hr">
                 <p class="box_text1">Lisa가 추천하는 기본 체크리스트 항목</p>
                 <p class="box_text2">부기가 추천하는 기본 체크리스트 항목</p>
@@ -134,9 +134,10 @@
                 <p class="box_text4">+</p>
             </div>
             <div class="checkbox">
-                <p class="check_text1">이사확정후</p>
+                <p class="check_text1">이사 확정 후</p>
                 <div class="first_checkbox">
-                    <p class="first_checkbox_text">아아아</p><i class="fa-solid fa-plus"></i>
+                    <p class="first_checkbox_text">아아아</p>
+                    <i class="fa-solid fa-plus"></i>
                 </div>
                 {% for schedule in schedules %}
                     {% if schedule.duration == 'done' %}
@@ -145,7 +146,7 @@
                         </div>
                     {%endif%}
                 {% endfor %}
-                <p class="check_text2">이사직전</p>
+                <p class="check_text2">이사 직전</p>
                 {% for schedule in schedules %}
                     {% if schedule.duration == 'before' %}
                         <div class="second_checkbox">
@@ -153,7 +154,7 @@
                         </div>
                     {%endif%}
                 {% endfor %}
-                <p class="check_text3">이사당일</p>
+                <p class="check_text3">이사 당일</p>
                 {% for schedule in schedules %}
                     {% if schedule.duration == 'doing' %}
                         <div class="third_checkbox">
@@ -165,16 +166,16 @@
                 <div class="plusbox">
                     <button id="plusBtn" type="submit" onclick="openModal()"><i class="fa-solid fa-circle-plus"> 직접
                             추가하기</i></button>
-
                 </div>
             </div>
-
         </div>
     </div>
 
     <div class="modal-container" id="modalContainer">
         <div class="modal" id="modal">
-            <p id="ModalTitle"><i class="fa-solid fa-circle-plus"> 직접 추가하기</i></p>
+            <p id="ModalTitle">
+                <i class="fa-solid fa-circle-plus"> 직접 추가하기</i>
+            </p>
             <p id="modal_firsttext">작성 내용</p>
             <input type="text" id="modal_Input" placeholder="일정을 입력해주세요">
             <p id="modal_secondtext">날짜 선택</p>
@@ -240,16 +241,14 @@
             </div>
 
             <p id="modal_thirdtext">기간 지정</p>
-            <div class="checkbox_period" id="item1" value="before" onclick="toggleCheckbox('item1')">이사전</div>
-            <div class="checkbox_period" id="item2" value="doing" onclick="toggleCheckbox('item2')">이사중</div>
-            <div class="checkbox_period" id="item3" value="done" onclick="toggleCheckbox('item3')">이사후</div>
-
+            <div class="checkboxContainer">
+                <div class="checkbox_period" id="item1" value="before" onclick="toggleCheckbox('item1')">이사전</div>
+                <div class="checkbox_period" id="item2" value="doing" onclick="toggleCheckbox('item2')">이사중</div>
+                <div class="checkbox_period" id="item3" value="done" onclick="toggleCheckbox('item3')">이사후</div>
+            </div>
+            <i class="fa-solid fa-repeat fa-lg" id="close" onclick="closeModal()"></i>
             <button id="create" onclick="createData()">완료</button>
-            <button id="close" onclick="closeModal()">이전</button>
-
         </div>
     </div>
-
-
 </body>
 </html>

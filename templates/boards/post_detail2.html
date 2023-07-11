@@ -30,7 +30,7 @@
     </div>
 
     <a href="{% url 'boards:post-update' board_type=post.board_type topic=post.topic id=post.id %}">수정하기</a>
-    <a href="#" onclick="confirmDelete({{ post.id }})">삭제하기</a>
+    <a href="#" onclick="confirmDelete(/*{{ post.id }}*/)">삭제하기</a>
 
     <script>
         function confirmDelete(postId) {
