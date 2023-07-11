@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LisaMate</title>
     <link rel="stylesheet" href="../../static/css/write.css">
+    <script src="../../static/javascript/write.js"></script>
     <script src="https://kit.fontawesome.com/d4b61b3d04.js" crossorigin="anonymous"></script>
 </head>
 
@@ -138,7 +139,7 @@
                 {% csrf_token %} 
                 <div class="writebox">
                     <div class="selectBox1">
-                        <select name="postType" id="postType">
+                        <select name="board_type" id="postType">
                             <option value="none" hidden>게시판 선택</option>
                             <optgroup label="정보게시판">
                                 <option value="0">월세 정보 공유</option>
@@ -155,7 +156,7 @@
                                 <option value-="7">범죄자 거주 정보</option>
                             </optgroup>
                         </select>
-                        <select name="location" id="location" onchange="addressKindChange(this)">
+                        <select name="city" id="location" onchange="addressKindChange(this)">
                             <option value="none" hidden>시/도 선택</option>
                             <option value="Seoul">서울</option>
                             <option value="Gyeonggi">경기</option>
@@ -175,29 +176,29 @@
                             <option value="Jeonbuk">전북</option>
                             <option value="Jeju">제주</option>
                         </select>
-                        <select name="location2" id="Location2">
+                        <select name="country" id="Location2">
                             <option value="none" hidden>구/군 선택</option>
                         </select>
                     </div>
-                    <input type="text" id="TitleInput" placeholder="제목을 입력해주세요.">
+                    <input type="text" id="TitleInput" name="title" placeholder="제목을 입력해주세요.">
                     <div class="toolbox">
                         <label for="imageFile">
                             <i class="fa-regular fa-image"></i>
                         </label>
-                        <input type="file" name="image_file" accept="image/*" id="imageFile" style="display: none;">
+                        <input type="file" name="image" accept="image/*" id="imageFile" style="display: none;">
                         {% comment %} <button id="open-modal2">
                             <i class="fa-solid fa-video"></i>
                         </button> {% endcomment %}
                         <label for="File">
                             <i class="fa-regular fa-image"></i>
                         </label>
-                        <input type="file" name="file_file" accept="image/*" id="fileFile" style="display: none;">
+                        <input type="file" name="file" accept="image/*" id="fileFile" style="display: none;">
                         <!--나중에 구현
                         <i class="fa-solid fa-link"></i>
                         <i class="fa-solid fa-location-dot"></i>
                         -->
                     </div>
-                    <div id="textareaContainer" contenteditable="true"></div>
+                    <textarea name="content" id="content" placeholder="내용을 입력해주세요."></textarea>
                 </div>
                 <input type="submit" value="등록하기" id="submitButton">
             </form>
@@ -277,6 +278,5 @@
             <button id="close-modal3">X</button>
         </div>
     </div> {% endcomment %}
-    <script src="../../static/javascript/write.js"></script>
 </body>
 </html>

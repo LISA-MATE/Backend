@@ -46,52 +46,56 @@ def post_detail_view(request, board_type=None, topic=None, id=None):
 
 
 def post_create_form_view(request):
-    # if request.method == 'GET':
-    #     return render(request, 'boards/board_form.html')
-    # else: # Post이면 
-    #     board_type = request.POST.get('board_type')
-    #     title = request.POST.get('title')
-    #     content = request.POST.get('content')
-    #     image = request.FILES.get('image')
-    #     file = request.FILES.get('file')
-    #     city = request.POST.get('city')
-    #     country = request.POST.get('country')
+    if request.method == 'POST':     
+        board_type = request.POST.get('board_type')
+        title = request.POST.get('title')
+        content = request.POST.get('content')
+        image = request.FILES.get('image')
+        file = request.FILES.get('file')
+        city = request.POST.get('city')
+        country = request.POST.get('country')
+        
+        if board_type == '0':
+            board_type = 'information'
+            topic = '월세'
+        elif board_type == '1':
+            board_type = 'information'
+            topic = '전세'
+        elif board_type == '2':
+            board_type = 'information'
+            topic = '매매'
+        elif board_type == '3':
+            board_type = 'review'
+            topic = '월세'
+        elif board_type == '4':
+            board_type = 'review'
+            topic = '전세'
+        elif board_type == '5':
+            board_type = 'review'
+            topic = '매매'
+        elif board_type == '6':
+            board_type = 'hometown'
+            topic = '우리동네'
+        elif board_type == '7':
+            board_type = 'hometown'
+            topic = '범죄자'
 
-    #     Post.objects.create(
-    #         board_type = board_type,
-    #         title = title,
-    #         content=content,
-    #         image=image,
-    #         writer=request.user,
-    #         file = file,
-    #         city = city,
-    #         country= country,
-    #     )
-        
-        
-    #     return redirect('index')
-    
-    
-    
-    if request.method == 'POST':
-        form = PostForm(request.POST, request.FILES)
-        if form.is_valid():
-            post = form.save()
-            # 폼이 성공적으로 저장될 경우의 처리 로직
-            board_type = request.POST.get('board_type')
 
-            return redirect('boards:board-list', board_type=board_type)
-        else:
-            print("INVALID")
-    else:
-        form = PostForm()
+        Post.objects.create(
+            board_type = board_type,
+            title = title,
+            content=content,
+            image=image,
+            writer=request.user,
+            file = file,
+            city = city,
+            country= country,
+            topic=topic,
+        )
+        return redirect('boards:board-list', board_type=board_type)
     
-    context = {
-        'form': form,
-        'title': '글쓰기'
-    }
-        
-    return render(request, 'boards/board_form.html', context)
+    return render(request, 'boards/board_form.html')
+
 
 def post_update_view(request, board_type=None, topic=None, id=None):
     post = Post.objects.get(id=id)
