@@ -24,9 +24,9 @@ class User(AbstractUser):
     email = models.EmailField(unique=True)
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['nickname']
-    nickname = models.CharField(verbose_name='닉네임', max_length=255, default='no nickname')
+    nickname = models.CharField(verbose_name='닉네임', max_length=255, default='아기사자 33')
     image = models.ImageField(verbose_name='이미지', upload_to='image/', null=True, blank=True)
-    introduction = models.TextField(verbose_name='소개글', default="소개글을 입력하세요.")
+    introduction = models.TextField(verbose_name='소개글', default="이사 준비 중입니다!")
     objects = UserManager()
 
     def __str__(self):

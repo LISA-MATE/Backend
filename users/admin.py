@@ -4,6 +4,6 @@ from users.models import User
 
 class UsersAdmin(admin.ModelAdmin):
     list_display = ('id', 'nickname', 'email', 'image', 'introduction')
-    fields = ('nickname', 'email', 'password')
+    fields = ('nickname', 'email', 'password', 'image', 'introduction')
 
 admin.site.register(User, UsersAdmin)

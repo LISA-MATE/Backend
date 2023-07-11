@@ -1,0 +1,347 @@
+.all>.right>.profile{
+    margin-left:2vw;
+    margin-top:-2vw;
+}
+
+.all>.right>.profile>i{
+    font-size:3rem;
+    color:#142F9E;
+    display: inline-block;
+}
+
+@media (max-width:1200px) {
+    .all>.right>.profile>i{
+        font-size:2rem;
+    }
+}
+
+@media (max-width:700px) {
+    .all>.right>.profile>i {
+        font-size: 1.5rem;
+    }
+}
+
+.all>.right>.profile>p{
+    display: inline-block;
+    padding-top:2vw;
+    font-family: 'Inter';
+    font-weight:600;
+    font-size:2vw;
+    line-height: 10px;
+    letter-spacing: -0.05rem;
+    color:#142F9E;
+    margin-left:0.5vw;
+}
+
+.all>.right>form>.profilebox {
+    width: 90%;
+    height: auto;
+    border: 1px solid #919191;
+    border-radius: 70px;
+    background-color: white;
+    margin-left: 2vw;
+    box-shadow: inset 6px -5px 28px 0px rgba(0, 0, 0, 0.28);
+    text-align: left;
+    padding-bottom: 2vw;
+    position: relative;
+}
+
+.all>.right>form>.profilebox>#uname {
+
+    font-family: 'Inter';
+    font-weight: 600;
+    font-size: 4vw;
+    line-height: 30px;
+    letter-spacing: -0.1rem;
+    color: #142F9E;
+    margin-left: 10%;
+    margin-top: 10%;
+}
+
+.all>.right>form>.profilebox>.emailbox {
+    width: 26vw;
+    height: 4.8vh;
+    border-radius: 100px;
+    border: none;
+    background-color: #0015AD;
+    opacity: 0.6;
+    box-shadow: 0px 7px 14px 0px rgba(0, 0, 0, 0.32);
+    margin-left: 10%;
+    margin-top: -2%;
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 1.6vw;
+    line-height: 10px;
+    letter-spacing: -0.05rem;
+    color: white;
+    display: flex;
+    flex-direction: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.all>.right>form>.profilebox>.photoEdit {
+    position: absolute;
+    margin-top: 1vw;
+    margin-left: -1vw;
+}
+
+.all>.right>form>.profilebox>.photoEdit>.photo {
+    position: relative;
+    width: 15vw;
+    height: 15vw;
+    border: 2px solid #142F9E;
+    background: linear-gradient(#CFCFCF, #FFFFFF);
+    border-radius: 50%;
+    margin-left: 45vw;
+    margin-top: -10vw;
+}
+
+#rephoto {
+    position: absolute;
+    border: none;
+    width: 3vw;
+    height: 3vw;
+    background-color: #0015AD;
+    border-radius: 50%;
+    margin-left: 57vw;
+    margin-top: -4vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#rephoto>i {
+    width: 1.5vw;
+    height: 1.6vw;
+    color: white;
+    margin-top: 1.5vw;
+}
+
+@media (max-width:1200px) {
+    #rephoto>i {
+        font-size: 0.1rem;
+    }
+}
+
+.all>.right>form>.profilebox>.EmailContainer{
+    width: 33vw;
+    height: auto;
+    border: 4px solid #5378FF;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 10%;
+    margin-top: -1vw;
+}
+
+.all>.right>form>.profilebox>.ExplainContainer1,
+.all>.right>form>.profilebox>.ExplainContainer2 {
+    width: 33vw;
+    height: auto;
+    border: 4px solid #5378FF;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 10%;
+    margin-top: 5vw;
+}
+
+.all>.right>form>.profilebox>.EmailContainer>#Email{
+    margin-top:5vw;
+}
+
+.all>.right>form>.profilebox>.EmailContainer>#Email,
+.all>.right>form>.profilebox>.ExplainContainer1>#Explain {
+    font-family: 'Inter';
+    font-weight: 700;
+    font-size: 1.9vw;
+    line-height: 10px;
+    letter-spacing: -0.05rem;
+    color: #4967FF;
+    margin-left: 0;
+    margin-bottom: 0.8vw;
+}
+
+.all>.right>form>.profilebox>.EmailContainer>p{
+    margin-top:5vw;
+}
+
+.all>.right>form>.profilebox>.EmailContainer>p,
+.all>.right>form>.profilebox>.ExplainContainer2>p {
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 1.5vw;
+    line-height: 10px;
+    letter-spacing: -0.05rem;
+    color: #4967FF;
+    margin-right: 0;
+    margin-bottom: 0.8vw;
+}
+
+.all>.right>form>.profilebox>.ExplainContainer1,
+.all>.right>form>.profilebox>.ExplainContainer2 {
+    width: 50vw;
+}
+
+.all>.right>form>.profilebox>.ExplainContainer2 {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0.5vw;
+}
+
+.all>.right>form>.profilebox>.buttonContainer {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10%;
+    margin-top: 2vw;
+    gap: 1vw;
+}
+
+#edit,
+#save {
+    border: 3px solid #4967FF;
+    border-radius: 30px;
+    width: 5vw;
+    height: 2.5vw;
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 1vw;
+    background-color: white;
+    cursor: pointer;
+}
+
+#edit:hover,
+#save:hover {
+    background-color: #4967FF;
+    color: white;
+}
+
+.input-box {
+    width: 50vw;
+    height: 3vw;
+    border: none;
+    outline: none;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 1.5vw;
+    color: #4967FF;
+    padding-left: 20px;
+}
+
+.input-box2 {
+    position: absolute;
+    width: 30vw;
+    height: 5vw;
+    top:-2%;
+    border: none;
+    outline: none;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 4vw;
+    color: #142F9E;
+    background-color: white;
+    border: none;
+    outline: none;
+}
+
+.input-box3 {
+    position: absolute;
+    width: 30vw;
+    height: 5vw;
+    top: 2%;
+    border: none;
+    outline: none;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 4vw;
+    color: #142F9E;
+    background-color: white;
+    border: none;
+    outline: none;
+}
+
+.modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    backdrop-filter: blur(3px);
+}
+
+.modal {
+    height: 400px;
+    width: 700px;
+    background-color: white;
+    border: 1px solid #868686;
+    border-radius: 54px;
+    text-align: center;
+    box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.25);
+}
+
+.modal-container>.modal>h1 {
+    margin-top: 80px;
+    font-family: 'Inter', sans-serif;
+    text-align: left;
+    margin-left: 50px;
+}
+
+.modal-container>.modal>.photobox {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    margin-top: -230px;
+    margin-left: auto;
+    margin-right: 50px;
+    background-color: #868686;
+}
+
+.modal-container>.modal>.photobox>.photoImage {
+    width: 300px;
+    height: 300px;
+    background-color: #0015AD;
+    border-radius: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.modal-container>.modal>#photoInput {
+    margin-left: -350px;
+    margin-top: 70px;
+}
+
+.modal-container>.modal>#close {
+    width: 30px;
+    height: 30px;
+    border: none;
+    font-size: 30px;
+    background-color: white;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: -610px;
+    margin-top: 20px;
+}
+
+.modal-container.show {
+    display: flex;
+}
+
+.modal-container.show .modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

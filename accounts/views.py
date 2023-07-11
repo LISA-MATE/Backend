@@ -72,13 +72,14 @@ def login_view(request):
     return render(request, 'accounts/login.html')
 
 @login_required
-def profile_view(request, user_id):
-    user = User.objects.get(id=user_id)
+def profile_view(request):
+    user = User.objects.get(user)
     if request.method == 'GET':
         context = {
             'user':user
         }
         return render(request, 'profile.html', context)
+    
     elif request.method == 'POST':
         user.nickname = request.POST.get('nickname')
         user.email = request.POST.get('email')
@@ -89,7 +90,7 @@ def profile_view(request, user_id):
 
         user.save()
 
-        return redirect('profile', user_id=user.id)
+        return redirect('profile')
 
 def logout_view(request):
     # 데이터 유효성 검사

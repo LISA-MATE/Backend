@@ -121,6 +121,8 @@ USE_TZ = False # db에서 ut 사용x
 
 STATIC_URL = 'static/'
 
+STATIC_ROOT = BASE_DIR / 'staticfiles' # 서빙할 정적 파일의 루트 경로 설정
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
