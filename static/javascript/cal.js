@@ -49,6 +49,8 @@ const renderCalendar = () => {
     const firstDateIndex = dates.indexOf(1);
     const lastDateIndex = dates.lastIndexOf(TLDate);
 
+
+    // 일정 추가 ----------------------------------------------------------------------
     dates.forEach((date, i) => {
         const condition = i >= firstDateIndex && i < lastDateIndex + 1 ? 'this' : 'other';
         const currentDate = new Date(viewYear, viewMonth - 1, date); // 현재 년, 월과 날짜(date)를 기반으로한 날짜 객체 생성
@@ -122,11 +124,11 @@ window.addEventListener("load", function () {
     modalContainer.style.display = "none";
 });
 
-
 //모달 안의 달력 -> 기존 html꺼 복사해오려고 했는데, 이전 달과 다음 달로 넘어가는 버튼에서 문제 생겨서 그냥 새로 만들어줬습니다.
 let calendarDate = new Date();
 
 const modalrenderCalendar = () => {
+    console.log("modalrenderCalendar호출")
     const viewYear = calendarDate.getFullYear(); // 현재 년도 가져오기
     const viewMonth = (calendarDate.getMonth() + 1).toString().padStart(2, '0'); // 현재 월 가져오기, 2자리로 변환
     const monthNames = [
@@ -206,6 +208,32 @@ const modalrenderCalendar = () => {
             }
         }
     }
+
+    // AJAX 요청 보내기
+    const xhr = new XMLHttpRequest();
+    const url = 'get_schedule/';  // 일정 데이터를 가져올 URL
+    const params = `year=${viewYear}&month=${viewMonth}`;
+
+    xhr.open('GET', url + '?' + params, true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                const response = JSON.parse(xhr.responseText);
+                const schedules = response.schedules;
+                console.log(schedules)
+                // 일정 데이터를 활용하여 달력을 렌더링하는 로직 추가
+                // ...
+
+            } else {
+                console.error('Error: ' + xhr.status);
+            }
+        }
+    };
+
+    xhr.send();
+
 };
 
 modalrenderCalendar();
