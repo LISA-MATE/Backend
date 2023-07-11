@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
@@ -69,6 +70,26 @@ def login_view(request):
     
     # 로그인 HTML 응답
     return render(request, 'accounts/login.html')
+
+@login_required
+def profile_view(request, user_id):
+    user = User.objects.get(id=user_id)
+    if request.method == 'GET':
+        context = {
+            'user':user
+        }
+        return render(request, 'profile.html', context)
+    elif request.method == 'POST':
+        user.nickname = request.POST.get('nickname')
+        user.email = request.POST.get('email')
+        user.introduction = request.POST.get('introduction')
+
+        if request.FILES.get('image'):
+            user.image = request.FILES['image']
+
+        user.save()
+
+        return redirect('profile', user_id=user.id)
 
 def logout_view(request):
     # 데이터 유효성 검사

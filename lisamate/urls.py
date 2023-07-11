@@ -27,7 +27,7 @@ urlpatterns = [
     path('', RedirectView.as_view(pattern_name='checklist:index', permanent=False)),
     path('checklist/', include('checklist.urls', namespace='checklist')),
     path('accounts/', include('accounts.urls', namespace='accounts')),
-    path('profile/', ProfileView.as_view(), name='profile'),
+    path('profile/<int:user_id>', ProfileView.as_view(), name='profile'),
     path('boards/', include('informationPost.urls', namespace='informationPost')),
 
 ]

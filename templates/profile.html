@@ -6,43 +6,40 @@
     <i class="fa-solid fa-gear fa-2xl"></i>
     <p>프로필 편집</p>
 </div>
-<form action="#">
+<form action="/profile/{{ user.id }}" method="POST">
+    {% csrf_token %}
     <div class="profilebox">
-        <p id="uname">아기사자 33</p>
-        <div class="emailbox">LIKEALION3333@gmail.com</div>
+        <input type="text" id="uname" name="nickname">아기사자 33
+        <div class="emailbox" name="email">{{ user.email }}</div>
         <div class="photoEdit">
-        <div class="photo"></div>
-        <button id="rephoto" onclick="rephotoButtonClickHandler()">
-            <i class="fa-solid fa-pen fa-xl"></i>
-        </button>
-        <div class="modal-container" id="modalContainer">
-            <div class="modal" id="modal">
-            <button id="close" onclick="closeModal()">X</button>
-            <h1>프로필 사진 변경</h1>
-            <input
-                type="file"
-                id="photoInput"
-                onchange="handleFileUpload(event)"
-            />
-            <div class="photobox">
-                <div class="photoImage"></div>
+            <div class="photo"></div>
+            <button id="rephoto" onclick="rephotoButtonClickHandler()">
+                <i class="fa-solid fa-pen fa-xl"></i>
+            </button>
+            <div class="modal-container" id="modalContainer">
+                <div class="modal" id="modal">
+                    <button id="close" onclick="closeModal()">X</button>
+                    <h1>프로필 사진 변경</h1>
+                    <input type="file" id="photoInput" onchange="handleFileUpload(event)">
+                    <div class="photobox">
+                        <div class="photoImage"></div>
+                    </div>
+                </div>
             </div>
-            </div>
-        </div>
         </div>
         <div class="EmailContainer">
-        <p id="Email">E-mail</p>
-        <p>LIKEALION3333@gmail.com</p>
+            <p id="Email">E-mail</p>
+            <input type="text" name="email">{{ user.email }}
         </div>
         <div class="ExplainContainer1">
-        <p id="Explain">소개글</p>
+            <p id="Explain">소개글</p>
         </div>
         <div class="ExplainContainer2">
-        <p id="explaintext">이사 준비 중입니다!</p>
+            <textarea id="explaintext" name="introduction">이사 준비 중입니다!</textarea>
         </div>
         <div class="buttonContainer">
-        <button id="edit" onclick="editClick()">수정</button>
-        <button type="submit" id="save" onclick="saveClick()">완료</button>
+            <button id="edit" onclick="editClick()">수정</button>
+            <button type="submit" id="save" onclick="saveClick()">완료</button>
         </div>
     </div>
 </form>
