@@ -155,6 +155,11 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+function toggleCheckbox(id) {
+    var checkbox = document.getElementById(id);
+    checkbox.classList.toggle("active");
+}
+
 // 모달에서 data 전달하기 
 function createData(){
     // 데이터 수집
@@ -164,22 +169,13 @@ function createData(){
     var day = document.getElementById("day").value;
     var duration = "";
     
-    var checkboxes = document.getElementsByClassName("checkbox");
+    var checkboxes = document.getElementsByClassName("checkbox_period");
     for (var i = 0; i < checkboxes.length; i++) {
         if (checkboxes[i].classList.contains("active")) {
-        duration = checkboxes[i].id;
-        break;
+            duration = checkboxes[i].getAttribute("value");
+            break;
         }
     }
-
-    if (duration === "item1") {
-        duration = "before";
-    } else if (duration === "item2") {
-        duration = "doing";
-    } else if (duration === "item3") {
-        duration = "done";
-    }
-    
 
     // AJAX 요청 보내기
     var xhr = new XMLHttpRequest();
@@ -192,6 +188,7 @@ function createData(){
             var response = JSON.parse(xhr.responseText);
             if (response.success) {
                 closeModal();
+                window.location.href = '/checklist/';  // checklist/ URL로 리다이렉션
             // TODO: 요청이 성공한 경우에 대한 처리
             } else {
             // TODO: 요청이 실패한 경우에 대한 처리

@@ -240,9 +240,9 @@
             </div>
 
             <p id="modal_thirdtext">기간 지정</p>
-            <div class="checkbox" id="item1">이사전</div>
-            <div class="checkbox" id="item2">이사중</div>
-            <div class="checkbox" id="item3">이사후</div>
+            <div class="checkbox_period" id="item1" value="before" onclick="toggleCheckbox('item1')">이사전</div>
+            <div class="checkbox_period" id="item2" value="doing" onclick="toggleCheckbox('item2')">이사중</div>
+            <div class="checkbox_period" id="item3" value="done" onclick="toggleCheckbox('item3')">이사후</div>
 
             <button id="create" onclick="createData()">완료</button>
             <button id="close" onclick="closeModal()">이전</button>
@@ -252,5 +252,4 @@
 
 
 </body>
-
 </html>

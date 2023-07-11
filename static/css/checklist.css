@@ -1289,7 +1289,7 @@ first_checkbox.clicked {
     cursor: pointer;
 }
 
-.modal-container>.modal>.checkbox {
+.modal-container>.modal> .checkbox_period {
     display: inline-block;
     margin-right: 10px;
     padding: 5px 10px;
@@ -1297,55 +1297,56 @@ first_checkbox.clicked {
     background-color: #F6F6F6;
     color: #333333;
     cursor: pointer;
+    
+  }
 
-}
 
-#item1 {
+  #item1{
+    margin-left: 47vw;
     text-align: center;
-    height: 1.5vw;
-    width: 10vw;
-    margin-left: -20vw;
-    border-radius: 100px;
-    background: #F6F6F6;
-    top: 30vw;
-    transform: translateX(-50%);
-    border: 5px solid #5073FF;
-    font-size: 1.0vw;
-    font-weight: bold;
-    color: #000000;
-    cursor: pointer;
-}
+  height: 1.5vw;
+  width: 10vw;
+  border-radius: 100px;
+  background: #F6F6F6;
+  top: 30vw;
+  transform: translateX(-50%);
+  border: 5px solid #5073FF;
+  font-size: 1.0vw;
+  font-weight: bold;
+  color: #000000;
+  cursor: pointer;
+  
+  }
 
-#item2 {
+  #item2{
     text-align: center;
-    height: 1.5vw;
-    width: 10vw;
-    border-radius: 100px;
-    background: #F6F6F6;
-    top: 30vw;
-    transform: translateX(-50%);
-    border: 5px solid #5073FF;
-    font-size: 1.0vw;
-    font-weight: bold;
-    color: #000000;
-    cursor: pointer;
-}
+  height: 1.5vw;
+  width: 10vw;
+  border-radius: 100px;
+  background: #F6F6F6;
+  top: 30vw;
+  transform: translateX(-50%);
+  border: 5px solid #5073FF;
+  font-size: 1.0vw;
+  font-weight: bold;
+  color: #000000;
+  cursor: pointer;
+  }
 
-#item3 {
+  #item3{
     text-align: center;
-    height: 1.5vw;
-    margin-left: 20vw;
-    width: 10vw;
-    border-radius: 100px;
-    background: #F6F6F6;
-    top: 30vw;
-    transform: translateX(-50%);
-    border: 5px solid #5073FF;
-    font-size: 1.0vw;
-    font-weight: bold;
-    color: #000000;
-    cursor: pointer;
-}
+  height: 1.5vw;
+  width: 10vw;
+  border-radius: 100px;
+  background: #F6F6F6;
+  top: 30vw;
+  transform: translateX(-50%);
+  border: 5px solid #5073FF;
+  font-size: 1.0vw;
+  font-weight: bold;
+  color: #000000;
+  cursor: pointer;
+  }
 
 .selected {
     background-color: #5073FF;

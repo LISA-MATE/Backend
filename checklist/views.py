@@ -6,8 +6,9 @@ from .models import Schedule
 
 def index(request): # checklist_view
     user = request.user  # 로그인한 사용자 정보 가져오기
-    schedules = Schedule.objects.filter(writer=user)  # 해당 사용자의 Schedule 객체 필터링
-
+    #schedules = Schedule.objects.filter(writer=user)  # 해당 사용자의 Schedule 객체 필터링
+    schedules = Schedule.objects.all()
+    
     context = {
         'schedules': schedules
     }
@@ -25,8 +26,7 @@ def create_schedule_view(request):
         month = request.POST.get('month')
         day = request.POST.get('day')
         duration = request.POST.get('duration')
-        print(duration + ",")
-
+        print(duration)
         # Schedule 모델에 새로운 객체 생성 및 저장
         schedule = Schedule(
             content=content,
