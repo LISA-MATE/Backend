@@ -1,189 +1,80 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
+{% load static %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LisaMate</title>
-    <link rel="stylesheet" href="../../static/css/checklist.css">
-    <script src="https://kit.fontawesome.com/d4b61b3d04.js" crossorigin="anonymous"></script>
-    <script src="../../static/javascript/checklist.js"></script>
-</head>
+{% block content %}
+<script src="../../static/javascript/checklist.js"></script>
 
-<body>
-    <div class="Middle">
-        <div class="Mcircle"></div>
-    </div>
-    <div class="top">
-        <p>My Check list</p>
-        <div class="icon">
-            <i class="fa-solid fa-user fa-2xl"></i>
-            <i class="fa-solid fa-house fa-2xl"></i>
-            <div class="bell">
-                <i class="fa-solid fa-bell fa-2xl"></i>
-                <div class="redcircle"></div>
-            </div>
+<div class="middleTitle">
+    <a href="{% url 'checklist:index' %}">
+        <p id="CL">Checklist</p>
+    </a>
+    <p id="bar">|</p>
+    <a href="{% url 'checklist:calendar' %}">
+        <p id="Cal">Calendar</p>
+    </a>
+</div>
+
+<div class="exambox">
+    <p class="box_title">부기의<br>이사 체크리스트</p>
+    <hr class="box_hr">
+    <p class="box_text1">Lisa가 추천하는 기본 체크리스트 항목</p>
+    <p class="box_text2">부기가 추천하는 기본 체크리스트 항목</p>
+    <p class="box_text3">나의 추가 체크리스트 항목</p>
+    <p class="box_text4">+</p>
+</div>
+
+<div class="checkbox">
+    <p class="check_text1">이사 확정 후</p>
+        <div class="first_checkbox">
+            <p class="first_checkbox_text">이사할 집 도시가스 설치요청</p>
+            <button class="editBtn"><i class="fa-solid fa-pen"></i></button>
+            <button class="removeBtn"><i class="fa-solid fa-x"></i></button>
         </div>
-    </div>
-
-    <div class="logo">
-        <p>LISA MATE</p>
-    </div>
-
-    <div class="all">
-        <div class="left">
-            <div class="userBox">
-                <div class="user">USER</div>
-                <div class="userbox">
-                    <div class="userImage"></div>
-                    <div class="name">아기사자 33</div>
-                    <div class="email">LIKEALION@333</div>
-                    <div class="explain">이사 준비 중입니다!</div>
-                    <div class="button-container">
-                        <button type="button" id="pen">
-                            <img src="../../static/image/pen.PNG">글쓰기
-                        </button>
-                        <button type="button" id="setting">
-                            <img src="../../static/image/setting.png">프로필 편집/설정
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="menu">
-                <div class="checklist">체크리스트</div>
-                <div class="checklistcircle"></div>
-                <div class="text1">
-                    <div class="checklistText">
-                        <i class="fa-solid fa-circle fa-xs"></i>
-                        <p>체크리스트</p>
-                    </div>
-                    <div class="calText">
-                        <i class="fa-solid fa-circle fa-xs"></i>
-                        <p>캘린더</p>
-                    </div>
-                </div>
-                <div class="noticeboard">게시판</div>
-                <div class="noticeboardcircle"></div>
-                <div class="text2">
-                    <div class="notice">
-                        <p>정보 게시판</p>
-                    </div>
-                    <div class="monthly">
-                        <i class="fa-solid fa-circle fa-xs"></i>
-                        <p>월세 정보 공유</p>
-                    </div>
-                    <div class="Jeonse">
-                        <i class="fa-solid fa-circle fa-xs"></i>
-                        <p>전세 정보 공유</p>
-                    </div>
-                    <div class="bargain">
-                        <i class="fa-solid fa-circle fa-xs"></i>
-                        <p>매매 정보 공유</p>
-                    </div>
-                    <hr>
-                </div>
-                <div class="text3">
-                    <div class="review">
-                        <p>후기 게시판</p>
-                    </div>
-                    <div class="monthlyReview">
-                        <i class="fa-solid fa-circle fa-xs"></i>
-                        <p>월세 후기</p>
-                    </div>
-                    <div class="JeonseReview">
-                        <i class="fa-solid fa-circle fa-xs"></i>
-                        <p>전세 후기</p>
-                    </div>
-                    <div class="bargainReview">
-                        <i class="fa-solid fa-circle fa-xs"></i>
-                        <p>매매 후기</p>
-                    </div>
-                    <hr>
-                </div>
-                <div class="text4">
-                    <div class="town">
-                        <p>우리동네 게시판</p>
-                    </div>
-                    <div class="situation">
-                        <i class="fa-solid fa-circle fa-xs"></i>
-                        <p>우리동네 현황</p>
-                    </div>
-                    <div class="criminal">
-                        <i class="fa-solid fa-circle fa-xs"></i>
-                        <p>범죄자 거주 정보</p>
-                    </div>
-                </div>
-            </div>
-            <div class="scheduleTitle">Schedule</div>
-            <div class="scheduleBox">
-                <img src="../static/image/sleepy.png">
-                <div class="scheduleText">
-                    <p>오늘의 일정이 없습니다.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="right">
-            <div class="exambox">
-                <p class="box_title">부기의<br>이사 체크리스트</p>
-                <hr class="box_hr">
-                <p class="box_text1">Lisa가 추천하는 기본 체크리스트 항목</p>
-                <p class="box_text2">부기가 추천하는 기본 체크리스트 항목</p>
-                <p class="box_text3">나의 추가 체크리스트 항목</p>
-                <p class="box_text4">+</p>
-            </div>
-            <div class="checkbox">
-                <p class="check_text1">이사 확정 후</p>
+        {% for schedule in schedules %}
+            {% if schedule.duration == 'done' %}
                 <div class="first_checkbox">
-                    <p class="first_checkbox_text">이사할 집 도시가스 설치요청</p>
+                    <p class="first_checkbox_text">{{schedule.content}}</p>
                     <button class="editBtn"><i class="fa-solid fa-pen"></i></button>
                     <button class="removeBtn"><i class="fa-solid fa-x"></i></button>
                 </div>
-                {% for schedule in schedules %}
-                    {% if schedule.duration == 'done' %}
-                        <div class="first_checkbox">
-                            <p class="first_checkbox_text">{{schedule.content}}</p>
-                            <button class="editBtn"><i class="fa-solid fa-pen"></i></button>
-                            <button class="removeBtn"><i class="fa-solid fa-x"></i></button>
-                        </div>
-                    {%endif%}
-                {% endfor %}
-                <p class="check_text2">이사 직전</p>
-                {% for schedule in schedules %}
-                    {% if schedule.duration == 'before' %}
-                        <div class="second_checkbox">
-                            <p class="second_checkbox_text">{{schedule.content}}</p>
-                            <button class="editBtn2"><i class="fa-solid fa-pen"></i></button>
-                            <button class="removeBtn2"><i class="fa-solid fa-x"></i></button>
-                        </div>
-                    {%endif%}
-                {% endfor %}
-                <p class="check_text3">이사 당일</p>
-                {% for schedule in schedules %}
-                    {% if schedule.duration == 'doing' %}
-                        <div class="third_checkbox">
-                            <p class="third_checkbox_text">{{schedule.content}}</p>
-                            <button class="editBtn3"><i class="fa-solid fa-pen"></i></button>
-                            <button class="removeBtn3"><i class="fa-solid fa-x"></i></button>
-                        </div>
-                    {%endif%}
-                {% endfor %}
-                <i class="fa-solid fa-plus"></i>
-                <div class="plusbox" onclick="openModal()">
-                    <button id="plusBtn" type="submit"><i class="fa-solid fa-circle-plus"> 직접
-                            추가하기</i></button>
+            {%endif%}
+        {% endfor %}
+        <p class="check_text2">이사 직전</p>
+        {% for schedule in schedules %}
+            {% if schedule.duration == 'before' %}
+                <div class="second_checkbox">
+                    <p class="second_checkbox_text">{{schedule.content}}</p>
+                    <button class="editBtn2"><i class="fa-solid fa-pen"></i></button>
+                    <button class="removeBtn2"><i class="fa-solid fa-x"></i></button>
                 </div>
-            </div>
+            {%endif%}
+        {% endfor %}
+        <p class="check_text3">이사 당일</p>
+        {% for schedule in schedules %}
+            {% if schedule.duration == 'doing' %}
+                <div class="third_checkbox">
+                    <p class="third_checkbox_text">{{schedule.content}}</p>
+                    <button class="editBtn3"><i class="fa-solid fa-pen"></i></button>
+                    <button class="removeBtn3"><i class="fa-solid fa-x"></i></button>
+                </div>
+            {%endif%}
+        {% endfor %}
+        <i class="fa-solid fa-plus"></i>
+        <div class="plusbox" onclick="openModal()">
+            <button id="plusBtn" type="submit">
+                <i class="fa-solid fa-circle-plus"> 직접 추가하기</i>
+            </button>
         </div>
     </div>
+</div>
 
-    <div class="modal-container" id="modalContainer">
-        <div class="modal" id="modal">
-            <p id="ModalTitle">
-                <i class="fa-solid fa-circle-plus"> 직접 추가하기</i>
-            </p>
-            <p id="modal_firsttext">작성 내용</p>
+<div class="modal-container" id="modalContainer">
+    <div class="modal" id="modal">
+        <p id="ModalTitle">
+            <i class="fa-solid fa-circle-plus"> 직접 추가하기</i>
+            <i class="fa-solid fa-repeat fa-lg" id="close" onclick="closeModal()"></i>
+        </p>
+        <p id="modal_firsttext">작성 내용</p>
             <input type="text" id="modal_Input" placeholder="일정을 입력해주세요">
             <p id="modal_secondtext">날짜 선택</p>
             <div class="dropbox">
@@ -209,7 +100,6 @@
                     <option value="10">10월</option>
                     <option value="11">11월</option>
                     <option value="12">12월</option>
-
                 </select>
 
                 <select id="day">
@@ -253,9 +143,7 @@
                 <div class="checkbox_period" id="item2" value="doing" onclick="toggleCheckbox('item2')">이사중</div>
                 <div class="checkbox_period" id="item3" value="done" onclick="toggleCheckbox('item3')">이사후</div>
             </div>
-            <i class="fa-solid fa-repeat fa-lg" id="close" onclick="closeModal()"></i>
             <button id="create" onclick="createData()">완료</button>
         </div>
     </div>
-</body>
-</html>
+{% endblock %}
