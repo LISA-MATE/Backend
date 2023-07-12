@@ -64,58 +64,58 @@
                     </div>
                     <div class="calText">
                         <i class="fa-solid fa-circle fa-xs"></i>
-                        <p>캘린더</p>
+                        <a href="{% url 'checklist:calendar' %}">캘린더</a>
                     </div>
                 </div>
                 <div class="noticeboard">게시판</div>
                 <div class="noticeboardcircle"></div>
                 <div class="text2">
                     <div class="notice">
-                        <p>정보 게시판</p>
+                        <a href="{% url 'informationPost:board-list' board_type='information' %}">정보 게시판</a>
                     </div>
                     <div class="monthly">
                         <i class="fa-solid fa-circle fa-xs"></i>
-                        <p>월세 정보 공유</p>
+                        <a href="{% url 'informationPost:board-topic-list' board_type='information' topic=0 %}">월세 정보 공유</a>
                     </div>
                     <div class="Jeonse">
                         <i class="fa-solid fa-circle fa-xs"></i>
-                        <p>전세 정보 공유</p>
+                        <a href="{% url 'informationPost:board-topic-list' board_type='information' topic=1 %}">전세 정보 공유</a>
                     </div>
                     <div class="bargain">
                         <i class="fa-solid fa-circle fa-xs"></i>
-                        <p>매매 정보 공유</p>
+                        <a href="{% url 'informationPost:board-topic-list' board_type='information' topic=2 %}">매매 정보 공유</a>
                     </div>
                     <hr>
                 </div>
                 <div class="text3">
                     <div class="review">
-                        <p>후기 게시판</p>
+                        <a href="{% url 'informationPost:board-list' board_type='review' %}">후기 게시판</a>
                     </div>
                     <div class="monthlyReview">
                         <i class="fa-solid fa-circle fa-xs"></i>
-                        <p>월세 후기</p>
+                        <a href="{% url 'informationPost:board-topic-list' board_type='review' topic=3 %}">월세 후기</a>
                     </div>
                     <div class="JeonseReview">
                         <i class="fa-solid fa-circle fa-xs"></i>
-                        <p>전세 후기</p>
+                        <a href="{% url 'informationPost:board-topic-list' board_type='review' topic=4 %}">전세 후기</a>
                     </div>
                     <div class="bargainReview">
                         <i class="fa-solid fa-circle fa-xs"></i>
-                        <p>매매 후기</p>
+                        <a href="{% url 'informationPost:board-topic-list' board_type='review' topic=5 %}">매매 후기</a>
                     </div>
                     <hr>
                 </div>
                 <div class="text4">
                     <div class="town">
-                        <p>우리동네 게시판</p>
+                        <a href="{% url 'informationPost:board-list' board_type='hometown' %}">우리동네 게시판</a>
                     </div>
                     <div class="situation">
                         <i class="fa-solid fa-circle fa-xs"></i>
-                        <p>우리동네 현황</p>
+                        <a href="{% url 'informationPost:board-topic-list' board_type='hometown' topic=6 %}">우리동네 현황</a>
                     </div>
                     <div class="criminal">
                         <i class="fa-solid fa-circle fa-xs"></i>
-                        <p>범죄자 거주 정보</p>
+                        <a href="{% url 'informationPost:board-topic-list' board_type='hometown' topic=7 %}">범죄자 거주 정보</a>
                     </div>
                 </div>
             </div>
