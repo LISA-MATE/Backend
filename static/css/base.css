@@ -66,14 +66,14 @@ p {
     margin-right: 5vw;
 }
 
-.icon>a {
+.icon>a>i{
     margin-right: 2vw;
     font-size: 2rem;
     color:#181D45;
 }
 
 @media (max-width: 1300px) {
-    .icon>i{
+    .icon>a>i{
         font-size: 1.5rem;
     }
 }
@@ -83,8 +83,9 @@ p {
     align-items: center;
 }
 
-.bell>a {
+.bell>i {
     margin-right: 5px;
+    margin-top:0.2vw;
     color: #181D45;
 }
 
@@ -94,16 +95,15 @@ p {
     }
 }
 
-
-.logo>i{
+.logo>a>p {
     font-family: 'Jua';
-    font-weight:400;
-    font-size:6.25vw;
+    font-weight: 400;
+    font-size: 6.25vw;
     line-height: 125px;
     letter-spacing: -0.05rem;
-    color:#233C9B;
-    margin-left:7%;
-    margin-top:8%;
+    color: #233C9B;
+    margin-left: 7%;
+    margin-top: 8%;
 }
 
 .userBox>.user{
@@ -581,7 +581,7 @@ p {
     .menu>.text3>.monthlyReview,
     .menu>.text4>.town,
     .menu>.text4>.situation {
-        margin-top: 0.6vw;
+        margin-top: 0.5vw;
     }
 }
 
@@ -615,7 +615,7 @@ p {
     .menu>.text3>.monthlyReview,
     .menu>.text4>.town,
     .menu>.text4>.situation {
-        margin-top: 1vw;
+        margin-top: 0.2vw;
     }
 }
 
@@ -850,6 +850,7 @@ p {
         margin-top: 0.6vw;
     }
 }
+
 
 .scheduleTitle{
     width:15vw;
