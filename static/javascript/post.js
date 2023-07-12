@@ -47,10 +47,10 @@ function toggleDropdown() {
     }
 }
 
-function editOption() {
-    // 수정 옵션을 선택했을 때 동작
-    console.log("수정하기 선택");
-}
+// function editOption() {
+//     // 수정 옵션을 선택했을 때 동작
+//     console.log("수정하기 선택");
+// }
 
 function deleteOption() {
     // 삭제 옵션을 선택했을 때 동작
