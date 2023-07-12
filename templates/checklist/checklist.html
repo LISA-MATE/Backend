@@ -14,7 +14,7 @@
     </a>
 </div>
 
-<div class="exambox">
+<div class="exambox" style="margin-left:10%;">
     <p class="box_title">부기의<br>이사 체크리스트</p>
     <hr class="box_hr">
     <p class="box_text1">Lisa가 추천하는 기본 체크리스트 항목</p>
@@ -23,7 +23,7 @@
     <p class="box_text4">+</p>
 </div>
 
-<div class="checkbox">
+<div class="checkbox" style="margin-left:10%;">
     <p class="check_text1">이사 확정 후</p>
         <div class="first_checkbox">
             <p class="first_checkbox_text">이사할 집 도시가스 설치요청</p>
@@ -78,16 +78,17 @@
             <input type="text" id="modal_Input" placeholder="일정을 입력해주세요">
             <p id="modal_secondtext">날짜 선택</p>
             <div class="dropbox">
-                <select id="year">
-                    <option value="2022">2023년</option>
-                    <option value="2023">2024년</option>
-                    <option value="2024">2026년</option>
-                    <option value="2024">2027년</option>
-                    <option value="2024">2028년</option>
-                    <option value="2024">2029년</option>
+                <select id="year" onchange="updateDayOptions()">
+                    <option value="2023">2023년</option>
+                    <option value="2024">2024년</option>
+                    <option value="2025">2025년</option>
+                    <option value="2026">2026년</option>
+                    <option value="2027">2027년</option>
+                    <option value="2028">2028년</option>
+                    <option value="2029">2029년</option>
                 </select>
 
-                <select id="month">
+                <select id="month" onchange="updateDayOptions()">
                     <option value="01">1월</option>
                     <option value="02">2월</option>
                     <option value="03">3월</option>

@@ -2,7 +2,6 @@
     width: 70%;
     float: right;
     box-sizing: border-box;
-    padding-left:10%;
 }
 
 .middleTitle {
@@ -252,7 +251,7 @@
 }
 
 #close{
-    margin-left:26vw;
+    margin-left:28vw;
 }
 
 .modal-container>.modal>#modal_firsttext,
@@ -388,7 +387,7 @@
     line-height: 1.3vw;
     letter-spacing: -0.02rem;
     color: white;
-    margin-left: 80%;
+    margin-left: 82%;
     margin-top: 2vw;
     cursor:pointer;
 }

@@ -1,3 +1,16 @@
+.EditTitle>a>p {
+    position: absolute;
+    font-family: 'Inter';
+    font-weight: 600;
+    font-size: 1.5vw;
+    line-height: 36.31px;
+    letter-spacing: -0.05rem;
+    color: #525253;
+    margin-top: -13%;
+    margin-left:58%;
+    cursor: pointer;
+}
+
 .all>.right>.profile{
     margin-left:2vw;
     margin-top:-2vw;

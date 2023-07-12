@@ -3,6 +3,13 @@
 
 {% block content %} 
 <script src="{% static 'javascript/profile.js' %}"></script>
+
+<div class="EditTitle">
+    <a href="{% url 'profile' %}">
+        <p>Edit Profile</p>
+    </a>
+</div>
+
 <div class="profile">
     <i class="fa-solid fa-gear fa-2xl"></i>
     <p>프로필 편집</p>

@@ -11,6 +11,43 @@ function openModal() {
     setTimeout(initializeModal, 0); // 모달이 열린 후에 초기화
 }
 
+//모달 내에서 날짜 선택
+function updateDayOptions() {
+    var yearSelect = document.getElementById("year");
+    var monthSelect = document.getElementById("month");
+    var daySelect = document.getElementById("day");
+
+    var selectedYear = yearSelect.value;
+    var selectedMonth = monthSelect.value;
+
+    // 일 수 계산
+    var dateObj = new Date(selectedYear, selectedMonth, 0);
+    var daysInMonth = dateObj.getDate(); // 선택한 월의 일 수
+
+    // 일 수 업데이트
+    daySelect.innerHTML = "";
+    for (var i = 1; i <= daysInMonth; i++) {
+        var dayValue = (i < 10) ? "0" + i : i; //2자리로 날짜 변환
+        var dayOption = new Option(i + "일", dayValue);
+        daySelect.appendChild(dayOption);
+    }
+}
+
+// 현재 날짜로 초기 값 지정
+window.onload = function () {
+    var currentDate = new Date();
+    var currentYear = currentDate.getFullYear().toString();
+    var currentMonth = (currentDate.getMonth() + 1).toString().padStart(2, "0");
+    var currentDay = currentDate.getDate().toString().padStart(2, "0");
+
+    document.getElementById("year").value = currentYear;
+    document.getElementById("month").value = currentMonth;
+
+    updateDayOptions();
+    document.getElementById("day").value = currentDay;
+};
+
+//체크리스트 화면에서 이사 확정 후 클릭 이벤트
 document.addEventListener('DOMContentLoaded', function () {
     const checkboxes = document.querySelectorAll('.checkbox > .first_checkbox');
 
@@ -52,6 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+//체크리스트 화면에서 이사 직전 클릭 이벤트
 document.addEventListener('DOMContentLoaded', function () {
     const checkboxes = document.querySelectorAll('.checkbox > .second_checkbox');
 
@@ -93,6 +131,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+//체크리스트 화면에서 이사 당일 클릭 이벤트
 document.addEventListener('DOMContentLoaded', function () {
     const checkboxes = document.querySelectorAll('.checkbox > .third_checkbox');
 
@@ -154,6 +193,8 @@ items.forEach(item => {
 let clicked1 = false;
 let clicked2 = false;
 let clicked3 = false;
+
+//모달에서 이사전 버튼 클릭 이벤트
 document.addEventListener('DOMContentLoaded', function () {
     const checkbox = document.querySelector('.modal >.checkboxContainer> #item1');
 
@@ -162,14 +203,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (clicked1 && !clicked2 && !clicked3) {
             this.style.background = '#5377FF';
-            //cnt올리기?
         } else {
             this.style.background = '#FFFFFF';
-            //cnt내리기?
         }
     });
 });
 
+//모달에서 이사중 버튼 클릭 이벤트
 document.addEventListener('DOMContentLoaded', function () {
     const checkbox = document.querySelector('.modal >  .checkboxContainer> #item2');
 
@@ -178,14 +218,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (!clicked1 && clicked2 && !clicked3) {
             this.style.background = '#5377FF';
-            //cnt올리기?
         } else {
             this.style.background = '#FFFFFF';
-            //cnt내리기?
         }
     });
 });
 
+//모달에서 이사후 버튼 클릭 이벤트
 document.addEventListener('DOMContentLoaded', function () {
     const checkbox = document.querySelector('.modal > .checkboxContainer> #item3');
 
@@ -194,10 +233,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (!clicked1 && !clicked2 && clicked3) {
             this.style.background = '#5377FF';
-            //cnt올리기?
         } else {
             this.style.background = '#FFFFFF';
-            //cnt내리기?
         }
     });
 });
