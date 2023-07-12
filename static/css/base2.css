@@ -30,7 +30,6 @@ body {
     width: 70%;
     float: right;
     box-sizing: border-box;
-    background-color: pink;
 }
 
 .top {
@@ -931,7 +930,6 @@ p {
     text-align: center;
 }
 
-
 .scheduleBox>.scheduleText>p {
     font-family: 'Inter';
     font-weight: 400;
@@ -955,8 +953,6 @@ p {
     }
 }
 
-/*right 시작 */
-
 .right>.writebar {
     width: 55vw;
     height: 3.8vw;
@@ -968,23 +964,14 @@ p {
     align-items: center;
 }
 
-.right>.writebar>#writeTitle{
+.right>.writebar>#writeTitle {
     font-family: 'Hind';
     font-weight: 500;
     font-size: 1.5vw;
     line-height: 130px;
     letter-spacing: -0.1rem;
     color: #FFFFFF;
-    margin-left: -25vw;
-}
-
-h2{
-    font-family: 'Hind';
-    font-weight: 500;
-    font-size: 1.5vw;
-    line-height: 130px;
-    letter-spacing: -0.1rem;
-    color: #FFFFFF;
+    margin-left: 3vw;
 }
 
 .right>.writebar>#subTitle {
@@ -994,317 +981,11 @@ h2{
     line-height: 130px;
     letter-spacing: -0.1rem;
     color: #E8E8E8;
-    margin-left: -40vw;
+    margin-left: -25vw;
 }
 
 .right>.writebar>i {
     margin-right: 2vw;
     color: #E8E8E8;
     cursor: pointer;
-}
-
-.detail_whitebox {
-    margin-top: 5vw;
-    width: 55vw;
-    height: 45vw;
-    border: 1px solid #0F3FE8;
-    border-radius: 5vw;
-    background-color: white;
-    box-shadow: 5px 5px 14px 0px rgba(0, 0, 0, 0.32);
-}
-
-.category {
-    margin-left: 4vw;
-    margin-top: 2vw;
-    color: #878787;
-    font-family: 'Inter';
-    font-weight: 700;
-    font-size: 0.9vw;
-}
-
-.category>a {
-    font-weight: 500;
-}
-
-.container {
-    display: flex;
-    align-items: center;
-    margin-left: 4vw;
-}
-
-h1 {
-    color: #5B5B5B;
-    font-family: 'Hind';
-    font-weight: 500;
-    font-size: 2.5vw;
-}
-
-.dropdown {
-    display: inline-block;
-    position: relative;
-    margin-left: 34vw;
-    font-size: 2vw;
-}
-
-.dropdown>i {
-    color: #5B5B5B;
-}
-
-.dropdown-icon {
-    cursor: pointer;
-}
-
-.dropdown-options {
-    text-align: center;
-    position: absolute;
-    width: 5vw;
-    background-color: white;
-    border: 1px solid #919191;
-    border-radius: 0.5vw;
-    display: none;
-    margin-top: 5px;
-}
-
-.dropdown-options>hr{
-    margin-top:0.1vw;
-    margin-bottom:-0.1vw;
-}
-
-.dropdown-option {
-    cursor: pointer;
-    font-family: 'Pretendard';
-    font-weight: 600;
-    font-size: 0.5vw;
-    margin-top:1vw;
-    margin-bottom:1vw;
-}
-
-.right>.detail_whitebox>hr {
-    height: 2px;
-    background-color: #131B5A;
-    border: none;
-    width: 87%;
-}
-
-.inputText{
-    height:26vw;
-    width:55vw;
-    overflow:auto;
-    text-align:center;
-}
-
-.inputText>p {
-    font-family: 'Hind';
-    font-weight: 500;
-    font-size: 1.5vw;
-    color: #878787;
-    line-height: 6.5vw;
-    width: 87%;
-    margin-left: 4vw;
-    margin-top:-1vw;
-}
-
-
-#like,
-#comment {
-    height: 2.5vw;
-    width: 7.5vw;
-    border-radius: 5vw;
-    background: #0F3FE8;
-    margin-top: 5vw;
-    border: 1px solid #0F3FE8;
-    font-family: 'Inter';
-    font-weight: 400;
-    font-size: 0.9vw;
-    line-height: 1vw;
-    letter-spacing: -0.05rem;
-    color: #ffffff;
-    cursor: pointer;
-    white-space: nowrap;
-    margin-left: 2vw;
-    box-shadow: 5px 5px 14px 0px rgba(0, 0, 0, 0.32);
-}
-
-#comment-list {
-    margin-top: 2vw;
-}
-
-.comment_title {
-    font-family: 'Inter';
-    font-weight: 600;
-    font-size: 0.9vw;
-    line-height: 1vw;
-    letter-spacing: -0.05rem;
-    color: #131B5A;
-    margin-left: 2.5vw;
-}
-
-.comment_box {
-    border-top: 1px solid #878787;
-    border-bottom: 1px solid #878787;
-    width: 55vw;
-    background-color: white;
-    box-shadow: 7px 4px 13px 0px rgba(0, 0, 0, 0.25);
-}
-
-.comment_user {
-    display: flex;
-    align-items: center;
-    margin-left: 3vw;
-}
-
-.comment_userImage {
-    width: 2vw;
-    padding-top: 2vw;
-    border: 0.05vw solid #142F9E;
-    background: linear-gradient(#CFCFCF, #FFFFFF);
-    border-radius: 50%;
-    margin-top: 1vh;
-}
-
-.comment_nickname {
-    font-family: 'Inter';
-    font-weight: 600;
-    font-size: 0.9vw;
-    line-height: 4vw;
-    letter-spacing: -0.1rem;
-    color: #142F9E;
-    margin-left: 0.5vw;
-    margin-top: 0.7vw;
-}
-
-.comment_dropdown {
-    display: inline-block;
-    position: relative;
-    margin-left: 83%;
-}
-
-.comment_dropdown>i {
-    color: #5B5B5B;
-    cursor: pointer;
-}
-
-.comment_text {
-    margin-top: 10vw;
-}
-
-.comment_dropdown-options {
-    width: 5.5vw;
-    border: 1px solid #919191;
-    background-color: white;
-    border-radius: 0.5vw;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    display: none;
-    padding: 5px;
-    margin-top: 5px;
-}
-
-.comment_dropdown-option {
-    font-family: 'Pretendard';
-    font-weight: 600;
-    font-size: 0.5vw;
-    line-height: 0.5vw;
-    letter-spacing: -0.05rem;
-    color: #646464;
-    cursor: pointer;
-    padding: 5px;
-}
-
-.comment_box>.comment_text {
-    width: 100%;
-    margin-left: 5.7vw;
-    font-family: 'Inter';
-    font-weight: 400;
-    font-size: 0.9vw;
-    line-height: 1vw;
-    color: #6B75A1;
-}
-
-.comment_date {
-    font-family: 'Inter';
-    font-weight: 400;
-    font-size: 0.5vw;
-    line-height: 1.5vw;
-    color: #4967FF;
-    margin-left: 5.8vw;
-}
-
-#comment_like {
-    height: 1.5vw;
-    width: 3.5vw;
-    border-radius: 0.7vw;
-    background: #0F3FE8;
-    margin-left: 33vw;
-    margin-bottom: 1vw;
-    border: none;
-    font-family: 'Inter';
-    font-weight: 600;
-    font-size: 0.5vw;
-    line-height: 0.5vw;
-    color: #ffffff;
-    cursor: pointer;
-    white-space: nowrap;
-}
-
-#comment_like>i {
-    margin-right: 0.5vw;
-}
-
-.detail_user {
-    display: flex;
-    align-items: center;
-    margin-left: 4vw;
-}
-
-.detail_userImage {
-    width: 3.5vw;
-    padding-top: 3.5vw;
-    border: 0.1vw solid #142F9E;
-    background: linear-gradient(#CFCFCF, #FFFFFF);
-    border-radius: 50%;
-    margin-top: -2vw;
-}
-
-.detail_user2 {
-    margin-left: 1vw;
-    margin-top: -1.5vw;
-}
-
-.detail_nickname {
-    font-family: 'Inter';
-    font-weight: 600;
-    color: #142F9E;
-    font-size: 0.9vw;
-    line-height: 0.5vw;
-    letter-spacing: -0.1rem;
-    margin-top: 1vw;
-}
-
-.detail_user3 {
-    display: flex;
-    justify-content: flex-start;
-    margin-top: 0.5vw;
-}
-
-.detail_date,
-.detail_line,
-.detail_see,
-.detail_place {
-    font-family: 'Inter';
-    font-weight: 500;
-    font-size: 0.6vw;
-    line-height: 0.5vw;
-    display: flex;
-    color: #4967FF;
-    white-space: nowrap;
-    margin: 0;
-}
-
-.detail_line,
-.detail_see,
-.detail_place {
-    margin-left: 0.5vw;
 }

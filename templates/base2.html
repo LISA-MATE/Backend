@@ -5,17 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LisaMate</title>
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
-    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
-    <script src="{% static 'javascript/profile.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/base2.css' %}">
+        <link rel="stylesheet" href="{% static 'css/post.css' %}">
+        <script src="{% static 'javascript/post.js' %}"></script>
     <script src="https://kit.fontawesome.com/d4b61b3d04.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
-    <div class="Middle">
-        <div class="Mcircle"></div>
-    </div>
     <div class="top">
-        <p>My Check list</p>
+        <p>LISA MATE</p>
         <div class="icon">
             <i class="fa-solid fa-user fa-2xl"></i>
             <i class="fa-solid fa-house fa-2xl"></i>
@@ -26,8 +24,16 @@
         </div>
     </div>
 
-    <div class="logo">
-        <p>LISA MATE</p>
+    <div class="topBox">
+        <div class="topBlueBox"></div>
+        <div class="topCircle"></div>
+        <p id="p1">LISA</p><br>
+        <p id="p2">MATE</p>
+        <div class="miniTitle">
+            <p id="mini">Move Checklist Service</p>
+        </div>
+        <div class="topbar"></div>
+        <p id="mini2">나의 이사메이트 리사.</p>
     </div>
 
     <div class="all">
@@ -127,10 +133,12 @@
                 </div>
             </div>
         </div>
+
         <div class="right">
             {% block content %}
             {% endblock %}
         </div>
     </div>
 </body>
+
 </html>
