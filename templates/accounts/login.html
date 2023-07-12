@@ -45,7 +45,9 @@
                     <input type="password" placeholder="비밀번호를 입력해주세요." name="password">
                 </div>
                 {% if error_message %}
-                    <p class="error">{{ error_message }}</p>
+                <div class="errorContainer">
+                    <p class="error" id="error"><i class="fa-solid fa-circle-exclamation"></i>&nbsp;{{ error_message }}</p>
+                </div>
                 {% endif %}
                 {% csrf_token %}
                 <a href="{% url 'checklist:index' %}">

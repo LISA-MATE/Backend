@@ -11,7 +11,9 @@
 
 <body>
     <div class="logo">
+        <a href="#" onClick="top.location='javascript:location.reload()'">
         <p>Lisa mate</p>
+        </a>
         <a href="#" onClick="top.location='javascript:location.reload()'">
             <i class="fa-solid fa-house fa-2xl"></i>
         </a>
@@ -34,7 +36,7 @@
             <form action="" method="POST">
                 {% csrf_token %}
                 <div class="SignupText">Sign up</div>
-                <p style="margin-top:10%;">Nickname</p>
+                <p style="margin-top:8%;">Nickname</p>
                 <div class="NicknameText">
                     <i class="fa-regular fa-user fa-lg"></i>
                     <input type="text" placeholder="닉네임을 입력해주세요." name="nickname">
@@ -44,19 +46,21 @@
                     <i class="fa-solid fa-lock fa-lg"></i>
                     <input type="password" placeholder="비밀번호를 입력해주세요." name="password">
                 </div>
-                <p style="margin-top:3%;">E-mail</p>
+                <p style="margin-top:3%; margin-right:1vw;">E-mail</p>
                 <div class="EmailText">
                     <i class="fa-regular fa-envelope fa-lg"></i>
                     <input type="text" placeholder="이메일을 입력해주세요." name="email" id="email">
                 </div>
                 {% if error_message %}
+                <div class="errorContainer">
                     {% if '불가능' in error_message %}
-                        <p class="error" style="color: #FF2459;">{{ error_message }}</p>
+                        <p class="error" id="error"><i class="fa-solid fa-circle-exclamation"></i>&nbsp;{{ error_message }}</p>
                     {% elif '필드' in error_message %}
-                        <p class="error" style="color: #FF2459;">{{ error_message }}</p>
+                        <p class="error" id="error"><i class="fa-solid fa-circle-exclamation"></i>&nbsp;{{ error_message }}</p>
                     {% else %}
-                        <p class="error" style="color: #001CEB;">{{ error_message }}</p>
+                        <p class="error" id="error" style="color: #001CEB;">{{ error_message }}</p>
                     {% endif %}
+                </div>
                 {% endif %}
                 <a href="{% url 'accounts:login' %}">
                     <button id="SignupBtn" type="submit">Join</button>

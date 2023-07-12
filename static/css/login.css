@@ -211,7 +211,7 @@ body {
     text-align: center;
     color: white;
     border: none;
-    margin-top: 2vw;
+    margin-top:2.5vw;
 }
 
 .bottom {
@@ -223,4 +223,22 @@ body {
 
 .bottom>a>img {
     width: 25vw;
+}
+
+.whitebox>form>.errorContainer{
+    display: flex;
+    justify-content: start;
+    margin:0;
+    margin-left:-22vw;
+}
+
+.whitebox>form>.errorContainer>#error{
+    font-family: 'Inter';
+    font-weight:400;
+    font-size:0.5vw;
+    line-height: 0.6vw;
+    letter-spacing: -0.05rem;
+    color:#FF2459;
+    position: absolute;
+    margin-top:1vw;
 }

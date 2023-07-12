@@ -22,7 +22,11 @@ body {
     justify-content: space-between;
 }
 
-.logo>p {
+a{
+    text-decoration-line: none;
+}
+
+.logo>a>p {
     margin-top: 0%;
     margin-left: 1%;
     font-family: Inter;
@@ -32,6 +36,7 @@ body {
     letter-spacing: -0.05em;
     text-align: left;
     color: #242A57;
+    white-space: nowrap;
 }
 
 .logo>a>i {
@@ -214,5 +219,23 @@ body {
     letter-spacing: -0.05rem;
     color:white;
     border:none;
-    margin-top:2vw;
+    margin-top:3vw;
+}
+
+.whitebox>form>.errorContainer {
+    display: flex;
+    justify-content: start;
+    margin: 0;
+    margin-left: -22vw;
+}
+
+.whitebox>form>.errorContainer>#error {
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 0.5vw;
+    line-height: 0.6vw;
+    letter-spacing: -0.05rem;
+    color: #FF2459;
+    position: absolute;
+    margin-top: 0.5vw;
 }
