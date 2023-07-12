@@ -15,6 +15,10 @@ body {
     width: 100vw;
 }
 
+a{
+    text-decoration-line: none;
+}
+
 .all {
     padding-top: 9vw;
 }
@@ -437,8 +441,8 @@ p {
     }
 }
 
-.menu>.text1>.checklistText>p,
-.menu>.text1>.calText>p {
+.menu>.text1>.checklistText>a>p,
+.menu>.text1>.calText>a>p {
     font-family: 'Inter';
     font-size: 25px;
     line-height: 30.26px;
@@ -450,24 +454,24 @@ p {
 
 @media (max-width: 1700px) {
 
-    .menu>.text1>.checklistText>p,
-    .menu>.text1>.calText>p {
+    .menu>.text1>.checklistText>a>p,
+    .menu>.text1>.calText>a>p {
         font-size: 20px;
     }
 }
 
 @media (max-width: 1400px) {
 
-    .menu>.text1>.checklistText>p,
-    .menu>.text1>.calText>p {
+    .menu>.text1>.checklistText>a>p,
+    .menu>.text1>.calText>a>p {
         font-size: 15px;
     }
 }
 
 @media (max-width: 1200px) {
 
-    .menu>.text1>.checklistText>p,
-    .menu>.text1>.calText>p {
+    .menu>.text1>.checklistText>a>p,
+    .menu>.text1>.calText>a>p {
         font-size: 10px;
     }
 }
@@ -602,7 +606,31 @@ p {
     .menu>.text3>.monthlyReview,
     .menu>.text4>.town,
     .menu>.text4>.situation {
+        margin-top: 1.8vw;
+    }
+}
+
+@media (max-width: 1600px) {
+
+    .menu>.text2>.notice,
+    .menu>.text2>.monthly,
+    .menu>.text3>.review,
+    .menu>.text3>.monthlyReview,
+    .menu>.text4>.town,
+    .menu>.text4>.situation {
         margin-top: 1.5vw;
+    }
+}
+
+@media (max-width: 1500px) {
+
+    .menu>.text2>.notice,
+    .menu>.text2>.monthly,
+    .menu>.text3>.review,
+    .menu>.text3>.monthlyReview,
+    .menu>.text4>.town,
+    .menu>.text4>.situation {
+        margin-top: 1.2vw;
     }
 }
 
@@ -614,7 +642,43 @@ p {
     .menu>.text3>.monthlyReview,
     .menu>.text4>.town,
     .menu>.text4>.situation {
-        margin-top: 0.5vw;
+        margin-top: 1vw;
+    }
+}
+
+@media (max-width: 1300px) {
+
+    .menu>.text2>.notice,
+    .menu>.text2>.monthly,
+    .menu>.text3>.review,
+    .menu>.text3>.monthlyReview,
+    .menu>.text4>.town,
+    .menu>.text4>.situation {
+        margin-top: 0.8vw;
+    }
+}
+
+@media (max-width: 1250px) {
+
+    .menu>.text2>.notice,
+    .menu>.text2>.monthly,
+    .menu>.text3>.review,
+    .menu>.text3>.monthlyReview,
+    .menu>.text4>.town,
+    .menu>.text4>.situation {
+        margin-top: 0.6vw;
+    }
+}
+
+@media (max-width: 1200px) {
+
+    .menu>.text2>.notice,
+    .menu>.text2>.monthly,
+    .menu>.text3>.review,
+    .menu>.text3>.monthlyReview,
+    .menu>.text4>.town,
+    .menu>.text4>.situation {
+        margin-top: 0.6vw;
     }
 }
 
@@ -626,7 +690,19 @@ p {
     .menu>.text3>.monthlyReview,
     .menu>.text4>.town,
     .menu>.text4>.situation {
-        margin-top: 0.1vw;
+        margin-top: 0.3vw;
+    }
+}
+
+@media (max-width: 1050px) {
+
+    .menu>.text2>.notice,
+    .menu>.text2>.monthly,
+    .menu>.text3>.review,
+    .menu>.text3>.monthlyReview,
+    .menu>.text4>.town,
+    .menu>.text4>.situation {
+        margin-top: 1vw;
     }
 }
 
@@ -725,9 +801,9 @@ p {
     }
 }
 
-.text2>.notice>p,
-.text3>.review>p,
-.text4>.town>p {
+.text2>.notice>a>p,
+.text3>.review>a>p,
+.text4>.town>a>p {
     font-family: 'Inter';
     font-weight: 600;
     font-size: 25px;
@@ -739,39 +815,39 @@ p {
 
 @media (max-width: 1700px) {
 
-    .text2>.notice>p,
-    .text3>.review>p,
-    .text4>.town>p {
+    .text2>.notice>a>p,
+    .text3>.review>a>p,
+    .text4>.town>a>p {
         font-size: 20px;
     }
 }
 
 @media (max-width: 1400px) {
 
-    .text2>.notice>p,
-    .text3>.review>p,
-    .text4>.town>p {
+    .text2>.notice>a>p,
+    .text3>.review>a>p,
+    .text4>.town>a>p {
         font-size: 15px;
     }
 }
 
 @media (max-width: 1100px) {
 
-    .text2>.notice>p,
-    .text3>.review>p,
-    .text4>.town>p {
+    .text2>.notice>a>p,
+    .text3>.review>a>p,
+    .text4>.town>a>p {
         font-size: 10px;
     }
 }
 
-.text2>.monthly>p,
-.text2>.Jeonse>p,
-.text2>.bargain>p,
-.text3>.monthlyReview>p,
-.text3>.JeonseReview>p,
-.text3>.bargainReview>p,
-.text4>.criminal>p,
-.text4>.situation>p {
+.text2>.monthly>a>p,
+.text2>.Jeonse>a>p,
+.text2>.bargain>a>p,
+.text3>.monthlyReview>a>p,
+.text3>.JeonseReview>a>p,
+.text3>.bargainReview>a>p,
+.text4>.criminal>a>p,
+.text4>.situation>a>p {
     font-family: 'Inter';
     font-weight: 400;
     font-size: 25px;
@@ -783,42 +859,42 @@ p {
 
 @media (max-width: 1700px) {
 
-    .text2>.monthly>p,
-    .text2>.Jeonse>p,
-    .text2>.bargain>p,
-    .text3>.monthlyReview>p,
-    .text3>.JeonseReview>p,
-    .text3>.bargainReview>p,
-    .text4>.criminal>p,
-    .text4>.situation>p {
+    .text2>.monthly>a>p,
+    .text2>.Jeonse>a>p,
+    .text2>.bargain>a>p,
+    .text3>.monthlyReview>a>p,
+    .text3>.JeonseReview>a>p,
+    .text3>.bargainReview>a>p,
+    .text4>.criminal>a>p,
+    .text4>.situation>a>p {
         font-size: 20px;
     }
 }
 
 @media (max-width: 1400px) {
 
-    .text2>.monthly>p,
-    .text2>.Jeonse>p,
-    .text2>.bargain>p,
-    .text3>.monthlyReview>p,
-    .text3>.JeonseReview>p,
-    .text3>.bargainReview>p,
-    .text4>.criminal>p,
-    .text4>.situation>p {
+    .text2>.monthly>a>p,
+    .text2>.Jeonse>a>p,
+    .text2>.bargain>a>p,
+    .text3>.monthlyReview>a>p,
+    .text3>.JeonseReview>a>p,
+    .text3>.bargainReview>a>p,
+    .text4>.criminal>a>p,
+    .text4>.situation>a>p {
         font-size: 15px;
     }
 }
 
 @media (max-width: 1200px) {
 
-    .text2>.monthly>p,
-    .text2>.Jeonse>p,
-    .text2>.bargain>p,
-    .text3>.monthlyReview>p,
-    .text3>.JeonseReview>p,
-    .text3>.bargainReview>p,
-    .text4>.criminal>p,
-    .text4>.situation>p {
+    .text2>.monthly>a>p,
+    .text2>.Jeonse>a>p,
+    .text2>.bargain>a>p,
+    .text3>.monthlyReview>a>p,
+    .text3>.JeonseReview>a>p,
+    .text3>.bargainReview>a>p,
+    .text4>.criminal>a>p,
+    .text4>.situation>a>p {
         font-size: 10px;
     }
 }
@@ -930,6 +1006,7 @@ p {
     text-align: center;
 }
 
+
 .scheduleBox>.scheduleText>p {
     font-family: 'Inter';
     font-weight: 400;
@@ -951,41 +1028,4 @@ p {
     .scheduleBox>.scheduleText>p {
         font-size: 10px;
     }
-}
-
-.right>.writebar {
-    width: 55vw;
-    height: 3.8vw;
-    border: 1px solid #0F3FE8;
-    border-radius: 1.7vw;
-    background-color: #0F3FE8;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.right>.writebar>#writeTitle {
-    font-family: 'Hind';
-    font-weight: 500;
-    font-size: 1.5vw;
-    line-height: 130px;
-    letter-spacing: -0.1rem;
-    color: #FFFFFF;
-    margin-left: 3vw;
-}
-
-.right>.writebar>#subTitle {
-    font-family: 'Hind';
-    font-weight: 500;
-    font-size: 0.9vw;
-    line-height: 130px;
-    letter-spacing: -0.1rem;
-    color: #E8E8E8;
-    margin-left: -25vw;
-}
-
-.right>.writebar>i {
-    margin-right: 2vw;
-    color: #E8E8E8;
-    cursor: pointer;
 }

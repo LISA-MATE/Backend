@@ -50,9 +50,7 @@
                 </div>
                 {% endif %}
                 {% csrf_token %}
-                <a href="{% url 'checklist:index' %}">
-                    <button id="LoginBtn" type="submit">LOGIN</button>
-                </a>
+                <button id="LoginBtn" type="submit">LOGIN</button>
                 <div class="bottom">
                     <a href="{% url 'accounts:signup' %}">
                         <img src="../../static/image/signup.png">

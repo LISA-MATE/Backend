@@ -66,7 +66,7 @@ p {
     margin-right: 5vw;
 }
 
-.icon>i {
+.icon>a {
     margin-right: 2vw;
     font-size: 2rem;
     color:#181D45;
@@ -83,7 +83,7 @@ p {
     align-items: center;
 }
 
-.bell>i {
+.bell>a {
     margin-right: 5px;
     color: #181D45;
 }
@@ -95,7 +95,7 @@ p {
 }
 
 
-.logo>p{
+.logo>i{
     font-family: 'Jua';
     font-weight:400;
     font-size:6.25vw;
@@ -371,7 +371,7 @@ p {
     }
 }
 
-.menu>.text1>.checklistText>p, .menu>.text1>.calText>p{
+.menu>.text1>.checklistText>a>p, .menu>.text1>.calText>a>p{
     font-family: 'Inter';
     font-size: 25px;
     line-height: 30.26px;
@@ -382,19 +382,19 @@ p {
 }
 
 @media (max-width: 1700px) {
-    .menu>.text1>.checklistText>p, .menu>.text1>.calText>p {
+    .menu>.text1>.checklistText>a>p, .menu>.text1>.calText>a>p {
         font-size: 20px;
     }
 }
 
 @media (max-width: 1400px) {
-    .menu>.text1>.checklistText>p, .menu>.text1>.calText>p{
+    .menu>.text1>.checklistText>a>p, .menu>.text1>.calText>a>p{
         font-size: 15px;
     }
 }
 
 @media (max-width: 1200px) {
-    .menu>.text1>.checklistText>p, .menu>.text1>.calText>p{
+    .menu>.text1>.checklistText>a>p, .menu>.text1>.calText>a>p{
         font-size: 10px;
     }
 }
@@ -524,7 +524,30 @@ p {
     .menu>.text3>.monthlyReview,
     .menu>.text4>.town,
     .menu>.text4>.situation{
+        margin-top: 1.8vw;
+    }
+}
+
+@media (max-width: 1600px) {
+    .menu>.text2>.notice,
+    .menu>.text2>.monthly,
+    .menu>.text3>.review,
+    .menu>.text3>.monthlyReview,
+    .menu>.text4>.town,
+    .menu>.text4>.situation {
         margin-top: 1.5vw;
+    }
+}
+
+@media (max-width: 1500px) {
+
+    .menu>.text2>.notice,
+    .menu>.text2>.monthly,
+    .menu>.text3>.review,
+    .menu>.text3>.monthlyReview,
+    .menu>.text4>.town,
+    .menu>.text4>.situation {
+        margin-top: 1.2vw;
     }
 }
 
@@ -535,7 +558,41 @@ p {
     .menu>.text3>.monthlyReview,
     .menu>.text4>.town,
     .menu>.text4>.situation {
-        margin-top: 0.5vw;
+        margin-top: 1vw;
+    }
+}
+
+@media (max-width: 1300px) {
+    .menu>.text2>.notice,
+    .menu>.text2>.monthly,
+    .menu>.text3>.review,
+    .menu>.text3>.monthlyReview,
+    .menu>.text4>.town,
+    .menu>.text4>.situation {
+        margin-top: 0.8vw;
+    }
+}
+
+@media (max-width: 1250px) {
+
+    .menu>.text2>.notice,
+    .menu>.text2>.monthly,
+    .menu>.text3>.review,
+    .menu>.text3>.monthlyReview,
+    .menu>.text4>.town,
+    .menu>.text4>.situation {
+        margin-top: 0.6vw;
+    }
+}
+
+@media (max-width: 1200px) {
+    .menu>.text2>.notice,
+    .menu>.text2>.monthly,
+    .menu>.text3>.review,
+    .menu>.text3>.monthlyReview,
+    .menu>.text4>.town,
+    .menu>.text4>.situation {
+        margin-top: 0.6vw;
     }
 }
 
@@ -546,7 +603,19 @@ p {
     .menu>.text3>.monthlyReview,
     .menu>.text4>.town,
     .menu>.text4>.situation {
-        margin-top: 0.1vw;
+        margin-top: 0.3vw;
+    }
+}
+
+@media (max-width: 1050px) {
+
+    .menu>.text2>.notice,
+    .menu>.text2>.monthly,
+    .menu>.text3>.review,
+    .menu>.text3>.monthlyReview,
+    .menu>.text4>.town,
+    .menu>.text4>.situation {
+        margin-top: 1vw;
     }
 }
 
@@ -645,9 +714,9 @@ p {
     }
 }
 
-.text2>.notice>p,
-.text3>.review>p,
-.text4>.town>p{
+.text2>.notice>a>p,
+.text3>.review>a>p,
+.text4>.town>a>p{
     font-family: 'Inter';
     font-weight: 600;
     font-size: 25px;
@@ -658,37 +727,37 @@ p {
 }
 
 @media (max-width: 1700px) {
-    .text2>.notice>p,
-    .text3>.review>p,
-    .text4>.town>p{
+    .text2>.notice>a>p,
+    .text3>.review>a>p,
+    .text4>.town>a>p{
         font-size: 20px;
     }
 }
 
 @media (max-width: 1400px) {
-    .text2>.notice>p,
-    .text3>.review>p,
-    .text4>.town>p{
+    .text2>.notice>a>p,
+    .text3>.review>a>p,
+    .text4>.town>a>p{
         font-size: 15px;
     }
 }
 
 @media (max-width: 1100px) {
-    .text2>.notice>p,
-    .text3>.review>p,
-    .text4>.town>p{
+    .text2>.notice>a>p,
+    .text3>.review>a>p,
+    .text4>.town>a>p{
         font-size: 10px;
     }
 }
 
-.text2>.monthly>p,
-.text2>.Jeonse>p,
-.text2>.bargain>p,
-.text3>.monthlyReview>p,
-.text3>.JeonseReview>p,
-.text3>.bargainReview>p,
-.text4>.criminal>p,
-.text4>.situation>p{
+.text2>.monthly>a>p,
+.text2>.Jeonse>a>p,
+.text2>.bargain>a>p,
+.text3>.monthlyReview>a>p,
+.text3>.JeonseReview>a>p,
+.text3>.bargainReview>a>p,
+.text4>.criminal>a>p,
+.text4>.situation>a>p{
     font-family: 'Inter';
     font-weight: 400;
     font-size: 25px;
@@ -699,40 +768,40 @@ p {
 }
 
 @media (max-width: 1700px) {
-    .text2>.monthly>p,
-    .text2>.Jeonse>p,
-    .text2>.bargain>p,
-    .text3>.monthlyReview>p,
-    .text3>.JeonseReview>p,
-    .text3>.bargainReview>p,
-    .text4>.criminal>p,
-    .text4>.situation>p{
+    .text2>.monthly>a>p,
+    .text2>.Jeonse>a>p,
+    .text2>.bargain>a>p,
+    .text3>.monthlyReview>a>p,
+    .text3>.JeonseReview>a>p,
+    .text3>.bargainReview>a>p,
+    .text4>.criminal>a>p,
+    .text4>.situation>a>p{
         font-size: 20px;
     }
 }
 
 @media (max-width: 1400px) {
-    .text2>.monthly>p,
-    .text2>.Jeonse>p,
-    .text2>.bargain>p,
-    .text3>.monthlyReview>p,
-    .text3>.JeonseReview>p,
-    .text3>.bargainReview>p,
-    .text4>.criminal>p,
-    .text4>.situation>p{
+    .text2>.monthly>a>p,
+    .text2>.Jeonse>a>p,
+    .text2>.bargain>a>p,
+    .text3>.monthlyReview>a>p,
+    .text3>.JeonseReview>a>p,
+    .text3>.bargainReview>a>p,
+    .text4>.criminal>a>p,
+    .text4>.situation>a>p{
         font-size: 15px;
     }
 }
 
 @media (max-width: 1200px) {
-    .text2>.monthly>p,
-    .text2>.Jeonse>p,
-    .text2>.bargain>p,
-    .text3>.monthlyReview>p,
-    .text3>.JeonseReview>p,
-    .text3>.bargainReview>p,
-    .text4>.criminal>p,
-    .text4>.situation>p{
+    .text2>.monthly>a>p,
+    .text2>.Jeonse>a>p,
+    .text2>.bargain>a>p,
+    .text3>.monthlyReview>a>p,
+    .text3>.JeonseReview>a>p,
+    .text3>.bargainReview>a>p,
+    .text4>.criminal>a>p,
+    .text4>.situation>a>p{
         font-size: 10px;
     }
 }
