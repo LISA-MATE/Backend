@@ -1008,13 +1008,20 @@ p {
     color: #000000;
 }
 
-.checkbox>.first_checkbox>i,
-.checkbox>.second_checkbox>i,
-.checkbox>.third_checkbox>i {
-    font-family: 'Hind';
-    font-weight: 600;
-    font-size: 1.5rem;
-    padding-right: 1.5vw;
+.checkbox>.first_checkbox>button,
+.checkbox>.second_checkbox>button,
+.checkbox>.third_checkbox>button{
+    background-color:white;
+    margin-right: 1.5vw;
+    border:none;
+    z-index:1;
+    cursor:pointer;
+}
+
+.checkbox>.first_checkbox>button>i,
+.checkbox>.second_checkbox>button>i,
+.checkbox>.third_checkbox>button>i {
+    font-size: 1rem;
     color: #000000;
 }
 

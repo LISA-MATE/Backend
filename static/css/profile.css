@@ -21,6 +21,26 @@
     }
 }
 
+#logout {
+    width: 8.5vw;
+    height: 3vw;
+    border-radius: 5vw;
+    border: none;
+    background-color: #142F9E;
+    font-family: 'Inter';
+    font-weight: 600;
+    font-size: 0.9vw;
+    line-height: 1vw;
+    letter-spacing: -0.05rem;
+    text-align: center;
+    color: white;
+    margin-left:57%;
+}
+
+#logout>i {
+    margin-left: 1vw;
+}
+
 .all>.right>.profile>p{
     display: inline-block;
     padding-top:2vw;
@@ -198,29 +218,27 @@
 
 .all>.right>form>.profilebox>.buttonContainer {
     display: flex;
+    margin-bottom: 1vw;
+    margin-top:1vw;
     justify-content: flex-end;
-    margin-right: 10%;
-    margin-top: 2vw;
-    gap: 1vw;
+    margin-right:7vw;
 }
 
 #edit,
-#save {
-    border: 3px solid #4967FF;
-    border-radius: 30px;
-    width: 5vw;
-    height: 2.5vw;
+#save{
+    margin: 0;
+    border:none;
     font-family: 'Inter';
     font-weight: 400;
     font-size: 1vw;
     background-color: white;
     cursor: pointer;
+    white-space: nowrap;
+    color: #0418AB;
 }
 
-#edit:hover,
-#save:hover {
-    background-color: #4967FF;
-    color: white;
+#save{
+    margin-left:-0.1vw;
 }
 
 .input-box {

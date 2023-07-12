@@ -15,34 +15,40 @@ document.addEventListener('DOMContentLoaded', function () {
     const checkboxes = document.querySelectorAll('.checkbox > .first_checkbox');
 
     checkboxes.forEach(function (checkbox) {
+        const editBtn = checkbox.querySelector('.editBtn');
+        const removeBtn = checkbox.querySelector('.removeBtn');
+        const editIcon = editBtn.querySelector('.fa-pen');
+        const removeIcon = removeBtn.querySelector('.fa-x');
+        const checkboxText = checkbox.querySelector('.first_checkbox_text');
         let clicked = false;
-        const icon = checkbox.querySelector(".fa-solid");
 
         checkbox.addEventListener('click', function () {
             clicked = !clicked;
 
             if (clicked) {
-                this.style.background = '#5377FF';
-                // cnt 올리기
-                toggleCheckboxIcon(icon);
+                checkbox.style.background = '#5377FF';
+                editBtn.style.background = '#5377FF';
+                removeBtn.style.background = '#5377FF';
+                editIcon.style.color='#FFFFFF';
+                removeIcon.style.color='#FFFFFF';
+                checkboxText.style.color='#FFFFFF';
             } else {
-                this.style.background = '#FFFFFF';
-                // cnt 내리기
-                toggleCheckboxIcon(icon);
+                checkbox.style.background = '#FFFFFF';
+                editBtn.style.background = '#FFFFFF';
+                removeBtn.style.background = '#FFFFFF';
+                editIcon.style.color = '#000000';
+                removeIcon.style.color = '#000000';
+                checkboxText.style.color = '#000000';
             }
         });
 
-        function toggleCheckboxIcon(icon) {
-            if (clicked) {
-                icon.classList.remove("fa-plus");
-                icon.classList.add("fa-x");
-                icon.style.fontSize = "1rem";
-            } else {
-                icon.classList.remove("fa-x");
-                icon.classList.add("fa-plus");
-                icon.style.fontSize = '';
-            }
-        }
+        editBtn.addEventListener('click', function (event) {
+            event.stopPropagation();
+        });
+
+        removeBtn.addEventListener('click', function (event) {
+            event.stopPropagation();
+        });
     });
 });
 
@@ -50,34 +56,40 @@ document.addEventListener('DOMContentLoaded', function () {
     const checkboxes = document.querySelectorAll('.checkbox > .second_checkbox');
 
     checkboxes.forEach(function (checkbox) {
+        const editBtn = checkbox.querySelector('.editBtn2');
+        const removeBtn = checkbox.querySelector('.removeBtn2');
+        const editIcon = editBtn.querySelector('.fa-pen');
+        const removeIcon = removeBtn.querySelector('.fa-x');
+        const checkboxText = checkbox.querySelector('.second_checkbox_text');
         let clicked = false;
-        const icon = checkbox.querySelector(".fa-solid");
 
         checkbox.addEventListener('click', function () {
             clicked = !clicked;
 
             if (clicked) {
-                this.style.background = '#5377FF';
-                // cnt 올리기
-                toggleCheckboxIcon(icon);
+                checkbox.style.background = '#5377FF';
+                editBtn.style.background = '#5377FF';
+                removeBtn.style.background = '#5377FF';
+                editIcon.style.color = '#FFFFFF';
+                removeIcon.style.color = '#FFFFFF';
+                checkboxText.style.color = '#FFFFFF';
             } else {
-                this.style.background = '#FFFFFF';
-                // cnt 내리기
-                toggleCheckboxIcon(icon);
+                checkbox.style.background = '#FFFFFF';
+                editBtn.style.background = '#FFFFFF';
+                removeBtn.style.background = '#FFFFFF';
+                editIcon.style.color = '#000000';
+                removeIcon.style.color = '#000000';
+                checkboxText.style.color = '#000000';
             }
         });
 
-        function toggleCheckboxIcon(icon) {
-            if (clicked) {
-                icon.classList.remove("fa-plus");
-                icon.classList.add("fa-x");
-                icon.style.fontSize = "1rem";
-            } else {
-                icon.classList.remove("fa-x");
-                icon.classList.add("fa-plus");
-                icon.style.fontSize = '';
-            }
-        }
+        editBtn.addEventListener('click', function (event) {
+            event.stopPropagation();
+        });
+
+        removeBtn.addEventListener('click', function (event) {
+            event.stopPropagation();
+        });
     });
 });
 
@@ -85,34 +97,40 @@ document.addEventListener('DOMContentLoaded', function () {
     const checkboxes = document.querySelectorAll('.checkbox > .third_checkbox');
 
     checkboxes.forEach(function (checkbox) {
+        const editBtn = checkbox.querySelector('.editBtn3');
+        const removeBtn = checkbox.querySelector('.removeBtn3');
+        const editIcon = editBtn.querySelector('.fa-pen');
+        const removeIcon = removeBtn.querySelector('.fa-x');
+        const checkboxText = checkbox.querySelector('.third_checkbox_text');
         let clicked = false;
-        const icon = checkbox.querySelector(".fa-solid");
 
         checkbox.addEventListener('click', function () {
             clicked = !clicked;
 
             if (clicked) {
-                this.style.background = '#5377FF';
-                // cnt 올리기
-                toggleCheckboxIcon(icon);
+                checkbox.style.background = '#5377FF';
+                editBtn.style.background = '#5377FF';
+                removeBtn.style.background = '#5377FF';
+                editIcon.style.color = '#FFFFFF';
+                removeIcon.style.color = '#FFFFFF';
+                checkboxText.style.color = '#FFFFFF';
             } else {
-                this.style.background = '#FFFFFF';
-                // cnt 내리기
-                toggleCheckboxIcon(icon);
+                checkbox.style.background = '#FFFFFF';
+                editBtn.style.background = '#FFFFFF';
+                removeBtn.style.background = '#FFFFFF';
+                editIcon.style.color = '#000000';
+                removeIcon.style.color = '#000000';
+                checkboxText.style.color = '#000000';
             }
         });
 
-        function toggleCheckboxIcon(icon) {
-            if (clicked) {
-                icon.classList.remove("fa-plus");
-                icon.classList.add("fa-x");
-                icon.style.fontSize = "1rem";
-            } else {
-                icon.classList.remove("fa-x");
-                icon.classList.add("fa-plus");
-                icon.style.fontSize = '';
-            }
-        }
+        editBtn.addEventListener('click', function (event) {
+            event.stopPropagation();
+        });
+
+        removeBtn.addEventListener('click', function (event) {
+            event.stopPropagation();
+        });
     });
 });
 
@@ -213,18 +231,18 @@ function createData(){
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function() {
         if (xhr.readyState === XMLHttpRequest.DONE) {
-        if (xhr.status === 200) {
-            var response = JSON.parse(xhr.responseText);
-            if (response.success) {
-                closeModal();
-                window.location.href = '/checklist/';  // checklist/ URL로 리다이렉션
-            // TODO: 요청이 성공한 경우에 대한 처리
+            if (xhr.status === 200) {
+                var response = JSON.parse(xhr.responseText);
+                if (response.success) {
+                    closeModal();
+                    window.location.href = '/checklist/';  // checklist/ URL로 리다이렉션
+                // TODO: 요청이 성공한 경우에 대한 처리
+                } else {
+                // TODO: 요청이 실패한 경우에 대한 처리
+                }
             } else {
-            // TODO: 요청이 실패한 경우에 대한 처리
+                // TODO: 요청이 실패한 경우에 대한 처리
             }
-        } else {
-            // TODO: 요청이 실패한 경우에 대한 처리
-        }
         }
     };
 

@@ -137,12 +137,15 @@
                 <p class="check_text1">이사 확정 후</p>
                 <div class="first_checkbox">
                     <p class="first_checkbox_text">이사할 집 도시가스 설치요청</p>
-                    <i class="fa-solid fa-plus"></i>
+                    <button class="editBtn"><i class="fa-solid fa-pen"></i></button>
+                    <button class="removeBtn"><i class="fa-solid fa-x"></i></button>
                 </div>
                 {% for schedule in schedules %}
                     {% if schedule.duration == 'done' %}
                         <div class="first_checkbox">
-                            <p class="first_checkbox_text">{{schedule.content}}</p><i class="fa-solid fa-plus"></i>
+                            <p class="first_checkbox_text">{{schedule.content}}</p>
+                            <button class="editBtn"><i class="fa-solid fa-pen"></i></button>
+                            <button class="removeBtn"><i class="fa-solid fa-x"></i></button>
                         </div>
                     {%endif%}
                 {% endfor %}
@@ -150,7 +153,9 @@
                 {% for schedule in schedules %}
                     {% if schedule.duration == 'before' %}
                         <div class="second_checkbox">
-                            <p class="second_checkbox_text">{{schedule.content}}</p><i class="fa-solid fa-plus"></i>
+                            <p class="second_checkbox_text">{{schedule.content}}</p>
+                            <button class="editBtn2"><i class="fa-solid fa-pen"></i></button>
+                            <button class="removeBtn2"><i class="fa-solid fa-x"></i></button>
                         </div>
                     {%endif%}
                 {% endfor %}
@@ -158,7 +163,9 @@
                 {% for schedule in schedules %}
                     {% if schedule.duration == 'doing' %}
                         <div class="third_checkbox">
-                            <p class="third_checkbox_text">{{schedule.content}}</p><i class="fa-solid fa-plus"></i>
+                            <p class="third_checkbox_text">{{schedule.content}}</p>
+                            <button class="editBtn3"><i class="fa-solid fa-pen"></i></button>
+                            <button class="removeBtn3"><i class="fa-solid fa-x"></i></button>
                         </div>
                     {%endif%}
                 {% endfor %}

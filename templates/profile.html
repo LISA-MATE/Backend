@@ -6,6 +6,7 @@
 <div class="profile">
     <i class="fa-solid fa-gear fa-2xl"></i>
     <p>프로필 편집</p>
+    <button id="logout" onclick="logoutClick()">로그아웃<i class="fa-solid fa-arrow-right-from-bracket"></i></button>
 </div>
 
 <form action="" method="GET">
@@ -44,8 +45,8 @@
             <p id="explaintext">이사 준비 중입니다!</p>
         </div>
         <div class="buttonContainer">
-            <button id="edit" onclick="editClick()">수정</button>
-            <button type="submit" id="save" onclick="saveClick()">완료</button>
+            <button id="edit" onclick="editClick()">수정하기 <span style=font-weight:600;>/</span></button>
+            <button type="submit" id="save" onclick="saveClick()">저장하기</button>
         </div>
     </div>
 </form>
