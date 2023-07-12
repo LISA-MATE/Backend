@@ -1,18 +1,20 @@
 {% extends 'base.html' %} 
 {% load static %} 
 
-{% block content %}
+{% block content %} 
 <script src="{% static 'javascript/profile.js' %}"></script>
 <div class="profile">
     <i class="fa-solid fa-gear fa-2xl"></i>
     <p>프로필 편집</p>
-    <button id="logout" onclick="logoutClick()">로그아웃<i class="fa-solid fa-arrow-right-from-bracket"></i></button>
+    <a href="{% url 'accounts:logout' %}">
+        <button id="logout">로그아웃<i class="fa-solid fa-arrow-right-from-bracket"></i></button>
+    </a>
 </div>
 
-<form action="" method="GET">
+<form action="" method="POST">
     {% csrf_token %}
     <div class="profilebox">
-        <p id="uname">아기사자 {{ user.id }}</p>
+        <p id="uname">{{ user.nickname }}</p>
         <div class="emailbox">{{ user.email }}</div>
         <div class="photoEdit">
             <div class="photo"></div>

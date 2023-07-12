@@ -53,18 +53,12 @@
                 </div>
                 {% if error_message %}
                 <div class="errorContainer">
-                    {% if '불가능' in error_message %}
+                    {% if error_message %}
                         <p class="error" id="error"><i class="fa-solid fa-circle-exclamation"></i>&nbsp;{{ error_message }}</p>
-                    {% elif '필드' in error_message %}
-                        <p class="error" id="error"><i class="fa-solid fa-circle-exclamation"></i>&nbsp;{{ error_message }}</p>
-                    {% else %}
-                        <p class="error" id="error" style="color: #001CEB;">{{ error_message }}</p>
                     {% endif %}
                 </div>
                 {% endif %}
-                <a href="{% url 'accounts:login' %}">
-                    <button id="SignupBtn" type="submit">Join</button>
-                </a>
+                <button id="SignupBtn" type="submit">Join</button>
             </form>
         </div>
     </div>
