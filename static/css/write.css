@@ -1071,13 +1071,17 @@ p {
     justify-content: flex-start;
 }
 
-.right>form>.writebox>.toolbox>button{
-    border:none;
-    margin-left:1vw;
-    cursor:pointer;
+.right>form>.writebox>.toolbox>label>i{
+    padding-left:1vw;
+    font-size:1.5vw;
 }
 
-.right>form>.writebox>#textareaContainer {
+#videoIcon,
+#folder{
+    margin-left:1.5vw;
+}
+
+.right>form>.writebox>#content {
     width: 44vw;
     height: 25.5vw;
     border: 1px solid #8C8C8C;
@@ -1093,6 +1097,10 @@ p {
     color: #878787;
     resize:none;
     overflow:auto;
+}
+
+.right>form>.writebox>#content::placeholder{
+    padding-top:11vw;
 }
 
 

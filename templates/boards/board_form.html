@@ -1,282 +1,162 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base2.html' %}
+{% load static %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LisaMate</title>
-    <link rel="stylesheet" href="../../static/css/write.css">
-    <script src="../../static/javascript/write.js"></script>
-    <script src="https://kit.fontawesome.com/d4b61b3d04.js" crossorigin="anonymous"></script>
-</head>
-
-<body>
-    <div class="top">
-        <p>LISA MATE</p>
-        <div class="icon">
-            <i class="fa-solid fa-user fa-2xl"></i>
-            <i class="fa-solid fa-house fa-2xl"></i>
-            <div class="bell">
-                <i class="fa-solid fa-bell fa-2xl"></i>
-                <div class="redcircle"></div>
-            </div>
-        </div>
+{% block content %}
+<script src="{% static 'javascript/write.js' %}"></script>
+<div class="right">
+    <div class="writebar">
+        <p id="writeTitle">글쓰기</p>
+        <p id="subTitle">정보 게시판 & 후기 게시판 & 우리동네 게시판</p>
+        <i class="fa-solid fa-repeat fa-lg"></i>
     </div>
-
-    <div class="topBox">
-        <div class="topBlueBox"></div>
-        <div class="topCircle"></div>
-        <p id="p1">LISA</p><br>
-        <p id="p2">MATE</p>
-        <div class="miniTitle">
-            <p id="mini">Move Checklist Service</p>
-        </div>
-        <div class="topbar"></div>
-        <p id="mini2">나의 이사메이트 리사.</p>
-    </div>
-
-    <div class="all">
-        <div class="left">
-            <div class="userBox">
-                <div class="user">USER</div>
-                <div class="userbox">
-                    <div class="userImage"></div>
-                    <div class="name">아기사자 33</div>
-                    <div class="email">LIKEALION@333</div>
-                    <div class="explain">이사 준비 중입니다!</div>
-                    <div class="button-container">
-                        <button type="button" id="pen">
-                            <img src="../../static/image/pen.PNG">글쓰기
-                        </button>
-                        <button type="button" id="setting">
-                            <img src="../../static/image/setting.png">프로필 편집/설정
-                        </button>
-                    </div>
-                </div>
+    <form action = "" method="POST" enctype="multipart/form-data">
+        {% csrf_token %} 
+        <div class="writebox">
+            <div class="selectBox1">
+                <select name="board_type" id="postType">
+                    <option value="none" hidden>게시판 선택</option>
+                    <optgroup label="정보게시판">
+                        <option value="0">월세 정보 공유</option>
+                        <option value="1">전세 정보 공유</option>
+                        <option value="2">매매 정보 공유</option>
+                    </optgroup>
+                    <optgroup label="후기게시판">
+                        <option value="3">월세 후기</option>
+                        <option value="4">전세 후기</option>
+                        <option value="5">매매 후기</option>
+                    </optgroup>
+                    <optgroup label="우리동네 게시판">
+                        <option value="6">우리동네 현황</option>
+                        <option value-="7">범죄자 거주 정보</option>
+                    </optgroup>
+                </select>
+                <select name="city" id="location" onchange="addressKindChange(this)">
+                    <option value="none" hidden>시/도 선택</option>
+                    <option value="Seoul">서울</option>
+                    <option value="Gyeonggi">경기</option>
+                    <option value="Incheon">인천</option>
+                    <option value="Gangwon">강원</option>
+                    <option value="Daejeon">대전</option>
+                    <option value="Sejong">세종</option>
+                    <option value="Chungnam">충남</option>
+                    <option value="Chungbuk">충북</option>
+                    <option value="Busan">부산</option>
+                    <option value="Ulsan">울산</option>
+                    <option value="Gyeongnam">경남</option>
+                    <option value="Gyeongbuk">경북</option>
+                    <option value="Daegu">대구</option>
+                    <option value="Gwangju">광주</option>
+                    <option value="Jeonnam">전남</option>
+                    <option value="Jeonbuk">전북</option>
+                    <option value="Jeju">제주</option>
+                </select>
+                <select name="country" id="Location2">
+                    <option value="none" hidden>구/군 선택</option>
+                </select>
             </div>
-
-            <div class="menu">
-                <div class="checklist">체크리스트</div>
-                <div class="checklistcircle"></div>
-                <div class="text1">
-                    <div class="checklistText">
-                        <i class="fa-solid fa-circle fa-xs"></i>
-                        <p>체크리스트</p>
-                    </div>
-                    <div class="calText">
-                        <i class="fa-solid fa-circle fa-xs"></i>
-                        <p>캘린더</p>
-                    </div>
-                </div>
-                <div class="noticeboard">게시판</div>
-                <div class="noticeboardcircle"></div>
-                <div class="text2">
-                    <div class="notice">
-                        <p>정보 게시판</p>
-                    </div>
-                    <div class="monthly">
-                        <i class="fa-solid fa-circle fa-xs"></i>
-                        <p>월세 정보 공유</p>
-                    </div>
-                    <div class="Jeonse">
-                        <i class="fa-solid fa-circle fa-xs"></i>
-                        <p>전세 정보 공유</p>
-                    </div>
-                    <div class="bargain">
-                        <i class="fa-solid fa-circle fa-xs"></i>
-                        <p>매매 정보 공유</p>
-                    </div>
-                    <hr>
-                </div>
-                <div class="text3">
-                    <div class="review">
-                        <p>후기 게시판</p>
-                    </div>
-                    <div class="monthlyReview">
-                        <i class="fa-solid fa-circle fa-xs"></i>
-                        <p>월세 후기</p>
-                    </div>
-                    <div class="JeonseReview">
-                        <i class="fa-solid fa-circle fa-xs"></i>
-                        <p>전세 후기</p>
-                    </div>
-                    <div class="bargainReview">
-                        <i class="fa-solid fa-circle fa-xs"></i>
-                        <p>매매 후기</p>
-                    </div>
-                    <hr>
-                </div>
-                <div class="text4">
-                    <div class="town">
-                        <p>우리동네 게시판</p>
-                    </div>
-                    <div class="situation">
-                        <i class="fa-solid fa-circle fa-xs"></i>
-                        <p>우리동네 현황</p>
-                    </div>
-                    <div class="criminal">
-                        <i class="fa-solid fa-circle fa-xs"></i>
-                        <p>범죄자 거주 정보</p>
-                    </div>
-                </div>
-            </div>
-            <div class="scheduleTitle">Schedule</div>
-            <div class="scheduleBox">
-                <img src="../../static/image/sleepy.png">
-                <div class="scheduleText">
-                    <p>오늘의 일정이 없습니다.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="right">
-            <div class="writebar">
-                <p id="writeTitle">글쓰기</p>
-                <p id="subTitle">정보 게시판 & 후기 게시판 & 우리동네 게시판</p>
-                <i class="fa-solid fa-repeat fa-lg"></i>
-            </div>
-            <form action = "" method="POST" enctype="multipart/form-data">
-                {% csrf_token %} 
-                <div class="writebox">
-                    <div class="selectBox1">
-                        <select name="board_type" id="postType">
-                            <option value="none" hidden>게시판 선택</option>
-                            <optgroup label="정보게시판">
-                                <option value="0">월세 정보 공유</option>
-                                <option value="1">전세 정보 공유</option>
-                                <option value="2">매매 정보 공유</option>
-                            </optgroup>
-                            <optgroup label="후기게시판">
-                                <option value="3">월세 후기</option>
-                                <option value="4">전세 후기</option>
-                                <option value="5">매매 후기</option>
-                            </optgroup>
-                            <optgroup label="우리동네 게시판">
-                                <option value="6">우리동네 현황</option>
-                                <option value-="7">범죄자 거주 정보</option>
-                            </optgroup>
-                        </select>
-                        <select name="city" id="location" onchange="addressKindChange(this)">
-                            <option value="none" hidden>시/도 선택</option>
-                            <option value="Seoul">서울</option>
-                            <option value="Gyeonggi">경기</option>
-                            <option value="Incheon">인천</option>
-                            <option value="Gangwon">강원</option>
-                            <option value="Daejeon">대전</option>
-                            <option value="Sejong">세종</option>
-                            <option value="Chungnam">충남</option>
-                            <option value="Chungbuk">충북</option>
-                            <option value="Busan">부산</option>
-                            <option value="Ulsan">울산</option>
-                            <option value="Gyeongnam">경남</option>
-                            <option value="Gyeongbuk">경북</option>
-                            <option value="Daegu">대구</option>
-                            <option value="Gwangju">광주</option>
-                            <option value="Jeonnam">전남</option>
-                            <option value="Jeonbuk">전북</option>
-                            <option value="Jeju">제주</option>
-                        </select>
-                        <select name="country" id="Location2">
-                            <option value="none" hidden>구/군 선택</option>
-                        </select>
-                    </div>
-                    <input type="text" id="TitleInput" name="title" placeholder="제목을 입력해주세요.">
-                    <div class="toolbox">
-                        <label for="imageFile">
-                            <i class="fa-regular fa-image"></i>
-                        </label>
-                        <input type="file" name="image" accept="image/*" id="imageFile" style="display: none;">
-                        {% comment %} <button id="open-modal2">
-                            <i class="fa-solid fa-video"></i>
-                        </button> {% endcomment %}
-                        <label for="File">
-                            <i class="fa-regular fa-image"></i>
-                        </label>
-                        <input type="file" name="file" accept="image/*" id="fileFile" style="display: none;">
-                        <!--나중에 구현
-                        <i class="fa-solid fa-link"></i>
-                        <i class="fa-solid fa-location-dot"></i>
-                        -->
-                    </div>
-                    <textarea name="content" id="content" placeholder="내용을 입력해주세요."></textarea>
-                </div>
-                <input type="submit" value="등록하기" id="submitButton">
-            </form>
-            
-        </div>
-    </div>
-    <script>
-        // JavaScript
-        var imageIcon = document.querySelector('.fa-regular.fa-image');
-        var imageInput = document.getElementById('imageFile');
-        var textareaContainer = document.getElementById('textareaContainer');
-
-        imageIcon.addEventListener('click', function () {
-            imageInput.click();
-        });
-
-        imageInput.addEventListener('change', function () {
-            var file = imageInput.files[0];
-            var reader = new FileReader();
-
-            reader.onload = function (e) {
-                var img = document.createElement('img');
-                img.src = e.target.result;
-                img.style.width = '50px'; // 이미지의 가로 크기 설정
-                img.style.height = '70px'; // 이미지의 세로 크기 설정
-                textareaContainer.appendChild(img);
-            };
-
-            reader.readAsDataURL(file);
-
-            // Reset the value of the input
-            imageInput.value = null;
-        });
-    </script>
-    {% comment %} <div id="modal">
-        <div class="modal-content">
-            <p>사진 첨부</p>
-            <input type="file" name="image_file" accept="image/*" id="bizFile">
-            <div class="custom">
-                <label for="bizFile" class="btn fileBtn">
-                    <div class="imagebox">
-                        <i class="fa-solid fa-folder-plus fa-lg"></i>
-                    </div>
+            <input type="text" id="TitleInput" name="title" placeholder="제목을 입력해주세요.">
+            <div class="toolbox">
+                <label for="imageFile">
+                    <i class="fa-regular fa-image"></i>
                 </label>
-                <span id="fileName">또는<br>이곳에 사진 파일을<br>끌어놓으세요.</span>
-            </div>
-            <button id="close-modal">X</button>
-        </div>
-    </div>
-    <div id="modal2">
-        <div class="modal-content2">
-            <p>동영상 첨부</p>
-            <input type="file" name="video_file" accept="video/*" id="bizFile2">
-            <div class="custom">
-                <label for="bizFile2" class="btn fileBtn">
-                    <div class="videobox">
-                        <i class="fa-solid fa-folder-plus fa-lg"></i>
-                    </div>
+                <input type="file" name="image" accept="image/*" id="imageFile" style="display: none;">
+                {% comment %} 
+                <button id="open-modal2">
+                    <i class="fa-solid fa-video"></i>
+                </button>
+                {% endcomment %}
+                <label for="videoFile">
+                    <i class="fa-solid fa-video" id="videoIcon"></i>
                 </label>
-                <span id="fileName2">또는<br>이곳에 동영상 파일을<br>끌어놓으세요.</span>
-            </div>
-            <button id="close-modal2">X</button>
-        </div>
-    </div>
-    <div id="modal3">
-        <div class="modal-content3">
-            <p>파일 첨부</p>
-            <input type="file" name="file_file" accept="file/*" id="bizFile3">
-            <div class="custom">
-                <label for="bizFile3" class="btn fileBtn">
-                    <div class="filebox">
-                        <i class="fa-solid fa-folder-plus fa-lg"></i>
-                    </div>
+                <input type="file" name="video" accept="video/*" id="videoFile" style="display:none;">
+                <label for="File">
+                    <i class="fa-regular fa-folder" id="folder"></i>
                 </label>
-                <span id="fileName3">또는<br>이곳에 추가할 파일을<br>끌어놓으세요.</span>
+                <input type="file" name="file" accept="file/*" id="fileFile" style="display: none;">
+                <!--나중에 구현
+                <i class="fa-solid fa-link"></i>
+                <i class="fa-solid fa-location-dot"></i>
+                -->
             </div>
-            <button id="close-modal3">X</button>
+            <textarea name="content" id="content" placeholder="내용을 입력해주세요."></textarea>
         </div>
-    </div> {% endcomment %}
-</body>
-</html>
+        <input type="submit" value="등록하기" id="submitButton">
+    </form>
+</div>
+    
+<script>
+    // JavaScript
+    var imageIcon = document.querySelector('.fa-regular.fa-image');
+    var imageInput = document.getElementById('imageFile');
+    var textareaContainer = document.getElementById('textareaContainer');
+
+    imageIcon.addEventListener('click', function () {
+        imageInput.click();
+    });
+
+    imageInput.addEventListener('change', function () {
+        var file = imageInput.files[0];
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            var img = document.createElement('img');
+            img.src = e.target.result;
+            img.style.width = '50px'; // 이미지의 가로 크기 설정
+            img.style.height = '70px'; // 이미지의 세로 크기 설정
+            textareaContainer.appendChild(img);
+        };
+
+        reader.readAsDataURL(file);
+
+        // Reset the value of the input
+        imageInput.value = null;
+    });
+</script>
+{% comment %} 
+<div id="modal">
+    <div class="modal-content">
+        <p>사진 첨부</p>
+        <input type="file" name="image_file" accept="image/*" id="bizFile">
+        <div class="custom">
+            <label for="bizFile" class="btn fileBtn">
+                <div class="imagebox">
+                    <i class="fa-solid fa-folder-plus fa-lg"></i>
+                </div>
+            </label>
+            <span id="fileName">또는<br>이곳에 사진 파일을<br>끌어놓으세요.</span>
+        </div>
+        <button id="close-modal">X</button>
+    </div>
+</div>
+<div id="modal2">
+    <div class="modal-content2">
+        <p>동영상 첨부</p>
+        <input type="file" name="video_file" accept="video/*" id="bizFile2">
+        <div class="custom">
+            <label for="bizFile2" class="btn fileBtn">
+                <div class="videobox">
+                    <i class="fa-solid fa-folder-plus fa-lg"></i>
+                </div>
+            </label>
+            <span id="fileName2">또는<br>이곳에 동영상 파일을<br>끌어놓으세요.</span>
+        </div>
+        <button id="close-modal2">X</button>
+    </div>
+</div>
+<div id="modal3">
+    <div class="modal-content3">
+        <p>파일 첨부</p>
+        <input type="file" name="file_file" accept="file/*" id="bizFile3">
+        <div class="custom">
+            <label for="bizFile3" class="btn fileBtn">
+                <div class="filebox">
+                    <i class="fa-solid fa-folder-plus fa-lg"></i>
+                </div>
+            </label>
+            <span id="fileName3">또는<br>이곳에 추가할 파일을<br>끌어놓으세요.</span>
+        </div>
+        <button id="close-modal3">X</button>
+    </div>
+</div> 
+{% endcomment %}
+{% endblock %}
