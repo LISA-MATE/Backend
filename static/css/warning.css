@@ -1,0 +1,28 @@
+.warning{
+    height: 38vw;
+    width: 38vw;
+    border-radius: 5vw;
+    background: white;
+    border: 1px solid #181D45;
+    position:relative;
+    margin-top:5%;
+}
+
+.warning_hr{
+    width: 80%;
+}
+
+.warning > i{
+    font-size: 5vw;
+    margin-top:15%;
+    margin-left: 44.5%;
+    color: #878787;
+}
+
+.warning_text{
+    font-size: 2vw;
+    font-weight: 800;
+    text-align: center;
+    color: #878787;
+    margin-bottom: 20%;
+}
