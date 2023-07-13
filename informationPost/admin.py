@@ -16,6 +16,7 @@ class CommentInline(admin.TabularInline):
 class PostModelAdmin(admin.ModelAdmin):
     # 기타 설정 생략
 
+    inlines = [CommentInline]
     def changeform_view(self, request, object_id=None, form_url='', extra_context=None):
         if object_id:
             obj = self.get_object(request, object_id)

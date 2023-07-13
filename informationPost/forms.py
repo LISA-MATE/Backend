@@ -1,4 +1,5 @@
 from django import forms
+from .models import Comment
 
 class PostForm(forms.Form):
     board_type = forms.ChoiceField(choices=[('none', '게시판 선택'), ('0', '월세 정보 공유'), ('1', '전세 정보 공유'), ('2', '매매 정보 공유'), ('3', '월세 후기'), ('4', '전세 후기'), ('5', '매매 후기'), ('6', '우리동네 현황'), ('7', '범죄자 거주 정보')], initial='none', widget=forms.Select(attrs={'id': 'postType'}))
@@ -9,3 +10,8 @@ class PostForm(forms.Form):
     video = forms.FileField(required=False, widget=forms.ClearableFileInput(attrs={'accept': 'video/*', 'id': 'videoFile', 'style': 'display: none;'}))
     file = forms.FileField(required=False, widget=forms.ClearableFileInput(attrs={'accept': 'file/*', 'id': 'fileFile', 'style': 'display: none;'}))
     content = forms.CharField(widget=forms.Textarea(attrs={'id': 'content', 'placeholder': '내용을 입력해주세요.'}))
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ('content',) 
