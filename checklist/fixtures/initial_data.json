@@ -1,0 +1,74 @@
+[
+  {
+    "model": "checklist.schedule",
+    "pk": 1,
+    "fields": {
+      "content": "이사할 집 도시가스 설치요청",
+      "date": null,
+      "duration": "before",
+      "created_at": "2023-07-14",
+      "writer": null,
+      "is_checked": false
+    }
+  },
+  {
+    "model": "checklist.schedule",
+    "pk": 2,
+    "fields": {
+      "content": "가구/가전 이전 설치 예약",
+      "date": null,
+      "duration": "before",
+      "created_at": "2023-07-14",
+      "writer": null,
+      "is_checked": false
+    }
+  },
+  {
+    "model": "checklist.schedule",
+    "pk": 3,
+    "fields": {
+      "content": "짐 포장 및 운반 입회 확인",
+      "date": null,
+      "duration": "doing",
+      "created_at": "2023-07-14",
+      "writer": null,
+      "is_checked": false
+    }
+  },
+  {
+    "model": "checklist.schedule",
+    "pk": 4,
+    "fields": {
+      "content": "가스 전기, 수도 검침 및 정산",
+      "date": null,
+      "duration": "doing",
+      "created_at": "2023-07-14",
+      "writer": null,
+      "is_checked": false
+    }
+  },
+  {
+    "model": "checklist.schedule",
+    "pk": 5,
+    "fields": {
+      "content": "공과금 및 아파트 관리비 등 자동이체 해지",
+      "date": null,
+      "duration": "done",
+      "created_at": "2023-07-14",
+      "writer": null,
+      "is_checked": false
+    }
+  },
+  {
+    "model": "checklist.schedule",
+    "pk": 6,
+    "fields": {
+      "content": "보험 계약자 주소 변경",
+      "date": null,
+      "duration": "done",
+      "created_at": "2023-07-14",
+      "writer": null,
+      "is_checked": false
+    }
+  }
+]
