@@ -2,6 +2,8 @@ from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
+import json
+from django.http import JsonResponse
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
@@ -91,6 +93,16 @@ def profile_view(request):
         user.save()
 
         return redirect('profile')
+
+def profile_edit(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        inputValue = data['inputValue']
+        
+        # 수정된 정보 처리 로직
+
+        return JsonResponse({'message': '수정이 완료되었습니다.'})
+
 
 def logout_view(request):
     # 데이터 유효성 검사

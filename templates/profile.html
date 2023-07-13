@@ -1,9 +1,7 @@
 {% extends 'base.html' %} 
 {% load static %} 
 
-{% block content %} 
-<script src="{% static 'javascript/profile.js' %}"></script>
-
+{% block content %}
 <div class="EditTitle">
     <a href="{% url 'profile' %}">
         <p>Edit Profile</p>
@@ -18,25 +16,23 @@
     </a>
 </div>
 
-<form action="" method="POST">
+<form action="" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="profilebox">
         <p id="uname">{{ user.nickname }}</p>
         <div class="emailbox">{{ user.email }}</div>
         <div class="photoEdit">
             <div class="photo"></div>
-            <button id="rephoto" onclick="rephotoButtonClickHandler()">
+            <button id="rephoto">
                 <i class="fa-solid fa-pen fa-xl"></i>
             </button>
             <div class="modal-container" id="modalContainer">
                 <div class="modal" id="modal">
-                    <button id="close" onclick="closeModal()">X</button>
+                    <button id="close">X</button>
                     <h1>프로필 사진 변경</h1>
                     <input
                         type="file"
-                        id="photoInput"
-                        onchange="handleFileUpload(event)"
-                    />
+                        id="photoInput">
                     <div class="photobox">
                         <div class="photoImage"></div>
                     </div>
@@ -54,9 +50,10 @@
             <p id="explaintext">이사 준비 중입니다!</p>
         </div>
         <div class="buttonContainer">
-            <button id="edit" onclick="editClick()">수정하기 <span style=font-weight:600;>/</span></button>
-            <button type="submit" id="save" onclick="saveClick()">저장하기</button>
+            <button id="edit">수정하기 <span style=font-weight:600;>/</span></button>
+            <button type="submit" id="save">저장하기</button>
         </div>
     </div>
 </form>
+<script src="{% static 'javascript/profile.js' %}" defer></script>
 {% endblock %}
