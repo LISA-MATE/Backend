@@ -21,8 +21,8 @@
         <a>전체 게시판 </a>><a> {{ post.board_type }} </a>><a> {{ post.topic }} 후기</a>
     </div>
     <div class="detail_whitebox_title">
-        <div class="container">
-            <h1>{{post.title}}</h1>
+        <div class="Pcontainer">
+            <p id="Ptitle">{{post.title}}</p>
             {% if post.writer == request.user %}
                 <div class="dropdown">
                     <i class="fa-solid fa-ellipsis-vertical dropdown-icon" onclick="toggleDropdown()"></i>

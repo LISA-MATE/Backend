@@ -2,7 +2,6 @@
     width: 70%;
     float: right;
     box-sizing: border-box;
-    background-color: pink;
 }
 
 
@@ -76,24 +75,30 @@ h2{
     font-weight: 500;
 }
 
-.container {
+.Pcontainer {
     display: flex;
     align-items: center;
-    margin-left: 4vw;
+    justify-content: center;
 }
 
-h1 {
+#Ptitle {
     color: #5B5B5B;
     font-family: 'Hind';
     font-weight: 500;
     font-size: 2.5vw;
+    white-space: nowrap;
+    display: inline-block;
+    position:relative;
+    margin-top:1vw;
+    margin-left:4vw;
 }
 
 .dropdown {
     display: inline-block;
     position: relative;
-    margin-left: 34vw;
+    margin-left: auto;
     font-size: 2vw;
+    padding-right:4vw;
 }
 
 .dropdown>i {
