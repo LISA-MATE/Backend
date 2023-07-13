@@ -1,0 +1,1079 @@
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hind&display=swap');
+
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    background: linear-gradient(#CDCDCD, #F5F5F5) no-repeat center fixed;
+    height: 100vh;
+    width: 100vw;
+}
+
+.all>.left {
+    width: 30%;
+    padding-left: 12%;
+    float: left;
+    box-sizing: border-box;
+    background-color: pink;
+}
+
+.all>.right {
+    width: 70%;
+    float: right;
+    box-sizing: border-box;
+    background-color: aliceblue;
+}
+
+.Middle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Middle>.Mcircle {
+    height: 149px;
+    width: 60%;
+    border: none;
+    border-radius: 100px;
+    background-color: #151E63;
+    margin-top: -100px;
+    margin-left: -20px;
+}
+
+.top {
+    margin-top: -70px;
+}
+
+p {
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 2vw;
+    line-height: 36.31px;
+    letter-spacing: -0.05rem;
+    color: #242A57;
+    margin-right: auto;
+    margin-left: 2vw;
+}
+
+.icon {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: -3vw;
+    margin-right: 5vw;
+}
+
+.icon>i {
+    margin-right: 2vw;
+    font-size: 2rem;
+    color: #181D45;
+}
+
+@media (max-width: 1300px) {
+    .icon>a>i {
+        font-size: 1.5rem;
+    }
+}
+
+.logo>a>p {
+    font-family: 'Jua';
+    font-weight: 400;
+    font-size: 6.25vw;
+    line-height: 125px;
+    letter-spacing: -0.05rem;
+    color: #233C9B;
+    margin-left: 7%;
+    margin-top: 8%;
+}
+
+.userBox>.user {
+    width: 15vw;
+    height: 3vw;
+    border: none;
+    border-radius: 100px;
+    background-color: #0015AD;
+    box-shadow: 0px 7px 14px 0px rgba(0, 0, 0, 0.32);
+    color: white;
+    font-family: 'Hind';
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 40.03px;
+    letter-spacing: -0.05rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+}
+
+@media (max-width: 1500px) {
+    .userBox>.user {
+        font-size: 15px;
+    }
+}
+
+.userbox {
+    width: 15vw;
+    min-width: 30px;
+    min-height: 30px;
+    height: 20vw;
+    border: 1px solid #919191;
+    background-color: white;
+    border-radius: 50px;
+    box-shadow: inset 6px -5px 28px 0px rgba(0, 0, 0, 0.28);
+    margin-top: -3vw;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.userbox>.userImage {
+    width: 8vw;
+    padding-top: 8vw;
+    border: 2px solid #142F9E;
+    background: linear-gradient(#CFCFCF, #FFFFFF);
+    border-radius: 50%;
+    margin-top: 4vh;
+}
+
+.userbox>.name {
+    font-family: 'Inter';
+    font-weight: 600;
+    font-size: 18px;
+    color: #142F9E;
+    margin-top: 5%;
+}
+
+@media (max-width: 1300px) {
+    .userbox>.name {
+        font-size: 5px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .userbox>.name {
+        font-size: 2px;
+    }
+}
+
+.userbox>.email {
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 13px;
+    color: #4967FF;
+}
+
+@media (max-width: 1200px) {
+    .userbox>.email {
+        font-size: 5px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .userbox>.email {
+        font-size: 2px;
+    }
+}
+
+.userbox>.explain {
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 18px;
+    color: #142F9E;
+    margin-top: 2%;
+}
+
+@media (max-width: 1600px) {
+    .userbox>.explain {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .userbox>.explain {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .userbox>.explain {
+        font-size: 2px;
+    }
+}
+
+.userbox>.button-container {
+    display: flex;
+    align-items: center;
+    margin-top: 3%;
+}
+
+#pen,
+#setting {
+    width: 6vw;
+    height: 20px;
+    border: none;
+    background-color: white;
+    color: #09174E;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: -0.05rem;
+    white-space: nowrap;
+}
+
+@media (max-width: 1700px) {
+
+    #pen,
+    #setting {
+        font-size: 1px;
+        height: 1vh;
+    }
+}
+
+#pen {
+    width: 4vw;
+    margin-right: 5px;
+}
+
+#pen:hover,
+#setting:hover {
+    color: #142F9E;
+}
+
+#pen img,
+#setting img {
+    width: 1vw;
+    height: 1vw;
+    margin-right: 3px;
+}
+
+.menu {
+    width: 14.5vw;
+    height: 55vw;
+    border: 1px solid #919191;
+    border-radius: 50px;
+    box-shadow: inset 6px -5px 28px 0px rgba(0, 0, 0, 0.28);
+    margin-top: 20%;
+    margin-left: 0.5%;
+    background-color: white;
+}
+
+.menu>.checklist {
+    width: 13vw;
+    height: 4vw;
+    padding-left: 9%;
+    background-color: #131B5A;
+    font-family: 'Hind';
+    font-weight: 600;
+    font-size: 1.2vw;
+    line-height: 2vw;
+    letter-spacing: -0.05rem;
+    color: white;
+    display: flex;
+    justify-content: center;
+    flex-direction: center;
+    align-items: center;
+}
+
+@media (max-width: 1600px) {
+    .menu>.checklist {
+        font-size: 1vw;
+    }
+}
+
+@media (max-width: 1400px) {
+    .menu>.checklist {
+        font-size: 0.7vw;
+    }
+}
+
+@media (max-width: 1100px) {
+    .menu>.checklist {
+        font-size: 0.5vw;
+    }
+}
+
+.menu>.checklistcircle {
+    width: 3vw;
+    height: 4vw;
+    background-color: #131B5A;
+    border-radius: 0 4vw 4vw 0;
+    margin-top: -4vw;
+    margin-left: 13vw;
+}
+
+.menu>.text1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.menu>.text1>.checklistText,
+.menu>.text1>.calText {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 12vw;
+    height: 3.2vw;
+    border-radius: 2vw;
+}
+
+.menu>.text1>.checklistText {
+    margin-top: 1vw;
+}
+
+.menu>.text1>.calText {
+    margin-bottom: 1.5vw;
+}
+
+.menu>.text1>.checklistText>p,
+.menu>.text1>.calText>p {
+    font-family: 'Inter';
+    font-size: 1.2vw;
+    line-height: 0.7vw;
+    letter-spacing: -0.05rem;
+    font-weight: 400;
+    color: #131B5A;
+    margin: 0;
+}
+
+@media (max-width: 1700px) {
+
+    .menu>.text1>.checklistText>p,
+    .menu>.text1>.calText>p {
+        font-size: 1vw;
+    }
+}
+
+@media (max-width: 1400px) {
+
+    .menu>.text1>.checklistText>p,
+    .menu>.text1>.calText>p {
+        font-size: 0.7vw;
+    }
+}
+
+@media (max-width: 1200px) {
+
+    .menu>.text1>.checklistText>p,
+    .menu>.text1>.calText>p {
+        font-size: 0.5vw;
+    }
+}
+
+.menu>.text1>.checklistText>i {
+    margin-left: -1vw;
+    padding-right: 2vw;
+    font-size: 0.5rem;
+}
+
+.menu>.text1>.calText>i {
+    margin-left: -2vw;
+    padding-right: 3vw;
+    font-size: 0.5rem;
+}
+
+@media (max-width:1700px) {
+    .menu>.text1>.checklistText>i {
+        margin-left: -1vw;
+        padding-right: 2vw;
+    }
+}
+
+@media (max-width:1600px) {
+    .menu>.text1>.checklistText>i {
+        margin-left: -1vw;
+        padding-right: 2.5vw;
+    }
+}
+
+@media (max-width:1200px) {
+    .menu>.text1>.checklistText>i {
+        margin-left: -1.5vw;
+        padding-right: 2vw;
+    }
+}
+
+@media (max-width:1000px) {
+    .menu>.text1>.checklistText>i {
+        margin-left: -1vw;
+        padding-right: 2vw;
+    }
+}
+
+.menu>.noticeboard {
+    width: 13vw;
+    height: 4vw;
+    padding-left: 9%;
+    background-color: #131B5A;
+    font-family: 'Hind';
+    font-weight: 600;
+    font-size: 1.2vw;
+    line-height: 2vw;
+    letter-spacing: -0.05rem;
+    color: white;
+    display: flex;
+    justify-content: center;
+    flex-direction: center;
+    align-items: center;
+}
+
+@media (max-width: 1600px) {
+    .menu>.noticeboard {
+        font-size: 1vw;
+    }
+}
+
+@media (max-width: 1200px) {
+    .menu>.noticeboard {
+        font-size: 0.7vw;
+    }
+}
+
+@media (max-width: 1100px) {
+    .menu>.noticeboard {
+        font-size: 0.5vw;
+    }
+}
+
+.menu>.noticeboardcircle {
+    width: 3vw;
+    height: 4vw;
+    background-color: #131B5A;
+    border-radius: 0 4vw 4vw 0;
+    margin-top: -4vw;
+    margin-left: 13vw;
+}
+
+.menu>.text2,
+.menu>.text3,
+.menu>.text4 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.menu>.text2>.Jeonse>i,
+.menu>.text2>.bargain>i,
+.menu>.text2>.monthly>i {
+    margin-left: -0.5vw;
+    padding-right: 1vw;
+}
+
+@media (max-width:1600px) {
+
+    .menu>.text2>.Jeonse>i,
+    .menu>.text2>.bargain>i,
+    .menu>.text2>.monthly>i {
+        margin-left: -1vw;
+        padding-right: 1.5vw;
+    }
+}
+
+@media (max-width:1200px) {
+
+    .menu>.text2>.Jeonse>i,
+    .menu>.text2>.bargain>i,
+    .menu>.text2>.monthly>i {
+        margin-left: -0.5vw;
+        padding-right: 1.5vw;
+    }
+}
+
+.menu>.text3>.JeonseReview>i,
+.menu>.text3>.bargainReview>i,
+.menu>.text3>.monthlyReview>i {
+    margin-left: -2vw;
+    padding-right: 2vw;
+}
+
+@media (max-width:1600px) {
+
+    .menu>.text3>.JeonseReview>i,
+    .menu>.text3>.bargainReview>i,
+    .menu>.text3>.monthlyReview>i {
+        margin-left: -3vw;
+        padding-right: 2vw;
+    }
+}
+
+@media (max-width:1400px) {
+
+    .menu>.text3>.JeonseReview>i,
+    .menu>.text3>.bargainReview>i,
+    .menu>.text3>.monthlyReview>i {
+        margin-left: -2vw;
+        padding-right: 2vw;
+    }
+}
+
+.menu>.text4>.situation>i {
+    margin-left: -1vw;
+    padding-right: 1vw;
+}
+
+.menu>.text4>.criminal>i {
+    padding-right: 0.5vw;
+}
+
+@media (max-width:1700px) {
+    .menu>.text4>.criminal>i {
+        margin-left: -0.5vw;
+        padding-right: 0.5vw;
+    }
+}
+
+@media (max-width:1600px) {
+    .menu>.text4>.criminal>i {
+        margin-left: -1vw;
+        padding-right: 1vw;
+    }
+}
+
+@media (max-width:1600px) {
+    .menu>.text4>.situation>i {
+        margin-left: -1.5vw;
+        padding-right: 1.5vw;
+    }
+}
+
+@media (max-width:1400px) {
+    .menu>.text4>.criminal>i {
+        margin-left: -0.5vw;
+        padding-right: 1vw;
+    }
+}
+
+@media (max-width:1400px) {
+    .menu>.text4>.situation>i {
+        margin-left: -1.5vw;
+        padding-right: 1vw;
+    }
+}
+
+.menu>.text2>.Jeonse,
+.menu>.text2>.bargain,
+.menu>.text3>.JeonseReview,
+.menu>.text3>.bargainReview,
+.menu>.text4>.criminal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.7vw;
+}
+
+.menu>.text2>.notice,
+.menu>.text2>.monthly,
+.menu>.text3>.review,
+.menu>.text3>.monthlyReview,
+.menu>.text4>.town,
+.menu>.text4>.situation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.2vw;
+}
+
+.menu>.text2>.notice,
+.menu>.text3>.review,
+.menu>.text4>.town {
+    width: 12vw;
+    height: 3.2vw;
+    border-radius: 2vw;
+}
+
+@media (max-width:1000px) {
+
+    .menu>.text2>.notice,
+    .menu>.text3>.review,
+    .menu>.text4>.town {
+        margin-top: 0.7vw;
+    }
+}
+
+.text2>.notice>p,
+.text3>.review>p,
+.text4>.town>p {
+    font-family: 'Inter';
+    font-weight: 600;
+    font-size: 1.2vw;
+    line-height: 1.5vw;
+    letter-spacing: -0.05rem;
+    color: #131B5A;
+    margin: 0;
+}
+
+@media (max-width: 1700px) {
+
+    .text2>.notice>p,
+    .text3>.review>p,
+    .text4>.town>p {
+        font-size: 1vw;
+    }
+}
+
+@media (max-width: 1400px) {
+
+    .text2>.notice>p,
+    .text3>.review>p,
+    .text4>.town>p {
+        font-size: 0.7vw;
+    }
+}
+
+@media (max-width: 1100px) {
+
+    .text2>.notice>p,
+    .text3>.review>p,
+    .text4>.town>p {
+        font-size: 0.5vw;
+    }
+}
+
+.text2>.monthly>p,
+.text2>.Jeonse>p,
+.text2>.bargain>p,
+.text3>.monthlyReview>p,
+.text3>.JeonseReview>p,
+.text3>.bargainReview>p,
+.text4>.criminal>p,
+.text4>.situation>p {
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 1.2vw;
+    line-height: 1.5vw;
+    letter-spacing: -0.05rem;
+    color: #131B5A;
+    margin: 0;
+}
+
+@media (max-width: 1700px) {
+
+    .text2>.monthly>p,
+    .text2>.Jeonse>p,
+    .text2>.bargain>p,
+    .text3>.monthlyReview>p,
+    .text3>.JeonseReview>p,
+    .text3>.bargainReview>p,
+    .text4>.criminal>p,
+    .text4>.situation>p {
+        font-size: 1vw;
+    }
+}
+
+@media (max-width: 1400px) {
+
+    .text2>.monthly>p,
+    .text2>.Jeonse>p,
+    .text2>.bargain>p,
+    .text3>.monthlyReview>p,
+    .text3>.JeonseReview>p,
+    .text3>.bargainReview>p,
+    .text4>.criminal>p,
+    .text4>.situation>p {
+        font-size: 0.7vw;
+    }
+}
+
+@media (max-width: 1200px) {
+
+    .text2>.monthly>p,
+    .text2>.Jeonse>p,
+    .text2>.bargain>p,
+    .text3>.monthlyReview>p,
+    .text3>.JeonseReview>p,
+    .text3>.bargainReview>p,
+    .text4>.criminal>p,
+    .text4>.situation>p {
+        font-size: 0.5vw;
+    }
+}
+
+.text2>.monthly>i,
+.text2>.Jeonse>i,
+.text2>.bargain>i,
+.text4>.situation>i,
+.text4>.criminal>i {
+    font-size: 0.5rem;
+}
+
+@media (max-width: 1700px) {
+
+    .text2>.monthly>i,
+    .text2>.Jeonse>i,
+    .text2>.bargain>i,
+    .text4>.situation>i,
+    .text4>.criminal>i {
+        font-size: 0.1rem;
+    }
+}
+
+.text3>.monthlyReview>i,
+.text3>.JeonseReview>i,
+.text3>.bargainReview>i {
+    font-size: 0.5rem;
+}
+
+.text2>hr,
+.text3>hr {
+    width: 14.5vw;
+    border: 1px solid #131B5A;
+    margin-top: 1.5vw;
+}
+
+.scheduleTitle {
+    width: 15vw;
+    height: 3vw;
+    border: none;
+    border-radius: 100px;
+    background-color: #0015AD;
+    box-shadow: 0px 7px 14px 0px rgba(0, 0, 0, 0.32);
+    color: white;
+    font-family: 'Hind';
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 40.03px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20%;
+    z-index: 1;
+    position: relative;
+}
+
+@media (max-width: 1500px) {
+    .scheduleTitle {
+        font-size: 15px;
+    }
+}
+
+.scheduleBox {
+    width: 15vw;
+    height: 20vw;
+    border: 1px solid #919191;
+    background-color: white;
+    border-radius: 50px;
+    box-shadow: inset 6px -5px 28px 0px rgba(0, 0, 0, 0.28);
+    margin-top: -3vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.scheduleBox>img {
+    width: 7vw;
+    height: 7vw;
+}
+
+@media (max-width:1300px) {
+    .scheduleBox>img {
+        margin-top: 2vw;
+    }
+}
+
+.scheduleBox>.scheduleText {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+.scheduleBox>.scheduleText>p {
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24.2px;
+    letter-spacing: -0.05rem;
+    color: #818181;
+    margin: 0;
+    margin-top: 20px;
+}
+
+@media (max-width:1500px) {
+    .scheduleBox>.scheduleText>p {
+        font-size: 15px;
+    }
+}
+
+@media (max-width:1100px) {
+    .scheduleBox>.scheduleText>p {
+        font-size: 10px;
+    }
+}
+
+.all>.right>.profile {
+    margin-left: 2vw;
+    margin-top: -2vw;
+}
+
+.all>.right>.profile>i {
+    font-size: 3rem;
+    color: #142F9E;
+    display: inline-block;
+}
+
+@media (max-width:1200px) {
+    .all>.right>.profile>i {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width:700px) {
+    .all>.right>.profile>i {
+        font-size: 1.5rem;
+    }
+}
+
+.all>.right>.profile>p {
+    display: inline-block;
+    padding-top: 2vw;
+    font-family: 'Inter';
+    font-weight: 600;
+    font-size: 2vw;
+    line-height: 10px;
+    letter-spacing: -0.05rem;
+    color: #142F9E;
+    margin-left: 0.5vw;
+}
+
+.all>.right>form>.profilebox {
+    width: 90%;
+    height: auto;
+    border: 1px solid #919191;
+    border-radius: 70px;
+    background-color: white;
+    margin-left: 2vw;
+    box-shadow: inset 6px -5px 28px 0px rgba(0, 0, 0, 0.28);
+    text-align: left;
+    padding-bottom: 2vw;
+    position: relative;
+}
+
+.all>.right>form>.profilebox>#uname {
+    width: 35vw;
+    font-family: 'Inter';
+    font-weight: 600;
+    font-size: 4vw;
+    line-height: 30px;
+    letter-spacing: -0.1rem;
+    color: #142F9E;
+    margin-left: 10%;
+    margin-top: 10%;
+    outline: none;
+}
+
+.all>.right>form>.profilebox>.emailbox {
+    width: 26vw;
+    height: 4.8vh;
+    border-radius: 100px;
+    border: none;
+    background-color: #0015AD;
+    opacity: 0.6;
+    box-shadow: 0px 7px 14px 0px rgba(0, 0, 0, 0.32);
+    margin-left: 10%;
+    margin-top: 1%;
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 1.6vw;
+    line-height: 10px;
+    letter-spacing: -0.05rem;
+    color: white;
+    display: flex;
+    flex-direction: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.all>.right>form>.profilebox>.photoEdit {
+    position: absolute;
+    margin-top: 1vw;
+    margin-left: -1vw;
+}
+
+.all>.right>form>.profilebox>.photoEdit>.photo {
+    position: relative;
+    width: 15vw;
+    height: 15vw;
+    border: 2px solid #142F9E;
+    background: linear-gradient(#CFCFCF, #FFFFFF);
+    border-radius: 50%;
+    margin-left: 45vw;
+    margin-top: -10vw;
+    background-position: center;
+    background-size: cover;
+}
+
+#rephoto {
+    position: absolute;
+    border: none;
+    width: 3vw;
+    height: 3vw;
+    background-color: #0015AD;
+    border-radius: 50%;
+    margin-left: 57vw;
+    margin-top: -4vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#rephoto>i {
+    width: 1.5vw;
+    height: 1.6vw;
+    color: white;
+    margin-top: 1.5vw;
+}
+
+@media (max-width:1200px) {
+    #rephoto>i {
+        font-size: 0.1rem;
+    }
+}
+
+.all>.right>form>.profilebox>.EmailContainer {
+    width: 33vw;
+    height: auto;
+    border: 4px solid #5378FF;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 10%;
+    margin-top: -1vw;
+}
+
+.all>.right>form>.profilebox>.ExplainContainer1,
+.all>.right>form>.profilebox>.ExplainContainer2 {
+    width: 33vw;
+    height: auto;
+    border: 4px solid #5378FF;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 10%;
+    margin-top: 4vw;
+}
+
+.all>.right>form>.profilebox>.EmailContainer>#Email {
+    margin-top: 5vw;
+}
+
+.all>.right>form>.profilebox>.EmailContainer>#EmailContainer {
+    width: 20vw;
+    margin-top: 5vw;
+    height: 3vw;
+    outline: none;
+}
+
+.all>.right>form>.profilebox>.EmailContainer>#Email,
+.all>.right>form>.profilebox>.ExplainContainer1>#Explain,
+.all>.right>form>.profilebox>.EmailContainer>#EmailContainer {
+    font-family: 'Inter';
+    font-weight: 700;
+    font-size: 1.9vw;
+    line-height: 10px;
+    letter-spacing: -0.05rem;
+    color: #4967FF;
+    margin-left: 0;
+    margin-bottom: 0.8vw;
+}
+
+.all>.right>form>.profilebox>.EmailContainer>p {
+    margin-top: 5vw;
+}
+
+.all>.right>form>.profilebox>.EmailContainer>p,
+.all>.right>form>.profilebox>.ExplainContainer2>input {
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 1.5vw;
+    line-height: 10px;
+    letter-spacing: -0.05rem;
+    color: #4967FF;
+    margin-right: 0;
+    margin-bottom: 0.8vw;
+}
+
+.all>.right>form>.profilebox>.ExplainContainer2>input {
+    width: 50vw;
+    outline: none;
+}
+
+.all>.right>form>.profilebox>.ExplainContainer1,
+.all>.right>form>.profilebox>.ExplainContainer2 {
+    width: 50vw;
+}
+
+.all>.right>form>.profilebox>.ExplainContainer2 {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0.5vw;
+}
+
+.all>.right>form>.profilebox>.buttonContainer {
+    display: flex;
+    margin-bottom: 1vw;
+    margin-top: 1vw;
+    justify-content: flex-end;
+    margin-right: 7vw;
+}
+
+#edit,
+#save {
+    margin: 0;
+    border: none;
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 1vw;
+    background-color: white;
+    cursor: pointer;
+    white-space: nowrap;
+    color: #0418AB;
+}
+
+#save {
+    margin-left: -0.1vw;
+}
+
+#logout {
+    width: 8.5vw;
+    height: 3vw;
+    border-radius: 5vw;
+    border: none;
+    background-color: #142F9E;
+    font-family: 'Inter';
+    font-weight: 600;
+    font-size: 0.9vw;
+    line-height: 1vw;
+    letter-spacing: -0.05rem;
+    text-align: center;
+    color: white;
+    margin-left: 57%;
+}
+
+#logout>i {
+    margin-left: 1vw;
+}
