@@ -34,8 +34,8 @@
             {% if schedule.duration == 'done' %}
                 <div class="first_checkbox">
                     <p class="first_checkbox_text">{{schedule.content}}</p>
-                    <button class="editBtn"><i class="fa-solid fa-pen"></i></button>
-                    <button class="removeBtn"><i class="fa-solid fa-x"></i></button>
+                    <button class="editBtn" onclick="editModal('{{ schedule.content }}', '{{ schedule.date.year }}', '{{ schedule.date.month }}', '{{ schedule.date.day }}', '{{ schedule.duration }}', '{{ schedule.id }}')"><i class="fa-solid fa-pen"></i></button>
+                    <button class="removeBtn" onclick="confirmDelete({{ schedule.id }})"><i class="fa-solid fa-x"></i></button>
                 </div>
             {%endif%}
         {% endfor %}
@@ -144,7 +144,51 @@
                 <div class="checkbox_period" id="item2" value="doing" onclick="toggleCheckbox('item2')">이사중</div>
                 <div class="checkbox_period" id="item3" value="done" onclick="toggleCheckbox('item3')">이사후</div>
             </div>
-            <button id="create" onclick="createData()">완료</button>
+            <button id="create" onclick="createData({{id}})">완료</button>
         </div>
     </div>
+    <script>
+        function editModal(content, year, month, day , duration , id) {
+            const modalContainer = document.getElementById('modalContainer');
+            modalContainer.style.display = 'flex';
+
+            // 모달 내부에 값을 표시하는 작업 수행
+            document.getElementById('modal_Input').value = content;
+            document.getElementById('year').value = year;
+            document.getElementById('month').value = addLeadingZero(month);
+            document.getElementById('day').value = addLeadingZero(day);
+
+            console.log(duration)
+
+            // 기간 선택 체크박스 처리
+            var checkboxPeriods = document.getElementsByClassName('checkbox_period');
+            for (var i = 0; i < checkboxPeriods.length; i++) {
+                checkboxPeriods[i].classList.remove('active');
+                if (checkboxPeriods[i].getAttribute('value') === duration) {
+                    checkboxPeriods[i].classList.add('active');
+                    checkboxPeriods[i].style.background = '#5377FF'; // 배경색 변경
+                }
+            }
+
+            //id 값 넘겨줌
+            document.getElementById('create').onclick = function() {
+                createData(id);
+            };
+        }
+
+        // 1의 자리 숫자에 앞에 0을 붙여주는 함수
+        function addLeadingZero(number) {
+            return number < 10 ? '0' + number : number;
+        }
+
+        function confirmDelete(scheduleId) {
+            var result = confirm("정말로 삭제하시겠습니까?");
+            if (result) {
+                var url = "{% url 'checklist:schedule-delete' id=0 %}".replace('0', scheduleId);
+                window.location.href = url;
+            } else {
+                // 삭제 취소
+            }
+        }
+    </script>
 {% endblock %}

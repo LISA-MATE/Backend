@@ -2,6 +2,7 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render, redirect
 from .models import Schedule
+from django.shortcuts import get_object_or_404
 
 
 def index(request): # checklist_view
@@ -62,3 +63,33 @@ def get_schedule_view(request):
     schedule_data = [{'content': schedule.content, 'date': schedule.date} for schedule in schedules]
 
     return JsonResponse({'schedules': schedule_data})
+
+
+def update_schedule_view(request, id=None):
+    schedule = get_object_or_404(Schedule, id=id)  # 해당 ID에 해당하는 Schedule 객체 가져오기
+
+    if request.method == 'POST':
+        content = request.POST.get('content')
+        year = request.POST.get('year')
+        month = request.POST.get('month')
+        day = request.POST.get('day')
+        duration = request.POST.get('duration')
+        
+        print(duration)
+        # Schedule 객체 수정 및 저장
+        schedule.content = content
+        schedule.date = f"{year}-{month}-{day}"
+        schedule.duration = duration
+        schedule.save()
+
+        return JsonResponse({'success': True})
+    else:
+        return JsonResponse({'success': False, 'message': 'Invalid request method'})
+    
+
+def delete_schedule_view(request, id):
+    if request.method == 'GET':
+        schedule = get_object_or_404(Schedule, id=id)
+        schedule.delete()
+        
+        return redirect('checklist:index')
