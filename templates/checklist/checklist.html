@@ -44,8 +44,8 @@
             {% if schedule.duration == 'before' %}
                 <div class="second_checkbox">
                     <p class="second_checkbox_text">{{schedule.content}}</p>
-                    <button class="editBtn2"><i class="fa-solid fa-pen"></i></button>
-                    <button class="removeBtn2"><i class="fa-solid fa-x"></i></button>
+                    <button class="editBtn2" onclick="editModal('{{ schedule.content }}', '{{ schedule.date.year }}', '{{ schedule.date.month }}', '{{ schedule.date.day }}', '{{ schedule.duration }}', '{{ schedule.id }}')"><i class="fa-solid fa-pen"></i></button>
+                    <button class="removeBtn2" onclick="confirmDelete({{ schedule.id }})"><i class="fa-solid fa-x"></i></button>
                 </div>
             {%endif%}
         {% endfor %}
@@ -54,8 +54,8 @@
             {% if schedule.duration == 'doing' %}
                 <div class="third_checkbox">
                     <p class="third_checkbox_text">{{schedule.content}}</p>
-                    <button class="editBtn3"><i class="fa-solid fa-pen"></i></button>
-                    <button class="removeBtn3"><i class="fa-solid fa-x"></i></button>
+                    <button class="editBtn3" onclick="editModal('{{ schedule.content }}', '{{ schedule.date.year }}', '{{ schedule.date.month }}', '{{ schedule.date.day }}', '{{ schedule.duration }}', '{{ schedule.id }}')"><i class="fa-solid fa-pen"></i></button>
+                    <button class="removeBtn3" onclick="confirmDelete({{ schedule.id }})"><i class="fa-solid fa-x"></i></button>
                 </div>
             {%endif%}
         {% endfor %}
