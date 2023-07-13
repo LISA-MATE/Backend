@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Hind&display=swap');
+
 @font-face {
     font-family: 'Pretendard-Regular';
     src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
@@ -27,7 +28,7 @@ body {
     box-sizing: border-box;
 }
 
-a{
+a {
     text-decoration-line: none;
 }
 
@@ -82,7 +83,6 @@ p {
     }
 }
 
-<<<<<<< HEAD
 .bell {
     display: flex;
     align-items: center;
@@ -90,7 +90,7 @@ p {
 
 .bell>i {
     margin-right: 5px;
-    margin-top:0.5vw;
+    margin-top: 0.5vw;
     color: #181D45;
 }
 
@@ -101,8 +101,6 @@ p {
 }
 
 
-=======
->>>>>>> 44e1d0f43500591eed191a915d209e161de6d28d
 .logo>a>p {
     font-family: 'Jua';
     font-weight: 400;
@@ -112,7 +110,7 @@ p {
     color: #233C9B;
     margin-left: 7%;
     margin-top: 8%;
-    margin-bottom:7%;
+    margin-bottom: 7%;
 }
 
 .middleTitle {
@@ -878,14 +876,14 @@ p {
 
 .calendarbox {
     cursor: pointer;
-    position:relative;
-    margin-left:3%;
+    position: relative;
+    margin-left: 3%;
 }
 
 .calendarbox>.Calendar1 {
     width: 55vw;
     height: 40vw;
-    margin-left:5%;
+    margin-left: 5%;
     border: 1px solid #424242;
     background-color: #F5F5F5;
     border-radius: 40px;
@@ -894,34 +892,34 @@ p {
 }
 
 .calendarbox>.leftbar {
-    position:absolute;
+    position: absolute;
     width: 8vw;
-    height:40vw;
-    margin-top:-60%;
-    margin-left:1%;
+    height: 40vw;
+    margin-top: -60%;
+    margin-left: 1%;
     border-radius: 100px;
     background: linear-gradient(#23326F, #4967FF);
     box-shadow: 9px 14px 34px 0px rgba(0, 0, 0, 0.34);
-    z-index:-1;
+    z-index: -1;
 }
 
 .calendarbox>.leftcircle {
     width: 8vw;
     height: 8vw;
     position: absolute;
-    margin-top:-60%;
-    margin-left:1%;
+    margin-top: -60%;
+    margin-left: 1%;
     background-color: #09174E;
     border-radius: 50%;
     box-shadow: 9px 14px 34px 0px rgba(0, 0, 0, 0.34);
     z-index: 3;
 }
 
-.calendarbox>.Calendar1>.Container{
+.calendarbox>.Calendar1>.Container {
     display: flex;
     align-items: center;
-    margin-left:7vw;
-    margin-top:4vw;
+    margin-left: 7vw;
+    margin-top: 4vw;
 }
 
 .calendarbox>.Calendar1>.Container>i {
@@ -933,8 +931,8 @@ p {
 }
 
 @media (max-width:1400px) {
-    .calendarbox>.Calendar1>.Container>i{
-        font-size:1.5rem;
+    .calendarbox>.Calendar1>.Container>i {
+        font-size: 1.5rem;
     }
 }
 
@@ -946,8 +944,8 @@ p {
     letter-spacing: -0.05em;
     text-align: left;
     color: #4F4F4F;
-    margin-top:-1vw;
-    margin-left:1vw;
+    margin-top: -1vw;
+    margin-left: 1vw;
     z-index: 3;
 }
 
@@ -956,7 +954,7 @@ p {
     height: 34vw;
     border: 1px solid #767676;
     border-radius: 70px;
-    margin-left:2vw;
+    margin-left: 2vw;
     z-index: 4;
     display: flex;
     justify-content: center;
@@ -972,14 +970,14 @@ p {
 
 .calendarbox>.Calendar1>.innerCalendar>.calendar {
     z-index: 999;
-    margin-top:-3vw;
+    margin-top: -3vw;
 }
 
 .header {
     display: flex;
     align-items: center;
     margin-left: 11vw;
-    margin-top:3vw;
+    margin-top: 3vw;
 }
 
 .year-month,
@@ -988,7 +986,7 @@ p {
     font-size: 1.6vw;
     font-weight: 700;
     text-align: left;
-    margin-top:1vw;
+    margin-top: 1vw;
     color: #505050;
 }
 
@@ -1018,7 +1016,7 @@ p {
 
 .go-prev {
     color: #000000;
-    margin-top:-1vw;
+    margin-top: -1vw;
 }
 
 .go-today {
@@ -1086,23 +1084,24 @@ p {
 }
 
 /*할일 div*/
-.date-bar, .date-bar2 {
-    position:absolute;
+.date-bar,
+.date-bar2 {
+    position: absolute;
     width: 4vw;
     height: 1vw;
     background-color: #4967FF;
-    border-radius:1vw;
+    border-radius: 1vw;
     white-space: nowrap;
     font-family: 'Pretendard';
     font-weight: 600;
     color: #424242;
     font-size: 0.2vw;
-    text-align:center;
+    text-align: center;
 }
 
 .date-bar2 {
-    margin-top:1.5vw;
-    background-color:#87B3FF;
+    margin-top: 1.5vw;
+    background-color: #87B3FF;
 }
 
 
@@ -1176,16 +1175,16 @@ p {
     color: #233C9B;
 }
 
-.modal>.modal-content>.modalTop{
+.modal>.modal-content>.modalTop {
     display: flex;
     justify-content: flex-end;
-    margin-top:1vw;
+    margin-top: 1vw;
 }
 
-.modal>.modal-content>.modalTop>.rightContainer{
-    display:inline-flex;
-    margin-top:2vw;
-    margin-right:3vw;
+.modal>.modal-content>.modalTop>.rightContainer {
+    display: inline-flex;
+    margin-top: 2vw;
+    margin-right: 3vw;
 
 }
 
@@ -1200,7 +1199,7 @@ p {
 }
 
 .modal>.modal-content>.modalTop>.rightContainer>p {
-    color:#A4A4A4;
+    color: #A4A4A4;
 }
 
 .modal>.modal-content>.modalTop>.rightContainer>.text6>p {
@@ -1230,9 +1229,9 @@ p {
 }
 
 .modal>.modal-content>.modalBox>.modalbar {
-    z-index:1;
+    z-index: 1;
     position: absolute;
-    margin-left:-60%;
+    margin-left: -60%;
     width: 5vw;
     height: 39vw;
     background: linear-gradient(#23326F, #4967ff);
@@ -1241,25 +1240,25 @@ p {
 }
 
 .modal>.modal-content>.modalBox>.modalcircle {
-    position:absolute;
+    position: absolute;
     width: 5vw;
     height: 5vw;
-    margin-left:-60%;
-    margin-top:-35%;
+    margin-left: -60%;
+    margin-top: -35%;
     border-radius: 50%;
     background-color: #09174E;
     box-shadow: 9px 14px 34px 0px rgba(0, 0, 0, 0.34);
     z-index: 2;
 }
 
-.modal>.modal-content>.modalBox>i{
-    position:absolute;
-    width:0.9vw;
-    height:0.8vw;
-    color:#4F4F4F;
-    z-index:3;
-    margin-left:-50%;
-    margin-top:-32%;
+.modal>.modal-content>.modalBox>i {
+    position: absolute;
+    width: 0.9vw;
+    height: 0.8vw;
+    color: #4F4F4F;
+    z-index: 3;
+    margin-left: -50%;
+    margin-top: -32%;
 }
 
 @media (max-width:1400px) {
@@ -1269,49 +1268,49 @@ p {
 }
 
 @media (max-width:1200px) {
-    .modal>.modal-content>.modalBox>i{
-        font-size:1rem;
+    .modal>.modal-content>.modalBox>i {
+        font-size: 1rem;
     }
 }
 
-.modal>.modal-content>.modalBox>.ctext2{
-    position:absolute;
+.modal>.modal-content>.modalBox>.ctext2 {
+    position: absolute;
     font-family: 'Inter';
-    font-weight:400;
-    font-size:1.2vw;
+    font-weight: 400;
+    font-size: 1.2vw;
     line-height: 30.26px;
     letter-spacing: -0.05rem;
-    color:#4F4F4F;
-    margin-top:-32%;
-    margin-left:-42%;
-    z-index:3;
+    color: #4F4F4F;
+    margin-top: -32%;
+    margin-left: -42%;
+    z-index: 3;
 }
 
-.modal>.modal-content>.modalBox>.inner{
+.modal>.modal-content>.modalBox>.inner {
     width: 55vw;
     height: 34vw;
     border: 1px solid #767676;
     border-radius: 30px;
     position: absolute;
-    margin-top:4vw;
-    z-index:4;
+    margin-top: 4vw;
+    z-index: 4;
 }
 
-.modalcalendar{
-    display:flex;
+.modalcalendar {
+    display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     position: absolute;
     z-index: 9999;
-    margin-top:-35%;
-    margin-left:25%;
+    margin-top: -35%;
+    margin-left: 25%;
 }
 
 .modalheader {
     display: flex;
     align-items: center;
-    margin-left:-5%;
+    margin-left: -5%;
 }
 
 .modal-year-month,
@@ -1346,7 +1345,7 @@ p {
     font-weight: 900;
     font-size: 2.7vw;
     color: #1A2344;
-    margin-top:0.5vw;
+    margin-top: 0.5vw;
 }
 
 .modal-go-today {
@@ -1354,7 +1353,7 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top:1vw;
+    margin-top: 1vw;
 }
 
 .modaldays {
