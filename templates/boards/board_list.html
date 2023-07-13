@@ -1,259 +1,133 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base2.html' %}
+{% load static %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LisaMate</title>
-    <link rel="stylesheet" href="../../static/css/information.css">
-    <script src="https://kit.fontawesome.com/d4b61b3d04.js" crossorigin="anonymous"></script>
-    <script src="../../static/javascript/information.js"></script>
-</head>
-
-<body>
-    <div class="top">
-        <p>LISA MATE</p>
-        <div class="icon">
-            <i class="fa-solid fa-user fa-2xl"></i>
-            <i class="fa-solid fa-house fa-2xl"></i>
-            <div class="bell">
-                <i class="fa-solid fa-bell fa-2xl"></i>
-                <div class="redcircle"></div>
-            </div>
-        </div>
+{% block content %}
+<script src="{% static 'javascript/information.js' %}"></script>
+<div class="rightTop">
+    <div class="pContainer" data-board-type="{{ board_type }}">
+        <a href="{% url 'informationPost:board-list' board_type='information' %}">
+            <p>정보 게시판</p>
+        </a>
+        <a href="{% url 'informationPost:board-list' board_type='review' %}">
+            <p>후기 게시판</p>
+        </a>
+        <p id="pBar">|</p>
+        <a href="{% url 'informationPost:board-list' board_type='town' %}">
+            <p id="ptown">우리동네 게시판</p>
+        </a>
+        <div class="pBackground"></div>
+        <div class="pBackground2"></div>
     </div>
-
-    <div class="topBox">
-        <div class="topBlueBox"></div>
-        <div class="topCircle"></div>
-        <p id="p1">LISA</p><br>
-        <p id="p2">MATE</p>
-        <div class="miniTitle">
-            <p id="mini">Move Checklist Service</p>
-        </div>
-        <div class="topbar"></div>
-        <p id="mini2">나의 이사메이트 리사.</p>
-    </div>
-
-    <div class="all">
-        <div class="left">
-            <div class="userBox">
-                <div class="user">USER</div>
-                <div class="userbox">
-                    <div class="userImage"></div>
-                    <div class="name">아기사자 33</div>
-                    <div class="email">LIKEALION@333</div>
-                    <div class="explain">이사 준비 중입니다!</div>
-                    <div class="button-container">
-                        <a href="{% url 'boards:post-create' %}">
-                            <button type="button" id="pen">
-                                <img src="../../static/image/pen.PNG">글쓰기
-                            </button>
-                        </a>
-                        <button type="button" id="setting">
-                            <img src="../../static/image/setting.png">프로필 편집/설정
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="menu">
-                <div class="checklist">체크리스트</div>
-                <div class="checklistcircle"></div>
-                <div class="text1">
-                    <div class="checklistText">
-                        <i class="fa-solid fa-circle fa-xs"></i>
-                        <p>체크리스트</p>
-                    </div>
-                    <div class="calText">
-                        <i class="fa-solid fa-circle fa-xs"></i>
-                        <p>캘린더</p>
-                    </div>
-                </div>
-                <div class="noticeboard">게시판</div>
-                <div class="noticeboardcircle"></div>
-                <div class="text2">
-                    <div class="notice">
-                        <p>정보 게시판</p>
-                    </div>
-                    <div class="monthly">
-                        <i class="fa-solid fa-circle fa-xs"></i>
-                        <p>월세 정보 공유</p>
-                    </div>
-                    <div class="Jeonse">
-                        <i class="fa-solid fa-circle fa-xs"></i>
-                        <p>전세 정보 공유</p>
-                    </div>
-                    <div class="bargain">
-                        <i class="fa-solid fa-circle fa-xs"></i>
-                        <p>매매 정보 공유</p>
-                    </div>
-                    <hr>
-                </div>
-                <div class="text3">
-                    <div class="review">
-                        <p>후기 게시판</p>
-                    </div>
-                    <div class="monthlyReview">
-                        <i class="fa-solid fa-circle fa-xs"></i>
-                        <p>월세 후기</p>
-                    </div>
-                    <div class="JeonseReview">
-                        <i class="fa-solid fa-circle fa-xs"></i>
-                        <p>전세 후기</p>
-                    </div>
-                    <div class="bargainReview">
-                        <i class="fa-solid fa-circle fa-xs"></i>
-                        <p>매매 후기</p>
-                    </div>
-                    <hr>
-                </div>
-                <div class="text4">
-                    <div class="town">
-                        <p>우리동네 게시판</p>
-                    </div>
-                    <div class="situation">
-                        <i class="fa-solid fa-circle fa-xs"></i>
-                        <p>우리동네 현황</p>
-                    </div>
-                    <div class="criminal">
-                        <i class="fa-solid fa-circle fa-xs"></i>
-                        <p>범죄자 거주 정보</p>
-                    </div>
-                </div>
-            </div>
-            <div class="scheduleTitle">Schedule</div>
-            <div class="scheduleBox">
-                <img src="../../static/image/sleepy.png">
-                <div class="scheduleText">
-                    <p>오늘의 일정이 없습니다.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="right">
-            <div class="rightTop">
-                <div class="pContainer" data-board-type="{{ board_type }}">
-                    <p>정보 게시판</p>
-                    <p>후기 게시판</p>
-                    <p id="pBar">|</p>
-                    <p id="ptown">우리동네 게시판</p>
-                    <div class="pBackground"></div>
-                    <div class="pBackground2"></div>
-                </div>
-                <form>
-                    <div class="SSbox">
-                        <select name="location" onchange="addressKindChange(this)">
-                            <option value="none" hidden>시/도 선택</option>
-                            <option value="Seoul">서울</option>
-                            <option value="Gyeonggi">경기</option>
-                            <option value="Incheon">인천</option>
-                            <option value="Gangwon">강원</option>
-                            <option value="Daejeon">대전</option>
-                            <option value="Sejong">세종</option>
-                            <option value="Chungnam">충남</option>
-                            <option value="Chungbuk">충북</option>
-                            <option value="Busan">부산</option>
-                            <option value="Ulsan">울산</option>
-                            <option value="Gyeongnam">경남</option>
-                            <option value="Gyeongbuk">경북</option>
-                            <option value="Daegu">대구</option>
-                            <option value="Gwangju">광주</option>
-                            <option value="Jeonnam">전남</option>
-                            <option value="Jeonbuk">전북</option>
-                            <option value="Jeju">제주</option>
-                        </select>
-                        <select name="location2" id="Location2">
-                            <option value="none" hidden>구/군 선택</option>
-                        </select>
-                        <input type="search" id="searchBox" name="searchBox" placeholder="검색어를 입력해주세요.">
-                        <div class="submitContainer">
-                            <input type="submit" id="searchSubmit" value="검색">
-                        </div>
-                    </div>
-                </form>
-            </div>
-            {% if board_type == 'information' %}
-                <p id="postTitle">정보 게시판</p>
-                <p id="postSub">전세 정보 공유 & 월세 정보 공유 & 매매 정보 공유</p>
-            {% elif board_type == 'review' %}
-                <p id="postTitle">후기 게시판</p>
-                <p id="postSub"> 월세 후기 & 전세 후기 & 매매 후기 </p>
-            {% elif board_type == 'hometown' %}
-                <p id="postTitle">우리동네 게시판</p>
-                <p id="postSub"> 우리동네 현황 & 범죄자 거주 정보</p>
-            {% endif %}
-            <select name="sort" id="sort">
-                <option value="recent">최신순</option>
-                <option value="popularity">인기순</option>
+    <form>
+        <div class="SSbox">
+            <select name="location" onchange="addressKindChange(this)">
+                <option value="none" hidden>시/도 선택</option>
+                <option value="Seoul">서울</option>
+                <option value="Gyeonggi">경기</option>
+                <option value="Incheon">인천</option>
+                <option value="Gangwon">강원</option>
+                <option value="Daejeon">대전</option>
+                <option value="Sejong">세종</option>
+                <option value="Chungnam">충남</option>
+                <option value="Chungbuk">충북</option>
+                <option value="Busan">부산</option>
+                <option value="Ulsan">울산</option>
+                <option value="Gyeongnam">경남</option>
+                <option value="Gyeongbuk">경북</option>
+                <option value="Daegu">대구</option>
+                <option value="Gwangju">광주</option>
+                <option value="Jeonnam">전남</option>
+                <option value="Jeonbuk">전북</option>
+                <option value="Jeju">제주</option>
             </select>
-            <hr id="postHr">
-
-            <div class="postTopbar">
-                <p id="Topic">Topic</p>
-                <p id="postwt">제목</p>
-                <p id="writer">작성자</p>
-                <p id="createDay">작성일</p>
-                <p id="view">조회</p>
+            <select name="location2" id="Location2">
+                <option value="none" hidden>구/군 선택</option>
+            </select>
+            <input type="search" id="searchBox" name="searchBox" placeholder="검색어를 입력해주세요.">
+            <div class="submitContainer">
+                <input type="submit" id="searchSubmit" value="검색">
             </div>
-            <hr id="postBottomHr">
+        </div>
+    </form>
+</div>
 
-            <div class="notificationBox">
-                <div class="Topicbox">공지</div>
-                <div class="postxtbox">
-                    <p id="postxtText">LISA MATE 리사 메이트 이용안내 - 나의 이사메이트 리사.</p>
-                    <p id="writeCount">[892]</p>
-                </div>
-                <div class="Writerbox">
-                    <p id="writerText">LISA</p>
-                </div>
-                <div class="CreateDaybox">
-                    <p id="CreateDayText">2023.05.26</p>
-                </div>
-                <div class="viewbox">
-                    <p id="viewText">3333</p>
-                </div>
-            </div>
+{% if board_type == 'information' %}
+    <p id="postTitle">정보 게시판</p>
+    <p id="postSub">전세 정보 공유 & 월세 정보 공유 & 매매 정보 공유</p>
+{% elif board_type == 'review' %}
+    <p id="postTitle">후기 게시판</p>
+    <p id="postSub"> 월세 후기 & 전세 후기 & 매매 후기 </p>
+{% elif board_type == 'hometown' %}
+    <p id="postTitle">우리동네 게시판</p>
+    <p id="postSub"> 우리동네 현황 & 범죄자 거주 정보</p>
+{% endif %}
 
-            {% for post in post_list %}
-                {% include 'mixin/posts/post_line.html' with detail=False %}
-            {% endfor %}
-            <!--
-            <div class="paging">페이징?</div>
-            -->
+<select name="sort" id="sort">
+    <option value="recent">최신순</option>
+    <option value="popularity">인기순</option>
+</select>
+<hr id="postHr">
+
+<div class="postTopbar">
+    <p id="Topic">Topic</p>
+    <p id="postwt">제목</p>
+    <p id="writer">작성자</p>
+    <p id="createDay">작성일</p>
+    <p id="view">조회</p>
+</div>
+<hr id="postBottomHr">
+
+<div class="notificationBox">
+    <div class="Topicbox">공지</div>
+        <div class="postxtbox">
+            <p id="postxtText">LISA MATE 리사 메이트 이용안내 - 나의 이사메이트 리사.</p>
+            <p id="writeCount">[892]</p>
+        </div>
+        <div class="Writerbox">
+            <p id="writerText">LISA</p>
+        </div>
+        <div class="CreateDaybox">
+            <p id="CreateDayText">2023.05.26</p>
+        </div>
+        <div class="viewbox">
+            <p id="viewText">3333</p>
         </div>
     </div>
 
-    <script>
-        // JavaScript 코드
-        var pContainer = document.querySelector('.pContainer');
-        var boardType = pContainer.dataset.boardType;
-        console.log(boardType, " 아아아아");
+    {% for post in post_list %}
+        {% include 'mixin/posts/post_line.html' with detail=False %}
+    {% endfor %}
+    <!--<div class="paging">페이징?</div>-->
+    </div>
+</div>
 
+<script>
+    // JavaScript 코드
+    var pContainer = document.querySelector('.pContainer');
+    var boardType = pContainer.dataset.boardType;
+    console.log(boardType, " 아아아아");
 
-        if (boardType === 'information') {
-            var pBackgrounds = document.querySelectorAll('.pBackground, .pBackground2');
-            for (var i = 0; i < pBackgrounds.length; i++) {
-                pBackgrounds[i].style.backgroundColor = '#5378FF';
-            }
+    if (boardType === 'information') {
+        var pBackgrounds = document.querySelectorAll('.pBackground, .pBackground2');
+        for (var i = 0; i < pBackgrounds.length; i++) {
+            pBackgrounds[i].style.backgroundColor = '#5378FF';
         }
+    }
 
-        else if (boardType === 'review') {
-            var pBackgrounds = document.querySelectorAll('.pBackground, .pBackground2');
-            for (var i = 0; i < pBackgrounds.length; i++) {
-                pBackgrounds[i].style.backgroundColor = '#5378FF';
-                pBackgrounds[i].style.marginLeft='20.5vw';
-            }
+    else if (boardType === 'review') {
+        var pBackgrounds = document.querySelectorAll('.pBackground, .pBackground2');
+        for (var i = 0; i < pBackgrounds.length; i++) {
+            pBackgrounds[i].style.backgroundColor = '#5378FF';
+            pBackgrounds[i].style.marginLeft='20.5vw';
         }
-
-        
-        else if (boardType === 'hometown') {
-            var pBackgrounds = document.querySelectorAll('.pBackground, .pBackground2');
-            for (var i = 0; i < pBackgrounds.length; i++) {
-                pBackgrounds[i].style.backgroundColor = '#5378FF';
-                pBackgrounds[i].style.marginLeft = '29.7vw';
-            }
+    }
+    
+    else if (boardType === 'hometown') {
+        var pBackgrounds = document.querySelectorAll('.pBackground, .pBackground2');
+        for (var i = 0; i < pBackgrounds.length; i++) {
+            pBackgrounds[i].style.backgroundColor = '#5378FF';
+            pBackgrounds[i].style.marginLeft = '29.7vw';
         }
-    </script>
-</body>
-</html>
+    }
+</script>
+{% endblock %}
