@@ -3,6 +3,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render, redirect
 from .models import Schedule
 from django.shortcuts import get_object_or_404
+from django.contrib.auth.decorators import login_required
 
 
 def index(request): # checklist_view
@@ -55,11 +56,13 @@ def create_schedule_view(request):
         return JsonResponse({'success': False, 'message': 'Invalid request method'})
     
 
+@login_required
 def get_schedule_view(request):
     year = request.GET.get('year')
     month = request.GET.get('month')
-    
-    schedules = Schedule.objects.filter(date__year=year, date__month=month)
+    user_email = request.user.email
+
+    schedules = Schedule.objects.filter(writer__email=user_email, date__year=year, date__month=month)
     schedule_data = [{'content': schedule.content, 'date': schedule.date} for schedule in schedules]
 
     return JsonResponse({'schedules': schedule_data})
