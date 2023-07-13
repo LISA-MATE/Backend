@@ -56,6 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     //사진 수정 버튼 누르면 실행
     function rephotoButtonClickHandler() {
+        event.preventDefault();
         if (!isEditClicked) {
             return; // 수정 버튼을 누르지 않은 경우 작동 안됨
         }
@@ -175,7 +176,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     //close 버튼 누르면 모달 종료
-    function closeModal() {
+    function closeModal(event) {
+        event.preventDefault();
         const modalContainer = document.getElementById("modalContainer");
         modalContainer.style.display = "none";
     }
@@ -208,37 +210,26 @@ document.addEventListener('DOMContentLoaded', function() {
         modalContainer.style.display = 'flex';
         setTimeout(initializeModal, 0); // 모달이 열린 후에 초기화
     }
-    
-    //사진 업로드 이벤트 -> input
+
+    var photoInput = document.getElementById('photoInput');
+    photoInput.addEventListener('change', handleFileUpload);
+
+    // 사진 업로드 이벤트 -> input
     function handleFileUpload(event) {
         var file = event.target.files[0];
         var reader = new FileReader();
-    
+
         reader.onload = function (e) {
-            var photoBox = document.querySelector('.photoImage');
-            photoBox.style.backgroundImage = `url(${e.target.result})`;
-            photoBox.style.backgroundSize = 'cover';
-            photoBox.style.backgroundPosition = 'center';
-            photoBox.style.backgroundRepeat = 'no-repeat';
-    
-            var modalContainer = document.querySelector('.modal-container');
-            var closeButton = modalContainer.querySelector('#close');
-    
-            // 이전에 등록된 이벤트 리스너 제거
-            closeButton.removeEventListener('click', closeModal);
-    
-            // 닫기 버튼을 누르면 modal에서 업로드한 사진을 photo에 넣어줌
-            closeButton.addEventListener('click', function () {
-                modalContainer.style.display = 'none';
-                var mainPhotoBox = document.querySelector('.photo');
-                mainPhotoBox.style.backgroundImage = `url(${e.target.result})`;
-                mainPhotoBox.style.backgroundSize = 'cover';
-                mainPhotoBox.style.backgroundPosition = 'center';
-                mainPhotoBox.style.backgroundRepeat = 'no-repeat';
-            });
+            var photoImage = document.querySelector('.modal .photobox .photoImage');
+            photoImage.style.backgroundImage = `url(${e.target.result})`;
+            photoImage.style.backgroundSize = 'cover';
+            photoImage.style.backgroundPosition = 'center';
+            photoImage.style.backgroundRepeat = 'no-repeat';
         };
+
         reader.readAsDataURL(file);
     }
+
 
     // 수정 버튼 클릭 이벤트 처리를 위해 DOM 트리 구성 완료 이벤트에 추가
     document.addEventListener('DOMContentLoaded', function() {

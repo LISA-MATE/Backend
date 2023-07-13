@@ -30,9 +30,7 @@
                 <div class="modal" id="modal">
                     <button id="close">X</button>
                     <h1>프로필 사진 변경</h1>
-                    <input
-                        type="file"
-                        id="photoInput">
+                    <input type="file" id="photoInput">
                     <div class="photobox">
                         <div class="photoImage"></div>
                     </div>
@@ -41,7 +39,7 @@
         </div>
         <div class="EmailContainer">
             <p id="Email">E-mail</p>
-            <p>{{ user.email }}</p>
+            <p id="Emailtext">{{ user.email }}</p>
         </div>
         <div class="ExplainContainer1">
             <p id="Explain">소개글</p>
@@ -55,5 +53,5 @@
         </div>
     </div>
 </form>
-<script src="{% static 'javascript/profile.js' %}" defer></script>
+<script src="{% static 'javascript/profile.js' %}"></script>
 {% endblock %}
