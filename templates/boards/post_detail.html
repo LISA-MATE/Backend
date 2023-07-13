@@ -67,7 +67,12 @@
     <button id="comment" onclick="toggleCommentIcon()"><i class="fa-solid fa-comment"></i> 댓글 <i id="icon2" class="fa-solid fa-chevron-down"></i></button>
     <div id="comment-list" style="display: none;">
         <!-- 댓글 리스트 내용 -->
-        <p class="comment_title">댓글쓰기</p>
+        <button class="comment_title" onclick="toggleCommentForm()">댓글쓰기</button>
+        <form id="comment-form" style="display: none;">
+            <textarea rows="10" cols="120"></textarea>
+            <br>
+            <button class="comment_correct" type="submit">완료</button>
+          </form>
         <div class="comment_box">
             <div class="comment_user">
                 <div class="comment_userImage"></div>
