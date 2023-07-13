@@ -1,9 +1,8 @@
 from django.shortcuts import get_object_or_404, render, redirect
 
-from .models import Post
-from .forms import PostForm
+from .models import Post, Comment
+from .forms import PostForm, CommentForm
 from django.db.models import F
-
 
 def index(request):
     return redirect('boards:board-list', board_type='information')
@@ -172,4 +171,20 @@ def post_delete_view(request, id):
         board_type = post.board_type
         post.delete()
         return redirect('boards:board-list', board_type= board_type)
+
+
+def add_comment(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
     
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.post = post
+            comment.writer = request.user
+            comment.save()
+            return redirect('boards:post_detail', post_id=post_id)
+    else:
+        form = CommentForm()
+    
+    return render(request, 'boards:post_detail', {'form': form})
