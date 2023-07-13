@@ -50,44 +50,104 @@ const renderCalendar = () => {
     const lastDateIndex = dates.lastIndexOf(TLDate);
 
 
-    // 일정 추가 ----------------------------------------------------------------------
-    dates.forEach((date, i) => {
-        const condition = i >= firstDateIndex && i < lastDateIndex + 1 ? 'this' : 'other';
-        const currentDate = new Date(viewYear, viewMonth - 1, date); // 현재 년, 월과 날짜(date)를 기반으로한 날짜 객체 생성
-        const showTask = currentDate.getMonth() === 6&& currentDate.getDate() === 21 ? 'visible' : 'hidden'; // 특정 날짜에만 date-bar2 표시 여부 결정 -> 2023.07.21
-        const taskText = showTask === 'visible' ? work : '';
+    // AJAX 요청 보내기
+    const xhr = new XMLHttpRequest();
+    const url = 'get_schedule/';  // 일정 데이터를 가져올 URL
+    const params = `year=${viewYear}&month=${viewMonth}`;
 
-        //일정 div 추가
-        dates[i] = `
-        <div class="date">
-            <span class="${condition}">
-            <div class="date-bar">${task}</div>
-            <div class="date-bar2" style="visibility: ${showTask}">${taskText}</div>
-            ${date}</span>
-        </div>`;
-    });
+    xhr.open('GET', url + '?' + params, true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
 
-    document.querySelector('.dates').innerHTML = dates.join('');
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                const response = JSON.parse(xhr.responseText);
+                const schedules = response.schedules;
+                console.log(schedules)
+                // 일정 데이터를 활용하여 달력을 렌더링하는 로직 추가
+                
+                let findSchedule = false;
 
-    const today = new Date();
-    if (
-        viewMonth === (today.getMonth() + 1).toString().padStart(2, '0') &&
-        viewYear === today.getFullYear()
-    ) {
-        // 현재 달에 해당하는 모든 요소에 today-hover 클래스 추가
-        const thisDates = document.querySelectorAll('.this');
-        for (let date of thisDates) {
-            date.parentElement.classList.add('today-hover');
-        }
+                //일정 추가 ----------------------------------------------------------------------
+                dates.forEach((date, i) => {
+                    const condition = i >= firstDateIndex && i < lastDateIndex + 1 ? 'this' : 'other';
+                    const currentDate = new Date(viewYear, viewMonth - 1, date); // 현재 년, 월과 날짜(date)를 기반으로한 날짜 객체 생성
+                    const showTask = currentDate.getMonth() === 6&& currentDate.getDate() === 21 ? 'visible' : 'hidden'; // 특정 날짜에만 date-bar2 표시 여부 결정 -> 2023.07.21
+                    const taskText = showTask === 'visible' ? work : '';
 
-        // 현재 날짜와 일치하는 요소에 today 클래스 추가
-        for (let date of thisDates) {
-            if (+date.innerText === today.getDate()) {
-                date.classList.add('today');
-                break;
+                    const day = currentDate.getDate();
+                    
+                    const schedule = schedules.find(schedule => {
+                        const scheduleDate = new Date(schedule.date);
+                        if (day === 1) {
+                            findSchedule = !findSchedule; // day가 1이면 findSchedule 값을 반전시킴
+                        }
+                        if(findSchedule){
+                            return scheduleDate.getDate() === day;
+                        }
+                    });
+                
+                    console.log(schedule)
+                    let scheduleContent = '';
+                    if (schedule) {
+                        if (schedule.content.length > 5) {
+                            scheduleContent = `${schedule.content.slice(0, 5)}...`;
+                        } else {
+                            scheduleContent = schedule.content;
+                        }
+                    }
+                
+                    if (schedule) {
+                        dates[i] = `
+                            <div class="date">
+                                <span class="${condition}">
+                                    <div class="date-bar">${scheduleContent}</div>
+                                    <div class="date-bar2" style="visibility: ${showTask}">${taskText}</div>
+                                    ${date}
+                                </span>
+                            </div>`;
+                    } else {
+                        dates[i] = `
+                            <div class="date">
+                                <span class="${condition}">
+                                    ${date}
+                                </span>
+                            </div>`;
+                    }
+                
+                    
+                    document.querySelector('.dates').innerHTML = dates.join('');
+
+                    const today = new Date();
+                    if (
+                        viewMonth === (today.getMonth() + 1).toString().padStart(2, '0') &&
+                        viewYear === today.getFullYear()
+                    ) {
+                        // 현재 달에 해당하는 모든 요소에 today-hover 클래스 추가
+                        const thisDates = document.querySelectorAll('.this');
+                        for (let date of thisDates) {
+                            date.parentElement.classList.add('today-hover');
+                        }
+
+                        // 현재 날짜와 일치하는 요소에 today 클래스 추가
+                        for (let date of thisDates) {
+                            if (+date.innerText === today.getDate()) {
+                                date.classList.add('today');
+                                break;
+                            }
+                        }
+                    }
+
+                });
+
+            } else {
+                console.error('Error: ' + xhr.status);
             }
         }
-    }
+    };
+
+    xhr.send();
+
 };
 
 renderCalendar();
@@ -172,42 +232,6 @@ const modalrenderCalendar = () => {
     const firstDateIndex = dates.indexOf(1);
     const lastDateIndex = dates.lastIndexOf(TLDate);
 
-    dates.forEach((date, i) => {
-        const condition = i >= firstDateIndex && i < lastDateIndex + 1 ? 'this' : 'other';
-        const currentDate = new Date(viewYear, viewMonth - 1, date); // 현재 년, 월과 날짜(date)를 기반으로한 날짜 객체 생성
-        const showTask = currentDate.getMonth() === 6 && currentDate.getDate() === 21 ? 'visible' : 'hidden'; // 특정 날짜에만 date-bar2 표시 여부 결정
-        const taskText = showTask === 'visible' ? work : '';
-
-        //일정 div 추가
-        dates[i] = `
-        <div class="date">
-            <span class="${condition}">
-            <div class="date-bar">${task}</div>
-            <div class="date-bar2" style="visibility: ${showTask}">${taskText}</div>
-            ${date}</span>
-        </div>`;
-    });
-    document.querySelector('.modaldates').innerHTML = dates.join('');
-
-    const today = new Date();
-    if (
-        viewMonth === (today.getMonth() + 1).toString().padStart(2, '0') &&
-        viewYear === today.getFullYear()
-    ) {
-        // 현재 달에 해당하는 모든 요소에 today-hover 클래스 추가
-        const thisDates = document.querySelectorAll('.modal-this');
-        for (let date of thisDates) {
-            date.parentElement.classList.add('modal-today-hover');
-        }
-
-        // 현재 날짜와 일치하는 요소에 today 클래스 추가
-        for (let date of thisDates) {
-            if (+date.innerText === today.getDate()) {
-                date.classList.add('modal-today');
-                break;
-            }
-        }
-    }
 
     // AJAX 요청 보내기
     const xhr = new XMLHttpRequest();
@@ -223,9 +247,79 @@ const modalrenderCalendar = () => {
                 const response = JSON.parse(xhr.responseText);
                 const schedules = response.schedules;
                 console.log(schedules)
-                // 일정 데이터를 활용하여 달력을 렌더링하는 로직 추가
-                // ...
+                
+                let findSchedule = false;
 
+                //일정 추가 ----------------------------------------------------------------------               
+                dates.forEach((date, i) => {
+                    const condition = i >= firstDateIndex && i < lastDateIndex + 1 ? 'this' : 'other';
+                    const currentDate = new Date(viewYear, viewMonth - 1, date); // 현재 년, 월과 날짜(date)를 기반으로한 날짜 객체 생성
+                    const showTask = currentDate.getMonth() === 6 && currentDate.getDate() === 21 ? 'visible' : 'hidden'; // 특정 날짜에만 date-bar2 표시 여부 결정
+                    const taskText = showTask === 'visible' ? work : '';
+                    
+                    const day = currentDate.getDate();
+                    
+                    const schedule = schedules.find(schedule => {
+                        const scheduleDate = new Date(schedule.date);
+                        if (day === 1) {
+                            findSchedule = !findSchedule; // day가 1이면 findSchedule 값을 반전시킴
+                        }
+                        if(findSchedule){
+                            return scheduleDate.getDate() === day;
+                        }
+                    });
+                
+                    console.log(schedule)
+                    let scheduleContent = '';
+                    // if (schedule) {
+                    //     if (schedule.content.length > 5) {
+                    //         scheduleContent = `${schedule.content.slice(0, 5)}...`;
+                    //     } else {
+                    //         scheduleContent = schedule.content;
+                    //     }
+                    // }
+                
+                    if (schedule) {
+                        dates[i] = `
+                            <div class="date">
+                                <span class="${condition}">
+                                    <div class="date-bar">${schedule.content}</div>
+                                    <div class="date-bar2" style="visibility: ${showTask}">${taskText}</div>
+                                    ${date}
+                                </span>
+                            </div>`;
+                    } else {
+                        dates[i] = `
+                            <div class="date">
+                                <span class="${condition}">
+                                    ${date}
+                                </span>
+                            </div>`;
+                    }
+                    
+                    document.querySelector('.modaldates').innerHTML = dates.join('');
+            
+                    const today = new Date();
+                    if (
+                        viewMonth === (today.getMonth() + 1).toString().padStart(2, '0') &&
+                        viewYear === today.getFullYear()
+                    ) {
+                        // 현재 달에 해당하는 모든 요소에 today-hover 클래스 추가
+                        const thisDates = document.querySelectorAll('.modal-this');
+                        for (let date of thisDates) {
+                            date.parentElement.classList.add('modal-today-hover');
+                        }
+                
+                        // 현재 날짜와 일치하는 요소에 today 클래스 추가
+                        for (let date of thisDates) {
+                            if (+date.innerText === today.getDate()) {
+                                date.classList.add('modal-today');
+                                break;
+                            }
+                        }
+                    }
+            
+                });
             } else {
                 console.error('Error: ' + xhr.status);
             }
@@ -242,6 +336,7 @@ const prevMonth2 = () => {
     calendarDate.setDate(1);
     calendarDate.setMonth(calendarDate.getMonth() - 1);
     modalrenderCalendar();
+
 };
 
 const nextMonth2 = () => {
