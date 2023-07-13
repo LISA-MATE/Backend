@@ -32,9 +32,13 @@
     </div>
 
     <div class="middleTitle">
-        <p id="CL">Checklist</p>
+        <a href="{% url 'checklist:index' %}">
+            <p id="CL">Checklist</p>
+        </a>
         <p id="bar">|</p>
-        <p id="Cal">Calendar</p>
+        <a href="{% url 'checklist:calendar' %}">
+            <p id="Cal">Calendar</p>
+        </a>
     </div>
 
     <div class="all">

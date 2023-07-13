@@ -26,12 +26,26 @@
 <div class="checkbox" style="margin-left:10%;">
     
         <p class="check_text1">이사 직전</p>
+        <div class="third_checkbox">
+            <p class="third_checkbox_text">이사할 집 도시가스 설치요청</p>
+            <button class="editBtn3"><i class="fa-solid fa-pen"></i></button>
+            <button class="removeBtn3"><i class="fa-solid fa-x"></i></button>
+        </div>
         {% for schedule in schedules %}
             {% if schedule.duration == 'before' %}
                 <div class="first_checkbox">
                     <p class="first_checkbox_text">{{schedule.content}}</p>
-                    <button class="editBtn2" onclick="editModal('{{ schedule.content }}', '{{ schedule.date.year }}', '{{ schedule.date.month }}', '{{ schedule.date.day }}', '{{ schedule.duration }}', '{{ schedule.id }}')"><i class="fa-solid fa-pen"></i></button>
-                    <button class="removeBtn2" onclick="confirmDelete('{{ schedule.id }}')"><i class="fa-solid fa-x"></i></button>
+                    <button class="editBtn" onclick="editModal('{{ schedule.content }}', '{{ schedule.date.year }}', '{{ schedule.date.month }}', '{{ schedule.date.day }}', '{{ schedule.duration }}', '{{ schedule.id }}')"><i class="fa-solid fa-pen"></i></button>
+                    <button class="removeBtn" onclick="confirmDelete('{{ schedule.id }}')"><i class="fa-solid fa-x"></i></button>
+                </div>
+            {%endif%}
+        {% endfor %}
+        {% for schedule in schedules %}
+            {% if schedule.duration == 'before' %}
+                <div class="first_checkbox">
+                    <p class="first_checkbox_text">{{schedule.content}}</p>
+                    <button class="editBtn" onclick="editModal('{{ schedule.content }}', '{{ schedule.date.year }}', '{{ schedule.date.month }}', '{{ schedule.date.day }}', '{{ schedule.duration }}', '{{ schedule.id }}')"><i class="fa-solid fa-pen"></i></button>
+                    <button class="removeBtn" onclick="confirmDelete('{{ schedule.id }}')"><i class="fa-solid fa-x"></i></button>
                 </div>
             {%endif%}
         {% endfor %}
@@ -40,17 +54,12 @@
             {% if schedule.duration == 'doing' %}
                 <div class="second_checkbox">
                     <p class="second_checkbox_text">{{schedule.content}}</p>
-                    <button class="editBtn3" onclick="editModal('{{ schedule.content }}', '{{ schedule.date.year }}', '{{ schedule.date.month }}', '{{ schedule.date.day }}', '{{ schedule.duration }}', '{{ schedule.id }}')"><i class="fa-solid fa-pen"></i></button>
-                    <button class="removeBtn3" onclick="confirmDelete('{{ schedule.id }}')"><i class="fa-solid fa-x"></i></button>
+                    <button class="editBtn2" onclick="editModal('{{ schedule.content }}', '{{ schedule.date.year }}', '{{ schedule.date.month }}', '{{ schedule.date.day }}', '{{ schedule.duration }}', '{{ schedule.id }}')"><i class="fa-solid fa-pen"></i></button>
+                    <button class="removeBtn2" onclick="confirmDelete('{{ schedule.id }}')"><i class="fa-solid fa-x"></i></button>
                 </div>
             {%endif%}
         {% endfor %}
         <p class="check_text3">이사 확정 후</p>
-        <div class="third_checkbox">
-            <p class="third_checkbox_text">이사할 집 도시가스 설치요청</p>
-            <button class="editBtn"><i class="fa-solid fa-pen"></i></button>
-            <button class="removeBtn"><i class="fa-solid fa-x"></i></button>
-        </div>
         {% for schedule in schedules %}
             {% if schedule.duration == 'done' %}
                 <div class="first_checkbox">
