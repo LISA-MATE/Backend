@@ -218,8 +218,9 @@
             {% for post in post_list %}
                 {% include 'mixin/posts/post_line.html' with detail=False %}
             {% endfor %}
-            
+            <!--
             <div class="paging">페이징?</div>
+            -->
         </div>
     </div>
 
@@ -237,6 +238,22 @@
             }
         }
 
+        else if (boardType === 'review') {
+            var pBackgrounds = document.querySelectorAll('.pBackground, .pBackground2');
+            for (var i = 0; i < pBackgrounds.length; i++) {
+                pBackgrounds[i].style.backgroundColor = '#5378FF';
+                pBackgrounds[i].style.marginLeft='20.5vw';
+            }
+        }
+
+        
+        else if (boardType === 'hometown') {
+            var pBackgrounds = document.querySelectorAll('.pBackground, .pBackground2');
+            for (var i = 0; i < pBackgrounds.length; i++) {
+                pBackgrounds[i].style.backgroundColor = '#5378FF';
+                pBackgrounds[i].style.marginLeft = '29.7vw';
+            }
+        }
     </script>
 </body>
 </html>
