@@ -83,38 +83,26 @@
                 <i class="fa-solid fa-location-dot"></i>
                 -->
             </div>
+            <img id="previewImage" src="#" alt="Preview">
             <textarea name="content" id="content" placeholder="내용을 입력해주세요.">{{ post.content }}</textarea>
         </div>
         <input type="submit" value="등록하기" id="submitButton">
     </form>
 </div>
 <script>
-    var selectedFileName = document.getElementById("selectedFileName");
+    // 이미지 선택하면 보여주기 
+    var imageFileInput = document.getElementById('imageFile');
+    var previewImage = document.getElementById('previewImage');
 
-    document.getElementById("fileFile").addEventListener("change", function() {
-        var fileName = this.value.split("\\").pop();
-        selectedFileName.textContent = fileName;
-    });
+    imageFileInput.addEventListener('change', function() {
+    var file = imageFileInput.files[0];
+    var reader = new FileReader();
 
-    // JavaScript
-    var imageInput = document.getElementById('imageFile');
-    var contentTextarea = document.getElementById('content');
+    reader.onload = function(e) {
+        previewImage.src = e.target.result;
+    };
 
-    imageInput.addEventListener('change', function () {
-        var file = imageInput.files[0];
-        var reader = new FileReader();
-
-        reader.onload = function (e) {
-            var imageDataUrl = e.target.result;
-
-            var imgTag = '<img src="' + imageDataUrl + '">';
-            contentTextarea.value += '\n' + imgTag; // 이미지 태그를 textarea에 추가
-        };
-
-        reader.readAsDataURL(file);
-
-        // Reset the value of the input
-        imageInput.value = null;
+    reader.readAsDataURL(file);
     });
 
 </script>
