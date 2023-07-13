@@ -992,7 +992,7 @@ p {
 .right>.rightTop>.pContainer>.pBackground, .right>.rightTop>.pContainer>.pBackground2{
     width:7.6vw;
     height:1.8vw;
-    background-color:#5378FF;
+    /* background-color:#5378FF; */
     border:none;
     margin-left:13.4vw;
     position:absolute;

@@ -133,7 +133,7 @@
 
         <div class="right">
             <div class="rightTop">
-                <div class="pContainer">
+                <div class="pContainer" data-board-type="{{ board_type }}">
                     <p>정보 게시판</p>
                     <p>후기 게시판</p>
                     <p id="pBar">|</p>
@@ -173,8 +173,16 @@
                     </div>
                 </form>
             </div>
-            <p id="postTitle">정보 게시판</p>
-            <p id="postSub">정보 게시판 & 후기 게시판 & 우리동네 게시판</p>
+            {% if board_type == 'information' %}
+                <p id="postTitle">정보 게시판</p>
+                <p id="postSub">전세 정보 공유 & 월세 정보 공유 & 매매 정보 공유</p>
+            {% elif board_type == 'review' %}
+                <p id="postTitle">후기 게시판</p>
+                <p id="postSub"> 월세 후기 & 전세 후기 & 매매 후기 </p>
+            {% elif board_type == 'hometown' %}
+                <p id="postTitle">우리동네 게시판</p>
+                <p id="postSub"> 우리동네 현황 & 범죄자 거주 정보</p>
+            {% endif %}
             <select name="sort" id="sort">
                 <option value="recent">최신순</option>
                 <option value="popularity">인기순</option>
@@ -214,5 +222,21 @@
             <div class="paging">페이징?</div>
         </div>
     </div>
+
+    <script>
+        // JavaScript 코드
+        var pContainer = document.querySelector('.pContainer');
+        var boardType = pContainer.dataset.boardType;
+        console.log(boardType, " 아아아아");
+
+
+        if (boardType === 'information') {
+            var pBackgrounds = document.querySelectorAll('.pBackground, .pBackground2');
+            for (var i = 0; i < pBackgrounds.length; i++) {
+                pBackgrounds[i].style.backgroundColor = '#5378FF';
+            }
+        }
+
+    </script>
 </body>
 </html>
