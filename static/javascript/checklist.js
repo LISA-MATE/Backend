@@ -47,148 +47,173 @@ window.onload = function () {
     document.getElementById("day").value = currentDay;
 };
 
-//체크리스트 화면에서 이사 확정 후 클릭 이벤트
-// document.addEventListener('DOMContentLoaded', function () {
-//     const checkboxes = document.querySelectorAll('.checkbox > .first_checkbox');
+//체크리스트 화면에서 이사 전 클릭 이벤트
+document.addEventListener('DOMContentLoaded', function () {
+    const checkboxes = document.querySelectorAll('.checkbox > .first_checkbox');
+    checkboxes.forEach(function (checkbox) {
+        const editBtn = checkbox.querySelector('.editBtn1');
+        const removeBtn = checkbox.querySelector('.removeBtn1');
+        const editIcon = editBtn.querySelector('.fa-pen');
+        const removeIcon = removeBtn.querySelector('.fa-x');
+        const checkboxText = checkbox.querySelector('.first_checkbox_text');
+        const checkIcon = checkbox.querySelector('.fa-square');
+        let clicked = false;
 
-//     checkboxes.forEach(function (checkbox) {
-//         const editBtn = checkbox.querySelector('.editBtn');
-//         const removeBtn = checkbox.querySelector('.removeBtn');
-//         const editIcon = editBtn.querySelector('.fa-pen');
-//         const removeIcon = removeBtn.querySelector('.fa-x');
-//         const checkboxText = checkbox.querySelector('.first_checkbox_text');
-//         let clicked = false;
+        checkbox.addEventListener('click', function () {
+            clicked = !clicked;
 
-//         checkbox.addEventListener('click', function () {
-//             clicked = !clicked;
+            if (clicked) {
+                checkbox.style.background = '#5377FF';
+                editBtn.style.background = '#5377FF';
+                removeBtn.style.background = '#5377FF';
+                editIcon.style.color = '#FFFFFF';
+                removeIcon.style.color = '#FFFFFF';
+                checkboxText.style.color = '#FFFFFF';
+                checkIcon.classList.remove('fa-square');
+                checkIcon.classList.add('fa-square-check');
+                checkIcon.style.color = '#FFFFFF';
+                checkIcon.style.fontSize = '1.5rem';
+            } else {
+                checkbox.style.background = '#FFFFFF';
+                editBtn.style.background = '#FFFFFF';
+                removeBtn.style.background = '#FFFFFF';
+                editIcon.style.color = '#000000';
+                removeIcon.style.color = '#000000';
+                checkboxText.style.color = '#000000';
+                checkIcon.classList.remove('fa-square-check');
+                checkIcon.classList.add('fa-square');
+                checkIcon.style.color = '#000000';
+                checkIcon.style.fontSize = '';
+            }
+        });
 
-//             if (clicked) {
-//                 checkbox.style.background = '#5377FF';
-//                 editBtn.style.background = '#5377FF';
-//                 removeBtn.style.background = '#5377FF';
-//                 editIcon.style.color='#FFFFFF';
-//                 removeIcon.style.color='#FFFFFF';
-//                 checkboxText.style.color='#FFFFFF';
-//             } else {
-//                 checkbox.style.background = '#FFFFFF';
-//                 editBtn.style.background = '#FFFFFF';
-//                 removeBtn.style.background = '#FFFFFF';
-//                 editIcon.style.color = '#000000';
-//                 removeIcon.style.color = '#000000';
-//                 checkboxText.style.color = '#000000';
-//             }
-//         });
+        editBtn.addEventListener('click', function (event) {
+            event.stopPropagation();
+        });
 
-//         editBtn.addEventListener('click', function (event) {
-//             event.stopPropagation();
-//         });
+        removeBtn.addEventListener('click', function (event) {
+            event.stopPropagation();
+        });
+    });
+});
 
-//         removeBtn.addEventListener('click', function (event) {
-//             event.stopPropagation();
-//         });
-//     });
-// });
 
-// //체크리스트 화면에서 이사 직전 클릭 이벤트
-// document.addEventListener('DOMContentLoaded', function () {
-//     const checkboxes = document.querySelectorAll('.checkbox > .second_checkbox');
+//체크리스트 화면에서 이사 중 클릭 이벤트
+document.addEventListener('DOMContentLoaded', function () {
+    const checkboxes = document.querySelectorAll('.checkbox > .second_checkbox');
+    checkboxes.forEach(function (checkbox) {
+        const editBtn = checkbox.querySelector('.editBtn2');
+        const removeBtn = checkbox.querySelector('.removeBtn2');
+        const editIcon = editBtn.querySelector('.fa-pen');
+        const removeIcon = removeBtn.querySelector('.fa-x');
+        const checkboxText = checkbox.querySelector('.second_checkbox_text');
+        const checkIcon = checkbox.querySelector('.fa-square');
+        let clicked = false;
 
-//     checkboxes.forEach(function (checkbox) {
-//         const editBtn = checkbox.querySelector('.editBtn2');
-//         const removeBtn = checkbox.querySelector('.removeBtn2');
-//         const editIcon = editBtn.querySelector('.fa-pen');
-//         const removeIcon = removeBtn.querySelector('.fa-x');
-//         const checkboxText = checkbox.querySelector('.second_checkbox_text');
-//         let clicked = false;
+        checkbox.addEventListener('click', function () {
+            clicked = !clicked;
 
-//         checkbox.addEventListener('click', function () {
-//             clicked = !clicked;
+            if (clicked) {
+                checkbox.style.background = '#5377FF';
+                editBtn.style.background = '#5377FF';
+                removeBtn.style.background = '#5377FF';
+                editIcon.style.color = '#FFFFFF';
+                removeIcon.style.color = '#FFFFFF';
+                checkboxText.style.color = '#FFFFFF';
+                checkIcon.classList.remove('fa-square');
+                checkIcon.classList.add('fa-square-check');
+                checkIcon.style.color = '#FFFFFF';
+                checkIcon.style.fontSize = '1.5rem';
+            } else {
+                checkbox.style.background = '#FFFFFF';
+                editBtn.style.background = '#FFFFFF';
+                removeBtn.style.background = '#FFFFFF';
+                editIcon.style.color = '#000000';
+                removeIcon.style.color = '#000000';
+                checkboxText.style.color = '#000000';
+                checkIcon.classList.remove('fa-square-check');
+                checkIcon.classList.add('fa-square');
+                checkIcon.style.color = '#000000';
+                checkIcon.style.fontSize = '';
+            }
+        });
 
-//             if (clicked) {
-//                 checkbox.style.background = '#5377FF';
-//                 editBtn.style.background = '#5377FF';
-//                 removeBtn.style.background = '#5377FF';
-//                 editIcon.style.color = '#FFFFFF';
-//                 removeIcon.style.color = '#FFFFFF';
-//                 checkboxText.style.color = '#FFFFFF';
-//             } else {
-//                 checkbox.style.background = '#FFFFFF';
-//                 editBtn.style.background = '#FFFFFF';
-//                 removeBtn.style.background = '#FFFFFF';
-//                 editIcon.style.color = '#000000';
-//                 removeIcon.style.color = '#000000';
-//                 checkboxText.style.color = '#000000';
-//             }
-//         });
+        editBtn.addEventListener('click', function (event) {
+            event.stopPropagation();
+        });
 
-//         editBtn.addEventListener('click', function (event) {
-//             event.stopPropagation();
-//         });
+        removeBtn.addEventListener('click', function (event) {
+            event.stopPropagation();
+        });
+    });
+});
 
-//         removeBtn.addEventListener('click', function (event) {
-//             event.stopPropagation();
-//         });
-//     });
-// });
+//체크리스트 화면에서 이사 후 클릭 이벤트
+document.addEventListener('DOMContentLoaded', function () {
+    const checkboxes = document.querySelectorAll('.checkbox > .third_checkbox');
+    checkboxes.forEach(function (checkbox) {
+        const editBtn = checkbox.querySelector('.editBtn3');
+        const removeBtn = checkbox.querySelector('.removeBtn3');
+        const editIcon = editBtn.querySelector('.fa-pen');
+        const removeIcon = removeBtn.querySelector('.fa-x');
+        const checkboxText = checkbox.querySelector('.third_checkbox_text');
+        const checkIcon = checkbox.querySelector('.fa-square');
+        let clicked = false;
 
-// //체크리스트 화면에서 이사 당일 클릭 이벤트
-// document.addEventListener('DOMContentLoaded', function () {
-//     const checkboxes = document.querySelectorAll('.checkbox > .third_checkbox');
+        checkbox.addEventListener('click', function () {
+            clicked = !clicked;
 
-//     checkboxes.forEach(function (checkbox) {
-//         const editBtn = checkbox.querySelector('.editBtn3');
-//         const removeBtn = checkbox.querySelector('.removeBtn3');
-//         const editIcon = editBtn.querySelector('.fa-pen');
-//         const removeIcon = removeBtn.querySelector('.fa-x');
-//         const checkboxText = checkbox.querySelector('.third_checkbox_text');
-//         let clicked = false;
+            if (clicked) {
+                checkbox.style.background = '#5377FF';
+                editBtn.style.background = '#5377FF';
+                removeBtn.style.background = '#5377FF';
+                editIcon.style.color = '#FFFFFF';
+                removeIcon.style.color = '#FFFFFF';
+                checkboxText.style.color = '#FFFFFF';
+                checkIcon.classList.remove('fa-square');
+                checkIcon.classList.add('fa-square-check');
+                checkIcon.style.color = '#FFFFFF';
+                checkIcon.style.fontSize = '1.5rem';
+            } else {
+                checkbox.style.background = '#FFFFFF';
+                editBtn.style.background = '#FFFFFF';
+                removeBtn.style.background = '#FFFFFF';
+                editIcon.style.color = '#000000';
+                removeIcon.style.color = '#000000';
+                checkboxText.style.color = '#000000';
+                checkIcon.classList.remove('fa-square-check');
+                checkIcon.classList.add('fa-square');
+                checkIcon.style.color = '#000000';
+                checkIcon.style.fontSize = '';
+            }
+        });
 
-//         checkbox.addEventListener('click', function () {
-//             clicked = !clicked;
+        editBtn.addEventListener('click', function (event) {
+            event.stopPropagation();
+        });
 
-//             if (clicked) {
-//                 checkbox.style.background = '#5377FF';
-//                 editBtn.style.background = '#5377FF';
-//                 removeBtn.style.background = '#5377FF';
-//                 editIcon.style.color = '#FFFFFF';
-//                 removeIcon.style.color = '#FFFFFF';
-//                 checkboxText.style.color = '#FFFFFF';
-//             } else {
-//                 checkbox.style.background = '#FFFFFF';
-//                 editBtn.style.background = '#FFFFFF';
-//                 removeBtn.style.background = '#FFFFFF';
-//                 editIcon.style.color = '#000000';
-//                 removeIcon.style.color = '#000000';
-//                 checkboxText.style.color = '#000000';
-//             }
-//         });
+        removeBtn.addEventListener('click', function (event) {
+            event.stopPropagation();
+        });
+    });
+});
 
-//         editBtn.addEventListener('click', function (event) {
-//             event.stopPropagation();
-//         });
+const items = document.querySelectorAll('.checkbox');
 
-//         removeBtn.addEventListener('click', function (event) {
-//             event.stopPropagation();
-//         });
-//     });
-// });
-
-// const items = document.querySelectorAll('.checkbox');
-
-// items.forEach(item => {
-//     item.addEventListener('click', () => {
-//         if (!item.classList.contains('active')) {
-//             items.forEach(otherItem => {
-//                 if (otherItem !== item && otherItem.classList.contains('active')) {
-//                     otherItem.classList.remove('active');
-//                 }
-//             });
-//             item.classList.add('active');
-//         } else {
-//             item.classList.remove('active');
-//         }
-//     });
-// });
+items.forEach(item => {
+    item.addEventListener('click', () => {
+        if (!item.classList.contains('active')) {
+            items.forEach(otherItem => {
+                if (otherItem !== item && otherItem.classList.contains('active')) {
+                    otherItem.classList.remove('active');
+                }
+            });
+            item.classList.add('active');
+        } else {
+            item.classList.remove('active');
+        }
+    });
+});
 
 // let clicked1 = false;
 // let clicked2 = false;

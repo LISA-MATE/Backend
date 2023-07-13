@@ -50,6 +50,13 @@
     border-radius: 5vw;
     background: linear-gradient(180deg, #5072FF 0%, #75B0FF 100%);
     border: 1px solid #181D45;
+    position:relative;
+}
+
+.exambox>i{
+    position:absolute;
+    margin-left:83%;
+    margin-top:21%;
 }
 
 .box_title {
@@ -152,6 +159,14 @@
     align-items: center;
 }
 
+.checkbox>.first_checkbox>i,
+.checkbox>.second_checkbox>i,
+.checkbox>.third_checkbox>i{
+    font-size: 1.5rem;
+    margin-left:2vw;
+    color: #000000;
+}
+
 .checkbox>.first_checkbox>p,
 .checkbox>.second_checkbox>p,
 .checkbox>.third_checkbox>p {
@@ -159,6 +174,7 @@
     font-weight: 600;
     font-size: 1.2vw;
     color: #000000;
+    padding-left:1vw;
 }
 
 .checkbox>.first_checkbox>button,
