@@ -8,8 +8,10 @@
     <link rel="stylesheet" href="{% static 'css/base2.css' %}">
     <link rel="stylesheet" href="{% static 'css/post.css' %}">
     <link rel="stylesheet" href="{% static 'css/write.css' %}">
+    <link rel="stylesheet" href="{%% static 'css/information.css' %}">
     <script src="{% static 'javascript/post.js' %}"></script>
     <script src="{% static 'javascript/write.js' %}"></script>
+    <script src="{% static 'javascript/information.css' %}"></script>
     <script src="https://kit.fontawesome.com/d4b61b3d04.js" crossorigin="anonymous"></script>
 </head>
 
@@ -17,8 +19,8 @@
     <div class="top">
         <p>LISA MATE</p>
         <div class="icon">
-            <i class="fa-solid fa-user fa-2xl"></i>
-            <i class="fa-solid fa-house fa-2xl"></i>
+            <a href="{% url 'profile' %}"><i class="fa-solid fa-user fa-2xl"></i></a>
+            <a href="{% url 'checklist:index' %}"><i class="fa-solid fa-house fa-2xl"></i></a>
             <div class="bell">
                 <i class="fa-solid fa-bell fa-2xl"></i>
                 <div class="redcircle"></div>

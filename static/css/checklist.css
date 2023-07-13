@@ -1,9 +1,3 @@
-.all>.right {
-    width: 70%;
-    float: right;
-    box-sizing: border-box;
-}
-
 .middleTitle {
     display: flex;
     position: absolute;
@@ -44,6 +38,10 @@
 .all>.left>.menu>.text1>.checklistText>a>p{
     color:#0418AB;
     font-weight:600;
+}
+
+.all>.left>.menu>.text1>.checklistText{
+    background: radial-gradient(50% 50% at 50% 50%, #87B3FF 0%, rgba(135, 179, 255, 0) 100%);
 }
 
 .exambox {
