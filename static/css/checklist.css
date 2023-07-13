@@ -1,13 +1,13 @@
-.middleTitle {
+.middleTitle1 {
     display: flex;
     position: absolute;
     align-items: center;
-    margin-left: 40%;
+    margin-left: 50%;
     margin-top: -13%;
 }
 
-.middleTitle>a>p,
-.middleTitle>p {
+.middleTitle1>a>p,
+.middleTitle1>p {
     font-family: 'Inter';
     font-weight: 400;
     font-size: 1.5vw;
@@ -17,20 +17,20 @@
     margin: 0;
 }
 
-.middleTitle>a>p:not(:first-child) {
+.middleTitle1>a>p:not(:first-child) {
     margin-left: 5px;
 }
 
-.middleTitle>#bar {
+.middleTitle1>#bar1 {
     margin-left: 15%;
 }
 
-.middleTitle>a>#CL {
+.middleTitle1>a>#CL1 {
     color: #0F3FE8;
     font-weight: 700;
 }
 
-.middleTitle>a>#Cal{
+.middleTitle1>a>#Cal1{
     margin-left: 20%;
 }
 
