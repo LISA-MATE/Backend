@@ -1,9 +1,9 @@
-from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
 import json
 from django.http import JsonResponse
+from django.views.decorators.http import require_http_methods
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
@@ -74,34 +74,38 @@ def login_view(request):
     return render(request, 'accounts/login.html')
 
 @login_required
+@require_http_methods(["GET", "POST"]) # 데코레이터 추가하여 GET 및 POST 메서드만 허용
 def profile_view(request):
-    user = User.objects.get(user)
-    if request.method == 'GET':
-        context = {
-            'user':user
-        }
-        return render(request, 'profile.html', context)
-    
-    elif request.method == 'POST':
-        user.nickname = request.POST.get('nickname')
-        user.email = request.POST.get('email')
-        user.introduction = request.POST.get('introduction')
+    if request.method == 'POST':
+        # POST 요청으로부터 전달받은 데이터 추출
+        nickname = request.POST.get('nickname')
+        introduction = request.POST.get('introduction')
+
+        # 필요한 작업 수행
+        request.user.nickname = nickname
+        request.user.introduction = introduction
 
         if request.FILES.get('image'):
-            user.image = request.FILES['image']
+            request.user.image = request.FILES['image']
 
-        user.save()
+        request.user.save()
 
-        return redirect('profile')
+        # 응답 데이터 생성
+        response_data = {
+            'success': True,
+            'message': '프로필이 성공적으로 업데이트되었습니다.'
+        }
 
-def profile_edit(request):
-    if request.method == 'POST':
-        data = json.loads(request.body)
-        inputValue = data['inputValue']
-        
-        # 수정된 정보 처리 로직
+        # JSON 형태의 응답 반환
+        return JsonResponse(response_data)
 
-        return JsonResponse({'message': '수정이 완료되었습니다.'})
+    elif request.method == 'GET':
+        # GET 요청에 대한 처리 로직
+        user = request.user
+        context = {
+            'user': user
+        }
+        return render(request, 'profile.html', context)
 
 
 def logout_view(request):

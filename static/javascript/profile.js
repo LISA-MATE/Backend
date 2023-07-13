@@ -73,6 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     //수정 완료 버튼
     function saveClick() {
+        console.log('Save button clicked!');
         event.preventDefault(); // 폼 제출 동작 막기
 
         //input박스에 입력한 내용 가져오기
@@ -87,9 +88,10 @@ document.addEventListener('DOMContentLoaded', function() {
         //입력 내용을 출력할 요소 <p>로 설정
         var explainBox2 = document.querySelector('.ExplainContainer2');
     
-        var pElement = document.createElement('p');
+        var pElement = document.createElement('input');
         pElement.id = 'explaintext';
-        pElement.textContent = inputValue;
+        pElement.name = 'introduction';
+        pElement.value = inputValue;
         pElement.style.textAlign = 'right';
     
         //수정 버튼 화면에 표시
@@ -120,9 +122,10 @@ document.addEventListener('DOMContentLoaded', function() {
     
         var profileBox = document.querySelector('.profilebox');
     
-        var pElement2 = document.createElement('p');
+        var pElement2 = document.createElement('input');
         pElement2.id = 'uname';
-        pElement2.textContent = inputValue2;
+        pElement2.name = 'nickname';
+        pElement2.value = inputValue2;
         pElement2.className='input-box3';
     
         var existingPElement2 = document.getElementById('uname');
@@ -156,24 +159,42 @@ document.addEventListener('DOMContentLoaded', function() {
         userImageBox.style.backgroundPosition = 'center';
         userImageBox.style.backgroundRepeat = 'no-repeat';
 
+        // 값이 비어있는지 확인
+        if (inputValue.trim() === '' || inputValue2.trim() === '') {
+            return;
+        }
+    
         // AJAX 요청을 사용하여 수정된 정보를 서버로 전송하고 저장
         var xhr = new XMLHttpRequest();
-        xhr.open('POST', '');  // 현재 URL로 POST 요청을 보냄
-        xhr.setRequestHeader('Content-Type', 'application/json');
-        xhr.onload = function() {
+        var csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value; // CSRF 토큰 가져오기
+        var formData = new FormData();
+        formData.append('nickname', inputValue2);
+        formData.append('introduction', inputValue);
+        formData.append('image', photoInput);
+    
+        xhr.open('POST', '/profile/');  // 현재 URL로 POST 요청을 보냄
+        xhr.setRequestHeader('X-CSRFToken', csrfToken);
+        xhr.onload = function () {
             if (xhr.status === 200) {
-                // 서버 응답을 처리하는 로직
                 var response = JSON.parse(xhr.responseText);
-                // ...
+                if (response.success) {
+                    // 요청이 성공한 경우
+                    window.location.href = '/profile/';  // profile/ URL로 리다이렉션
+                } else {
+                    // 요청이 실패한 경우
+                    alert(response.message); // 실패 메시지를 사용자에게 표시하거나 처리하는 로직 추가
+                }
             } else {
                 // 오류 처리 로직
+                alert('요청이 실패했습니다. 다시 시도해주세요.');
             }
         };
-        var data = JSON.stringify({ inputValue: inputValue });
-        xhr.send(data);
     
-        isEditClicked=false;
-    }
+        xhr.send(formData);
+    
+        isEditClicked = false;
+    }  
+    
     
     //close 버튼 누르면 모달 종료
     function closeModal(event) {
