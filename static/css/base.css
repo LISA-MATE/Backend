@@ -78,24 +78,6 @@ p {
     }
 }
 
-.bell {
-    display: flex;
-    align-items: center;
-}
-
-.bell>i {
-    margin-right: 5px;
-    margin-top:0.2vw;
-    color: #181D45;
-}
-
-@media (max-width: 1300px) {
-    .bell>i {
-        font-size: 1.7rem;
-        margin-top:0.7vw;
-    }
-}
-
 .logo>a>p {
     font-family: 'Jua';
     font-weight: 400;
