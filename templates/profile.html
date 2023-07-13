@@ -3,8 +3,8 @@
 
 {% block content %}
 <div class="EditTitle">
-    <a href="{% url 'profile' %}">
-        <p>Edit Profile</p>
+    <a href="{% url 'profile' id=user.id %}">
+        <p>Your Profile</p>
     </a>
 </div>
 
@@ -16,13 +16,12 @@
     </a>
 </div>
 
-<form action="" method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
+<div>
     <div class="profilebox">
         <p id="uname">{{ user.nickname }}</p>
         <div class="emailbox">{{ user.email }}</div>
         <div class="photoEdit">
-            <div class="photo"></div>
+            <img class="photo" src="{{user.image.url}}" alt="이미지"></img>
             <button id="rephoto">
                 <i class="fa-solid fa-pen fa-xl"></i>
             </button>
@@ -48,10 +47,15 @@
             <p id="explaintext">{{ user.introduction }}</p>
         </div>
         <div class="buttonContainer">
-            <button id="edit">수정하기 <span style=font-weight:600;></span></button>
-            <button type="submit" id="save">저장하기</button>
+            <button id="edit" onclick="redirectToProfile({{ user.id }})">수정하기 <span style=font-weight:600;></span></button>
         </div>
     </div>
-</form>
+<div>
 <script src="{% static 'javascript/profile.js' %}"></script>
+<script>
+    function redirectToProfile(id) {
+        console.log(id, "아아아ㅏ");
+        window.location.href = "/profile/edit/" + id + "/";
+    }    
+</script>
 {% endblock %}

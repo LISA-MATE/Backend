@@ -1,0 +1,69 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<div class="EditTitle">
+    <a href="{% url 'profile' id=user.id %}">
+        <p>Edit Profile</p>
+    </a>
+</div>
+<div class="profile">
+    <i class="fa-solid fa-gear fa-2xl"></i>
+    <p>프로필 편집</p>
+    <a href="{% url 'accounts:logout' %}">
+        <button id="logout">
+        로그아웃<i class="fa-solid fa-arrow-right-from-bracket"></i>
+        </button>
+    </a>
+</div>
+
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="profilebox">
+        <input type="text" id="name" name="nickname" value="{{ user.nickname }}" />
+        <div class="emailbox">{{ user.email }}</div>
+        <div class="photoEdit">
+        <img class="photo" id="previewImage1" src="{{user.image.url}}" alt=""></img>
+        <div id="rephoto">
+            <label for="imageFile1">
+            <i class="fa-solid fa-pen fa-xl"></i>
+            </label>
+            <input type="file" name="image" accept="image/*" id="imageFile1" style="display: none;">
+        </div>
+        <input type="file" name="image" accept="image/*" id="imageFile1" style="display: none"/>
+        </div>
+        <div class="EmailContainer">
+        <p id="Email">E-mail</p>
+        <p id="EmailText">{{ user.email }}</p>
+        </div>
+        <div class="ExplainContainer1">
+        <p id="Explain">소개글</p>
+        </div>
+        <div class="ExplainContainer2">
+        <input type="text" id="explaintext" name="introduction" value="{{ user.introduction }}" />
+        </div>
+        <div class="buttonContainer">
+        <input type="submit" value="수정하기" id="edit">
+            <span style="font-weight: 600"></span>
+        </input>
+        </div>
+    </div>
+</form>
+<script src="{% static 'javascript/profile.js' %}"></script>
+<script>
+    // 이미지 선택하면 보여주기 
+    var imageFileInput = document.getElementById('imageFile1');
+    var previewImage = document.getElementById('previewImage1');
+
+    imageFileInput.addEventListener('change', function() {
+    var file = imageFileInput.files[0];
+    var reader = new FileReader();
+
+    reader.onload = function(e) {
+        previewImage.src = e.target.result;
+        previewImage.style.width = '30%'; // 이미지의 크기를 50%로 조절
+        previewImage.style.height = 'auto'; // 이미지의 높이를 자동으로 조정
+    };
+
+    reader.readAsDataURL(file);
+    });
+
+</script>
+{% endblock %}
