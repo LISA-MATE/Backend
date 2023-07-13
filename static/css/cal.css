@@ -82,6 +82,7 @@ p {
     }
 }
 
+<<<<<<< HEAD
 .bell {
     display: flex;
     align-items: center;
@@ -100,6 +101,8 @@ p {
 }
 
 
+=======
+>>>>>>> 44e1d0f43500591eed191a915d209e161de6d28d
 .logo>a>p {
     font-family: 'Jua';
     font-weight: 400;
