@@ -30,7 +30,7 @@
                         <a href="{% url 'boards:post-update' board_type=post.board_type topic=post.topic id=post.id %}">
                             <div class="dropdown-option" onclick="editOption()">수정하기</div><hr>
                         </a>
-                        <div class="dropdown-option" onclick="deleteOption(/*{{ post.id }}*/)">삭제하기</div>
+                        <div class="dropdown-option" onclick="deleteOption('{{ post.id }}')">삭제하기</div>
                     </div>
                 </div>
             {% endif %}
