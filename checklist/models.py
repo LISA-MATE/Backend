@@ -17,6 +17,7 @@ class Schedule(models.Model):
     )
     created_at = models.DateTimeField(verbose_name='작성일', auto_now_add=True)
     writer = models.ForeignKey(to=User, on_delete=models.CASCADE, null=True, blank=True)
+    is_checked = models.BooleanField(verbose_name='체크 여부', default=False)
 
     def __str__(self):
         return self.content
