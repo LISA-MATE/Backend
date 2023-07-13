@@ -63,6 +63,7 @@ p {
     justify-content: flex-end;
     align-items: center;
     margin-top: -3vw;
+    margin-right:3vw;
 }
 
 .icon>a>i{
@@ -133,7 +134,7 @@ p {
 
 .userbox>.userImage{
     width:8vw;
-    padding-top:8vw;
+    height:8vw;
     border:2px solid #142F9E;
     background:linear-gradient(#CFCFCF, #FFFFFF);
     border-radius:50%;
