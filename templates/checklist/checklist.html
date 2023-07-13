@@ -31,7 +31,7 @@
                 <div class="first_checkbox">
                     <p class="first_checkbox_text">{{schedule.content}}</p>
                     <button class="editBtn2" onclick="editModal('{{ schedule.content }}', '{{ schedule.date.year }}', '{{ schedule.date.month }}', '{{ schedule.date.day }}', '{{ schedule.duration }}', '{{ schedule.id }}')"><i class="fa-solid fa-pen"></i></button>
-                    <button class="removeBtn2" onclick="confirmDelete({{ schedule.id }})"><i class="fa-solid fa-x"></i></button>
+                    <button class="removeBtn2" onclick="confirmDelete('{{ schedule.id }}')"><i class="fa-solid fa-x"></i></button>
                 </div>
             {%endif%}
         {% endfor %}
@@ -41,7 +41,7 @@
                 <div class="second_checkbox">
                     <p class="second_checkbox_text">{{schedule.content}}</p>
                     <button class="editBtn3" onclick="editModal('{{ schedule.content }}', '{{ schedule.date.year }}', '{{ schedule.date.month }}', '{{ schedule.date.day }}', '{{ schedule.duration }}', '{{ schedule.id }}')"><i class="fa-solid fa-pen"></i></button>
-                    <button class="removeBtn3" onclick="confirmDelete({{ schedule.id }})"><i class="fa-solid fa-x"></i></button>
+                    <button class="removeBtn3" onclick="confirmDelete('{{ schedule.id }}')"><i class="fa-solid fa-x"></i></button>
                 </div>
             {%endif%}
         {% endfor %}
@@ -56,7 +56,7 @@
                 <div class="first_checkbox">
                     <p class="first_checkbox_text">{{schedule.content}}</p>
                     <button class="editBtn" onclick="editModal('{{ schedule.content }}', '{{ schedule.date.year }}', '{{ schedule.date.month }}', '{{ schedule.date.day }}', '{{ schedule.duration }}', '{{ schedule.id }}')"><i class="fa-solid fa-pen"></i></button>
-                    <button class="removeBtn" onclick="confirmDelete({{ schedule.id }})"><i class="fa-solid fa-x"></i></button>
+                    <button class="removeBtn" onclick="confirmDelete('{{ schedule.id }}')"><i class="fa-solid fa-x"></i></button>
                 </div>
             {%endif%}
         {% endfor %}
@@ -145,7 +145,7 @@
                 <div class="checkbox_period" id="item2" value="doing" onclick="toggleCheckbox('item2')">이사중</div>
                 <div class="checkbox_period" id="item3" value="done" onclick="toggleCheckbox('item3')">이사후</div>
             </div>
-            <button id="create" onclick="createData({{id}})">완료</button>
+            <button id="create" onclick="createData('{{id}}')">완료</button>
         </div>
     </div>
     <script>
