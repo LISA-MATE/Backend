@@ -4,18 +4,23 @@ from django.shortcuts import render, redirect
 from .models import Schedule
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.decorators import login_required
+from datetime import date, datetime
+from django.db.models import Q
 
-
-def index(request): # checklist_view
+def index(request):
     if not request.user.is_authenticated:
         return redirect('accounts:login')  # 로그인 페이지로 리디렉션
 
+    # 작성자가 None이거나 현재 로그인한 사용자인 Schedule 객체 필터링
+    schedules = Schedule.objects.filter(Q(writer=None) | Q(writer=request.user))
+
     user = request.user  # 로그인한 사용자 정보 가져오기
-    schedules = Schedule.objects.filter(writer=user)  # 해당 사용자의 Schedule 객체 필터링
-    #schedules = Schedule.objects.all()
-    
+    now = datetime.combine(date.today(), datetime.min.time()).date()
+
     context = {
-        'schedules': schedules
+        'schedules': schedules,
+        'now': now,
+        'user': user,
     }
 
     return render(request, 'checklist/checklist.html', context)

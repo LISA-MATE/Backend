@@ -5,7 +5,7 @@ User = get_user_model()
 
 class Schedule(models.Model):
     content = models.TextField(verbose_name='작성 내용')
-    date = models.DateField(verbose_name='날짜') # date(2023,6,15)
+    date = models.DateField(verbose_name='날짜', null=True) # date(2023,6,15)
     duration = models.CharField(
         verbose_name='기간',
         choices=(
@@ -21,4 +21,3 @@ class Schedule(models.Model):
 
     def __str__(self):
         return self.content
-    
