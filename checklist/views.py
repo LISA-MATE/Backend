@@ -27,11 +27,12 @@ def index(request):
 
 def calendar_view(request):
     user = request.user  # 로그인한 사용자 정보 가져오기
-    #schedules = Schedule.objects.filter(writer=user)  # 해당 사용자의 Schedule 객체 필터링
-    schedules = Schedule.objects.all()
-    
+    schedules = Schedule.objects.filter(writer=user)  # 해당 사용자의 Schedule 객체 필터링
+    # schedules = Schedule.objects.all()
+    now = datetime.combine(date.today(), datetime.min.time()).date()
     context = {
-        'schedules': schedules
+        'schedules': schedules,
+        'now': now,
     }
     
     return render(request, 'checklist/cal.html', context)
