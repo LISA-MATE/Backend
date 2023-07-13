@@ -34,7 +34,7 @@
             <div class="userBox">
                 <div class="user">USER</div>
                 <div class="userbox">
-                    <div class="userImage"></div>
+                    <img class="userImage" {% if user.image %}src="{{user.image.url}}"{% endif %}></img>
                     <div class="name">{{ user.nickname }}</div>
                     <div class="email">{{ user.email}}</div>
                     <div class="explain">{{ user.introduction }}</div>

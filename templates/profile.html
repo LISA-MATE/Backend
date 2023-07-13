@@ -21,7 +21,7 @@
         <p id="uname">{{ user.nickname }}</p>
         <div class="emailbox">{{ user.email }}</div>
         <div class="photoEdit">
-            <img class="photo" src="{{user.image.url}}" alt="이미지"></img>
+            <img class="photo" {% if user.image %}src="{{user.image.url}}"{% endif %} alt="이미지"></img>
             <button id="rephoto">
                 <i class="fa-solid fa-pen fa-xl"></i>
             </button>

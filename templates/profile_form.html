@@ -20,7 +20,7 @@
         <input type="text" id="name" name="nickname" value="{{ user.nickname }}" />
         <div class="emailbox">{{ user.email }}</div>
         <div class="photoEdit">
-        <img class="photo" id="previewImage1" src="{{user.image.url}}" alt=""></img>
+        <img class="photo" id="previewImage1" {% if user.image %}src="{{user.image.url}}"{% endif %} alt=""></img>
         <div id="rephoto">
             <label for="imageFile1">
             <i class="fa-solid fa-pen fa-xl"></i>

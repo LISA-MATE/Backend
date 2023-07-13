@@ -19,7 +19,7 @@
     <div class="top">
         <p>LISA MATE</p>
         <div class="icon">
-            <a href="{% url 'profile' %}"><i class="fa-solid fa-user fa-2xl"></i></a>
+            <a href="{% url 'profile' id=user.id%}"><i class="fa-solid fa-user fa-2xl"></i></a>
             <a href="{% url 'checklist:index' %}"><i class="fa-solid fa-house fa-2xl"></i></a>
             <div class="bell">
                 <i class="fa-solid fa-bell fa-2xl"></i>
@@ -45,7 +45,7 @@
             <div class="userBox">
                 <div class="user">USER</div>
                 <div class="userbox">
-                    <img class="userImage" src="{{user.image.url}}" alt="이미지"></img>
+                    <img class="userImage" {% if user.image %}src="{{user.image.url}}"{% endif %} alt="이미지"></img>
                     <div class="name">{{ user.nickname }}</div>
                     <div class="email">{{ user.email}}</div>
                     <div class="explain">{{ user.introduction }}</div>
@@ -55,7 +55,7 @@
                                 <img src="{% static 'image/pen.png' %}">글쓰기
                             </button>
                         </a>
-                        <a href="{% url 'profile' %}">
+                        <a href="{% url 'profile' id=user.id%}">
                             <button type="button" id="setting">
                                 <img src="{% static 'image/setting.png' %}">프로필 편집/설정
                             </button>
