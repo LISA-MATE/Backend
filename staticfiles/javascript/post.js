@@ -76,3 +76,12 @@ function comment_deleteOption() {
     // 삭제 옵션을 선택했을 때 동작
     console.log("삭제하기 선택");
 }
+
+function toggleCommentForm() {
+    var commentForm = document.getElementById("comment-form");
+    if (commentForm.style.display === "none") {
+      commentForm.style.display = "block";
+    } else {
+      commentForm.style.display = "none";
+    }
+  }

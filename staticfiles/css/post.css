@@ -1155,11 +1155,33 @@ h1 {
     margin-top: 2vw;
 }
 
-.comment_title {
-    margin-left: 11.2vw;
+.comment_title{
+    margin-left: 14.2vw;
     font-size: 1vw;
+
+
+    border-radius: 100px;
+    background:  #5073FF;   
+    transform: translateX(-50%);
+    border: 8px solid #5073FF;
+    font-weight: bold;
+    color: #ffffff;
+    cursor: pointer;
 }
 
+.comment_correct{
+    margin-left: 43.2vw;
+    font-size: 1vw;
+
+    width: 5vw;
+    border-radius: 100px;
+    background:  #5073FF;   
+    transform: translateX(-50%);
+    border: 8px solid #5073FF;
+    font-weight: bold;
+    color: #ffffff;
+    cursor: pointer;
+}
 .comment_box {
     margin-left: 11.2vw;
     border-top: 1px solid black;
@@ -1314,3 +1336,11 @@ h1 {
 .detail_see {
     color: #4967FF;
 }
+
+#comment-form{
+    margin-left: 11.2vw;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    width: 65%;
+  }
+

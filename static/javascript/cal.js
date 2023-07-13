@@ -77,35 +77,48 @@ const renderCalendar = () => {
 
                     const day = currentDate.getDate();
                     
-                    const schedule = schedules.find(schedule => {
+                    // const schedule = schedules.find(schedule => {
+                    //     const scheduleDate = new Date(schedule.date);
+                    //     if (day === 1) {
+                    //         findSchedule = !findSchedule; // day가 1이면 findSchedule 값을 반전시킴
+                    //     }
+                    //     if(findSchedule){
+                    //         return scheduleDate.getDate() === day;
+                    //     }
+                    // });
+                
+
+                    const filteredSchedules = schedules.filter(schedule => {
                         const scheduleDate = new Date(schedule.date);
-                        if (day === 1) {
-                            findSchedule = !findSchedule; // day가 1이면 findSchedule 값을 반전시킴
-                        }
-                        if(findSchedule){
-                            return scheduleDate.getDate() === day;
-                        }
+                        return scheduleDate.getDate() === day;
                     });
-                
-                    console.log(schedule)
-                    let scheduleContent = '';
-                    if (schedule) {
-                        if (schedule.content.length > 5) {
-                            scheduleContent = `${schedule.content.slice(0, 5)}...`;
-                        } else {
-                            scheduleContent = schedule.content;
+
+                    //글 자르기 
+            
+                    if (filteredSchedules.length > 0) {
+                        if (filteredSchedules.length === 1) {
+                            let scheduleContent1 = filteredSchedules[0].content.length > 5 ? `${filteredSchedules[0].content.slice(0, 5)}...` : filteredSchedules[0].content;
+                            let scheduleContent2 = '';
+                            dates[i] = `
+                                <div class="date">
+                                    <span class="${condition}">
+                                        <div class="date-bar">${scheduleContent1}</div>
+                                        <div class="date-bar2" style="visibility: ${showTask}">${taskText}</div>
+                                        ${date}
+                                    </span>
+                                </div>`;
+                        }else{
+                            scheduleContent1 = filteredSchedules[0].content.length > 5 ? `${filteredSchedules[0].content.slice(0, 5)}...` : filteredSchedules[0].content;
+                            scheduleContent2 = filteredSchedules[1].content.length > 5 ? `${filteredSchedules[1].content.slice(0, 5)}...` : filteredSchedules[1].content;
+                            dates[i] = `
+                                <div class="date">
+                                    <span class="${condition}">
+                                        <div class="date-bar">${scheduleContent1}</div>
+                                        <div class="date-bar2" style="visibility: visible">${scheduleContent2}</div>
+                                        ${date}
+                                    </span>
+                                </div>`;
                         }
-                    }
-                
-                    if (schedule) {
-                        dates[i] = `
-                            <div class="date">
-                                <span class="${condition}">
-                                    <div class="date-bar">${scheduleContent}</div>
-                                    <div class="date-bar2" style="visibility: ${showTask}">${taskText}</div>
-                                    ${date}
-                                </span>
-                            </div>`;
                     } else {
                         dates[i] = `
                             <div class="date">
@@ -259,35 +272,45 @@ const modalrenderCalendar = () => {
                     
                     const day = currentDate.getDate();
                     
-                    const schedule = schedules.find(schedule => {
-                        const scheduleDate = new Date(schedule.date);
-                        if (day === 1) {
-                            findSchedule = !findSchedule; // day가 1이면 findSchedule 값을 반전시킴
-                        }
-                        if(findSchedule){
-                            return scheduleDate.getDate() === day;
-                        }
-                    });
-                
-                    console.log(schedule)
-                    let scheduleContent = '';
-                    // if (schedule) {
-                    //     if (schedule.content.length > 5) {
-                    //         scheduleContent = `${schedule.content.slice(0, 5)}...`;
-                    //     } else {
-                    //         scheduleContent = schedule.content;
+                    // const schedule = schedules.find(schedule => {
+                    //     const scheduleDate = new Date(schedule.date);
+                    //     if (day === 1) {
+                    //         findSchedule = !findSchedule; // day가 1이면 findSchedule 값을 반전시킴
                     //     }
-                    // }
+                    //     if(findSchedule){
+                    //         return scheduleDate.getDate() === day;
+                    //     }
+                    // });
                 
-                    if (schedule) {
-                        dates[i] = `
-                            <div class="date">
-                                <span class="${condition}">
-                                    <div class="date-bar">${schedule.content}</div>
-                                    <div class="date-bar2" style="visibility: ${showTask}">${taskText}</div>
-                                    ${date}
-                                </span>
-                            </div>`;
+                    const filteredSchedules = schedules.filter(schedule => {
+                        const scheduleDate = new Date(schedule.date);
+                        return scheduleDate.getDate() === day;
+                    });
+
+                    if (filteredSchedules.length > 0) {
+                        if (filteredSchedules.length === 1) {
+                            let scheduleContent1 = filteredSchedules[0].content.length > 8 ? `${filteredSchedules[0].content.slice(0, 5)}...` : filteredSchedules[0].content;
+                            let scheduleContent2 = '';
+                            dates[i] = `
+                                <div class="date">
+                                    <span class="${condition}">
+                                        <div class="date-bar">${scheduleContent1}</div>
+                                        <div class="date-bar2" style="visibility: ${showTask}">${taskText}</div>
+                                        ${date}
+                                    </span>
+                                </div>`;
+                        }else{
+                            scheduleContent1 = filteredSchedules[0].content.length > 8 ? `${filteredSchedules[0].content.slice(0, 5)}...` : filteredSchedules[0].content;
+                            scheduleContent2 = filteredSchedules[1].content.length > 8 ? `${filteredSchedules[1].content.slice(0, 5)}...` : filteredSchedules[1].content;
+                            dates[i] = `
+                                <div class="date">
+                                    <span class="${condition}">
+                                        <div class="date-bar">${scheduleContent1}</div>
+                                        <div class="date-bar2" style="visibility: visible">${scheduleContent2}</div>
+                                        ${date}
+                                    </span>
+                                </div>`;
+                        }
                     } else {
                         dates[i] = `
                             <div class="date">
@@ -296,6 +319,7 @@ const modalrenderCalendar = () => {
                                 </span>
                             </div>`;
                     }
+                
                     
                     document.querySelector('.modaldates').innerHTML = dates.join('');
             
