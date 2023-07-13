@@ -40,7 +40,7 @@
         <input type="text" id="explaintext" name="introduction" value="{{ user.introduction }}" />
         </div>
         <div class="buttonContainer">
-        <input type="submit" value="수정하기" id="edit">
+        <input type="submit" value="저장하기" id="edit">
             <span style="font-weight: 600"></span>
         </input>
         </div>
@@ -58,8 +58,8 @@
 
     reader.onload = function(e) {
         previewImage.src = e.target.result;
-        previewImage.style.width = '30%'; // 이미지의 크기를 50%로 조절
-        previewImage.style.height = 'auto'; // 이미지의 높이를 자동으로 조정
+        previewImage.style.width = '15vw'; // 이미지의 크기를 50%로 조절
+        previewImage.style.height = '15vw'; // 이미지의 높이를 자동으로 조정
     };
 
     reader.readAsDataURL(file);
