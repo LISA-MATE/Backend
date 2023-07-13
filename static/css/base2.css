@@ -35,7 +35,6 @@ a {
     float: right;
     box-sizing: border-box;
 }
-
 .top {
     margin-top: -30px;
 }
@@ -59,14 +58,14 @@ p {
     margin-right: 10vw;
 }
 
-.icon>i {
+.icon>a>i {
     margin-right: 2vw;
     font-size: 2rem;
     color: #181D45;
 }
 
 @media (max-width: 1300px) {
-    .icon>i {
+    .icon>a>i {
         font-size: 1.5rem;
     }
 }
