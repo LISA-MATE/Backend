@@ -5,7 +5,18 @@
     background-color: pink;
 }
 
-.right>.writebar {
+
+h2{
+    font-family: 'Hind';
+    font-weight: 500;
+    font-size: 1.5vw;
+    line-height: 130px;
+    letter-spacing: -0.1rem;
+    color: #FFFFFF;
+    margin-left:-25vw;
+}
+
+.right>.writebar{
     width: 55vw;
     height: 3.8vw;
     border: 1px solid #0F3FE8;
@@ -16,23 +27,14 @@
     align-items: center;
 }
 
-.right>.writebar>#writeTitle{
+.right>.writebar>#writeTitle {
     font-family: 'Hind';
     font-weight: 500;
     font-size: 1.5vw;
     line-height: 130px;
     letter-spacing: -0.1rem;
     color: #FFFFFF;
-    margin-right:2vw;
-}
-
-h2{
-    font-family: 'Hind';
-    font-weight: 500;
-    font-size: 1.5vw;
-    line-height: 130px;
-    letter-spacing: -0.1rem;
-    color: #FFFFFF;
+    margin-left: 2vw;
 }
 
 .right>.writebar>#subTitle {
@@ -42,7 +44,7 @@ h2{
     line-height: 130px;
     letter-spacing: -0.1rem;
     color: #E8E8E8;
-    margin-left: -40vw;
+    margin-left: -38vw;
 }
 
 .right>.writebar>i {
@@ -54,7 +56,7 @@ h2{
 .detail_whitebox {
     margin-top: 5vw;
     width: 55vw;
-    height: 45vw;
+    max-height: 69vw;
     border: 1px solid #0F3FE8;
     border-radius: 5vw;
     background-color: white;
@@ -135,10 +137,11 @@ h1 {
 }
 
 .inputText{
-    height:26vw;
-    width:55vw;
-    overflow:auto;
+    padding-top:3vw;
+    height:auto;
+    width:auto;
     text-align:center;
+    overflow:auto;
 }
 
 .inputText>p {

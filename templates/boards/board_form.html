@@ -3,96 +3,87 @@
 
 {% block content %}
 <script src="{% static 'javascript/write.js' %}"></script>
-<div class="right">
-    <div class="writebar">
-        <p id="writeTitle">글쓰기</p>
-        <p id="subTitle">정보 게시판 & 후기 게시판 & 우리동네 게시판</p>
-        <i class="fa-solid fa-repeat fa-lg"></i>
-    </div>
-    <form action = "" method="POST" enctype="multipart/form-data">
-        {% csrf_token %} 
-        
-        <div class="writebox">
-            <div class="selectBox1">
-                <select name="board_type" id="postType">
-                    <option value="none" hidden>게시판 선택</option>
-                    <optgroup label="정보게시판">
-                        <option value="0" {% if post.board_type == "information" and post.topic == "월세" %}selected{% endif %}>월세 정보 공유</option>
-                        <option value="1" {% if post.board_type == "information" and post.topic == "전세" %}selected{% endif %}>전세 정보 공유</option>
-                        <option value="2" {% if post.board_type == "information" and post.topic == "매매" %}selected{% endif %}>매매 정보 공유</option>
-                    
-                    </optgroup>
-                    <optgroup label="후기게시판">
-                        <option value="3" {% if post.board_type == "review" and post.topic == "월세" %}selected{% endif %}>월세 후기</option>
-                        <option value="4" {% if post.board_type == "review" and post.topic == "전세" %}selected{% endif %}>전세 후기</option>
-                        <option value="5" {% if post.board_type == "review" and post.topic == "매매" %}selected{% endif %}>매매 후기</option>
-                    </optgroup>
-                    <optgroup label="우리동네 게시판">
-                        <option value="6" {% if post.board_type == "hometown" and post.topic == "우리동네" %}selected{% endif %}>우리동네 현황</option>
-                        <option value-="7" {% if post.board_type == "hometown" and post.topic == "범죄자" %}selected{% endif %}>범죄자 거주 정보</option>
-                    </optgroup>
-                </select>
-                <select name="city" id="location" onchange="addressKindChange(this)">
-                    <option value="none" hidden>시/도 선택</option>
-                    <option value="Seoul" {% if post.city == "Seoul" %}selected{% endif %}>서울</option>
-                    <option value="Gyeonggi" {% if post.city == "Gyeonggi" %}selected{% endif %}>경기</option>
-                    <option value="Incheon" {% if post.city == "Incheon" %}selected{% endif %}>인천</option>
-                    <option value="Gangwon" {% if post.city == "Gangwon" %}selected{% endif %}>강원</option>
-                    <option value="Daejeon" {% if post.city == "Daejeon" %}selected{% endif %}>대전</option>
-                    <option value="Sejong" {% if post.city == "Sejong" %}selected{% endif %}>세종</option>
-                    <option value="Chungnam" {% if post.city == "Chungnam" %}selected{% endif %}>충남</option>
-                    <option value="Chungbuk" {% if post.city == "Chungbuk" %}selected{% endif %}>충북</option>
-                    <option value="Busan" {% if post.city == "Busan" %}selected{% endif %}>부산</option>
-                    <option value="Ulsan" {% if post.city == "Ulsan" %}selected{% endif %}>울산</option>
-                    <option value="Gyeongnam" {% if post.city == "Gyeongnam" %}selected{% endif %}>경남</option>
-                    <option value="Gyeongbuk" {% if post.city == "Gyeongbuk" %}selected{% endif %}>경북</option>
-                    <option value="Daegu" {% if post.city == "Daegu" %}selected{% endif %}>대구</option>
-                    <option value="Gwangju" {% if post.city == "Gwangju" %}selected{% endif %}>광주</option>
-                    <option value="Jeonnam" {% if post.city == "Jeonnam" %}selected{% endif %}>전남</option>
-                    <option value="Jeonbuk" {% if post.city == "Jeonbuk" %}selected{% endif %}>전북</option>
-                    <option value="Jeju" {% if post.city == "Jeju" %}selected{% endif %}>제주</option>
-                </select>
-                <select name="country" id="Location2">
-                    <option value="none" hidden>구/군 선택</option>
-                </select>
-            </div>
-            <input type="text" id="TitleInput" name="title" placeholder="제목을 입력해주세요." value="{{ post.title }}">
-            <div class="toolbox">
-                <label for="imageFile">
-                    <i class="fa-regular fa-image"></i>
-                </label>
-                <input type="file" name="image" accept="image/*" id="imageFile" style="display: none;">
-                {% comment %} 
-                <button id="open-modal2">
-                    <i class="fa-solid fa-video"></i>
-                </button>
-                {% endcomment %}
-                <label for="videoFile">
-                    <i class="fa-solid fa-video" id="videoIcon"></i>
-                </label>
-                <input type="file" name="video" accept="video/*" id="videoFile" style="display:none;">
-                <label for="fileFile">
-                    <i class="fa-regular fa-folder" id="folder"></i>
-                </label>
-                <input type="file" name="file" accept="file/*" id="fileFile" style="display: none;">
-                
-                <!-- 파일 선택 시 선택한 파일 이름을 표시할 영역 -->
-                <span id="selectedFileName">{{ post.file.name }}</span>
-                <!--나중에 구현
-                <i class="fa-solid fa-link"></i>
-                <i class="fa-solid fa-location-dot"></i>
-                -->
-            </div>
-            <img id="previewImage" src="#" alt="Preview">
-            <textarea name="content" id="content" placeholder="내용을 입력해주세요.">{{ post.content }}</textarea>
-        </div>
-        <input type="submit" value="등록하기" id="submitButton">
-    </form>
+
+<div class="writebar1">
+    <p id="writeTitle1">글쓰기</p>
+    <p id="subTitle1">정보 게시판 & 후기 게시판 & 우리동네 게시판</p>
+    <i class="fa-solid fa-repeat fa-lg"></i>
 </div>
+<form action = "" method="POST" enctype="multipart/form-data">
+    {% csrf_token %} 
+    <div class="writebox1">
+        <div class="selectBox2">
+            <select name="board_type" id="postType1">
+                <option value="none" hidden>게시판 선택</option>
+                <optgroup label="정보게시판">
+                    <option value="0" {% if post.board_type == "information" and post.topic == "월세" %}selected{% endif %}>월세 정보 공유</option>
+                    <option value="1" {% if post.board_type == "information" and post.topic == "전세" %}selected{% endif %}>전세 정보 공유</option>
+                    <option value="2" {% if post.board_type == "information" and post.topic == "매매" %}selected{% endif %}>매매 정보 공유</option>                    
+                </optgroup>
+                <optgroup label="후기게시판">
+                    <option value="3" {% if post.board_type == "review" and post.topic == "월세" %}selected{% endif %}>월세 후기</option>
+                    <option value="4" {% if post.board_type == "review" and post.topic == "전세" %}selected{% endif %}>전세 후기</option>
+                    <option value="5" {% if post.board_type == "review" and post.topic == "매매" %}selected{% endif %}>매매 후기</option>
+                </optgroup>
+                <optgroup label="우리동네 게시판">
+                    <option value="6" {% if post.board_type == "hometown" and post.topic == "우리동네" %}selected{% endif %}>우리동네 현황</option>
+                    <option value-="7" {% if post.board_type == "hometown" and post.topic == "범죄자" %}selected{% endif %}>범죄자 거주 정보</option>
+                </optgroup>
+            </select>
+            <select name="city" id="location1" onchange="addressKindChange1(this)">
+                <option value="none" hidden>시/도 선택</option>
+                <option value="Seoul" {% if post.city == "Seoul" %}selected{% endif %}>서울</option>
+                <option value="Gyeonggi" {% if post.city == "Gyeonggi" %}selected{% endif %}>경기</option>
+                <option value="Incheon" {% if post.city == "Incheon" %}selected{% endif %}>인천</option>
+                <option value="Gangwon" {% if post.city == "Gangwon" %}selected{% endif %}>강원</option>
+                <option value="Daejeon" {% if post.city == "Daejeon" %}selected{% endif %}>대전</option>
+                <option value="Sejong" {% if post.city == "Sejong" %}selected{% endif %}>세종</option>
+                <option value="Chungnam" {% if post.city == "Chungnam" %}selected{% endif %}>충남</option>
+                <option value="Chungbuk" {% if post.city == "Chungbuk" %}selected{% endif %}>충북</option>
+                <option value="Busan" {% if post.city == "Busan" %}selected{% endif %}>부산</option>
+                <option value="Ulsan" {% if post.city == "Ulsan" %}selected{% endif %}>울산</option>
+                <option value="Gyeongnam" {% if post.city == "Gyeongnam" %}selected{% endif %}>경남</option>
+                <option value="Gyeongbuk" {% if post.city == "Gyeongbuk" %}selected{% endif %}>경북</option>
+                <option value="Daegu" {% if post.city == "Daegu" %}selected{% endif %}>대구</option>
+                <option value="Gwangju" {% if post.city == "Gwangju" %}selected{% endif %}>광주</option>
+                <option value="Jeonnam" {% if post.city == "Jeonnam" %}selected{% endif %}>전남</option>
+                <option value="Jeonbuk" {% if post.city == "Jeonbuk" %}selected{% endif %}>전북</option>
+                <option value="Jeju" {% if post.city == "Jeju" %}selected{% endif %}>제주</option>
+            </select>
+            <select name="country" id="Location21">
+                <option value="none" hidden>구/군 선택</option>
+            </select>
+        </div>
+        <input type="text" id="TitleInput1" name="title" placeholder="제목을 입력해주세요." value="{{ post.title }}">
+        <img id="previewImage1" src="#" alt="Preview">
+        <div class="toolbox1">
+            <label for="imageFile1">
+                <i class="fa-regular fa-image"></i>
+            </label>
+            <input type="file" name="image" accept="image/*" id="imageFile1" style="display: none;">
+            <label for="videoFile1">
+                <i class="fa-solid fa-video" id="videoIcon1"></i>
+            </label>
+            <input type="file" name="video" accept="video/*" id="videoFile1" style="display:none;">
+            <label for="fileFile1">
+                <i class="fa-regular fa-folder" id="folder1"></i>
+            </label>
+            <input type="file" name="file" accept="file/*" id="fileFile1" style="display: none;">   
+            <!-- 파일 선택 시 선택한 파일 이름을 표시할 영역 -->
+            <span id="selectedFileName1">{{ post.file.name }}</span>
+            <!--나중에 구현
+            <i class="fa-solid fa-link"></i>
+            <i class="fa-solid fa-location-dot"></i>
+            -->
+        </div>
+        <textarea name="content" id="content1" placeholder="내용을 입력해주세요.">{{ post.content }}</textarea>
+    </div>
+    <input type="submit" value="등록하기" id="submitButton1">
+</form>
 <script>
     // 이미지 선택하면 보여주기 
-    var imageFileInput = document.getElementById('imageFile');
-    var previewImage = document.getElementById('previewImage');
+    var imageFileInput = document.getElementById('imageFile1');
+    var previewImage = document.getElementById('previewImage1');
 
     imageFileInput.addEventListener('change', function() {
     var file = imageFileInput.files[0];
@@ -100,59 +91,12 @@
 
     reader.onload = function(e) {
         previewImage.src = e.target.result;
+        previewImage.style.width = '30%'; // 이미지의 크기를 50%로 조절
+        previewImage.style.height = 'auto'; // 이미지의 높이를 자동으로 조정
     };
 
     reader.readAsDataURL(file);
     });
 
 </script>
-
-{% comment %} 
-<div id="modal">
-    <div class="modal-content">
-        <p>사진 첨부</p>
-        <input type="file" name="image_file" accept="image/*" id="bizFile">
-        <div class="custom">
-            <label for="bizFile" class="btn fileBtn">
-                <div class="imagebox">
-                    <i class="fa-solid fa-folder-plus fa-lg"></i>
-                </div>
-            </label>
-            <span id="fileName">또는<br>이곳에 사진 파일을<br>끌어놓으세요.</span>
-        </div>
-        <button id="close-modal">X</button>
-    </div>
-</div>
-<div id="modal2">
-    <div class="modal-content2">
-        <p>동영상 첨부</p>
-        <input type="file" name="video_file" accept="video/*" id="bizFile2">
-        <div class="custom">
-            <label for="bizFile2" class="btn fileBtn">
-                <div class="videobox">
-                    <i class="fa-solid fa-folder-plus fa-lg"></i>
-                </div>
-            </label>
-            <span id="fileName2">또는<br>이곳에 동영상 파일을<br>끌어놓으세요.</span>
-        </div>
-        <button id="close-modal2">X</button>
-    </div>
-</div>
-<div id="modal3">
-    <div class="modal-content3">
-        <p>파일 첨부</p>
-        <input type="file" name="file_file" accept="file/*" id="bizFile3">
-        <div class="custom">
-            <label for="bizFile3" class="btn fileBtn">
-                <div class="filebox">
-                    <i class="fa-solid fa-folder-plus fa-lg"></i>
-                </div>
-            </label>
-            <span id="fileName3">또는<br>이곳에 추가할 파일을<br>끌어놓으세요.</span>
-        </div>
-        <button id="close-modal3">X</button>
-    </div>
-</div> 
-{% endcomment %}
-
 {% endblock %}
