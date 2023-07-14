@@ -146,7 +146,7 @@
             </div>
             <div class="scheduleTitle">Schedule</div>
             {% block schedule_data %}
-                {% if schedules %}
+                {% if request.user.schedules.all %}
                     <div class="scheduleBox">
                         {% for schedule in schedules %}
                             {% if schedule.date and schedule.date|date:"Y-m-d" == now|date:"Y-m-d" %}

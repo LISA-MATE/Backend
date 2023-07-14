@@ -1,17 +1,26 @@
 {% extends 'base.html' %}
-{% block schedule_data %}
-    <div class="scheduleBox">
-    {% for schedule in schedules %}
-        {% if schedule.date and schedule.date|date:"Y-m-d" == now|date:"Y-m-d" %}
-            <div class="scheduleText">
-                <p>{{ schedule.date|date:"m/d" }}</p>
-                <p>{{ schedule.content }}</p>
-            </div>
-            </div>
-        {% endif %}
-    {% endfor %}
-{% endblock %}
 {% load static %}
+{% block schedule_data %}
+{% if request.user.schedules.all %}
+    <div class="scheduleBox">
+        {% for schedule in schedules %}
+            {% if schedule.date and schedule.date|date:"Y-m-d" == now|date:"Y-m-d" %}
+                <div class="scheduleText">
+                    <p>{{ schedule.date|date:"m/d" }}</p>
+                    <p>{{ schedule.content }}</p>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% else %}
+    <div class="scheduleBox">
+        <img src="{% static 'image/sleepy.png' %}">
+        <div class="scheduleText"> 
+            <p>오늘의 일정이 없습니다.</p>
+        </div>
+    </div>
+{% endif %}
+{% endblock %} 
 
 {% block content %}
 <script src="../../static/javascript/checklist.js"></script>
