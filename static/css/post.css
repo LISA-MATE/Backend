@@ -46,7 +46,7 @@ h2{
     margin-left: -38vw;
 }
 
-.right>.writebar>i {
+.right>.writebar>a>i {
     margin-right: 2vw;
     color: #E8E8E8;
     cursor: pointer;
@@ -224,7 +224,7 @@ h2{
 
 .comment_userImage {
     width: 2vw;
-    padding-top: 2vw;
+    height: 2vw;
     border: 0.05vw solid #142F9E;
     background: linear-gradient(#CFCFCF, #FFFFFF);
     border-radius: 50%;
@@ -242,10 +242,16 @@ h2{
     margin-top: 0.7vw;
 }
 
-.comment_dropdown {
+.comment_dropdown{
     display: inline-block;
     position: relative;
     margin-left: 83%;
+}
+
+.comment_dropdown1{
+        display: inline-block;
+            position: relative;
+            margin-left: 72.5%;
 }
 
 .comment_dropdown>i {
@@ -338,7 +344,7 @@ h2{
 
 .detail_userImage {
     width: 3.5vw;
-    padding-top: 3.5vw;
+    height: 3.5vw;
     border: 0.1vw solid #142F9E;
     background: linear-gradient(#CFCFCF, #FFFFFF);
     border-radius: 50%;
