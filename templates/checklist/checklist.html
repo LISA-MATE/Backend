@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block schedule_data %}
-{% if request.user.schedules.all %}
+{% if schedules %}
     <div class="scheduleBox">
         {% for schedule in schedules %}
             {% if schedule.date and schedule.date|date:"Y-m-d" == now|date:"Y-m-d" %}

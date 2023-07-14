@@ -157,26 +157,27 @@
             </div>
             <div class="scheduleTitle">Schedule</div>
             {% block schedule_data %}
-                {% if request.user.schedules.all %}
-                    <div class="scheduleBox">
-                        {% for schedule in schedules %}
-                            {% if schedule.date and schedule.date|date:"Y-m-d" == now|date:"Y-m-d" %}
-                                <div class="scheduleText">
-                                    <p>{{ schedule.date|date:"m/d" }}</p>
-                                    <p>{{ schedule.content }}</p>
-                                </div>
-                            {% endif %}
-                        {% endfor %}
+            {% if schedules %}
+                <div class="scheduleBox">
+                    {% for schedule in schedules %}
+                        {% if schedule.date and schedule.date|date:"Y-m-d" == now|date:"Y-m-d" %}
+                            <div class="scheduleText">
+                                <p>{{ schedule.date|date:"m/d" }}</p>
+                                <p>{{ schedule.content }}</p>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="scheduleBox">
+                    <img src="{% static 'image/sleepy.png' %}">
+                    <div class="scheduleText"> 
+                        <p>오늘의 일정이 없습니다.</p>
                     </div>
-                {% else %}
-                    <div class="scheduleBox">
-                        <img src="{% static 'image/sleepy.png' %}">
-                        <div class="scheduleText"> 
-                            <p>오늘의 일정이 없습니다.</p>
-                        </div>
-                    </div>
-                {% endif %}
+                </div>
+            {% endif %}
             {% endblock %} 
+
         </div>
         <div class="right">
             {% block content %}
