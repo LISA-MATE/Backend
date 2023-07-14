@@ -50,12 +50,16 @@ p {
     margin-left: 15vw;
 }
 
+.top>p{
+    margin-top:1vw;
+}
+
 .icon {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    margin-top: -4.5vw;
-    margin-right: 10vw;
+    margin-top: -3vw;
+    margin-right: 3vw;
 }
 
 .icon>a>i {
