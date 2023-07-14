@@ -14,7 +14,10 @@
         {% endif %}
     </p>
     <p id="subTitle">정보 게시판 & 후기 게시판 & 우리동네 게시판</p>
-    <i class="fa-solid fa-repeat fa-lg"></i>
+    <!--목록 버튼-->
+    <a href="{% url 'informationPost:board-list' board_type=post.board_type%}">
+        <i class="fa-solid fa-repeat fa-lg"></i>
+    </a>
 </div>
 <div class="detail_whitebox">
     <div class="category">
@@ -36,7 +39,7 @@
             {% endif %}
         </div>
         <div class="detail_user">
-            <div class="detail_userImage"></div>
+            <img class="detail_userImage" style="width:3.5vw; height:3.5vw" {% if user.image %}src="{{user.image.url}}"{% endif %}></img>
             <div class="detail_user2">
                 <a class="detail_nickname">{{post.writer}}</a>
                 <div class="detail_user3">
@@ -53,7 +56,7 @@
     <hr>
     <div class="inputText">
         {% if post.image %}
-            <p><img src="{{ post.image.url }}" alt="이미지"></p>
+            <p><img src="{{ post.image.url }}" alt="이미지" style="width:30%; height:auto;"></p>
         {% endif %}
         <p class="detail_text">{{post.content}} </p>
         {% if post.file %}
@@ -76,10 +79,10 @@
         {% for comment in comments %}
         <div class="comment_box">
             <div class="comment_user">
-                <div class="comment_userImage"></div>
+                <img class="comment_userImage" style="width:2vw; height:2vw" {% if user.image %}src="{{user.image.url}}" {% endif %}></img>
                 <a class="comment_nickname">{{ comment.writer }}</a>
 
-                <div class="comment_dropdown">
+                <div class="comment_dropdown1">
                     <i class="fa-solid fa-ellipsis-vertical dropdown-icon" onclick="comment_toggleDropdown()"></i>
                     <div class="comment_dropdown-options" id="comment_dropdown-options">
                         <div class="comment_dropdown-option" onclick="comment_deleteOption({{ comment.id }})">삭제하기</div>
@@ -98,7 +101,7 @@
             {% csrf_token %}
             <div class="comment_box">
                 <div class="comment_user">
-                    <img class="comment_userImage" {% if user.image %}src="{{user.image.url}}"{% endif %}></img>
+                    <img class="comment_userImage" style="width:2vw; height:2vw" {% if user.image %}src="{{user.image.url}}"{% endif %}></img>
                     <a class="comment_nickname">{{user.nickname}}</a>
                     <div class="comment_dropdown">
                         <i class="fa-solid fa-ellipsis-vertical dropdown-icon" onclick="comment_toggleDropdown()"></i>
