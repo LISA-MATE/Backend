@@ -33,4 +33,5 @@ def update_profile_view(request,id):
         
         return redirect('profile', id=id)
 
-        
+def warning_view(request, exception):
+    return render(request, 'warning.html', status=404)

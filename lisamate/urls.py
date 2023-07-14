@@ -21,7 +21,6 @@ from django.conf.urls.static import static
 from lisamate.views import ProfileView, update_profile_view, index2
 from django.views.generic import RedirectView
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', RedirectView.as_view(pattern_name='checklist:index', permanent=False)),
@@ -35,3 +34,5 @@ urlpatterns = [
 
 # MEDIA_URL로 들어오면 MEDIA_ROOT에서 정의한 걸 찾아서 사용
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+handler404 = 'lisamate.views.warning_view'
