@@ -30,18 +30,8 @@
     font-weight: 700;
 }
 
-.middleTitle1>a>#Cal1{
+.middleTitle1>a>#Cal1 {
     margin-left: 20%;
-}
-
-.all>.left>.menu>.text1>.checklistText>i,
-.all>.left>.menu>.text1>.checklistText>a>p{
-    color:#0418AB;
-    font-weight:600;
-}
-
-.all>.left>.menu>.text1>.checklistText{
-    background: radial-gradient(50% 50% at 50% 50%, #87B3FF 0%, rgba(135, 179, 255, 0) 100%);
 }
 
 .exambox {
@@ -50,13 +40,13 @@
     border-radius: 5vw;
     background: linear-gradient(180deg, #5072FF 0%, #75B0FF 100%);
     border: 1px solid #181D45;
-    position:relative;
+    position: relative;
 }
 
-.exambox>i{
-    position:absolute;
-    margin-left:83%;
-    margin-top:21%;
+.exambox>i {
+    position: absolute;
+    margin-left: 83%;
+    margin-top: 21%;
 }
 
 .box_title {
@@ -161,9 +151,9 @@
 
 .checkbox>.first_checkbox>i,
 .checkbox>.second_checkbox>i,
-.checkbox>.third_checkbox>i{
+.checkbox>.third_checkbox>i {
     font-size: 1.5rem;
-    margin-left:2vw;
+    margin-left: 2vw;
     color: #000000;
 }
 
@@ -174,17 +164,17 @@
     font-weight: 600;
     font-size: 1.2vw;
     color: #000000;
-    padding-left:1vw;
+    padding-left: 1vw;
 }
 
 .checkbox>.first_checkbox>button,
 .checkbox>.second_checkbox>button,
-.checkbox>.third_checkbox>button{
-    background-color:white;
+.checkbox>.third_checkbox>button {
+    background-color: white;
     margin-right: 1.5vw;
-    border:none;
-    z-index:1;
-    cursor:pointer;
+    border: none;
+    z-index: 1;
+    cursor: pointer;
 }
 
 .checkbox>.first_checkbox>button>i,
@@ -216,7 +206,7 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .plusbox>button {
@@ -238,7 +228,7 @@
 }
 
 .modal-container {
-    display:none;
+    display: none;
     position: fixed;
     z-index: 1;
 }
@@ -254,7 +244,7 @@
     position: relative;
 }
 
-.modal-container>.modal>#ModalTitle{
+.modal-container>.modal>#ModalTitle {
     font-family: 'Hind';
     font-weight: 600;
     font-size: 3.5vw;
@@ -264,8 +254,8 @@
     padding-left: 2vw;
 }
 
-#close{
-    margin-left:28vw;
+#close {
+    margin-left: 28vw;
 }
 
 .modal-container>.modal>#modal_firsttext,
@@ -277,7 +267,7 @@
     margin-left: 30vw;
     color: #222B72;
     margin: 0;
-    margin-left:-55vw;
+    margin-left: -55vw;
 }
 
 @media (max-width:1600px) {
@@ -318,6 +308,7 @@
 }
 
 @media (max-width:1600px) {
+
     .modal-container>.modal>.dropbox,
     .modal-container>.modal>input,
     .modal-container>.modal>.checkboxContainer {
@@ -403,7 +394,7 @@
     color: white;
     margin-left: 82%;
     margin-top: 2vw;
-    cursor:pointer;
+    cursor: pointer;
 }
 
 @media (max-width:1600px) {

@@ -2,25 +2,37 @@
 {% load static %}
 {% block schedule_data %}
 {% if schedules %}
-    <div class="scheduleBox">
-        {% for schedule in schedules %}
-            {% if schedule.date and schedule.date|date:"Y-m-d" == now|date:"Y-m-d" %}
-                <div class="scheduleText">
-                    <p>{{ schedule.date|date:"m/d" }}</p>
-                    <p>{{ schedule.content }}</p>
-                </div>
-            {% endif %}
-        {% endfor %}
+<style>
+    .all>.left>.menu>.text1>.checklistText {
+        background: radial-gradient(50% 50% at 50% 50%, #87B3FF 0%, rgba(135, 179, 255, 0) 100%);
+    }
+
+    .all>.left>.menu>.text1>.checklistText>i,
+    .all>.left>.menu>.text1>.checklistText>a>p {
+        color: #0418AB;
+        font-weight: 600;
+    }
+</style>
+
+<div class="scheduleBox">
+    {% for schedule in schedules %}
+    {% if schedule.date and schedule.date|date:"Y-m-d" == now|date:"Y-m-d" %}
+    <div class="scheduleText">
+        <p>{{ schedule.date|date:"m/d" }}</p>
+        <p>{{ schedule.content }}</p>
     </div>
+    {% endif %}
+    {% endfor %}
+</div>
 {% else %}
-    <div class="scheduleBox">
-        <img src="{% static 'image/sleepy.png' %}">
-        <div class="scheduleText"> 
-            <p>오늘의 일정이 없습니다.</p>
-        </div>
+<div class="scheduleBox">
+    <img src="{% static 'image/sleepy.png' %}">
+    <div class="scheduleText">
+        <p>오늘의 일정이 없습니다.</p>
     </div>
+</div>
 {% endif %}
-{% endblock %} 
+{% endblock %}
 
 {% block content %}
 <script src="../../static/javascript/checklist.js"></script>
@@ -41,63 +53,71 @@
     <hr class="box_hr">
     <p class="box_text1">Lisa가 추천하는 기본 체크리스트 항목</p>
     <p class="box_text2">부기가 추천하는 기본 체크리스트 항목</p>
-    <a href="{% url 'checklist:index' %}"><p class="box_text3">나의 추가 체크리스트 항목</p></a>
+    <a href="{% url 'checklist:index' %}">
+        <p class="box_text3">나의 추가 체크리스트 항목</p>
+    </a>
     <p class="box_text4">+</p>
 </div>
 
 <div class="checkbox" style="margin-left:10%;">
-        <p class="check_text1">이사 전</p>
-        {% for schedule in schedules %}
-            {% if schedule.duration == 'before' %}
-            <div class="first_checkbox">
-                {% if schedule.is_checked %}
-                    <i class="fa-regular fa-check-square"></i>
-                {% else %}
-                    <i class="fa-regular fa-square"></i>
-                {% endif %}
-                    <p class="first_checkbox_text">{{schedule.content}}</p>
-                    <button class="editBtn1" onclick="editModal('{{ schedule.content }}', '{{ schedule.date.year }}', '{{ schedule.date.month }}', '{{ schedule.date.day }}', '{{ schedule.duration }}', '{{ schedule.id }}')"><i class="fa-solid fa-pen"></i></button>
-                    <button class="removeBtn1" onclick="confirmDelete('{{ schedule.id }}')"><i class="fa-solid fa-x"></i></button>
-                </div>
-            {%endif%}
-        {% endfor %}
-        <p class="check_text2">이사 중</p>
-        {% for schedule in schedules %}
-            {% if schedule.duration == 'doing' %}
-            <div class="second_checkbox">
-                {% if schedule.is_checked %}
-                    <i class="fa-regular fa-check-square"></i>
-                {% else %}
-                    <i class="fa-regular fa-square"></i>
-                {% endif %}
-                    <p class="second_checkbox_text">{{schedule.content}}</p>
-                    <button class="editBtn2" onclick="editModal('{{ schedule.content }}', '{{ schedule.date.year }}', '{{ schedule.date.month }}', '{{ schedule.date.day }}', '{{ schedule.duration }}', '{{ schedule.id }}')"><i class="fa-solid fa-pen"></i></button>
-                    <button class="removeBtn2" onclick="confirmDelete('{{ schedule.id }}')"><i class="fa-solid fa-x"></i></button>
-                </div>
-            {%endif%}
-        {% endfor %}
-        <p class="check_text3">이사 후</p>
-        {% for schedule in schedules %}
-            {% if schedule.duration == 'done' %}
-            <div class="third_checkbox">
-                {% if schedule.is_checked %}
-                    <i class="fa-regular fa-check-square"></i>
-                {% else %}
-                    <i class="fa-regular fa-square"></i>
-                {% endif %}
-                    <p class="third_checkbox_text">{{schedule.content}}</p>
-                    <button class="editBtn3" onclick="editModal('{{ schedule.content }}', '{{ schedule.date.year }}', '{{ schedule.date.month }}', '{{ schedule.date.day }}', '{{ schedule.duration }}', '{{ schedule.id }}')"><i class="fa-solid fa-pen"></i></button>
-                    <button class="removeBtn3" onclick="confirmDelete('{{ schedule.id }}')"><i class="fa-solid fa-x"></i></button>
-                </div>
-            {%endif%}
-        {% endfor %}
-        <i class="fa-solid fa-plus"></i>
-        <div class="plusbox" onclick="openModal()">
-            <button id="plusBtn" type="submit">
-                <i class="fa-solid fa-circle-plus"> 직접 추가하기</i>
-            </button>
-        </div>
+    <p class="check_text1">이사 전</p>
+    {% for schedule in schedules %}
+    {% if schedule.duration == 'before' %}
+    <div class="first_checkbox">
+        {% if schedule.is_checked %}
+        <i class="fa-regular fa-check-square"></i>
+        {% else %}
+        <i class="fa-regular fa-square"></i>
+        {% endif %}
+        <p class="first_checkbox_text">{{schedule.content}}</p>
+        <button class="editBtn1"
+            onclick="editModal('{{ schedule.content }}', '{{ schedule.date.year }}', '{{ schedule.date.month }}', '{{ schedule.date.day }}', '{{ schedule.duration }}', '{{ schedule.id }}')"><i
+                class="fa-solid fa-pen"></i></button>
+        <button class="removeBtn1" onclick="confirmDelete('{{ schedule.id }}')"><i class="fa-solid fa-x"></i></button>
     </div>
+    {%endif%}
+    {% endfor %}
+    <p class="check_text2">이사 중</p>
+    {% for schedule in schedules %}
+    {% if schedule.duration == 'doing' %}
+    <div class="second_checkbox">
+        {% if schedule.is_checked %}
+        <i class="fa-regular fa-check-square"></i>
+        {% else %}
+        <i class="fa-regular fa-square"></i>
+        {% endif %}
+        <p class="second_checkbox_text">{{schedule.content}}</p>
+        <button class="editBtn2"
+            onclick="editModal('{{ schedule.content }}', '{{ schedule.date.year }}', '{{ schedule.date.month }}', '{{ schedule.date.day }}', '{{ schedule.duration }}', '{{ schedule.id }}')"><i
+                class="fa-solid fa-pen"></i></button>
+        <button class="removeBtn2" onclick="confirmDelete('{{ schedule.id }}')"><i class="fa-solid fa-x"></i></button>
+    </div>
+    {%endif%}
+    {% endfor %}
+    <p class="check_text3">이사 후</p>
+    {% for schedule in schedules %}
+    {% if schedule.duration == 'done' %}
+    <div class="third_checkbox">
+        {% if schedule.is_checked %}
+        <i class="fa-regular fa-check-square"></i>
+        {% else %}
+        <i class="fa-regular fa-square"></i>
+        {% endif %}
+        <p class="third_checkbox_text">{{schedule.content}}</p>
+        <button class="editBtn3"
+            onclick="editModal('{{ schedule.content }}', '{{ schedule.date.year }}', '{{ schedule.date.month }}', '{{ schedule.date.day }}', '{{ schedule.duration }}', '{{ schedule.id }}')"><i
+                class="fa-solid fa-pen"></i></button>
+        <button class="removeBtn3" onclick="confirmDelete('{{ schedule.id }}')"><i class="fa-solid fa-x"></i></button>
+    </div>
+    {%endif%}
+    {% endfor %}
+    <i class="fa-solid fa-plus"></i>
+    <div class="plusbox" onclick="openModal()">
+        <button id="plusBtn" type="submit">
+            <i class="fa-solid fa-circle-plus"> 직접 추가하기</i>
+        </button>
+    </div>
+</div>
 </div>
 
 <div class="modal-container" id="modalContainer">
@@ -107,120 +127,120 @@
             <i class="fa-solid fa-repeat fa-lg" id="close" onclick="closeModal()"></i>
         </p>
         <p id="modal_firsttext">작성 내용</p>
-            <input type="text" id="modal_Input" placeholder="일정을 입력해주세요">
-            <p id="modal_secondtext">날짜 선택</p>
-            <div class="dropbox">
-                <select id="year" onchange="updateDayOptions()">
-                    <option value="2023">2023년</option>
-                    <option value="2024">2024년</option>
-                    <option value="2025">2025년</option>
-                    <option value="2026">2026년</option>
-                    <option value="2027">2027년</option>
-                    <option value="2028">2028년</option>
-                    <option value="2029">2029년</option>
-                </select>
+        <input type="text" id="modal_Input" placeholder="일정을 입력해주세요">
+        <p id="modal_secondtext">날짜 선택</p>
+        <div class="dropbox">
+            <select id="year" onchange="updateDayOptions()">
+                <option value="2023">2023년</option>
+                <option value="2024">2024년</option>
+                <option value="2025">2025년</option>
+                <option value="2026">2026년</option>
+                <option value="2027">2027년</option>
+                <option value="2028">2028년</option>
+                <option value="2029">2029년</option>
+            </select>
 
-                <select id="month" onchange="updateDayOptions()">
-                    <option value="01">1월</option>
-                    <option value="02">2월</option>
-                    <option value="03">3월</option>
-                    <option value="04">4월</option>
-                    <option value="05">5월</option>
-                    <option value="06">6월</option>
-                    <option value="07">7월</option>
-                    <option value="08">8월</option>
-                    <option value="09">9월</option>
-                    <option value="10">10월</option>
-                    <option value="11">11월</option>
-                    <option value="12">12월</option>
-                </select>
+            <select id="month" onchange="updateDayOptions()">
+                <option value="01">1월</option>
+                <option value="02">2월</option>
+                <option value="03">3월</option>
+                <option value="04">4월</option>
+                <option value="05">5월</option>
+                <option value="06">6월</option>
+                <option value="07">7월</option>
+                <option value="08">8월</option>
+                <option value="09">9월</option>
+                <option value="10">10월</option>
+                <option value="11">11월</option>
+                <option value="12">12월</option>
+            </select>
 
-                <select id="day">
-                    <option value="01">1일</option>
-                    <option value="02">2일</option>
-                    <option value="03">3일</option>
-                    <option value="04">4일</option>
-                    <option value="05">5일</option>
-                    <option value="06">6일</option>
-                    <option value="07">7일</option>
-                    <option value="08">8일</option>
-                    <option value="09">9일</option>
-                    <option value="10">10일</option>
-                    <option value="11">11일</option>
-                    <option value="12">12일</option>
-                    <option value="13">13일</option>
-                    <option value="14">14일</option>
-                    <option value="15">15일</option>
-                    <option value="16">16일</option>
-                    <option value="17">17일</option>
-                    <option value="18">18일</option>
-                    <option value="19">19일</option>
-                    <option value="20">20일</option>
-                    <option value="21">21일</option>
-                    <option value="22">22일</option>
-                    <option value="23">23일</option>
-                    <option value="24">24일</option>
-                    <option value="25">25일</option>
-                    <option value="26">26일</option>
-                    <option value="27">27일</option>
-                    <option value="28">28일</option>
-                    <option value="29">29일</option>
-                    <option value="30">30일</option>
-                    <option value="31">31일</option>
-                </select>
-            </div>
-
-            <p id="modal_thirdtext">기간 지정</p>
-            <div class="checkboxContainer">
-                <div class="checkbox_period" id="item1" value="before" onclick="toggleCheckbox('item1')">이사전</div>
-                <div class="checkbox_period" id="item2" value="doing" onclick="toggleCheckbox('item2')">이사중</div>
-                <div class="checkbox_period" id="item3" value="done" onclick="toggleCheckbox('item3')">이사후</div>
-            </div>
-            <button id="create" onclick="createData('{{id}}')">완료</button>
+            <select id="day">
+                <option value="01">1일</option>
+                <option value="02">2일</option>
+                <option value="03">3일</option>
+                <option value="04">4일</option>
+                <option value="05">5일</option>
+                <option value="06">6일</option>
+                <option value="07">7일</option>
+                <option value="08">8일</option>
+                <option value="09">9일</option>
+                <option value="10">10일</option>
+                <option value="11">11일</option>
+                <option value="12">12일</option>
+                <option value="13">13일</option>
+                <option value="14">14일</option>
+                <option value="15">15일</option>
+                <option value="16">16일</option>
+                <option value="17">17일</option>
+                <option value="18">18일</option>
+                <option value="19">19일</option>
+                <option value="20">20일</option>
+                <option value="21">21일</option>
+                <option value="22">22일</option>
+                <option value="23">23일</option>
+                <option value="24">24일</option>
+                <option value="25">25일</option>
+                <option value="26">26일</option>
+                <option value="27">27일</option>
+                <option value="28">28일</option>
+                <option value="29">29일</option>
+                <option value="30">30일</option>
+                <option value="31">31일</option>
+            </select>
         </div>
+
+        <p id="modal_thirdtext">기간 지정</p>
+        <div class="checkboxContainer">
+            <div class="checkbox_period" id="item1" value="before" onclick="toggleCheckbox('item1')">이사전</div>
+            <div class="checkbox_period" id="item2" value="doing" onclick="toggleCheckbox('item2')">이사중</div>
+            <div class="checkbox_period" id="item3" value="done" onclick="toggleCheckbox('item3')">이사후</div>
+        </div>
+        <button id="create" onclick="createData('{{id}}')">완료</button>
     </div>
-    <script>
-        function editModal(content, year, month, day , duration , id) {
-            const modalContainer = document.getElementById('modalContainer');
-            modalContainer.style.display = 'flex';
+</div>
+<script>
+    function editModal(content, year, month, day, duration, id) {
+        const modalContainer = document.getElementById('modalContainer');
+        modalContainer.style.display = 'flex';
 
-            // 모달 내부에 값을 표시하는 작업 수행
-            document.getElementById('modal_Input').value = content;
-            document.getElementById('year').value = year;
-            document.getElementById('month').value = addLeadingZero(month);
-            document.getElementById('day').value = addLeadingZero(day);
+        // 모달 내부에 값을 표시하는 작업 수행
+        document.getElementById('modal_Input').value = content;
+        document.getElementById('year').value = year;
+        document.getElementById('month').value = addLeadingZero(month);
+        document.getElementById('day').value = addLeadingZero(day);
 
-            console.log(duration)
+        console.log(duration)
 
-            // 기간 선택 체크박스 처리
-            var checkboxPeriods = document.getElementsByClassName('checkbox_period');
-            for (var i = 0; i < checkboxPeriods.length; i++) {
-                checkboxPeriods[i].classList.remove('active');
-                if (checkboxPeriods[i].getAttribute('value') === duration) {
-                    checkboxPeriods[i].classList.add('active');
-                    checkboxPeriods[i].style.background = '#5377FF'; // 배경색 변경
-                }
-            }
-
-            //id 값 넘겨줌
-            document.getElementById('create').onclick = function() {
-                createData(id);
-            };
-        }
-
-        // 1의 자리 숫자에 앞에 0을 붙여주는 함수
-        function addLeadingZero(number) {
-            return number < 10 ? '0' + number : number;
-        }
-
-        function confirmDelete(scheduleId) {
-            var result = confirm("정말로 삭제하시겠습니까?");
-            if (result) {
-                var url = "{% url 'checklist:schedule-delete' id=0 %}".replace('0', scheduleId);
-                window.location.href = url;
-            } else {
-                // 삭제 취소
+        // 기간 선택 체크박스 처리
+        var checkboxPeriods = document.getElementsByClassName('checkbox_period');
+        for (var i = 0; i < checkboxPeriods.length; i++) {
+            checkboxPeriods[i].classList.remove('active');
+            if (checkboxPeriods[i].getAttribute('value') === duration) {
+                checkboxPeriods[i].classList.add('active');
+                checkboxPeriods[i].style.background = '#5377FF'; // 배경색 변경
             }
         }
-    </script>
+
+        //id 값 넘겨줌
+        document.getElementById('create').onclick = function () {
+            createData(id);
+        };
+    }
+
+    // 1의 자리 숫자에 앞에 0을 붙여주는 함수
+    function addLeadingZero(number) {
+        return number < 10 ? '0' + number : number;
+    }
+
+    function confirmDelete(scheduleId) {
+        var result = confirm("정말로 삭제하시겠습니까?");
+        if (result) {
+            var url = "{% url 'checklist:schedule-delete' id=0 %}".replace('0', scheduleId);
+            window.location.href = url;
+        } else {
+            // 삭제 취소
+        }
+    }
+</script>
 {% endblock %}
