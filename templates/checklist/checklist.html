@@ -41,7 +41,7 @@
     <hr class="box_hr">
     <p class="box_text1">Lisa가 추천하는 기본 체크리스트 항목</p>
     <p class="box_text2">부기가 추천하는 기본 체크리스트 항목</p>
-    <p class="box_text3">나의 추가 체크리스트 항목</p>
+    <a href="{% url 'checklist:index' %}"><p class="box_text3">나의 추가 체크리스트 항목</p></a>
     <p class="box_text4">+</p>
 </div>
 
@@ -49,8 +49,12 @@
         <p class="check_text1">이사 전</p>
         {% for schedule in schedules %}
             {% if schedule.duration == 'before' %}
-                <div class="first_checkbox">
+            <div class="first_checkbox">
+                {% if schedule.is_checked %}
+                    <i class="fa-regular fa-check-square"></i>
+                {% else %}
                     <i class="fa-regular fa-square"></i>
+                {% endif %}
                     <p class="first_checkbox_text">{{schedule.content}}</p>
                     <button class="editBtn1" onclick="editModal('{{ schedule.content }}', '{{ schedule.date.year }}', '{{ schedule.date.month }}', '{{ schedule.date.day }}', '{{ schedule.duration }}', '{{ schedule.id }}')"><i class="fa-solid fa-pen"></i></button>
                     <button class="removeBtn1" onclick="confirmDelete('{{ schedule.id }}')"><i class="fa-solid fa-x"></i></button>
@@ -60,8 +64,12 @@
         <p class="check_text2">이사 중</p>
         {% for schedule in schedules %}
             {% if schedule.duration == 'doing' %}
-                <div class="second_checkbox">
+            <div class="second_checkbox">
+                {% if schedule.is_checked %}
+                    <i class="fa-regular fa-check-square"></i>
+                {% else %}
                     <i class="fa-regular fa-square"></i>
+                {% endif %}
                     <p class="second_checkbox_text">{{schedule.content}}</p>
                     <button class="editBtn2" onclick="editModal('{{ schedule.content }}', '{{ schedule.date.year }}', '{{ schedule.date.month }}', '{{ schedule.date.day }}', '{{ schedule.duration }}', '{{ schedule.id }}')"><i class="fa-solid fa-pen"></i></button>
                     <button class="removeBtn2" onclick="confirmDelete('{{ schedule.id }}')"><i class="fa-solid fa-x"></i></button>
@@ -71,8 +79,12 @@
         <p class="check_text3">이사 후</p>
         {% for schedule in schedules %}
             {% if schedule.duration == 'done' %}
-                <div class="third_checkbox">
+            <div class="third_checkbox">
+                {% if schedule.is_checked %}
+                    <i class="fa-regular fa-check-square"></i>
+                {% else %}
                     <i class="fa-regular fa-square"></i>
+                {% endif %}
                     <p class="third_checkbox_text">{{schedule.content}}</p>
                     <button class="editBtn3" onclick="editModal('{{ schedule.content }}', '{{ schedule.date.year }}', '{{ schedule.date.month }}', '{{ schedule.date.day }}', '{{ schedule.duration }}', '{{ schedule.id }}')"><i class="fa-solid fa-pen"></i></button>
                     <button class="removeBtn3" onclick="confirmDelete('{{ schedule.id }}')"><i class="fa-solid fa-x"></i></button>
