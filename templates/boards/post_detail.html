@@ -67,6 +67,7 @@
     <button id="comment" onclick="toggleCommentIcon()"><i class="fa-solid fa-comment"></i> 댓글 <i id="icon2" class="fa-solid fa-chevron-down"></i></button>
     <div id="comment-list" style="display: none;">
         <!-- 댓글 리스트 내용 -->
+        <button class="comment_title" onclick="toggleCommentForm()" id="writebtn">댓글쓰기</button>
         <form id="comment-form" style="display: none;">
             <textarea rows="10" cols="120"></textarea>
             <br>
@@ -81,11 +82,7 @@
                 <div class="comment_dropdown">
                     <i class="fa-solid fa-ellipsis-vertical dropdown-icon" onclick="comment_toggleDropdown()"></i>
                     <div class="comment_dropdown-options" id="comment_dropdown-options">
-                        <a href="{% url 'boards:post-update' board_type=post.board_type topic=post.topic id=post.id %}">
-                            <div class="comment_dropdown-option">수정하기</div>
-                        </a>
-                        <hr>
-                        <div class="comment_dropdown-option" onclick="comment_deleteOption()">삭제하기</div>
+                        <div class="comment_dropdown-option" onclick="comment_deleteOption({{ comment.id }})">삭제하기</div>
                     </div>
                 </div>
             </div>
@@ -107,7 +104,7 @@
                         <i class="fa-solid fa-ellipsis-vertical dropdown-icon" onclick="comment_toggleDropdown()"></i>
                         <div class="comment_dropdown-options" id="comment_dropdown-options">
                         
-                        <div class="comment_dropdown-option" onclick="comment_deleteOption()">삭제하기</div>
+                        <div class="comment_dropdown-option" onclick="comment_deleteOption({{ comment.id }})">삭제하기</div>
                     </div>
                 </div>
             </div>
@@ -131,5 +128,31 @@
             // 삭제 취소
         }
     }
+
+    function comment_deleteOption(commentId) {
+        var result = confirm("댓글 삭제하시겠습니까?");
+        if (result) {
+            var url = "{% url 'boards:delete-comment' comment_id=0 %}".replace('0', commentId);
+            
+            // AJAX 요청 보내기
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', url);
+            xhr.setRequestHeader('X-CSRFToken', '{{ csrf_token }}');
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    // 성공적으로 삭제되었을 경우에 대한 처리
+                    window.location.reload();  // 페이지 새로고침
+                } else {
+                    // 오류 발생 시에 대한 처리
+                    console.error(xhr.responseText);
+                }
+            };
+            xhr.send();
+        } else {
+            // 삭제 취소
+        }
+
+    }
+    
 </script>
 {% endblock %}

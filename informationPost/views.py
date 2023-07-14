@@ -210,3 +210,15 @@ def create_comment_view(request, post_id):
         return redirect('boards:board-topic-detail', board_type=post.board_type, topic=post.topic, id=post_id)
     else:
         return JsonResponse({'success': False, 'message': 'Invalid request'})
+
+
+def delete_comment_view(request, comment_id):
+    if request.method == 'POST' and request.user.is_authenticated:
+        comment = get_object_or_404(Comment, pk=comment_id)
+        post = comment.post  # 삭제된 댓글이 속한 게시물 가져오기
+        # 필요한 추가 작업 수행
+        comment.delete()  # 댓글 삭제
+    
+        return redirect('boards:board-topic-detail', board_type=post.board_type, topic=post.topic, id=post.id)
+    else:
+        return JsonResponse({'success': False, 'message': 'Invalid request'})
