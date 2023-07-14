@@ -56,7 +56,7 @@
     <hr>
     <div class="inputText">
         {% if post.image %}
-            <p><img src="{{ post.image.url }}" alt="이미지"></p>
+            <p><img src="{{ post.image.url }}" alt="이미지" style="width:30%; height:auto;"></p>
         {% endif %}
         <p class="detail_text">{{post.content}} </p>
         {% if post.file %}
