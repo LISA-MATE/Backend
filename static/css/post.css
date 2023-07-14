@@ -162,7 +162,8 @@ h2{
 
 
 #like,
-#comment {
+#comment,
+#writebtn {
     height: 2.5vw;
     width: 7.5vw;
     border-radius: 5vw;
@@ -179,6 +180,14 @@ h2{
     white-space: nowrap;
     margin-left: 2vw;
     box-shadow: 5px 5px 14px 0px rgba(0, 0, 0, 0.32);
+}
+
+#writebtn{
+    margin:0;
+    margin-left:2vw;
+    background-color:white;
+    color:#0F3FE8;
+    margin-bottom:1vw;
 }
 
 #comment-list {
@@ -279,21 +288,27 @@ h2{
     color: #6B75A1;
 }
 
+.flexContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .comment_date {
     font-family: 'Inter';
     font-weight: 400;
     font-size: 0.5vw;
     line-height: 1.5vw;
     color: #4967FF;
-    margin-left: 5.8vw;
+    margin-left:6vw;
 }
 
-#comment_like {
+#comment_like,
+#comment_like1 {
     height: 1.5vw;
     width: 3.5vw;
     border-radius: 0.7vw;
     background: #0F3FE8;
-    margin-left: 33vw;
     margin-bottom: 1vw;
     border: none;
     font-family: 'Inter';
@@ -303,6 +318,7 @@ h2{
     color: #ffffff;
     cursor: pointer;
     white-space: nowrap;
+    margin-right:3vw;
 }
 
 #comment_like>i {
@@ -363,4 +379,25 @@ h2{
 .detail_see,
 .detail_place {
     margin-left: 0.5vw;
+}
+
+#comment_text1{
+    width:80%;
+    height:3vw;
+    margin-left:6vw;
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 0.9vw;
+    line-height: 1vw;
+    color: #6B75A1;
+    outline:none;
+}
+
+.buttonContainer{
+    display: flex;
+    justify-content: flex-end;
+}
+
+#comment_like1{
+    margin-top:1vw;
 }
