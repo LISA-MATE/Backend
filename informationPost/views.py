@@ -3,6 +3,7 @@ from django.shortcuts import get_object_or_404, render, redirect
 from .models import Post, Comment
 from .forms import PostForm, CommentForm
 from django.db.models import F
+from django.http import JsonResponse
 
 def index(request):
     return redirect('boards:board-list', board_type='information')
@@ -37,14 +38,17 @@ def board_topic_list_view(request, board_type=None, topic=None):
 def post_detail_view(request, board_type=None, topic=None, id=None):
     post = Post.objects.get(id=id, board_type=board_type, topic=topic)
     
+    # 댓글 조회
+    comments = Comment.objects.filter(post=post)
+
     # view_count 필드를 1 증가시킴
     Post.objects.filter(id=id, board_type=board_type, topic=topic).update(view_count=F('view_count')+1)
-    
     
     context = {
         'board_type': board_type,
         'topic': topic,
-        'post': post
+        'post': post,
+        'comments': comments,  # 댓글 객체들을 전달
     }
 
     return render(request, 'boards/post_detail.html', context)
@@ -173,18 +177,30 @@ def post_delete_view(request, id):
         return redirect('boards:board-list', board_type= board_type)
 
 
-def add_comment(request, post_id):
-    post = get_object_or_404(Post, id=post_id)
+# def add_comment(request, post_id):
+#     post = get_object_or_404(Post, id=post_id)
     
-    if request.method == 'POST':
-        form = CommentForm(request.POST)
-        if form.is_valid():
-            comment = form.save(commit=False)
-            comment.post = post
-            comment.writer = request.user
-            comment.save()
-            return redirect('boards:post_detail', post_id=post_id)
+#     if request.method == 'POST':
+#         form = CommentForm(request.POST)
+#         if form.is_valid():
+#             comment = form.save(commit=False)
+#             comment.post = post
+#             comment.writer = request.user
+#             comment.save()
+#             return redirect('boards:post_detail', post_id=post_id)
+#     else:
+#         form = CommentForm()
+    
+#     return render(request, 'boards:post_detail', {'form': form})
+
+def create_comment_view(request, post_id):
+    if request.method == 'POST' and request.user.is_authenticated:
+        content = request.POST.get('content')
+        post = get_object_or_404(Post, pk=post_id)
+        
+        Comment.objects.create(content=content, post=post, writer_id=request.user.id)
+        # Comment 객체 생성 후 추가 작업을 수행할 수 있습니다.
+        
+        return redirect('boards:board-topic-detail', board_type=post.board_type, topic=post.topic, id=post_id)
     else:
-        form = CommentForm()
-    
-    return render(request, 'boards:post_detail', {'form': form})
+        return JsonResponse({'success': False, 'message': 'Invalid request'})
