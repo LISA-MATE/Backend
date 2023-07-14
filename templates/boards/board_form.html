@@ -98,5 +98,18 @@
     reader.readAsDataURL(file);
     });
 
+    // 파일 선택 시 선택한 파일 이름 표시
+    document.getElementById('fileFile1').addEventListener('change', function() {
+        const fileInput = this;
+        const fileNameElement = document.getElementById('selectedFileName1');
+        
+        if (fileInput.files.length > 0) {
+        fileNameElement.textContent = fileInput.files[0].name;
+        } else {
+        fileNameElement.textContent = '';
+        }
+    });
+    
+
 </script>
 {% endblock %}
