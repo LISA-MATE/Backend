@@ -3,7 +3,7 @@ from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
 import json
 from django.http import JsonResponse
-from django.views.decorators.http import require_http_methods
+from django.views.decorators.http import require_http_methods, require_POST
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
@@ -116,3 +116,11 @@ def logout_view(request):
         logout(request)
         # 리다이렉트
         return redirect('accounts:login')
+    
+@require_POST
+def delete_view(request):
+    if request.user.is_authenticated:
+        request.user.delete()
+        logout(request) # 세션 지워주기
+        
+        return redirect('checklist:index')
