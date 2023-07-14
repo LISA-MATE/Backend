@@ -143,10 +143,14 @@ h2{
 
 .inputText{
     padding-top:3vw;
-    height:auto;
-    width:auto;
+    max-height:45vw;
+    padding-bottom:2vw;
+    width:95%;
     text-align:center;
-    overflow:auto;
+    align-items: center;
+    overflow-y:auto;
+    overflow-x:hidden;
+    margin-bottom:2vw;
 }
 
 .inputText>p {
@@ -286,6 +290,7 @@ h2{
     font-size: 0.9vw;
     line-height: 1vw;
     color: #6B75A1;
+    overflow:auto;
 }
 
 .flexContainer {
