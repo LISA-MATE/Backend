@@ -4,6 +4,7 @@ from .models import Post, Comment
 from .forms import PostForm, CommentForm
 from django.db.models import F
 from django.http import JsonResponse
+from django.db.models import Count
 
 def index(request):
     return redirect('boards:board-list', board_type='information')
@@ -13,6 +14,8 @@ def board_list_view(request, board_type=None):
 
     if board_type:
         posts = posts.filter(board_type=board_type)
+
+    posts = posts.annotate(comment_count=Count('comments'))
 
     context = {
         'board_type': board_type,
@@ -27,10 +30,13 @@ def board_topic_list_view(request, board_type=None, topic=None):
     if topic:
         posts = posts.filter(topic=topic)
 
+    posts = posts.annotate(comment_count=Count('comments'))
+
     context = {
         'board_type': board_type,
         'topic': topic,
-        'post_list': posts
+        'post_list': posts,
+        
     }
 
     return render(request, 'boards/board_list.html', context)
