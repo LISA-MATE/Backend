@@ -39,7 +39,7 @@
             {% endif %}
         </div>
         <div class="detail_user">
-            <img class="detail_userImage" style="width:3.5vw; height:3.5vw" {% if user.image %}src="{{user.image.url}}"{% endif %}></img>
+            <img class="detail_userImage" style="width:3.5vw; height:3.5vw" {% if post.writer.image %}src="{{post.writer.image.url}}"{% endif %}></img>
             <div class="detail_user2">
                 <a class="detail_nickname">{{post.writer}}</a>
                 <div class="detail_user3">
@@ -79,7 +79,7 @@
         {% for comment in comments %}
         <div class="comment_box">
             <div class="comment_user">
-                <img class="comment_userImage" style="width:2vw; height:2vw" {% if user.image %}src="{{user.image.url}}" {% endif %}></img>
+                <img class="comment_userImage" style="width:2vw; height:2vw" {% if comment.writer.image  %}src="{{comment.writer.image.url}}" {% endif %}></img>
                 <a class="comment_nickname">{{ comment.writer }}</a>
 
                 <div class="comment_dropdown1">
@@ -107,7 +107,7 @@
                         <i class="fa-solid fa-ellipsis-vertical dropdown-icon" onclick="comment_toggleDropdown()"></i>
                         <div class="comment_dropdown-options" id="comment_dropdown-options">
                         
-                        <div class="comment_dropdown-option" onclick="comment_deleteOption({{ comment.id }})">삭제하기</div>
+                        {% comment %} <div class="comment_dropdown-option" onclick="comment_deleteOption({{ comment.id }})">삭제하기</div> {% endcomment %}
                     </div>
                 </div>
             </div>
@@ -135,7 +135,7 @@
     function comment_deleteOption(commentId) {
         var result = confirm("댓글 삭제하시겠습니까?");
         if (result) {
-            var url = "{% url 'boards:delete-comment' comment_id=0 %}".replace('0', commentId);
+        var url = `/boards/delete_comment/${commentId}/`;
             
             // AJAX 요청 보내기
             var xhr = new XMLHttpRequest();
