@@ -45,7 +45,7 @@
             <div class="userBox">
                 <div class="user">USER</div>
                 <div class="userbox">
-                    <img class="userImage" {% if user.image %}src="{{user.image.url}}"{% endif %} alt="이미지"></img>
+                    <img class="userImage" {% if user.image %}src="{{user.image.url}}"{% endif %} alt=""></img>
                     <div class="name">{{ user.nickname }}</div>
                     <div class="email">{{ user.email}}</div>
                     <div class="explain">{{ user.introduction }}</div>
