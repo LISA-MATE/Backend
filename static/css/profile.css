@@ -11,30 +11,41 @@
     cursor: pointer;
 }
 
-.all>.right>.profile{
-    margin-left:2vw;
-    margin-top:-2vw;
-}
 
-.all>.right>.profile>i{
+.all>.right>.profile>.titleContainer>i{
     font-size:3rem;
     color:#142F9E;
-    display: inline-block;
+    margin: 0;
 }
 
 @media (max-width:1200px) {
-    .all>.right>.profile>i{
+    .all>.right>.profile>.titleContainer>i{
         font-size:2rem;
     }
 }
 
 @media (max-width:700px) {
-    .all>.right>.profile>i {
+    .all>.right>.profile>.titleContainer>i {
         font-size: 1.5rem;
     }
 }
 
-#logout {
+.profile>.btnContainer,
+.profile{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile>.btnContainer{
+    margin-right:5vw;
+}
+
+.profile>.btnContainer>a{
+    margin-right:1vw;
+}
+
+#deleteBtn {
     width: 8.5vw;
     height: 3vw;
     border-radius: 5vw;
@@ -47,23 +58,18 @@
     letter-spacing: -0.05rem;
     text-align: center;
     color: white;
-    margin-left:57%;
-}
-
-#logout>i {
-    margin-left: 1vw;
+    margin:0;
+    margin-left:5vw;
 }
 
 .all>.right>.profile>p{
-    display: inline-block;
-    padding-top:2vw;
     font-family: 'Inter';
     font-weight:600;
     font-size:2vw;
     line-height: 10px;
     letter-spacing: -0.05rem;
     color:#142F9E;
-    margin-left:0.5vw;
+    margin-top:-0.5vw;
 }
 
 .all>.right>form>.profilebox {
@@ -80,7 +86,6 @@
 }
 
 .all>.right>form>.profilebox>#uname {
-
     font-family: 'Inter';
     font-weight: 600;
     font-size: 4vw;
@@ -113,23 +118,6 @@
     align-items: center;
 }
 
-.all>.right>form>.profilebox>.photoEdit {
-    position: absolute;
-    margin-top: 1vw;
-    margin-left: -1vw;
-}
-
-.all>.right>form>.profilebox>.photoEdit>.photo {
-    position: relative;
-    width: 15vw;
-    height: 15vw;
-    border: 2px solid #142F9E;
-    background: linear-gradient(#CFCFCF, #FFFFFF);
-    border-radius: 50%;
-    margin-left: 45vw;
-    margin-top: -10vw;
-}
-
 .all>.right>div>.profilebox {
     width: 90%;
     height: auto;
@@ -144,7 +132,6 @@
 }
 
 .all>.right>div>.profilebox>#uname {
-
     font-family: 'Inter';
     font-weight: 600;
     font-size: 4vw;
@@ -179,21 +166,19 @@
 
 .all>.right>div>.profilebox>.photoEdit {
     position: absolute;
-    margin-top: 1vw;
+    margin-top: -10vw;
     margin-left: -1vw;
 }
 
-.all>.right>div>.profilebox>.photoEdit>.photo {
+.all>.right>div>.profilebox>.photoEdit>.photo{
     position: relative;
-    width: 15vw;
-    height: 15vw;
+    min-width: 15vw;
+    min-height: 15vw;
     border: 2px solid #142F9E;
     background: linear-gradient(#CFCFCF, #FFFFFF);
     border-radius: 50%;
     margin-left: 45vw;
-    margin-top: -10vw;
 }
-
 
 #rephoto {
     position: absolute;

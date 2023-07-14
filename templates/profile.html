@@ -11,9 +11,17 @@
 <div class="profile">
     <i class="fa-solid fa-gear fa-2xl"></i>
     <p>프로필 편집</p>
-    <a href="{% url 'accounts:logout' %}">
-        <button id="logout">로그아웃<i class="fa-solid fa-arrow-right-from-bracket"></i></button>
-    </a>
+    <div class="btnContainer">
+        <a href="{% url 'accounts:logout' %}">
+            <button id="logout">
+                    로그아웃<i class="fa-solid fa-arrow-right-from-bracket"></i>
+            </button>
+        </a>
+        <form action="{% url 'accounts:delete' %}" method="POST">
+            {% csrf_token %}
+            <input type="submit" id="deleteBtn" value="회원 탈퇴">
+        </form>
+    </div>
 </div>
 
 <div>
@@ -21,20 +29,10 @@
         <p id="uname">{{ user.nickname }}</p>
         <div class="emailbox">{{ user.email }}</div>
         <div class="photoEdit">
-            <img class="photo" {% if user.image %}src="{{user.image.url}}"{% endif %} alt="이미지"></img>
+            <img class="photo"style="width:15vw; height:15vw" {% if user.image %}src="{{user.image.url}}"{% endif %} alt="이미지"></img>
             <button id="rephoto">
                 <i class="fa-solid fa-pen fa-xl"></i>
             </button>
-            <div class="modal-container" id="modalContainer">
-                <div class="modal" id="modal">
-                    <button id="close">X</button>
-                    <h1>프로필 사진 변경</h1>
-                    <input type="file" id="photoInput">
-                    <div class="photobox">
-                        <div class="photoImage"></div>
-                    </div>
-                </div>
-            </div>
         </div>
         <div class="EmailContainer">
             <p id="Email">E-mail</p>

@@ -7,15 +7,6 @@
 <div class="profile">
     <i class="fa-solid fa-gear fa-2xl"></i>
     <p>프로필 편집</p>
-    <a href="{% url 'accounts:logout' %}">
-        <button id="logout">
-        로그아웃<i class="fa-solid fa-arrow-right-from-bracket"></i>
-        </button>
-    </a>
-    <form action="{% url 'accounts:delete' %}" method="POST">
-        {% csrf_token %}
-        <input type="submit" value="회원 탈퇴">
-    </form>
 </div>
 
 <form action="" method="POST" enctype="multipart/form-data">
